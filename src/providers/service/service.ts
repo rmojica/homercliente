@@ -324,7 +324,7 @@ export class Service {
           this.config.options,
         )
         .subscribe(data => {
-          console.log('prueba')
+          console.log('data sesion:' + data)
           this.values.isLoggedIn = false
           this.values.customerName = ''
           this.nativeStorage.setItem('loginData', {}).then(
