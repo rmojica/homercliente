@@ -4702,6 +4702,11 @@
   content: "\f3aa";
 }
 
+@font-face {
+  font-family: 'HelveticaLt';
+  src: url("../assets/fonts/fonthomer/HelveticaLt.ttf");
+}
+
 ion-calendar-month {
   display: inline-block;
   width: 100%;
@@ -46579,6 +46584,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+* {
+  font-family: 'HelveticaLt';
+}
+
 .rtl .item-ios ion-icon[item-left], .rtl .item-ios ion-icon[item-right] {
   margin-top: 9px;
   margin-bottom: 8px;
@@ -46885,6 +46894,10 @@ ion-chip {
   --color: #fff;
 }
 
+.bar-button-menutoggle-ios {
+  padding: 0 25px 25px 25px;
+}
+
 .card {
   margin: 0 auto;
 }
@@ -46912,7 +46925,6 @@ ion-chip {
 .card-body {
   background-color: #ffffff;
   padding: 30px;
-  height: calc(100vh - (330px + 140px));
   overflow: hidden;
 }
 
@@ -47570,6 +47582,10 @@ ion-chip {
   padding-bottom: 8px;
 }
 
+.wishlistPage .bar-button-menutoggle-ios {
+  padding: 0 25px 25px 25px;
+}
+
 .wishlistPage .margin {
   margin: 5px;
 }
@@ -47577,7 +47593,8 @@ ion-chip {
 .wishlistPage .margin h2 {
   margin: 60px 18px;
   font-size: 14px;
-  color: #d1e0dc;
+  color: #666;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
 }
@@ -47649,7 +47666,7 @@ ion-chip {
 }
 
 .bar-button-menutoggle-ios {
-  padding: 25px;
+  padding: 0 25px 25px 25px;
 }
 
 .cart {
@@ -48200,7 +48217,7 @@ ion-chip {
 }
 
 .bar-button-menutoggle-ios {
-  padding: 25px;
+  padding: 0 25px 25px 25px;
 }
 
 .toolbar-ios {
@@ -50321,11 +50338,10 @@ page-products-list .ion-md-call {
 page-products-list .title-home-banner {
   position: absolute;
   top: 16%;
-  font-size: 28px;
-  width: 82%;
+  font-size: 35px;
   color: #000;
-  left: 10%;
   text-align: center;
+  margin: 0 20px 0 20px;
 }
 
 page-products-list .card-search {
@@ -50402,7 +50418,7 @@ page-products-list .toolbar-ios {
 }
 
 page-products-list .bar-button-menutoggle-ios {
-  padding: 25px;
+  padding: 0 25px 25px 25px;
 }
 
 page-products-list .searchbar-md .searchbar-search-icon, page-products-list .searchbar-ios .searchbar-search-icon {
@@ -50527,7 +50543,7 @@ page-products-list .label-radius {
 }
 
 page-products-list .card-filter-home {
-  top: -35px;
+  top: -90px;
   position: relative;
   z-index: 999;
   border-radius: 2px;
@@ -50682,6 +50698,10 @@ page-products-list .datetime-ios .datetime-placeholder {
 
 page-products-list .datetime-ios {
   padding: 11px 8px 11px 8px;
+}
+
+.picker-ios .picker-button .button-inner, .picker-ios .picker-button.activated {
+  color: black;
 }
 
 .search {

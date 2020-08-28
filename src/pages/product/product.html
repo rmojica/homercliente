@@ -6,6 +6,7 @@
     <ion-title *ngIf="product?.product?.name">
       <span [innerHTML]="product.product.name"></span>
     </ion-title>
+
     <ion-buttons end>
       <button
         ion-button
@@ -14,12 +15,13 @@
         class="has-icon icon-only has-badge"
         (click)="getCart()"
       >
-        <ion-icon name="md-basket" class="item-icon"></ion-icon>
+        <ion-icon class="ion-ios-cart item-icon"></ion-icon>
         <ion-badge class="badge badge-light" *ngIf="values.count">
           {{values.count}}
         </ion-badge>
       </button>
     </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 <ion-content class="product-page">
@@ -268,14 +270,14 @@
         <div [innerHTML]="product.product.short_description"></div>
       </ion-item>
     </div>
-    <div *ngIf="product.product.description">
+    <!-- <div *ngIf="product.product.description">
       <ion-item no-lines class="item-background">
         {{"Description" | translate}} :
       </ion-item>
       <ion-item text-wrap no-lines>
         <div [innerHTML]="product.product.description"></div>
       </ion-item>
-    </div>
+    </div> -->
     <div *ngIf="reviews?.product_reviews.length">
       <ion-row class="item-background">
         <ion-col>

@@ -5,6 +5,7 @@ import { Values } from '../../providers/service/values';
 import { Functions } from '../../providers/service/functions';
 import { BillingAddressForm } from '../checkout/billing-address-form/billing-address-form';
 import { Home } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
     templateUrl: 'cart.html'
@@ -35,6 +36,9 @@ export class CartPage {
         this.obj = params.data;
         
     }
+    gohomep(){
+        this.nav.parent.select(0);
+        }
 
     ionViewDidEnter() {
         this.service.loadCart()
@@ -121,7 +125,7 @@ export class CartPage {
             .then((results) => this.handleShipping(results));
     }
     gohome(){
-    this.nav.setRoot(Home);
+        this.nav.parent.select(1);
     }
     handleShipping(results) {
         this.cart = results;

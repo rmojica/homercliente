@@ -292,7 +292,7 @@ export class ProductPage {
     this.getCart()
   }
   getCart() {
-    this.nav.push(CartPage)
+    this.nav.parent.select(2);
   }
   mySlideOptions = {
     initialSlide: 1,

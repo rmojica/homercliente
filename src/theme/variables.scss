@@ -48,3 +48,19 @@ $danger: #f53d3d;
 
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
+
+
+// @font-face {
+//   font-family: 'HelveticaLt';
+//   src: url('../assets/fonts/HelveticaLt.ttf');//mine
+// }
+// @font-face {
+//   font-family: 'HelveticaLt'!important;
+//   font-weight: bold!important;
+//   font-style: normal;
+//   src: url('../assets/fonts/fonthomer/HelveticaLt.ttf');
+// }
+@font-face {
+  font-family: 'HelveticaLt';
+  src: url('../assets/fonts/fonthomer/HelveticaLt.ttf');
+}

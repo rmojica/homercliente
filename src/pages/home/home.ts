@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, ToastController, Tabs, Content } from 'ionic-angular';
 import { Service } from '../../providers/service/service';
 import { Values } from '../../providers/service/values';
 import { CartPage } from '../cart/cart';
@@ -8,6 +8,7 @@ import { SearchPage } from '../search/search';
 import { ProductPage } from '../product/product';
 import { Post } from '../post/post';
 import { CategoryService } from '../../providers/service/category-service';
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({
@@ -26,6 +27,11 @@ export class Home {
     showFilters: boolean = false
     filter: any;
 
+    tab:Tabs;
+
+    @ViewChild("homerTabs") homerTabs: Tabs;
+    @ViewChild('pageTop') pageTop: Content;
+
     constructor(public categoryService: CategoryService, public toastCtrl: ToastController, public nav: NavController, public service: Service, public values: Values) {
         this.items = [];
         this.options = [];
@@ -33,6 +39,16 @@ export class Home {
         this.filter = {};
         this.filter.page = 1
     }
+
+   
+    gohome(){
+        this.nav.parent.select(0);
+    }
+
+    getCart() {
+        this.nav.parent.select(2);
+      }
+        
     doRefresh(refresher){
         this.service.load().then((results) => {
             this.handleService(results);
@@ -79,9 +95,7 @@ export class Home {
             this.values.wishlistId[id] = false;
         }
     }
-    getCart() {
-        this.nav.push(CartPage);
-    }
+    
     getSearch() {
         this.nav.push(SearchPage);
     }

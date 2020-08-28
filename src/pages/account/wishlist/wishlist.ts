@@ -5,6 +5,7 @@ import { Values } from '../../../providers/service/values';
 import { Functions } from '../../../providers/service/functions';
 import { CartPage } from '../../cart/cart';
 import { ProductPage } from '../../product/product';
+import { TabsPage } from '../../tabs/tabs';
 
 @Component({
     templateUrl: 'wishlist.html'
@@ -18,6 +19,10 @@ export class WishlistPage {
 
       
     }
+
+    gohome(){
+      this.nav.parent.select(0);
+      }
 
     ionViewDidEnter() {
       this.service.loadWishlist()
@@ -36,7 +41,7 @@ export class WishlistPage {
         }
     }
   getCart() {
-        this.nav.push(CartPage);
+    this.nav.parent.select(2);
   }
   addToCart(item,id, type){
     console.log({item})

@@ -38,6 +38,11 @@ page-tabs {
     top: 8px;
 }
 //ios
+// .tabs-ios .tab-button.activated[aria-selected=true] {
+//     background-color: black;
+//     scroll-behavior: smooth;
+// }
+
 .tabs-ios .tab-button[aria-selected=true]::before {
     position: absolute;
     z-index: -1;
