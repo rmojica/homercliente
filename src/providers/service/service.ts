@@ -259,13 +259,15 @@ export class Service {
         .map(res => res.json())
         .subscribe(
           data => {
+            console.log('data login 1 : ',data)
             if (!data.errors) {
+              console.log('data login : ',data)
               this.values.isLoggedIn = data.data.status
               this.values.customerName = data.data.display_name
               this.values.customerId = data.data.ID
               this.values.logoutUrl = this.encodeUrl(data.data.url)
               console.log(this.values.logoutUrl)
-              this.values.vendor = data.allcaps.vendor
+              //this.values.vendor = data.allcaps.vendor
               params = new URLSearchParams()
               params.append('customer_id', this.values.customerId.toString())
               this.http

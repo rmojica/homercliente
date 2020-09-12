@@ -1950,13 +1950,15 @@ var Service = /** @class */ (function () {
                 .post(_this.config.url + '/wp-admin/admin-ajax.php?action=mstoreapp-login', params, _this.config.options)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
+                console.log('data login 1 : ', data);
                 if (!data.errors) {
+                    console.log('data login : ', data);
                     _this.values.isLoggedIn = data.data.status;
                     _this.values.customerName = data.data.display_name;
                     _this.values.customerId = data.data.ID;
                     _this.values.logoutUrl = _this.encodeUrl(data.data.url);
                     console.log(_this.values.logoutUrl);
-                    _this.values.vendor = data.allcaps.vendor;
+                    //this.values.vendor = data.allcaps.vendor
                     params = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */]();
                     params.append('customer_id', _this.values.customerId.toString());
                     _this.http
