@@ -125,7 +125,8 @@ export class CartPage {
             .then((results) => this.handleShipping(results));
     }
     gohome(){
-        this.nav.parent.select(1);
+        // this.nav.parent.select(1);
+        this.nav.setRoot(TabsPage);
     }
     handleShipping(results) {
         this.cart = results;
