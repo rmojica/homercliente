@@ -114,8 +114,11 @@ export class ProductsPage {
   getProduct(id) {
     this.nav.push(ProductPage, id)
   }
+  // getCart() {
+  //   this.nav.push(CartPage)
+  // }
   getCart() {
-    this.nav.push(CartPage)
+    this.nav.parent.select(2);
   }
   doInfinite(infiniteScroll) {
     this.filter.page += 1
@@ -271,4 +274,9 @@ export class ProductsPage {
       this.values.wishlistId[id] = false
     }
   }
+
+  gohome() {
+    this.nav.parent.select(0);
+  }
+
 }
