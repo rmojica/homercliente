@@ -4,10 +4,10 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-       <img style="max-width: 200px;" src="{{values.avatar}}" /> 
+       <img style="max-width: 200px;" src="{{values.avatar}}" />
       {{"Providers" | translate}}
     </ion-title>
-    
+
     <ion-buttons end>
       <button ion-button icon-only color="icon-color" (click)="getFilter()">
         <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
@@ -72,18 +72,18 @@
       </div>
 
       <div class="card-search">
-        
+
       </div>
 
     </ion-slide>
   </ion-slides>
-  
+
   <ion-row>
-    <ion-col col-9> 
+    <ion-col col-9>
       <ion-searchbar class="searchbar-category" placeholder="Seleccionar Categoria"></ion-searchbar>
     </ion-col>
     <ion-col col-3 style="align-self: center;font-weight: bold;padding: 0;">
-      
+
       <button class="btn-filter" (click)="getFilter()">
         <!-- <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon> -->
         Filtrar<img src="../../assets/icon/filter.svg" alt="">
@@ -676,6 +676,68 @@
                   <ion-label *ngIf="item.title">{{item.title}}</ion-label>
                   <ion-label *ngIf="item.name">{{item.name}}</ion-label>
                 </div>
+                <!-- <ion-item>
+                  <button ion-button (click)="switchDisplay()">Ver Categorías</button>
+                </ion-item> -->
+                  <ion-item class="categoria-item">
+
+                    <!-- <p>
+                      <span *ngFor="let c of item.categories">
+                        <span *ngIf="c.slug == 'servicio-limpieza'" >
+                          <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" > {{c.name}}
+                        </span>
+                        <span *ngIf="c.slug == 'servicio-de-cuido-de-ninos'">
+                          <img class="img"src="{{values.cuido}}" alt="{{c.name}}" > {{c.name}}
+                        </span>
+                        <span *ngIf="c.slug == 'servicio-planchado'" >
+                          <img class="img" src="{{values.planchado}}" alt="{{c.name}}" > {{c.name}}
+                        </span>
+                        <span *ngIf="c.slug == 'servicio-camarero'" >
+                          <img class="img" src="{{values.camarero}}" alt="{{c.name}}" > {{c.name}}
+                        </span>
+                      </span>
+                    </p> -->
+
+                    <!-- <p *ngFor="let c of item.categories" [ngStyle]="{'display':display}">
+                      <span *ngIf="c.slug == 'servicio-limpieza'">
+                        <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" > {{c.name}}
+                      </span>
+                      <span *ngIf="c.slug == 'servicio-de-cuido-de-ninos'">
+                        <img class="img"src="{{values.cuido}}" alt="{{c.name}}" > {{c.name}}
+                      </span>
+                      <span *ngIf="c.slug == 'servicio-planchado'">
+                        <img class="img" src="{{values.planchado}}" alt="{{c.name}}" > {{c.name}}
+                      </span>
+                      <span *ngIf="c.slug == 'servicio-camarero'">
+                        <img class="img" src="{{values.camarero}}" alt="{{c.name}}" > {{c.name}}
+                      </span>
+                    </p> -->
+
+                    <!-- <span *ngFor="let c of item.categories" [ngStyle]="{'display':display}">
+                      <span style="border:1px solid red; display: flex;">
+                        <span style="width: 10%;">
+                          <span *ngIf="c.slug == 'servicio-limpieza'">
+                            <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" >
+                          </span>
+                          <span *ngIf="c.slug == 'servicio-de-cuido-de-ninos'">
+                            <img class="img"src="{{values.cuido}}" alt="{{c.name}}" >
+                          </span>
+                          <span *ngIf="c.slug == 'servicio-planchado'">
+                            <img class="img" src="{{values.planchado}}" alt="{{c.name}}" >
+                          </span>
+                          <span *ngIf="c.slug == 'servicio-camarero'">
+                            <img class="img" src="{{values.camarero}}" alt="{{c.name}}" >
+                          </span>
+                        </span>
+                        <span>
+                          <span  style="font-size: 9px;">
+                            {{c.name}}
+                          </span>
+                        </span>
+                      </span>
+                    </span> -->
+
+                  </ion-item>
                 <!-- <ion-item no-padding class="price-list">
                   <h3 class="price-regular" *ngIf="item.minPrice">
                     Starting from {{1*item.minPrice |
@@ -719,7 +781,7 @@
                     </span>
                   </span>
                 </ion-item>
-                
+
               </ion-card>
             </ion-col>
           </ion-row>
@@ -730,5 +792,5 @@
   </div>
    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="has_more_items">
             <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{'Loading more items...' | translate}}"> </ion-infinite-scroll-content>
-        </ion-infinite-scroll> 
+        </ion-infinite-scroll>
 </ion-content>

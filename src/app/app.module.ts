@@ -60,6 +60,7 @@ import { CalendarModule } from 'ion2-calendar'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
+import {IonTagsInputModule} from "ionic-tags-input";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -92,12 +93,14 @@ export function createTranslateLoader(http: HttpClient) {
     TabsPage,
     ProductsListPage,
     KeysPipe,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CalendarModule,
     HttpModule,
+    IonTagsInputModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -155,7 +158,7 @@ export function createTranslateLoader(http: HttpClient) {
     EmailComposer,
     CallNumber,
     HTTP,
-    Geolocation,    
+    Geolocation,
     NativeGeocoder,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ],

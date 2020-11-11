@@ -47364,6 +47364,7 @@ ion-chip {
 
 .account-login .button-default {
   width: 60%;
+  margin: 0 auto;
 }
 
 .account-login .button {
@@ -48225,8 +48226,23 @@ ion-chip {
   margin-top: 15px;
 }
 
+.img {
+  width: 10%;
+  min-height: 20% !important;
+  height: 10%;
+}
+
 .home .card-md {
   border-radius: 6px;
+}
+
+.home .w3-tag {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
 }
 
 .home .rating {
@@ -49883,6 +49899,12 @@ page-products .grid ion-col {
 page-products .grid a[light] {
   width: 100%;
   height: 100px;
+}
+
+page-products .img {
+  width: inherit;
+  min-height: 20% !important;
+  height: inherit;
 }
 
 page-products .products-listing {

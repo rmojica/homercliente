@@ -15,6 +15,7 @@ import { TabsPage } from '../tabs/tabs';
     templateUrl: 'home.html'
 })
 export class Home {
+  display:string = 'none';
     status: any;
     items: any;
     product: any;
@@ -40,7 +41,15 @@ export class Home {
         this.filter.page = 1
     }
 
-   
+    switchDisplay(){
+      if(this.display === 'none'){
+        this.display = "block";
+      }else{
+        this.display = "none";
+      }
+    }
+
+
     gohome(){
         this.nav.parent.select(0);
     }
@@ -48,7 +57,7 @@ export class Home {
     getCart() {
         this.nav.parent.select(2);
       }
-        
+
     doRefresh(refresher){
         this.service.load().then((results) => {
             this.handleService(results);
@@ -56,7 +65,7 @@ export class Home {
         });
     }
     handleService(results){
-       // 
+       //
     }
     getCategory(id, slug, name) {
         this.items.id = id;
@@ -95,7 +104,7 @@ export class Home {
             this.values.wishlistId[id] = false;
         }
     }
-    
+
     getSearch() {
         this.nav.push(SearchPage);
     }
@@ -125,7 +134,7 @@ export class Home {
     }
     goto(data){
         if(data.description == "product"){
-            this.nav.push(ProductPage, data.url);   
+            this.nav.push(ProductPage, data.url);
         }
         else if(data.description == "category"){
             this.items.id = data.url;

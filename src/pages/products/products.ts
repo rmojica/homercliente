@@ -65,6 +65,8 @@ export class ProductsPage {
     this.quantity = '1'
     this.subCategories = params.data.categories
     this.service.load(this.filter).then(results => {
+      console.log(results);
+
       this.products = results
       // this.products.forEach((element,index,arr) => {
       //   if(element.wc_variations){
