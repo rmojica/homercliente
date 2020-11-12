@@ -24,7 +24,7 @@ import { ProductPage } from '../pages/product/product'
 import { ProductsPage } from '../pages/products/products'
 import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs'
-import { ProductsListPage } from '../pages/products-list/products-list'
+import { ProductsListPage, ModalContentPage } from '../pages/products-list/products-list'
 
 /*------------------------Providers----------------------------------*/
 
@@ -62,6 +62,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
 import {IonTagsInputModule} from "ionic-tags-input";
 
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
 }
@@ -93,6 +94,7 @@ export function createTranslateLoader(http: HttpClient) {
     TabsPage,
     ProductsListPage,
     KeysPipe,
+    ModalContentPage
 
   ],
   imports: [
@@ -136,6 +138,7 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage,
     TabsPage,
     ProductsListPage,
+    ModalContentPage
   ],
   providers: [
     CartService,
