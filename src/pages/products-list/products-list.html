@@ -98,12 +98,12 @@
         <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
           <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon>
 
-           <ion-datetime placeholder="Desde" displayFormat="YYYY-MM-DD"   [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+           <ion-datetime placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
         </button>
         <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon>
+          <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon>
 
-           <ion-datetime placeholder="Hasta" displayFormat="YYYY-MM-DD"   [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+           <ion-datetime placeholder="Hora" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
         </button>
       </div>
 
