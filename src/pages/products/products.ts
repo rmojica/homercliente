@@ -256,7 +256,7 @@ export class ProductsPage {
     } else {
       this.functions.showAlert(
         'Warning',
-        'You must login to add product to wishlist',
+        'Debe iniciar sesión para agregar un servicio a la lista de deseos',
       )
     }
   }
