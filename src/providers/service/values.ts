@@ -23,6 +23,7 @@ export class Values {
   cuido:any = "assets/image/cuido.png";
   limpieza:any = "assets/image/limpieza.png";
   planchado:any = "assets/image/planchado.png";
+  homeClean: any = "assets/image/homeClean.jpg";
   currency: any = "USD";
   data: any;
   dir: any = 'left';

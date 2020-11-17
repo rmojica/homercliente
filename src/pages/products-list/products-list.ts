@@ -444,7 +444,7 @@ export class ProductsListPage {
       </button>
     </ion-buttons>
     <ion-card style="margin-top:20px">
-      <img src="/assets/image/home-clean.jpg"/>
+      <img src="{{imgModal}}"/>
       <ion-card-content>
         <ion-card-title>
           {{title}}
@@ -460,13 +460,16 @@ export class ProductsListPage {
 export class ModalContentPage {
   title;
   detail;
+  imgModal;
   constructor(
     public platform: Platform,
     public params: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public values: Values
   ) {
     this.title = this.params.get('title');
     this.detail = this.params.get('detail');
+    this.imgModal = this.values.homeClean;
   }
 
   dismiss() {
