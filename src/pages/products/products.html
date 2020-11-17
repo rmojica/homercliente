@@ -392,8 +392,8 @@
                     </ion-item>
 
                     <ion-item no-padding no-lines class="item-background">
-                      {{"Categoria:" | translate}} <div *ngFor="let c of item.categories" style="display: flex;">
-                        <div style="width: 10%; margin-bottom: 5px; margin-right: 5px; margin-top: 5px;">
+                      {{"Categoria:" | translate}} <div  style="display: flex;">
+                        <div *ngFor="let c of item.categories" style="width: 10%; margin-bottom: 5px; margin-right: 5px; margin-top: 5px;">
                           <div *ngIf="c.slug == 'servicio-limpieza'">
                             <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" >
                           </div>
@@ -406,11 +406,6 @@
                           <div *ngIf="c.slug == 'servicio-camarero'">
                             <img class="img" src="{{values.camarero}}" alt="{{c.name}}" >
                           </div>
-                        </div>
-                        <div style=" margin-top: 10px;">
-                          <span>
-                            {{c.name}}
-                          </span>
                         </div>
                       </div>
                     </ion-item>
