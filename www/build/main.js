@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 104:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77,6 +77,7 @@ var Values = /** @class */ (function () {
         this.cuido = "assets/image/cuido.png";
         this.limpieza = "assets/image/limpieza.png";
         this.planchado = "assets/image/planchado.png";
+        this.homeClean = "assets/image/homeClean.jpg";
         this.currency = "USD";
         this.dir = 'left';
         this.wishlistId = [];
@@ -147,7 +148,7 @@ var Values = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 165:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,11 +156,11 @@ var Values = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(432);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_forkJoin__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_forkJoin__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_forkJoin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_forkJoin__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -520,17 +521,17 @@ var CheckoutService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 175:
+/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderSummary; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_checkout_service__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_checkout_service__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(182);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -576,7 +577,7 @@ var OrderSummary = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 176:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -585,11 +586,11 @@ var OrderSummary = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__products_products__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__product_product__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__post_post__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_service_category_service__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__products_products__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__product_product__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__post_post__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_service_category_service__ = __webpack_require__(97);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -828,18 +829,18 @@ var Home = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 177:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_search_service__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_search_service__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart_cart__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_service_category_service__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart_cart__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_service_category_service__ = __webpack_require__(97);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1049,17 +1050,17 @@ var SearchPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 178:
+/***/ 189:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WishlistPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_wishlist_service__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_wishlist_service__ = __webpack_require__(543);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1149,7 +1150,7 @@ var WishlistPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 179:
+/***/ 190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1158,8 +1159,8 @@ var WishlistPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_address_form_edit_address_form__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_address_form_edit_address_form__ = __webpack_require__(192);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1213,7 +1214,7 @@ var AccountPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 180:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1223,9 +1224,9 @@ var AccountPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__forgotten_forgotten__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_onesignal__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tabs_tabs__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__forgotten_forgotten__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_onesignal__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tabs_tabs__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1385,7 +1386,7 @@ var AccountLogin = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 181:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1467,7 +1468,7 @@ var EditAddressForm = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 182:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1477,7 +1478,7 @@ var EditAddressForm = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_http__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_http__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1581,7 +1582,7 @@ var OrderDetails = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1593,8 +1594,8 @@ var OrderDetails = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_service_config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__booking_details_booking_details__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__booking_details_booking_details__ = __webpack_require__(552);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1732,7 +1733,7 @@ var BookingVendor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 206:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1745,7 +1746,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 195;
+webpackEmptyAsyncContext.id = 206;
 
 /***/ }),
 
@@ -1759,12 +1760,12 @@ webpackEmptyAsyncContext.id = 195;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_forkJoin__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_forkJoin__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_forkJoin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_forkJoin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_http__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_http__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_service_functions__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2457,7 +2458,7 @@ var Service = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 239:
+/***/ 250:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -2470,7 +2471,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 239;
+webpackEmptyAsyncContext.id = 250;
 
 /***/ }),
 
@@ -2528,7 +2529,7 @@ var Functions = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 284:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2537,7 +2538,7 @@ var Functions = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2797,7 +2798,7 @@ var Config = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 418:
+/***/ 429:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2807,7 +2808,7 @@ var Config = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3011,20 +3012,20 @@ var CartService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 419:
+/***/ 430:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingAddressForm; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(420);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_checkout_service__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_checkout_service__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__order_summary_order_summary__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__terms_condition_terms_condition__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_onesignal__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__order_summary_order_summary__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__terms_condition_terms_condition__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_onesignal__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3262,20 +3263,20 @@ var BillingAddressForm = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_product_service__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_product_service__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__md5__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__md5__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3636,7 +3637,7 @@ var ProductPage = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Content"])
     ], ProductPage.prototype, "content", void 0);
     ProductPage = ProductPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\product\product.html"*/'<ion-header>\n\n  <ion-navbar color="header">\n\n    <ion-title *ngIf="product?.product?.title">\n\n      <span [innerHTML]="product.product.title"></span>\n\n    </ion-title>\n\n    <ion-title *ngIf="product?.product?.name">\n\n      <span [innerHTML]="product.product.name"></span>\n\n    </ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button\n\n        ion-button\n\n        icon-only\n\n        light\n\n        class="has-icon icon-only has-badge"\n\n        (click)="getCart()"\n\n      >\n\n        <ion-icon class="ion-ios-cart item-icon"></ion-icon>\n\n        <ion-badge class="badge badge-light" *ngIf="values.count">\n\n          {{values.count}}\n\n        </ion-badge>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="product-page">\n\n\n\n  <!-- <ion-fab bottom right slot="fixed">\n\n    <button ion-fab>\n\n      <ion-icon name="chatboxes"></ion-icon>\n\n    </button>\n\n    <ion-fab-list side="left">\n\n      <a button ion-fab style="background-color: #ffffff;" href="https://www.messenger.com/t/thehexchange">\n\n        <ion-icon style="background: #2196f3;" name="custom-facebook"></ion-icon>\n\n      </a>\n\n      <a button ion-fab style="background-color: #ffffff;" href="https://www.instagram.com/thehexchange/">\n\n        <ion-icon style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);" name="custom-instagram"></ion-icon>\n\n      </a>\n\n    </ion-fab-list>\n\n  </ion-fab> -->\n\n  \n\n  <ion-spinner *ngIf="!product?.product" name="crescent"></ion-spinner>\n\n  <div *ngIf="product.product" class="product-details">\n\n    <div *ngIf="product.product.images">\n\n      <ion-slides autoplay="500" loop="true" speed="6000" pager="true">\n\n        <ion-slide *ngFor="let item of product.product.images">\n\n          <img\n\n            [style.height.px]="values.dimensions.imageProductViewHeight - 50"\n\n            src="{{item.src}}"\n\n          />\n\n          <!-- <h2 *ngIf="!product.product.in_stock" item-right class="stock" color="danger">{{"OUTOFSTOCK" | translate}}       </h2> -->\n\n        </ion-slide>\n\n      </ion-slides>\n\n    </div>\n\n    <ion-item class="product-name">\n\n      <ion-label *ngIf="product?.product?.name">\n\n        {{product.product.name}}\n\n      </ion-label>\n\n      <ion-label *ngIf="product?.product?.title">\n\n        {{product.product.title}}\n\n      </ion-label>\n\n      <span item-right *ngIf="product.product.average_rating" class="rating">\n\n        <span *ngIf="product.product.rating_count > 0">\n\n          ({{product.product.rating_count}})\n\n        </span>\n\n        <span\n\n          class="star-icon"\n\n          [ngClass]="{full: product.product.average_rating >= 1, half: product.product.average_rating == 0.5}"\n\n        >\n\n          &#x2605;\n\n        </span>\n\n        <span\n\n          class="star-icon"\n\n          [ngClass]="{full: product.product.average_rating >= 2, half: product.product.average_rating == 1.5}"\n\n        >\n\n          &#x2605;\n\n        </span>\n\n        <span\n\n          class="star-icon"\n\n          [ngClass]="{full: product.product.average_rating >= 3, half: product.product.average_rating == 2.5}"\n\n        >\n\n          &#x2605;\n\n        </span>\n\n        <span\n\n          class="star-icon"\n\n          [ngClass]="{full: product.product.average_rating >= 4, half: product.product.average_rating == 3.5}"\n\n        >\n\n          &#x2605;\n\n        </span>\n\n        <span\n\n          class="star-icon"\n\n          [ngClass]="{full: product.product.average_rating >= 5, half: product.product.average_rating == 4.5}"\n\n        >\n\n          &#x2605;\n\n        </span>\n\n      </span>\n\n    </ion-item>\n\n    <ion-item class="stock-label" no-lines>\n\n      <ion-label class="price-regular" *ngIf="!product.product.sale_price">\n\n        {{1*product.product.price | currency:values.currency:true:\'1.2-2\'}}\n\n      </ion-label>\n\n      <ion-label class="price-special" *ngIf="product.product.sale_price">\n\n        <span>\n\n          {{1*product.product.sale_price |\n\n          currency:values.currency:true:\'1.2-2\'}}\n\n        </span>\n\n        <span class="price-delete">\n\n          <del>\n\n            {{1*product.product.regular_price |\n\n            currency:values.currency:true:\'1.2-2\'}}\n\n          </del>\n\n        </span>\n\n\n\n        <span text-wrap class="price-off-tag">\n\n          {{(product.product.regular_price - product.product.sale_price) /\n\n          product.product.regular_price*100 | number : \'1.0-0\'}}% {{"OFF" |\n\n          translate}}\n\n        </span>\n\n      </ion-label>\n\n\n\n      <h2\n\n        *ngIf="values.wishlistId[product.product.id]"\n\n        item-right\n\n        class="wishlist"\n\n        color="danger"\n\n        (click)="removeFromWishlist(product.product.id)"\n\n      >\n\n        <ion-icon name="md-heart"></ion-icon>\n\n      </h2>\n\n      <h2\n\n        *ngIf="!values.wishlistId[product.product.id]"\n\n        item-right\n\n        class="wishlist"\n\n        color="danger"\n\n        (click)="addToWishlist(product.product.id)"\n\n      >\n\n        <ion-icon name="md-heart-outline"></ion-icon>\n\n      </h2>\n\n    </ion-item>\n\n\n\n    <!--variation product starts-->\n\n     <!-- <div class="variation-block">\n\n      <div *ngIf="usedVariationAttributes" class="variation-product">\n\n        <div class="option-box">\n\n          <button\n\n            class="option-button"\n\n            ion-button\n\n            outline\n\n            color="light"\n\n            *ngFor="let option of usedVariationAttributes"\n\n            (click)="chooseVariation(option)"\n\n            [ngClass]="{\'selected-option\': selectedService && option && option.resource_id == selectedService.resource_id }"\n\n          >\n\n            {{option.name}}\n\n          </button>\n\n        </div>\n\n      </div>\n\n    </div>  -->\n\n\n\n\n\n    <!--Select Service product-->\n\n      <div class="select-services" *ngIf="usedVariationAttributes" class="variation-product">\n\n      <!-- <ion-item class="variation-title">\n\n        <strong>{{"Select Service"| translate}}\n\n        </strong>\n\n      </ion-item> -->\n\n      <ion-item>\n\n        <ion-label>\n\n          {{"Please select a service" | translate}}\n\n        </ion-label>\n\n        <ion-select style="max-width: 80%;"\n\n        [(ngModel)]="optionss" (ngModelChange)="chooseVariationOne()" >\n\n          <div *ngFor="let optionss of usedVariationAttributes ; let i = index">\n\n            \n\n               <ion-option  \n\n               [ngClass]="{\'selected-option\': selectedService && optionss && optionss.resource_id == selectedService.resource_id }" \n\n              [value]="optionss">\n\n              {{i+1}} - {{optionss.name}}\n\n              </ion-option> \n\n          </div>\n\n        </ion-select>\n\n      </ion-item>\n\n    </div>  \n\n\n\n  <!--variation product starts-->\n\n    <!--div *ngIf="product?.product?.variations.length" class="variation-product">\n\n      <ion-item class="variation-title">\n\n        <strong>{{"Options"| translate}}\n\n        </strong>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>\n\n          {{"Variation" | translate}}\n\n        </ion-label>\n\n        <ion-select [(ngModel)]="options[0]" (ngModelChange)="chnageProduct()">\n\n          <div *ngFor="let option of product.product.variations">\n\n            <div *ngIf="option.attributes.length == 1">\n\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option}}">{{option.attributes[0].option | uppercase}} - {{option.price | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-option>\n\n            </div>\n\n            <div *ngIf="option.attributes.length == 2">\n\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option + \':variation[attribute_pa_\'+ option.attributes[1].name +\']:\' + option.attributes[1].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.price | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-option>\n\n            </div>\n\n            <div *ngIf="option.attributes.length == 3">\n\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option + \':variation[attribute_pa_\'+ option.attributes[1].name +\']:\' + option.attributes[1].option + \':variation[attribute_pa_\'+ option.attributes[2].name +\']:\' + option.attributes[2].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.attributes[2].option | uppercase}} - {{option.price_inc_tax | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-option>\n\n            </div>\n\n          </div>\n\n        </ion-select>\n\n      </ion-item>\n\n    </div-->\n\n\n\n    <!-- <div>\n\n      <button style="width:350px;background-color:white;color:black;" item-right ion-button class="positioButton" *ngIf="product.product.type==\'booking\'">\n\n        <i icon-medium class=" icon-calendar"></i>\n\n        <span *ngIf="dateOfevent" ></span>\n\n         <ion-datetime displayFormat="DD MMM YYYY"  pickerFormat="DD MMM YYYY"  [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Ok"></ion-datetime>\n\n      </button>\n\n    </div>  -->\n\n\n\n     <ion-calendar\n\n      [options]="optionsMulti"\n\n      (onSelect)="onSelect($event,product.product.id)"\n\n      [type]="type"\n\n      [format]="\'MM-DD-YYYY\'"\n\n    ></ion-calendar> \n\n\n\n    <div *ngIf="schedule;else no_schedule">\n\n      <h4 class="container flex text-center full-width">\n\n        {{WhatTime | translate}}\n\n      </h4>\n\n\n\n      <ul class="block-picker flex row">\n\n        <li *ngFor="let item of schedule" class="block">\n\n          <a\n\n            href="#"\n\n            ng-model="item"\n\n            (click)="selectTime(item)"\n\n            [ngClass]="{\'selected\' : selectedTime == item}"\n\n          >\n\n            {{getTime(item)}}\n\n          </a>\n\n        </li>\n\n      </ul>\n\n    </div>\n\n    <ng-template #no_schedule>\n\n      <div class="container flex text-center full-width">\n\n        {{NoBlockAvailable | translate}}\n\n      </div>\n\n    </ng-template>\n\n    <div class="add-to-cart-button">\n\n      <button\n\n        ion-button\n\n        full\n\n        color="button-color"\n\n        text-uppercase\n\n        [disabled]="disableSubmit"\n\n        (click)="addToCart(product.product.id)"\n\n      >\n\n        {{BookNow | translate}}\n\n      </button>\n\n    </div>\n\n    <div *ngIf="product.product.short_description">\n\n      <ion-item no-lines class="item-background">\n\n        {{"ShortDescription" | translate}} :\n\n      </ion-item>\n\n      <ion-item text-wrap no-lines>\n\n        <div [innerHTML]="product.product.short_description"></div>\n\n      </ion-item>\n\n    </div>\n\n    <!-- <div *ngIf="product.product.description">\n\n      <ion-item no-lines class="item-background">\n\n        {{"Description" | translate}} :\n\n      </ion-item>\n\n      <ion-item text-wrap no-lines>\n\n        <div [innerHTML]="product.product.description"></div>\n\n      </ion-item>\n\n    </div> -->\n\n    <div *ngIf="reviews?.product_reviews.length">\n\n      <ion-row class="item-background">\n\n        <ion-col>\n\n          <!--button ion-button  *ngIf="!reviews" color="button-color" button small clear (click)="getReviews()" style="margin-bottom:0px">{{"ShowReviews" | translate}}\n\n          </button-->\n\n          <button\n\n            ion-button\n\n            *ngIf="reviews"\n\n            color="button-color"\n\n            button\n\n            small\n\n            clear\n\n            class="review-title"\n\n          >\n\n            {{"Reviews" | translate}}\n\n          </button>\n\n        </ion-col>\n\n        <ion-col></ion-col>\n\n      </ion-row>\n\n      <div *ngFor="let item of reviews.product_reviews" class="reviews">\n\n        <ion-item no-lines>\n\n          <ion-avatar item-start style="margin:8px">\n\n            <img src="https://www.gravatar.com/avatar/{{item.avatar}}" />\n\n          </ion-avatar>\n\n          <h3 style="margin-bottom:6px;font-size:15px">\n\n            {{item.reviewer_name}}\n\n            <span class="rating review-star">\n\n              <span\n\n                class="star-icon"\n\n                [ngClass]="{full: item.rating >= 1, half: item.rating == 0.5}"\n\n              >\n\n                &#x2605;\n\n              </span>\n\n              <span\n\n                class="star-icon"\n\n                [ngClass]="{full: item.rating >= 2, half: item.rating == 1.5}"\n\n              >\n\n                &#x2605;\n\n              </span>\n\n              <span\n\n                class="star-icon"\n\n                [ngClass]="{full: item.rating >= 3, half: item.rating == 2.5}"\n\n              >\n\n                &#x2605;\n\n              </span>\n\n              <span\n\n                class="star-icon"\n\n                [ngClass]="{full: item.rating >= 4, half: item.rating == 3.5}"\n\n              >\n\n                &#x2605;\n\n              </span>\n\n              <span\n\n                class="star-icon"\n\n                [ngClass]="{full: item.rating >= 5, half: item.rating == 4.5}"\n\n              >\n\n                &#x2605;\n\n              </span>\n\n            </span>\n\n          </h3>\n\n\n\n          <!--h3 style="color:#9e9898">{{item.email}}</h3-->\n\n          <h3 style="color:#9e9898;margin-bottom:4px">\n\n            {{item.created_at | date:\'medium\'}}\n\n          </h3>\n\n        </ion-item>\n\n        <p text-wrap>{{item.review}}</p>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <br />\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\product\product.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\product\product.html"*/'<ion-header>\n  <ion-navbar color="header">\n    <ion-title *ngIf="product?.product?.title">\n      <span [innerHTML]="product.product.title"></span>\n    </ion-title>\n    <ion-title *ngIf="product?.product?.name">\n      <span [innerHTML]="product.product.name"></span>\n    </ion-title>\n\n    <ion-buttons end>\n      <button\n        ion-button\n        icon-only\n        light\n        class="has-icon icon-only has-badge"\n        (click)="getCart()"\n      >\n        <ion-icon class="ion-ios-cart item-icon"></ion-icon>\n        <ion-badge class="badge badge-light" *ngIf="values.count">\n          {{values.count}}\n        </ion-badge>\n      </button>\n     \n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n<ion-content class="product-page">\n\n  <!-- <ion-fab bottom right slot="fixed">\n    <button ion-fab>\n      <ion-icon name="chatboxes"></ion-icon>\n    </button>\n    <ion-fab-list side="left">\n      <a button ion-fab style="background-color: #ffffff;" href="https://www.messenger.com/t/thehexchange">\n        <ion-icon style="background: #2196f3;" name="custom-facebook"></ion-icon>\n      </a>\n      <a button ion-fab style="background-color: #ffffff;" href="https://www.instagram.com/thehexchange/">\n        <ion-icon style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);" name="custom-instagram"></ion-icon>\n      </a>\n    </ion-fab-list>\n  </ion-fab> -->\n\n  <ion-spinner *ngIf="!product?.product" name="crescent"></ion-spinner>\n  <div *ngIf="product.product" class="product-details">\n    <div *ngIf="product.product.images">\n      <ion-slides autoplay="500" loop="true" speed="6000" pager="true">\n        <ion-slide *ngFor="let item of product.product.images">\n          <img\n            [style.height.px]="values.dimensions.imageProductViewHeight - 50"\n            src="{{item.src}}"\n          />\n          <!-- <h2 *ngIf="!product.product.in_stock" item-right class="stock" color="danger">{{"OUTOFSTOCK" | translate}}       </h2> -->\n        </ion-slide>\n      </ion-slides>\n    </div>\n    <ion-item class="product-name">\n      <ion-label *ngIf="product?.product?.name">\n        {{product.product.name}}\n      </ion-label>\n      <ion-label *ngIf="product?.product?.title">\n        {{product.product.title}}\n      </ion-label>\n      <span item-right *ngIf="product.product.average_rating" class="rating">\n        <span *ngIf="product.product.rating_count > 0">\n          ({{product.product.rating_count}})\n        </span>\n        <span\n          class="star-icon"\n          [ngClass]="{full: product.product.average_rating >= 1, half: product.product.average_rating == 0.5}"\n        >\n          &#x2605;\n        </span>\n        <span\n          class="star-icon"\n          [ngClass]="{full: product.product.average_rating >= 2, half: product.product.average_rating == 1.5}"\n        >\n          &#x2605;\n        </span>\n        <span\n          class="star-icon"\n          [ngClass]="{full: product.product.average_rating >= 3, half: product.product.average_rating == 2.5}"\n        >\n          &#x2605;\n        </span>\n        <span\n          class="star-icon"\n          [ngClass]="{full: product.product.average_rating >= 4, half: product.product.average_rating == 3.5}"\n        >\n          &#x2605;\n        </span>\n        <span\n          class="star-icon"\n          [ngClass]="{full: product.product.average_rating >= 5, half: product.product.average_rating == 4.5}"\n        >\n          &#x2605;\n        </span>\n      </span>\n    </ion-item>\n    <ion-item class="stock-label" no-lines>\n      <ion-label class="price-regular" *ngIf="!product.product.sale_price">\n        {{1*product.product.price | currency:values.currency:true:\'1.2-2\'}}\n      </ion-label>\n      <ion-label class="price-special" *ngIf="product.product.sale_price">\n        <span>\n          {{1*product.product.sale_price |\n          currency:values.currency:true:\'1.2-2\'}}\n        </span>\n        <span class="price-delete">\n          <del>\n            {{1*product.product.regular_price |\n            currency:values.currency:true:\'1.2-2\'}}\n          </del>\n        </span>\n\n        <span text-wrap class="price-off-tag">\n          {{(product.product.regular_price - product.product.sale_price) /\n          product.product.regular_price*100 | number : \'1.0-0\'}}% {{"OFF" |\n          translate}}\n        </span>\n      </ion-label>\n\n      <h2\n        *ngIf="values.wishlistId[product.product.id]"\n        item-right\n        class="wishlist"\n        color="danger"\n        (click)="removeFromWishlist(product.product.id)"\n      >\n        <ion-icon name="md-heart"></ion-icon>\n      </h2>\n      <h2\n        *ngIf="!values.wishlistId[product.product.id]"\n        item-right\n        class="wishlist"\n        color="danger"\n        (click)="addToWishlist(product.product.id)"\n      >\n        <ion-icon name="md-heart-outline"></ion-icon>\n      </h2>\n    </ion-item>\n\n    <!--variation product starts-->\n     <!-- <div class="variation-block">\n      <div *ngIf="usedVariationAttributes" class="variation-product">\n        <div class="option-box">\n          <button\n            class="option-button"\n            ion-button\n            outline\n            color="light"\n            *ngFor="let option of usedVariationAttributes"\n            (click)="chooseVariation(option)"\n            [ngClass]="{\'selected-option\': selectedService && option && option.resource_id == selectedService.resource_id }"\n          >\n            {{option.name}}\n          </button>\n        </div>\n      </div>\n    </div>  -->\n\n\n    <!--Select Service product-->\n      <div class="select-services" *ngIf="usedVariationAttributes" class="variation-product">\n      <!-- <ion-item class="variation-title">\n        <strong>{{"Select Service"| translate}}\n        </strong>\n      </ion-item> -->\n      <ion-item>\n        <ion-label>\n          {{"Please select a service" | translate}}\n        </ion-label>\n        <ion-select style="max-width: 80%;"\n        [(ngModel)]="optionss" (ngModelChange)="chooseVariationOne()" >\n          <div *ngFor="let optionss of usedVariationAttributes ; let i = index">\n\n               <ion-option\n               [ngClass]="{\'selected-option\': selectedService && optionss && optionss.resource_id == selectedService.resource_id }"\n              [value]="optionss">\n              {{i+1}} - {{optionss.name}}\n              </ion-option>\n          </div>\n        </ion-select>\n      </ion-item>\n    </div>\n\n  <!--variation product starts-->\n    <!--div *ngIf="product?.product?.variations.length" class="variation-product">\n      <ion-item class="variation-title">\n        <strong>{{"Options"| translate}}\n        </strong>\n      </ion-item>\n      <ion-item>\n        <ion-label>\n          {{"Variation" | translate}}\n        </ion-label>\n        <ion-select [(ngModel)]="options[0]" (ngModelChange)="chnageProduct()">\n          <div *ngFor="let option of product.product.variations">\n            <div *ngIf="option.attributes.length == 1">\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option}}">{{option.attributes[0].option | uppercase}} - {{option.price | currency:values.currency:true:\'1.2-2\'}}\n              </ion-option>\n            </div>\n            <div *ngIf="option.attributes.length == 2">\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option + \':variation[attribute_pa_\'+ option.attributes[1].name +\']:\' + option.attributes[1].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.price | currency:values.currency:true:\'1.2-2\'}}\n              </ion-option>\n            </div>\n            <div *ngIf="option.attributes.length == 3">\n              <ion-option value="{{\'variation_id:\' + option.id + \':variation[attribute_pa_\'+ option.attributes[0].name +\']:\' + option.attributes[0].option + \':variation[attribute_pa_\'+ option.attributes[1].name +\']:\' + option.attributes[1].option + \':variation[attribute_pa_\'+ option.attributes[2].name +\']:\' + option.attributes[2].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.attributes[2].option | uppercase}} - {{option.price_inc_tax | currency:values.currency:true:\'1.2-2\'}}\n              </ion-option>\n            </div>\n          </div>\n        </ion-select>\n      </ion-item>\n    </div-->\n\n    <!-- <div>\n      <button style="width:350px;background-color:white;color:black;" item-right ion-button class="positioButton" *ngIf="product.product.type==\'booking\'">\n        <i icon-medium class=" icon-calendar"></i>\n        <span *ngIf="dateOfevent" ></span>\n         <ion-datetime displayFormat="DD MMM YYYY"  pickerFormat="DD MMM YYYY"  [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Ok"></ion-datetime>\n      </button>\n    </div>  -->\n\n     <ion-calendar\n      [options]="optionsMulti"\n      (onSelect)="onSelect($event,product.product.id)"\n      [type]="type"\n      [format]="\'MM-DD-YYYY\'"\n    ></ion-calendar>\n\n    <div *ngIf="schedule;else no_schedule">\n      <h4 class="container flex text-center full-width">\n        {{WhatTime | translate}}\n      </h4>\n\n      <ul class="block-picker flex row">\n        <li *ngFor="let item of schedule" class="block">\n          <a\n            href="#"\n            ng-model="item"\n            (click)="selectTime(item)"\n            [ngClass]="{\'selected\' : selectedTime == item}"\n          >\n            {{getTime(item)}}\n          </a>\n        </li>\n      </ul>\n    </div>\n    <ng-template #no_schedule>\n      <div class="container flex text-center full-width">\n        {{NoBlockAvailable | translate}}\n      </div>\n    </ng-template>\n    <div class="add-to-cart-button">\n      <button\n        ion-button\n        full\n        color="button-color"\n        text-uppercase\n        [disabled]="disableSubmit"\n        (click)="addToCart(product.product.id)"\n      >\n        {{BookNow | translate}}\n      </button>\n    </div>\n    <div *ngIf="product.product.short_description">\n      <ion-item no-lines class="item-background">\n        {{"ShortDescription" | translate}} :\n      </ion-item>\n      <ion-item text-wrap no-lines>\n        <div [innerHTML]="product.product.short_description"></div>\n      </ion-item>\n    </div>\n    <!-- <div *ngIf="product.product.description">\n      <ion-item no-lines class="item-background">\n        {{"Description" | translate}} :\n      </ion-item>\n      <ion-item text-wrap no-lines>\n        <div [innerHTML]="product.product.description"></div>\n      </ion-item>\n    </div> -->\n    <div *ngIf="reviews?.product_reviews.length">\n      <ion-row class="item-background">\n        <ion-col>\n          <!--button ion-button  *ngIf="!reviews" color="button-color" button small clear (click)="getReviews()" style="margin-bottom:0px">{{"ShowReviews" | translate}}\n          </button-->\n          <button\n            ion-button\n            *ngIf="reviews"\n            color="button-color"\n            button\n            small\n            clear\n            class="review-title"\n          >\n            {{"Reviews" | translate}}\n          </button>\n        </ion-col>\n        <ion-col></ion-col>\n      </ion-row>\n      <div *ngFor="let item of reviews.product_reviews" class="reviews">\n        <ion-item no-lines>\n          <ion-avatar item-start style="margin:8px">\n            <img src="https://www.gravatar.com/avatar/{{item.avatar}}" />\n          </ion-avatar>\n          <h3 style="margin-bottom:6px;font-size:15px">\n            {{item.reviewer_name}}\n            <span class="rating review-star">\n              <span\n                class="star-icon"\n                [ngClass]="{full: item.rating >= 1, half: item.rating == 0.5}"\n              >\n                &#x2605;\n              </span>\n              <span\n                class="star-icon"\n                [ngClass]="{full: item.rating >= 2, half: item.rating == 1.5}"\n              >\n                &#x2605;\n              </span>\n              <span\n                class="star-icon"\n                [ngClass]="{full: item.rating >= 3, half: item.rating == 2.5}"\n              >\n                &#x2605;\n              </span>\n              <span\n                class="star-icon"\n                [ngClass]="{full: item.rating >= 4, half: item.rating == 3.5}"\n              >\n                &#x2605;\n              </span>\n              <span\n                class="star-icon"\n                [ngClass]="{full: item.rating >= 5, half: item.rating == 4.5}"\n              >\n                &#x2605;\n              </span>\n            </span>\n          </h3>\n\n          <!--h3 style="color:#9e9898">{{item.email}}</h3-->\n          <h3 style="color:#9e9898;margin-bottom:4px">\n            {{item.created_at | date:\'medium\'}}\n          </h3>\n        </ion-item>\n        <p text-wrap>{{item.review}}</p>\n      </div>\n    </div>\n  </div>\n  <br />\n</ion-content>\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\product\product.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__["c" /* TranslateService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
@@ -3653,7 +3654,7 @@ var ProductPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 511:
+/***/ 524:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3661,7 +3662,7 @@ var ProductPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__values__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3789,7 +3790,7 @@ var SearchService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 512:
+/***/ 525:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3812,7 +3813,7 @@ var TermsCondition = /** @class */ (function () {
         this.nav = nav;
     }
     TermsCondition = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\checkout\terms-condition\terms-condition.html"*/'<ion-header>\n\n   <ion-navbar color="header">\n\n      <ion-title>{{"TermsConditions" | translate}}</ion-title>\n\n   </ion-navbar>\n\n</ion-header>\n\n<ion-content padding class="terms-condition">\n\n   <div class="terms">\n\n      \n\n      <p><strong>Acceptable use policy </strong></p>\n\n      <p>HEXchange is committed to making services safe and accessible for everyone. In order to comply with this, we are providing a document, which explains the rules for using HEXchange. Thank you for reading, and for helping us deliver an excellent healthcare experience.</p>\n\n      <p>This Acceptable Use Policy (&ldquo;AUP&rdquo;) is incorporated by reference into HEXchange, Inc.&rsquo;s (&ldquo;HEXchange,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;) <strong>Terms of Use </strong>and governs your use of the Site and Services (as such terms are denied in the Terms of Use). Any capitalized term used but not denied in this AUP shall have the meaning in our Terms of Use. <u>BY USING OR OTHERWISE ACCESSING THE SERVICES, AND/OR BY REGISTERING WITH US, YOU ACKNOWLEDGE AND AGREE THAT YOU HAVE READ THIS AUP, UNDERSTAND ITS TERMS, AND AGREE TO BE LEGALLY BOUND BY ITS TERMS. IF YOU DO NOT AGREE WITH THIS AUP, YOU CANNOT USE THE SERVICES. </u></p>\n\n      <ol>\n\n      <li><strong> Prohibited uses </strong></li>\n\n      </ol>\n\n      <p>You agree not to use the Services in any unlawful, infringing, tortious or harmful manner; in any way that violates another party\'s intellectual property, privacy or other rights; or in any way that otherwise interferes with the operation, use or enjoyment of any service, system or other property.</p>\n\n      <p>Without limiting any of the foregoing, you agree that you shall not (and you agree not to allow any third party to):</p>\n\n      <p>translate, modify, adapt, copy, or reverse engineer any content (as defined in the Terms of Use) or portion of the site, its content or materials and/or the services; remove any copyright, trademark or other proprietary rights notices contained in or on the site and/or the services or in or on any content;</p>\n\n      <p>use any robot, spider, site search/retrieval application, or other automated device, process or means to access, retrieve or index any portion of the Site and/or the Services;<br /> access or retrieve any content or portion of the site and/or the services for purposes of constructing or populating a searchable database of reviews or other content related to the healthcare industry or Healthcare Providers (as defined in the Terms of Use);</p>\n\n      <p>&nbsp;</p>\n\n      <p>reformat or frame any content or portion of the web pages that are part of the site and/or the services;<br /> fraudulently or intentionally misuse the services, including without limitation scheduling an appointment with a Healthcare Provider which you do not intend to keep, or scheduling an appointment for Designated Provider Services (as defined in the Additional Terms)</p>\n\n      <p>&nbsp;</p>\n\n      <p>which you do not intend to pay using the Transaction Processing Services (as defined in the Additional Terms). Create user accounts, book appointments or submit posted information by automated means or under false or fraudulent pretenses;<br /> collect or store personal data about other users in connection with the prohibited activities described in this paragraph; or use any means, including software means, to conduct web scraping of any portion of the site, its content or materials and/or the services.</p>\n\n      <p><strong>NO SPAM.</strong></p>\n\n      <p>You may not use contact information provided by our users or Healthcare Providers, or harvest such information for the purpose of sending, or to facilitate the sending of, unsolicited bulk communications, such as SPAM. You may not allow others to use your account to violate the terms of this section. We may immediately terminate your registration or access to the services and take other legal action if you or anyone using your credentials violates these provisions.</p>\n\n      <ol start="2">\n\n      <li><strong> USER CONTENT </strong></li>\n\n      </ol>\n\n      <p>Pursuant to the <strong>Terms of Use</strong>, you may submit feedback, submit inquiries and to participate in the other interactive and community features of the site (collectively &ldquo;Posted Information&rdquo;). In providing feedback, please give clear, honest information about the Healthcare Provider and your experiences, but do not use <strong>inappropriate language, make gratuitous personal criticisms or comments or provide information that others could use to determine your identity</strong>. When participating in interactive or community aspects of the service, please do not post any information that another user or Healthcare Provider may use to individually identify you, but please do include all relevant information in a concise manner to help us provide you with a helpful response.</p>\n\n      <p><strong>&nbsp;</strong></p>\n\n      <p><strong>We reserve the right to publish your Posted Information as part of the Services and to also remove your Posted Information for any reason.</strong> We are not, however, responsible for any failure or delay in posting or removing Posted Information. Keep in mind that the Posted Information of others is simply opinion and should not be relied on.</p>\n\n      <p>Without limiting the generality of the foregoing:</p>\n\n      <p>You are solely responsible for any Posted Information that you submit, publish or display through the services or transmit to other members and/or other users of the site.<br /> You may not post, distribute, or reproduce in any way any copyrighted material, trademarks, or other proprietary information without obtaining the prior written consent of the owner of such proprietary rights. You may not submit any content or material that infringes, misappropriates or violates the intellectual property, publicity, privacy or other rights of any party.</p>\n\n      <p>You may not provide any Posted Information that falsely expresses or implies that such content or material is sponsored or endorsed by HEXchange.<br /> You may not provide any Posted Information that is unlawful or that promotes or encourages illegal activity.</p>\n\n      <p>You understand and agree that HEXchange may (but is not obligated to) review and delete any Posted Information that in the sole judgment of HEXchange violates the Terms of Use or this AUP, or which might be offensive, illegal, or that might violate the rights of, harm, or threaten the safety of other users or members of the Services and/or other website users.</p>\n\n      <p>You agree that you will only provide Posted Information that you believe to be true. You may not submit Posted Information that:</p>\n\n      <ul>\n\n      <li>is false, deceptive or misleading;</li>\n\n      <li>harasses or advocates harassment of another person;</li>\n\n      <li>involves the transmission of unsolicited mass mailing or "spamming";</li>\n\n      <li>violates, infringes or misappropriates the intellectual property or other rights of any person;</li>\n\n      <li>violates antitrust, competition, or consumer protection laws;</li>\n\n      <li>is threatening, abusive, obscene, defamatory or libelous; or</li>\n\n      <li>is pornographic or sexually explicit in nature.</li>\n\n      </ul>\n\n      <p>The foregoing is a partial list of the kind of content and communications that are illegal or prohibited on/through the site. HEXchange reserves the right to investigate and take appropriate legal action in accordance with the <strong>Terms of Use</strong>.</p>\n\n      <ol start="3">\n\n      <li><strong> COPYRIGHT DISPUTE POLICY </strong></li>\n\n      </ol>\n\n      <p>HEXchange adopts the general policy toward copyright infringement in accordance with the Digital Millennium Copyright Act (DMCA) (<strong>http://www.lcweb.loc.gov/copyright/legislation/dmca.pdf</strong>). The address of HEXchange&rsquo;s Designated Agent to receive notification of claimed infringement ("Designated Agent") is provided at the bottom of this section.</p>\n\n      <p><strong>HEXchange Policy. </strong></p>\n\n      <p>Our policy is to (a) block access to or remove material that it believes in good faith to be copyrighted material that has been illegally copied and distributed by any of our advertisers, affiliates, content providers, members or other users; and (b) remove and discontinue Service to repeat offenders.</p>\n\n      <p><strong>Procedure for Reporting Copyright Infringements.</strong></p>\n\n      <p>If you believe that material or content residing on or accessible through the site or the services infringes a copyright, please send a notice of copyright infringement containing the following information to the Designated Agent listed below ("Proper Bona Fide Infringement Notification"):</p>\n\n      <p>A physical or electronic signature of a person authorized to act on behalf of the owner of the copyright that has been allegedly infringed;<br /> Identification of works or materials being infringed;<br /> Identification of the material that is claimed to be infringing including information regarding the location of the infringing materials that the copyright owner seeks to have removed, with sufficient detail so that HEXchange is capable of finding and verifying its existence;</p>\n\n      <p>Contact information about the notifier including address, telephone number and, if available, email address;<br /> A statement that the notifier has a good faith belief that the material is not authorized by the copyright owner, its agent, or the law; and</p>\n\n      <p>A statement made under penalty of perjury that the information provided is accurate and the notifying party is authorized to make the complaint on behalf of the copyright owner.</p>\n\n      <p><strong>Upon Receipt of a Bona Fide Infringement Notification. </strong></p>\n\n      <p>Once a Proper Bona Fide Infringement Notification is received by the Designated Agent, it is HEXchange&rsquo;s policy:</p>\n\n      <p>to remove or disable access to the infringing material;<br /> to notify the content provider, member or user that it has removed or disabled access to the material; and<br /> for repeat offenders, to terminate such content to provider&rsquo;s, member\'s or user\'s access to the Service.</p>\n\n      <p><strong>Procedure to Supply a Counter-Notice to the Designated Agent. </strong></p>\n\n      <p>If the content provider, member or user believes that the material that was removed or to which access was disabled is either not infringing, or the content provider, member or user believes that it has the right to post and use such material from the copyright owner, the copyright owner\'s agent, or pursuant to the law, the content provider, member or user must send a counter-notice containing the following information to the Designated Agent listed below:</p>\n\n      <p>A physical or electronic signature of the content provider, member or user;</p>\n\n      <p>Identification of the material that has been removed or to which access has been disabled and the location at which the material appeared before it was removed or disabled;<br /> A statement that the content provider, member or user has a good faith belief that the material was removed or disabled as a result of mistake or a misidentification of the material; and</p>\n\n      <p>The content providers, members or user\'s name, address, telephone number, and, if available, email address and a statement that such person or entity consents to the jurisdiction of the Federal Court for the judicial district in which the content providers, members or user\'s address is located, or if the content providers, members or user\'s address is located outside the United States, for any judicial district in which HEXchange is located, and that such person or entity will accept service of process from the person who provided notification of the alleged infringement.</p>\n\n      <p><strong>Removal. </strong></p>\n\n      <p>If a counter-notice is received by the Designated Agent, HEXchange may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed material or cease disabling it in 10 business days. Unless the copyright owner les an action seeking a court order against the content provider, member or user, the removed material may be replaced or access to it restored in 10 to 14 business days or more after receipt of the counter-notice, at HEXchange&rsquo;s discretion.</p>\n\n      <p>Address for Designated Agent. Please contact HEXchange&rsquo;s Designated Agent to Receive Notification of Claimed Infringement at the following address:</p>\n\n      <p>Copyright Agent, HEXchange, 801 Brickell Ave, Suite 900, Miami, FL 33131</p>\n\n      <p>Phone: (305)913-2306<br /> Email to: <strong>info@</strong> <strong>HEXchange.com </strong></p>\n\n      <ol start="4">\n\n      <li><strong> UPDATES AND CHANGES TO THE ACCEPTABLE USE POLICY </strong></li>\n\n      </ol>\n\n      <p>The effective date of this Acceptable Use Policy is set forth at the top of this webpage. We will notify you of any material change by posting notice on this webpage. Your continued use of the Services after the effective date constitutes your acceptance of the amended Acceptable Use Policy. We encourage you to periodically review this page for the latest information on acceptable uses of the Services. The amended Acceptable Use Policy supersedes all previous versions. IF YOU DO NOT AGREE TO FUTURE CHANGES TO THIS ACCEPTABLE USE POLICY, YOU MUST STOP USING THE SERVICES AFTER THE EFFECTIVE DATE OF SUCH CHANGES.</p>\n\n      <p>&nbsp;</p>\n\n<br>\n\n<br>\n\n<br>\n\n\n\n<p><strong>Hexchange Privacy Authorization </strong></p>\n\n<p>HEXchange offers services, such as helping you to understand and learn about nearby healthcare providers, booking appointments with the healthcare provider(s) of your choice (each, &ldquo;Your Healthcare Provider&rdquo;) and managing and forwarding your health history forms and other health-related information to share with Your Healthcare Providers (&ldquo;HEXchange Services&rdquo;). As part of providing the HEXchange Services, HEXchange may collect, use, share, and exchange your health history forms and other health-related information with Your Healthcare Providers. Under a federal law called the Health Insurance Portability and Accountability Act (&ldquo;HIPAA&rdquo;), some of this health and health-related information may be considered &ldquo;protected health information&rdquo; or &ldquo;PHI&rdquo; if such information is received from or on behalf of Your Healthcare Providers.</p>\n\n<p><strong>Safeguards for PHI </strong></p>\n\n<p>HIPAA protects the privacy and security of your PHI by limiting the uses and disclosures of PHI by most healthcare providers and by health plans (called &ldquo;Covered Entities&rdquo;) as well as companies, like HEXchange, that provide certain types of assistance to Covered Entities (called &ldquo;Business Associates&rdquo;). Under certain circumstances described in HIPAA, an individual needs to sign an Authorization form before a Covered Entity, like Your Healthcare Provider(s), can disclose protected health information to a third party.</p>\n\n<p><strong>Non-Protected Health Information </strong></p>\n\n<p>As a condition of creating your HEXchange account, you are required to read and agree to HEXchange&rsquo;s <strong>Privacy Policy</strong>. HEXchange&rsquo;s Privacy Policy explains how HEXchange processes and shares information received from you that is not covered by HIPAA (&ldquo;Non-PHI&rdquo;).</p>\n\n<p><strong>&nbsp;</strong></p>\n\n<p><strong>Your PHI Authorization </strong></p>\n\n<p>The purpose of this HEXchange Authorization (&ldquo;Authorization&rdquo;) is to request your written permission to allow HEXchange to use and disclose your PHI in the same way as we use and disclose your Non-PHI. If HEXchange is a Business Associate of Your Healthcare Providers, HEXchange needs your Authorization to be able to use and disclose your PHI in the same way it can currently use and disclose your Non-PHI when HEXchange is not working on behalf of Your Healthcare Providers, but is instead working on its own behalf. Therefore, when HEXchange relies on this Authorization, and uses and discloses PHI as described in this Authorization, it is not working as a Business Associate and the HIPAA requirements that apply to Business Associates will not apply to such uses and disclosures.</p>\n\n<p>If you e-sign this Authorization, you give your permission to HEXchange to retain your PHI and to use and/or disclose your PHI in the same way that you have agreed that your Non-PHI can be used and disclosed.</p>\n\n<p>Specifically, you agree that HEXchange can use your PHI to:</p>\n\n<ul>\n\n<li>Enable and customize your use of the HEXchange Services</li>\n\n<li>Provide you alerts or other HEXchange Services regarding future appointments</li>\n\n<li>Notify you regarding providers we think you may be interested in learning more about</li>\n\n<li>Share information with you regarding services, products or resources about which we think you may be interested in learning more;<br /> provide you with updates and information about the HEXchange Services</li>\n\n<li>Market to you about HEXchange and third-party products and services;</li>\n\n<li>Conduct analysis for HEXchange&rsquo;s business purposes</li>\n\n<li>Support development of the HEXchange Services and</li>\n\n<li>Create de-identified information and then use and disclose this information in any way permitted by law, including to third parties in connection with their commercial and marketing eorts.</li>\n\n</ul>\n\n<p>You also agree that HEXchange can disclose your PHI to:</p>\n\n<ul>\n\n<li>Third parties assisting HEXchange with any of the uses described above</li>\n\n<li>Your Healthcare Providers to enable them to refer you to, and make appointments with, other providers on your behalf, or to perform an analysis on potential health issues or treatments, provided that you choose to use the applicable HEXchange Service</li>\n\n<li>A third party as part of a potential merger, sale or acquisition of HEXchange</li>\n\n<li>Our business partners who assist us by performing core services (such as hosting, billing, fulfillment, or data storage and security) related to the operation or provision of our services, even when HEXchange is no longer working on behalf of Your Healthcare Providers</li>\n\n<li>A provider of medical services, in the event of an emergency; and</li>\n\n<li>Organizations that collect, aggregate and organize your information so they can make it more easily accessible to your providers.</li>\n\n</ul>\n\n<p><strong>&nbsp;</strong></p>\n\n<p><strong>&nbsp;</strong></p>\n\n<p><strong>&nbsp;</strong></p>\n\n<p><strong>Redisclosure </strong></p>\n\n<p>If HEXchange discloses your PHI, HEXchange will require that the person or entity receiving your PHI agrees to only use and disclose your PHI to carry out its specific business obligations to HEXchange or for the permitted purpose of the disclosure (as described above). HEXchange cannot, however, guarantee that any such person or entity to which HEXchange discloses your PHI or other information will not re-disclose it in ways that you or we did not intend or permit.</p>\n\n<p><strong>Expiration and Revocation of Authorization </strong></p>\n\n<p>Your Authorization remains in effect until you provide written notice of revocation to HEXchange.</p>\n\n<p>YOU CAN CHANGE YOUR MIND AND REVOKE THIS AUTHORIZATION AT ANY TIME AND FOR ANY (OR NO) REASON.</p>\n\n<p>If you wish to revoke this Authorization, you must notify HEXchange by submitting a revocation through your account settings page. Your decision not to execute this Authorization or to revoke it at any time will not affect your ability to use certain of the HEXchange Services. A Revocation of Authorization is effective after you submit it to HEXchange, but it does not have any effect on HEXchange&rsquo;s prior actions taken in reliance on the Authorization before revoked.</p>\n\n<p>Once HEXchange receives your Revocation of Authorization, HEXchange can only use and disclose your PHI as permitted in HEXchange&rsquo;s agreements with Your Healthcare Provider(s). Your Revocation of Authorization does not affect HEXchange&rsquo;s use of your Non- PHI.</p>\n\n<p>We will make available to Your Healthcare Provider(s), current and past, your agreement to or revocation of this Authorization.</p>\n\n<p>&nbsp;</p>\n\n\n\n      \n\n   </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\checkout\terms-condition\terms-condition.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\checkout\terms-condition\terms-condition.html"*/'<ion-header>\n\n   <ion-navbar color="header">\n\n      <ion-title>{{"TermsConditions" | translate}}</ion-title>\n\n   </ion-navbar>\n\n</ion-header>\n\n<ion-content padding class="terms-condition">\n\n   <div class="terms">\n\n      \n\n      <h3><strong>POLÍTICA DE PRIVACIDAD HOMER</strong></h3>\n\n&nbsp;\n\n\n\n<strong>1. Introducción</strong>\n\n\n\nHomer Home Services, S.L. ("<strong>HOMER</strong>") se compromete a proteger la privacidad de todos los usuarios de la página web <u>www.homer.es</u> y de nuestras aplicaciones móviles (la "<strong>Plataforma</strong>").\n\n\n\nLa presente política de privacidad (la "<strong>Política de Privacidad</strong>") tiene por objeto informar sobre el modo en que obtenemos protegemos y realizamos el tratamiento de cualesquiera datos de carácter personal a los que HOMER pueda tener acceso por cualquier medio.\n\n\n\n<strong>2. ¿Quién es el responsable del tratamiento de sus datos?</strong>\n\n\n\nHomer Home Services, S.L. es el responsable de tratamiento de los datos personales, lo que implica que somos responsables de cuidar la privacidad de los mismos. Utilizaremos sus datos personales de manera justa, legal y transparente y de conformidad con la normativa vigente de protección de datos.\n\n\n\nNuestros datos son los siguientes:\n\n\n\n<u>Dirección</u>: Calle Diego de León, 60, 3ºB, 28006\n\n\n\n<u>NIF</u>: B88502380\n\n\n\n<u>Teléfono:</u> [<em>pendiente</em>]\n\n\n\n<u>Correo electrónico</u>: [<em>pendiente</em>]\n\n\n\n<strong>3. ¿Cómo obtenemos sus datos?</strong>\n\n\n\nObtenemos información personal acerca de usted cada vez que interactúa con nosotros o utiliza o le prestamos servicios; por ejemplo, cuando usted utiliza nuestra Plataforma para hacer un pedido. También observamos cómo utilizan los usuarios nuestra Plataforma, pues gracias a ello podemos mejorar nuestros servicios y su experiencia como cliente.\n\n\n\nObtenemos información:\n\n<ul>\n\n 	<li>cuando crea una cuenta con nosotros o cada vez que cambia la configuración de la misma;</li>\n\n 	<li>cuando realiza un pedido, así como durante todo el proceso de servicio del mismo (incluidos el pago);</li>\n\n 	<li>cuando contacta con nosotros directamente a través de correo electrónico, teléfono, por carta, mensaje o a través de nuestra función chat; y</li>\n\n 	<li>cada vez que navega y utiliza nuestra Plataforma (tanto antes como después de que cree una cuenta con nosotros)</li>\n\n</ul>\n\n&nbsp;\n\n\n\n<strong>4. Datos que obtenemos sobre Usted</strong>\n\n\n\nComo parte de nuestro compromiso con la protección de los datos de nuestros clientes y, más en general, de quienes visitan nuestra Plataforma; queremos ser transparentes respecto de los tipos de datos que obtendremos acerca de usted.\n\n\n\nCada vez que usted visita la Plataforma o solicita un servicio a través HOMER, se le pide que nos facilite ciertos datos acerca de usted mismo, incluido nombre completo, información de contacto, dirección, datos del pedido e información relativa al pago, como los detalles de su tarjeta de crédito o débito.\n\n\n\nTambién obtenemos información acerca del uso que usted hace de la Plataforma (le rogamos visite nuestra Política de Cookies para más información), así como información sobre usted a partir de los mensajes que usted envía a través de la Plataforma, o cada vez que usted contacta con nosotros o formula comentarios; esto incluye correo electrónico, correo postal, llamadas telefónicas o la función chat. . Asimismo, obtenemos información sobre usted cuando se pone en contacto con los proveedores de servicios mediante la función de chat de la Plataforma.\n\n\n\nRecabamos información técnica acerca de su ordenador o su dispositivo móvil, como su sistema operativo, tipo de dispositivo y conexión, o la dirección IP desde la que usted accede a nuestras Plataforma.\n\n\n\nAsimismo, HOMER obtiene información técnica en relación con su uso de nuestros servicios a través de dispositivos móviles; por ejemplo, compañía telefónica, datos de localización y datos de funcionamiento, como modos de pago móvil, interacción con otras tecnologías de venta. Salvo que usted haya optado por permanecer en el anonimato a través de la configuración de su dispositivo y/o plataforma, podremos obtener esta información y utilizarla de manera automática siempre que usted haga uso de nuestros servicios a través de dispositivos móviles utilizando cualquier aplicación móvil HOMER, mediante el navegador de su móvil o de cualquier otra forma.\n\n\n\nTratamos datos relativos a su salud únicamente cuando usted nos indica su aceptación y disposición a ello.\n\n\n\n<strong>5. Uso de sus datos</strong>\n\n\n\nÚnicamente trataremos los datos que obtengamos acerca de usted si existe un motivo para ello y si ese motivo viene amparado por la legislación en materia de protección de datos.\n\n\n\nEstaremos autorizados a tratar su información en los siguientes casos: si necesitamos tratar datos acerca de usted para prestarle el servicio solicitado o para firmar un contrato; si tenemos su consentimiento; si tenemos un motivo justificado para tratar sus datos; o si la legislación nos obliga a ello.\n\n\n\nEn aquellos casos en que lo necesitemos para prestarle los servicios solicitados por usted o para firmar un contrato, utilizamos su información para:\n\n<ul>\n\n 	<li>proporcionarle acceso a las secciones correspondientes de la Plataforma, así como la gestión, desarrollo y control de su registro y uso;</li>\n\n 	<li>gestionar su alta como cliente de los servicios de HOMER y las solicitudes, de cualquier naturaleza, que nos remita;</li>\n\n 	<li>prestar los servicios solicitados;</li>\n\n 	<li>administrar y desarrollar la relación precontractual o contractual formalizada con Usted</li>\n\n 	<li>poder realizarle los cobros correspondientes; y</li>\n\n 	<li>la mejora de nuestros servicios y productos, el envío de actualizaciones de servicios y mantenerle puntualmente informado de todas nuestras novedades, ofertas y productos similares a los contratados por Usted y que puedan ser de su interés</li>\n\n 	<li>contactar con usted siempre que sea necesario en relación con nuestros servicios; por ejemplo, para resolver problemas que puedan surgir con su pedido.</li>\n\n 	<li>llevar a cabo operaciones corporativas, tales como fusiones, ventas, reorganizaciones, transferencias de activos o negocio, adquisiciones, procedimientos concursales o eventos similares;</li>\n\n 	<li>si usted envía comentarios y opiniones en relación con la Plataforma y con nuestros servicios, podremos utilizarlos en la Plataforma y en cualquier actividad o material de marketing y publicidad. En estos casos, únicamente indicaremos su nombre y la ciudad en la que usted reside; y</li>\n\n 	<li>en caso de que usted haya aceptado recibir notificaciones de nosotros a través de nuestra aplicación móvil, podremos enviarle notificaciones relativas a los servicios que haya solicitado e información sobre nuestros servicios y nuestras ofertas. Puede dejar de recibir notificaciones en cualquier momento cambiando las preferencias en los ajustes de su dispositivo móvil.</li>\n\n</ul>\n\n&nbsp;\n\n\n\n<strong>6. Conservación de sus datos.</strong>\n\n\n\nNos limitaremos a conservar la información relativa a usted estrictamente el tiempo necesario.\n\n\n\nLa información que obtengamos será conservada durante el periodo necesario a los efectos de los fines previstos en la sección anterior «Uso de sus datos», en defensa de los legítimos intereses de HOMER o durante el período que establezcan expresamente las leyes y reglamentos aplicables, como la conservación de datos para fines regulatorios.\n\n\n\nPara establecer los oportunos plazos de conservación, tendremos en cuenta, entre otros, los siguientes factores:\n\n<ul>\n\n 	<li>nuestras obligaciones contractuales y nuestros derechos en relación con esos datos;</li>\n\n 	<li>las obligaciones legales establecidas en la legislación vigente que nos obliguen a conservar dicha información durante un cierto plazo;</li>\n\n 	<li>las limitaciones que establezcan las leyes aplicables;</li>\n\n 	<li>nuestros motivos justificados para el tratamiento, sin perjuicio de nuestra obligación de realizar los debidos análisis de proporcionalidad (remitimos a la sección anterior «Uso de sus datos»);</li>\n\n 	<li>las (posibles) disputas; y</li>\n\n 	<li>las directrices emanadas de las autoridades competentes en materia de protección de datos.</li>\n\n</ul>\n\nEn cualquier caso, eliminaremos de manera segura su información cuando ya no la necesitamos para los fines para los cuales la obtuvimos.\n\n\n\n&nbsp;\n\n\n\n<strong>7. Revelación de sus Datos</strong>\n\n\n\nLa información que obtenemos acerca de usted se transferirá a nuestros servidores y quedará almacenada en los mismos; estos servidores se encuentran en [<em>pendiente</em>].\n\n\n\nActuamos con total responsabilidad y transparencia acerca de con quién más compartimos esta información.\n\n\n\nIntercambiamos datos acerca de usted con terceros proveedores de servicios. Estos son los tipos de terceros proveedores de servicios con los que compartimos la información relativa a usted:\n\n<ul>\n\n 	<li>Proveedores de servicios de pagos (incluidos proveedores de servicios de pago online y de servicios de detección de fraude): para que puedan prestarnos sus servicios, por ejemplo, cuando tratan información como pagos a través de tarjetas de crédito, cuando le prestan servicios de apoyo directamente a usted o cuando hacen comprobaciones de antecedentes de fraude para nosotros;</li>\n\n 	<li>Proveedores de servicios informáticos (incluidos proveedores de servicios en la nube) para almacenamiento y análisis de datos;</li>\n\n 	<li>Proveedores de nuestros servicios: para que puedan realizar el servicio requerido;</li>\n\n 	<li>Terceros asociados para servicios de atención al cliente: que nos ayudarán a resolver cualquier problema que pueda surgir con nuestros servicios; y</li>\n\n 	<li>Terceros asociados para marketing y publicidad: para que se aseguren de que usted recibe la publicidad que más le interese y para enviarle marketing electrónico en nombre de HOMER.</li>\n\n</ul>\n\nHOMER adoptará todas las medidas necesarias para garantizar que sus datos se procesan de manera segura y de acuerdo con esta política, en aquellos casos en que se transfieran a terceros.\n\n\n\nSi nuestra sociedad emprende una joint venture, adquiere o es vendida, o se fusiona con otra sociedad, es posible que transfiramos o revelemos información acerca de usted a dicha empresa, a nuestros nuevos socios comerciales o propietarios y/o a sus asesores.\n\n\n\nTambién estaremos facultados para compartir su información:\n\n<ul>\n\n 	<li>si existe para HOMER la obligación de revelar o compartir su información para cumplir (y/o si creemos que es nuestra obligación para cumplir) con requisitos legales o regulatorios. Esto incluye aquellos casos en que estemos obligados legalmente a responder a solicitudes de información de la policía o a intercambiar información con otras empresas u organizaciones para fines de prevención y/o de protección frente a conductas fraudulentas;</li>\n\n 	<li>con el fin de cumplir y hacer cumplir las condiciones contractuales suscritas con usted y cualquier otro contrato;</li>\n\n 	<li>para proteger los derechos de HOMER, de los proveedores y otras personas, lo que incluye la prevención del fraude; y</li>\n\n 	<li>con otros terceros siempre que, en nuestra opinión, ello sea razonablemente necesario para detectar o impedir la comisión de delitos, por ejemplo, con la policía.</li>\n\n</ul>\n\n&nbsp;\n\n\n\n<strong>8. Seguridad</strong>\n\n\n\nContamos con unas políticas sólidas y con la mejor tecnología para garantizar en todo momento que la información que obtenemos acerca de usted cuenta con la debida protección.\n\n\n\nAdoptamos las medidas necesarias encaminadas a proteger su información de todo acceso no autorizado y/o frente a tratamientos ilegítimos, pérdida, destrucción o daños accidentales.\n\n\n\nSi usted elige una contraseña para acceder a ciertas secciones del Plataforma, tenga en cuenta que es usted el único responsable de mantenerla en secreto. Le recomendamos que se abstenga de compartir su información sobre contraseñas con otras personas.\n\n\n\nLamentablemente, la transmisión de información a través de Internet no es segura al 100%. Aunque adoptamos medidas para proteger su información, no podemos garantizar plenamente la seguridad de los datos que se transmiten a la Plataforma; estas transmisiones son bajo su propio riesgo y responsabilidad. Una vez recibamos información suya, aplicaremos procedimientos y medidas de seguridad estrictas para tratar de impedir todo acceso no autorizado.\n\n\n\n&nbsp;\n\n\n\n<strong>9. Sus derechos</strong>\n\n\n\nDe acuerdo con la legislación en materia de protección de datos, le amparan una serie de derechos en relación con la información que poseemos acerca de usted. Si desea ejercer alguno de estos derechos, le invitamos a que contacte con nosotros a través de los datos de contacto facilitados anteriormente en este documento. Si desea saber más acerca de sus derechos, contacte con su autoridad de protección de datos.\n\n<ul>\n\n 	<li><u>Derecho a ser informado</u>. Tiene derecho a que se le informe de manera clara, transparente y fácilmente entendible sobre cómo utilizamos su información, así como acerca de sus derechos. Precisamente por este motivo le estamos informando de todo ello a través de esta política.</li>\n\n 	<li><u>Derecho de acceso</u>. Tiene derecho a obtener acceso a su información (si la estamos tratando). Gracias a ese acceso usted podrá, por ejemplo, comprobar que estamos utilizando su información de manera conforme con la legislación en materia de protección de datos. Si desea acceder a la información que tenemos sobre usted, póngase en contacto con nosotros (ver Datos de contacto).</li>\n\n 	<li><u>Derecho de rectificación</u>. Tiene derecho a que la información que tenemos acerca de usted sea corregida si es inexacta o incompleta. Puede pedirnos que rectifiquemos cualquier error en la información que tenemos sobre usted simplemente contactando con nosotros (Ver Datos de contacto).</li>\n\n 	<li><u>Derecho de supresión</u>. Se conoce también como «derecho al olvido» y, dicho brevemente, es el derecho que le permite solicitar la supresión o eliminación de la información que tenemos acerca de usted, simplemente contactando con nosotros (Ver Datos de contacto). Este derecho no es absoluto y sólo es ejercitable en determinadas circunstancias.</li>\n\n 	<li><u>Derecho de limitación del tratamiento</u>. Tiene derecho a bloquear o a suprimir cualquier uso futuro de su información. Cuando se dan estas limitaciones al tratamiento, HOMER puede seguir conservando sus datos, pero sin darles uso alguno.</li>\n\n 	<li><u>Derecho a la portabilidad de los datos</u>. Tiene derecho a obtener su información personal en un soporte accesible y transferible que le permita reutilizarla para sus propios fines y con diferentes proveedores de servicios. No obstante, no es un derecho general, y cuenta con excepciones. Para saber más, póngase en contacto con nosotros (Ver Datos de contacto).</li>\n\n 	<li><u>Derecho a formular quejas</u>. Tiene derecho a formular las oportunas quejas ante su autoridad nacional de protección de datos sobre el modo en que gestionamos o procesamos la información relativa a usted. (Ver Quejas)</li>\n\n 	<li><u>Derecho a revocar su consentimiento</u>. Si usted ha dado a HOMER su consentimiento para alguna gestión relativa a su información (es decir, si HOMER ha procesado datos suyos basándose en su autorización expresa), tiene derecho a retirar dicho consentimiento en cualquier momento. Puede hacerlo simplemente contactando con nosotros (Ver Datos de contacto). Tenga en cuenta que la revocación del consentimiento no implicará que hayamos hecho un uso ilegítimo de sus datos durante el tiempo en que dicho consentimiento hubiere sido aparente.</li>\n\n 	<li><u>Derecho de oposición al tratamiento</u>. Tiene derecho a oponerse a ciertos tipos de tratamiento, incluido el tratamiento para marketing directo y para la elaboración de perfiles.</li>\n\n</ul>\n\n&nbsp;\n\n\n\n<strong>10. Quejas</strong>\n\n\n\nSi no le parece correcta nuestra respuesta a cualquiera de sus quejas, o si cree que el tratamiento que damos a su información no es conforme con la legislación sobre protección de datos, puede formular la correspondiente queja a la Agencia Española de Protección de Datos (AEPD) utilizando los siguientes datos:\n\n<ul>\n\n 	<li>Dirección: Agencia Española de Protección de Datos, C/ Jorge Juan, 6. 28001 - Madrid</li>\n\n 	<li>Teléfono: 901 100 099 - 912 663 517</li>\n\n</ul>\n\n\n\n      \n\n   </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\checkout\terms-condition\terms-condition.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]])
     ], TermsCondition);
@@ -3823,7 +3824,7 @@ var TermsCondition = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 513:
+/***/ 526:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3833,13 +3834,14 @@ var TermsCondition = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__products_products__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__product_product__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__post_post__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_geolocation_ngx__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_geocoder__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__tabs_tabs__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__products_products__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__product_product__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__post_post__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_geolocation_ngx__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ngx_socket_io__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__tabs_tabs__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3858,11 +3860,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 
 var ProductsListPage = /** @class */ (function () {
-    function ProductsListPage(modalCtrl, platform, geolocation, nativeGeocoder, zone, toastCtrl, nav, service, values) {
+    function ProductsListPage(modalCtrl, platform, geolocation, nativeGeocoder, zone, toastCtrl, nav, service, values, socket) {
         var _this = this;
         this.modalCtrl = modalCtrl;
         this.platform = platform;
@@ -3873,6 +3876,7 @@ var ProductsListPage = /** @class */ (function () {
         this.nav = nav;
         this.service = service;
         this.values = values;
+        this.socket = socket;
         this.HiddenList = true;
         this.HiddenListCat = true;
         this.HiddenSearchLocation = false;
@@ -3916,7 +3920,7 @@ var ProductsListPage = /** @class */ (function () {
     ProductsListPage.prototype.ionSelected = function () {
         console.log("productlist Page has been selected");
         // do your stuff here
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_10__tabs_tabs__["a" /* TabsPage */]);
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_11__tabs_tabs__["a" /* TabsPage */]);
         this.pageTop.scrollToTop();
     };
     ProductsListPage.prototype.gohome = function () {
@@ -4229,31 +4233,38 @@ var ProductsListPage = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"],
             __WEBPACK_IMPORTED_MODULE_8__ionic_native_geolocation_ngx__["a" /* Geolocation */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_geocoder__["a" /* NativeGeocoder */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__["a" /* NativeGeocoder */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2__providers_service_service__["a" /* Service */], __WEBPACK_IMPORTED_MODULE_3__providers_service_values__["a" /* Values */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
+            __WEBPACK_IMPORTED_MODULE_2__providers_service_service__["a" /* Service */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_service_values__["a" /* Values */],
+            __WEBPACK_IMPORTED_MODULE_9_ngx_socket_io__["a" /* Socket */]])
     ], ProductsListPage);
     return ProductsListPage;
 }());
 
 var ModalContentPage = /** @class */ (function () {
-    function ModalContentPage(platform, params, viewCtrl) {
+    function ModalContentPage(platform, params, viewCtrl, values) {
         this.platform = platform;
         this.params = params;
         this.viewCtrl = viewCtrl;
+        this.values = values;
         this.title = this.params.get('title');
         this.detail = this.params.get('detail');
+        this.imgModal = this.values.homeClean;
     }
     ModalContentPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            template: "\n<ion-content>\n  <ion-buttons start>\n      <button ion-button (click)=\"dismiss()\">\n        <ion-icon name=\"close\"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-card style=\"margin-top:20px\">\n      <img src=\"/assets/image/home-clean.jpg\"/>\n      <ion-card-content>\n        <ion-card-title>\n          {{title}}\n        </ion-card-title>\n        <p>\n          {{detail}}\n        </p>\n      </ion-card-content>\n    </ion-card>\n</ion-content>\n"
+            template: "\n<ion-content>\n  <ion-buttons start>\n      <button ion-button (click)=\"dismiss()\">\n        <ion-icon name=\"close\"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-card style=\"margin-top:20px\">\n      <img src=\"{{imgModal}}\"/>\n      <ion-card-content>\n        <ion-card-title>\n          {{title}}\n        </ion-card-title>\n        <p>\n          {{detail}}\n        </p>\n      </ion-card-content>\n    </ion-card>\n</ion-content>\n"
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ViewController"]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ViewController"],
+            __WEBPACK_IMPORTED_MODULE_3__providers_service_values__["a" /* Values */]])
     ], ModalContentPage);
     return ModalContentPage;
 }());
@@ -4262,7 +4273,7 @@ var ModalContentPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 516:
+/***/ 543:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4282,7 @@ var ModalContentPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4346,7 +4357,7 @@ var WishlistService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 517:
+/***/ 544:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4423,7 +4434,7 @@ var AccountForgotten = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 518:
+/***/ 545:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4432,7 +4443,7 @@ var AccountForgotten = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_address_form_edit_address_form__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_address_form_edit_address_form__ = __webpack_require__(192);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4471,7 +4482,7 @@ var Address = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 519:
+/***/ 546:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4481,7 +4492,7 @@ var Address = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__order_details_order_details__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__order_details_order_details__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4579,7 +4590,7 @@ var Orders = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 520:
+/***/ 547:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4589,8 +4600,8 @@ var Orders = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_tabs__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_tabs__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4708,7 +4719,7 @@ var AccountRegister = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 524:
+/***/ 551:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4718,8 +4729,8 @@ var AccountRegister = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__order_details_order_details__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__booking_vendor_booking_vendor__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__order_details_order_details__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__booking_vendor_booking_vendor__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4821,7 +4832,7 @@ var OrdersVendor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 525:
+/***/ 552:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4831,7 +4842,7 @@ var OrdersVendor = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_http__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_http__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4882,13 +4893,13 @@ var BookingDetails = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 530:
+/***/ 557:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(531);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(562);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -4896,7 +4907,68 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 535:
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__products_list_products_list__ = __webpack_require__(526);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_account_wishlist_wishlist__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart_cart__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_service_values__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_account_account__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var TabsPage = /** @class */ (function () {
+    function TabsPage(nav, values, modalCtrl) {
+        this.nav = nav;
+        this.values = values;
+        this.modalCtrl = modalCtrl;
+        this.Home = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* Home */];
+        this.productListPage = __WEBPACK_IMPORTED_MODULE_2__products_list_products_list__["b" /* ProductsListPage */];
+        this.WishlistPage = __WEBPACK_IMPORTED_MODULE_3__pages_account_wishlist_wishlist__["a" /* WishlistPage */];
+        this.CartPage = __WEBPACK_IMPORTED_MODULE_4__cart_cart__["a" /* CartPage */];
+        this.Values = __WEBPACK_IMPORTED_MODULE_5__providers_service_values__["a" /* Values */];
+        this.AccountPage = __WEBPACK_IMPORTED_MODULE_6__pages_account_account_account__["a" /* AccountPage */];
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myTabs'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["Tabs"])
+    ], TabsPage.prototype, "tabRef", void 0);
+    TabsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\tabs\tabs.html"*/'<ion-tabs class="tabs-islogged" *ngIf="values.isLoggedIn">\n\n  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>\n\n  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>\n\n  <ion-tab [root]="CartPage"  tabIcon="md-cart"></ion-tab>\n\n  <ion-tab [root]="WishlistPage" tabIcon="md-heart"></ion-tab>\n\n  <ion-tab [root]="AccountPage" tabIcon="md-person"></ion-tab>\n\n</ion-tabs>\n\n<ion-tabs *ngIf="!values.isLoggedIn" #homerTabs>\n\n  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>\n\n  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>\n\n  <ion-tab [root]="CartPage" tabIcon="md-cart"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\tabs\tabs.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["NavController"],
+            __WEBPACK_IMPORTED_MODULE_5__providers_service_values__["a" /* Values */],
+            __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["ModalController"]])
+    ], TabsPage);
+    return TabsPage;
+}());
+
+//# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ 562:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4904,61 +4976,61 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__(572);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_account_address_address__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_account_edit_address_form_edit_address_form__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_forgotten_forgotten__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_account_login_login__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_post_post__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_account_order_details_order_details__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_account_orders_orders__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_account_orders_vendor_orders_vendor__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_account_booking_vendor_booking_vendor__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_account_booking_details_booking_details__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_account_register_register__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_account_wishlist_wishlist__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_account_account_account__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_checkout_billing_address_form_billing_address_form__ = __webpack_require__(419);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_checkout_order_summary_order_summary__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_checkout_terms_condition_terms_condition__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_product_product__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_products_products__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_search_search__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_tabs_tabs__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_products_list_products_list__ = __webpack_require__(513);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_status_bar__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_splash_screen__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(420);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_native_storage__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_platform_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_service_cart_service__ = __webpack_require__(418);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_service_wishlist_service__ = __webpack_require__(516);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_service_category_service__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_service_checkout_service__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_account_address_address__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_account_edit_address_form_edit_address_form__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_forgotten_forgotten__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_account_login_login__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_post_post__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_account_order_details_order_details__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_account_orders_orders__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_account_orders_vendor_orders_vendor__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_account_booking_vendor_booking_vendor__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_account_booking_details_booking_details__ = __webpack_require__(552);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_account_register_register__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_account_wishlist_wishlist__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_account_account_account__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_checkout_billing_address_form_billing_address_form__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_checkout_order_summary_order_summary__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_checkout_terms_condition_terms_condition__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_product_product__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_products_products__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_search_search__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_tabs_tabs__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_products_list_products_list__ = __webpack_require__(526);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_status_bar__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_splash_screen__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_native_storage__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_platform_browser__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_service_cart_service__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_service_wishlist_service__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_service_category_service__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_service_checkout_service__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_service_config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_service_product_service__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_service_search_service__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_service_product_service__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_service_search_service__ = __webpack_require__(524);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_pipe_pipe__ = __webpack_require__(859);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__ionic_native_call_number__ = __webpack_require__(860);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__ionic_native_email_composer__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__ionic_native_app_rate__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__ionic_native_social_sharing__ = __webpack_require__(522);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__angular_common_http__ = __webpack_require__(861);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_pipe_pipe__ = __webpack_require__(906);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__ionic_native_call_number__ = __webpack_require__(907);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__ionic_native_email_composer__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__ionic_native_app_rate__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__ionic_native_social_sharing__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__angular_common_http__ = __webpack_require__(908);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__angular_http__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__ngx_translate_core__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ngx_translate_http_loader__ = __webpack_require__(862);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ionic_native_onesignal__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__ionic_native_http__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52_ion2_calendar__ = __webpack_require__(864);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__ngx_translate_core__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ngx_translate_http_loader__ = __webpack_require__(909);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ionic_native_onesignal__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__ionic_native_http__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52_ion2_calendar__ = __webpack_require__(911);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_52_ion2_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__ionic_native_geolocation_ngx__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__ionic_native_native_geocoder__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55_ionic_tags_input__ = __webpack_require__(868);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__ionic_native_geolocation_ngx__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__ionic_native_native_geocoder__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55_ngx_socket_io__ = __webpack_require__(528);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5023,6 +5095,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+var config = { url: 'https://websockethomer.herokuapp.com/', options: {} };
 function createTranslateLoader(http) {
     return new __WEBPACK_IMPORTED_MODULE_49__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
 }
@@ -5064,7 +5137,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_46__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_52_ion2_calendar__["CalendarModule"],
                 __WEBPACK_IMPORTED_MODULE_47__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_55_ionic_tags_input__["a" /* IonTagsInputModule */],
+                __WEBPACK_IMPORTED_MODULE_55_ngx_socket_io__["b" /* SocketIoModule */].forRoot(config),
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicModule"].forRoot(__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
@@ -5141,99 +5214,38 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 55:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__products_list_products_list__ = __webpack_require__(513);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_account_wishlist_wishlist__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart_cart__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_service_values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_account_account__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var TabsPage = /** @class */ (function () {
-    function TabsPage(nav, values, modalCtrl) {
-        this.nav = nav;
-        this.values = values;
-        this.modalCtrl = modalCtrl;
-        this.Home = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* Home */];
-        this.productListPage = __WEBPACK_IMPORTED_MODULE_2__products_list_products_list__["b" /* ProductsListPage */];
-        this.WishlistPage = __WEBPACK_IMPORTED_MODULE_3__pages_account_wishlist_wishlist__["a" /* WishlistPage */];
-        this.CartPage = __WEBPACK_IMPORTED_MODULE_4__cart_cart__["a" /* CartPage */];
-        this.Values = __WEBPACK_IMPORTED_MODULE_5__providers_service_values__["a" /* Values */];
-        this.AccountPage = __WEBPACK_IMPORTED_MODULE_6__pages_account_account_account__["a" /* AccountPage */];
-    }
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myTabs'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["Tabs"])
-    ], TabsPage.prototype, "tabRef", void 0);
-    TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\tabs\tabs.html"*/'<ion-tabs class="tabs-islogged" *ngIf="values.isLoggedIn">\n\n  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>\n\n  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>\n\n  <ion-tab [root]="CartPage"  tabIcon="md-cart"></ion-tab>\n\n  <ion-tab [root]="WishlistPage" tabIcon="md-heart"></ion-tab>\n\n  <ion-tab [root]="AccountPage" tabIcon="md-person"></ion-tab>\n\n</ion-tabs>\n\n<ion-tabs *ngIf="!values.isLoggedIn" #homerTabs>\n\n  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>\n\n  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>\n\n  <ion-tab [root]="CartPage" tabIcon="md-cart"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\tabs\tabs.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["NavController"],
-            __WEBPACK_IMPORTED_MODULE_5__providers_service_values__["a" /* Values */],
-            __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["ModalController"]])
-    ], TabsPage);
-    return TabsPage;
-}());
-
-//# sourceMappingURL=tabs.js.map
-
-/***/ }),
-
-/***/ 572:
+/***/ 599:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_service__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_service_config__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_onesignal__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_products_products__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_cart_cart__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_account_login_login__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_account_address_address__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_account_orders_orders__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_account_register_register__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_checkout_order_summary_order_summary__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_account_wishlist_wishlist__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_product_product__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_post_post__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_app_rate__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_social_sharing__ = __webpack_require__(522);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_email_composer__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_native_storage__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_account_account_account__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_account_orders_vendor_orders_vendor__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_account_booking_vendor_booking_vendor__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_tabs_tabs__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_onesignal__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_products_products__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_cart_cart__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_account_login_login__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_account_address_address__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_account_orders_orders__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_account_register_register__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_checkout_order_summary_order_summary__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_account_wishlist_wishlist__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_product_product__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_post_post__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_app_rate__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_social_sharing__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_email_composer__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_native_storage__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_account_account_account__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_account_orders_vendor_orders_vendor__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_account_booking_vendor_booking_vendor__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_tabs_tabs__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5452,7 +5464,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 579:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5662,276 +5674,276 @@ var md5 = function (string) {
 
 /***/ }),
 
-/***/ 581:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 285,
-	"./af.js": 285,
-	"./ar": 286,
-	"./ar-dz": 287,
-	"./ar-dz.js": 287,
-	"./ar-kw": 288,
-	"./ar-kw.js": 288,
-	"./ar-ly": 289,
-	"./ar-ly.js": 289,
-	"./ar-ma": 290,
-	"./ar-ma.js": 290,
-	"./ar-sa": 291,
-	"./ar-sa.js": 291,
-	"./ar-tn": 292,
-	"./ar-tn.js": 292,
-	"./ar.js": 286,
-	"./az": 293,
-	"./az.js": 293,
-	"./be": 294,
-	"./be.js": 294,
-	"./bg": 295,
-	"./bg.js": 295,
-	"./bm": 296,
-	"./bm.js": 296,
-	"./bn": 297,
-	"./bn.js": 297,
-	"./bo": 298,
-	"./bo.js": 298,
-	"./br": 299,
-	"./br.js": 299,
-	"./bs": 300,
-	"./bs.js": 300,
-	"./ca": 301,
-	"./ca.js": 301,
-	"./cs": 302,
-	"./cs.js": 302,
-	"./cv": 303,
-	"./cv.js": 303,
-	"./cy": 304,
-	"./cy.js": 304,
-	"./da": 305,
-	"./da.js": 305,
-	"./de": 306,
-	"./de-at": 307,
-	"./de-at.js": 307,
-	"./de-ch": 308,
-	"./de-ch.js": 308,
-	"./de.js": 306,
-	"./dv": 309,
-	"./dv.js": 309,
-	"./el": 310,
-	"./el.js": 310,
-	"./en-au": 311,
-	"./en-au.js": 311,
-	"./en-ca": 312,
-	"./en-ca.js": 312,
-	"./en-gb": 313,
-	"./en-gb.js": 313,
-	"./en-ie": 314,
-	"./en-ie.js": 314,
-	"./en-il": 315,
-	"./en-il.js": 315,
-	"./en-in": 316,
-	"./en-in.js": 316,
-	"./en-nz": 317,
-	"./en-nz.js": 317,
-	"./en-sg": 318,
-	"./en-sg.js": 318,
-	"./eo": 319,
-	"./eo.js": 319,
-	"./es": 320,
-	"./es-do": 321,
-	"./es-do.js": 321,
-	"./es-us": 322,
-	"./es-us.js": 322,
-	"./es.js": 320,
-	"./et": 323,
-	"./et.js": 323,
-	"./eu": 324,
-	"./eu.js": 324,
-	"./fa": 325,
-	"./fa.js": 325,
-	"./fi": 326,
-	"./fi.js": 326,
-	"./fil": 327,
-	"./fil.js": 327,
-	"./fo": 328,
-	"./fo.js": 328,
-	"./fr": 329,
-	"./fr-ca": 330,
-	"./fr-ca.js": 330,
-	"./fr-ch": 331,
-	"./fr-ch.js": 331,
-	"./fr.js": 329,
-	"./fy": 332,
-	"./fy.js": 332,
-	"./ga": 333,
-	"./ga.js": 333,
-	"./gd": 334,
-	"./gd.js": 334,
-	"./gl": 335,
-	"./gl.js": 335,
-	"./gom-deva": 336,
-	"./gom-deva.js": 336,
-	"./gom-latn": 337,
-	"./gom-latn.js": 337,
-	"./gu": 338,
-	"./gu.js": 338,
-	"./he": 339,
-	"./he.js": 339,
-	"./hi": 340,
-	"./hi.js": 340,
-	"./hr": 341,
-	"./hr.js": 341,
-	"./hu": 342,
-	"./hu.js": 342,
-	"./hy-am": 343,
-	"./hy-am.js": 343,
-	"./id": 344,
-	"./id.js": 344,
-	"./is": 345,
-	"./is.js": 345,
-	"./it": 346,
-	"./it-ch": 347,
-	"./it-ch.js": 347,
-	"./it.js": 346,
-	"./ja": 348,
-	"./ja.js": 348,
-	"./jv": 349,
-	"./jv.js": 349,
-	"./ka": 350,
-	"./ka.js": 350,
-	"./kk": 351,
-	"./kk.js": 351,
-	"./km": 352,
-	"./km.js": 352,
-	"./kn": 353,
-	"./kn.js": 353,
-	"./ko": 354,
-	"./ko.js": 354,
-	"./ku": 355,
-	"./ku.js": 355,
-	"./ky": 356,
-	"./ky.js": 356,
-	"./lb": 357,
-	"./lb.js": 357,
-	"./lo": 358,
-	"./lo.js": 358,
-	"./lt": 359,
-	"./lt.js": 359,
-	"./lv": 360,
-	"./lv.js": 360,
-	"./me": 361,
-	"./me.js": 361,
-	"./mi": 362,
-	"./mi.js": 362,
-	"./mk": 363,
-	"./mk.js": 363,
-	"./ml": 364,
-	"./ml.js": 364,
-	"./mn": 365,
-	"./mn.js": 365,
-	"./mr": 366,
-	"./mr.js": 366,
-	"./ms": 367,
-	"./ms-my": 368,
-	"./ms-my.js": 368,
-	"./ms.js": 367,
-	"./mt": 369,
-	"./mt.js": 369,
-	"./my": 370,
-	"./my.js": 370,
-	"./nb": 371,
-	"./nb.js": 371,
-	"./ne": 372,
-	"./ne.js": 372,
-	"./nl": 373,
-	"./nl-be": 374,
-	"./nl-be.js": 374,
-	"./nl.js": 373,
-	"./nn": 375,
-	"./nn.js": 375,
-	"./oc-lnc": 376,
-	"./oc-lnc.js": 376,
-	"./pa-in": 377,
-	"./pa-in.js": 377,
-	"./pl": 378,
-	"./pl.js": 378,
-	"./pt": 379,
-	"./pt-br": 380,
-	"./pt-br.js": 380,
-	"./pt.js": 379,
-	"./ro": 381,
-	"./ro.js": 381,
-	"./ru": 382,
-	"./ru.js": 382,
-	"./sd": 383,
-	"./sd.js": 383,
-	"./se": 384,
-	"./se.js": 384,
-	"./si": 385,
-	"./si.js": 385,
-	"./sk": 386,
-	"./sk.js": 386,
-	"./sl": 387,
-	"./sl.js": 387,
-	"./sq": 388,
-	"./sq.js": 388,
-	"./sr": 389,
-	"./sr-cyrl": 390,
-	"./sr-cyrl.js": 390,
-	"./sr.js": 389,
-	"./ss": 391,
-	"./ss.js": 391,
-	"./sv": 392,
-	"./sv.js": 392,
-	"./sw": 393,
-	"./sw.js": 393,
-	"./ta": 394,
-	"./ta.js": 394,
-	"./te": 395,
-	"./te.js": 395,
-	"./tet": 396,
-	"./tet.js": 396,
-	"./tg": 397,
-	"./tg.js": 397,
-	"./th": 398,
-	"./th.js": 398,
-	"./tk": 399,
-	"./tk.js": 399,
-	"./tl-ph": 400,
-	"./tl-ph.js": 400,
-	"./tlh": 401,
-	"./tlh.js": 401,
-	"./tr": 402,
-	"./tr.js": 402,
-	"./tzl": 403,
-	"./tzl.js": 403,
-	"./tzm": 404,
-	"./tzm-latn": 405,
-	"./tzm-latn.js": 405,
-	"./tzm.js": 404,
-	"./ug-cn": 406,
-	"./ug-cn.js": 406,
-	"./uk": 407,
-	"./uk.js": 407,
-	"./ur": 408,
-	"./ur.js": 408,
-	"./uz": 409,
-	"./uz-latn": 410,
-	"./uz-latn.js": 410,
-	"./uz.js": 409,
-	"./vi": 411,
-	"./vi.js": 411,
-	"./x-pseudo": 412,
-	"./x-pseudo.js": 412,
-	"./yo": 413,
-	"./yo.js": 413,
-	"./zh-cn": 414,
-	"./zh-cn.js": 414,
-	"./zh-hk": 415,
-	"./zh-hk.js": 415,
-	"./zh-mo": 416,
-	"./zh-mo.js": 416,
-	"./zh-tw": 417,
-	"./zh-tw.js": 417
+	"./af": 296,
+	"./af.js": 296,
+	"./ar": 297,
+	"./ar-dz": 298,
+	"./ar-dz.js": 298,
+	"./ar-kw": 299,
+	"./ar-kw.js": 299,
+	"./ar-ly": 300,
+	"./ar-ly.js": 300,
+	"./ar-ma": 301,
+	"./ar-ma.js": 301,
+	"./ar-sa": 302,
+	"./ar-sa.js": 302,
+	"./ar-tn": 303,
+	"./ar-tn.js": 303,
+	"./ar.js": 297,
+	"./az": 304,
+	"./az.js": 304,
+	"./be": 305,
+	"./be.js": 305,
+	"./bg": 306,
+	"./bg.js": 306,
+	"./bm": 307,
+	"./bm.js": 307,
+	"./bn": 308,
+	"./bn.js": 308,
+	"./bo": 309,
+	"./bo.js": 309,
+	"./br": 310,
+	"./br.js": 310,
+	"./bs": 311,
+	"./bs.js": 311,
+	"./ca": 312,
+	"./ca.js": 312,
+	"./cs": 313,
+	"./cs.js": 313,
+	"./cv": 314,
+	"./cv.js": 314,
+	"./cy": 315,
+	"./cy.js": 315,
+	"./da": 316,
+	"./da.js": 316,
+	"./de": 317,
+	"./de-at": 318,
+	"./de-at.js": 318,
+	"./de-ch": 319,
+	"./de-ch.js": 319,
+	"./de.js": 317,
+	"./dv": 320,
+	"./dv.js": 320,
+	"./el": 321,
+	"./el.js": 321,
+	"./en-au": 322,
+	"./en-au.js": 322,
+	"./en-ca": 323,
+	"./en-ca.js": 323,
+	"./en-gb": 324,
+	"./en-gb.js": 324,
+	"./en-ie": 325,
+	"./en-ie.js": 325,
+	"./en-il": 326,
+	"./en-il.js": 326,
+	"./en-in": 327,
+	"./en-in.js": 327,
+	"./en-nz": 328,
+	"./en-nz.js": 328,
+	"./en-sg": 329,
+	"./en-sg.js": 329,
+	"./eo": 330,
+	"./eo.js": 330,
+	"./es": 331,
+	"./es-do": 332,
+	"./es-do.js": 332,
+	"./es-us": 333,
+	"./es-us.js": 333,
+	"./es.js": 331,
+	"./et": 334,
+	"./et.js": 334,
+	"./eu": 335,
+	"./eu.js": 335,
+	"./fa": 336,
+	"./fa.js": 336,
+	"./fi": 337,
+	"./fi.js": 337,
+	"./fil": 338,
+	"./fil.js": 338,
+	"./fo": 339,
+	"./fo.js": 339,
+	"./fr": 340,
+	"./fr-ca": 341,
+	"./fr-ca.js": 341,
+	"./fr-ch": 342,
+	"./fr-ch.js": 342,
+	"./fr.js": 340,
+	"./fy": 343,
+	"./fy.js": 343,
+	"./ga": 344,
+	"./ga.js": 344,
+	"./gd": 345,
+	"./gd.js": 345,
+	"./gl": 346,
+	"./gl.js": 346,
+	"./gom-deva": 347,
+	"./gom-deva.js": 347,
+	"./gom-latn": 348,
+	"./gom-latn.js": 348,
+	"./gu": 349,
+	"./gu.js": 349,
+	"./he": 350,
+	"./he.js": 350,
+	"./hi": 351,
+	"./hi.js": 351,
+	"./hr": 352,
+	"./hr.js": 352,
+	"./hu": 353,
+	"./hu.js": 353,
+	"./hy-am": 354,
+	"./hy-am.js": 354,
+	"./id": 355,
+	"./id.js": 355,
+	"./is": 356,
+	"./is.js": 356,
+	"./it": 357,
+	"./it-ch": 358,
+	"./it-ch.js": 358,
+	"./it.js": 357,
+	"./ja": 359,
+	"./ja.js": 359,
+	"./jv": 360,
+	"./jv.js": 360,
+	"./ka": 361,
+	"./ka.js": 361,
+	"./kk": 362,
+	"./kk.js": 362,
+	"./km": 363,
+	"./km.js": 363,
+	"./kn": 364,
+	"./kn.js": 364,
+	"./ko": 365,
+	"./ko.js": 365,
+	"./ku": 366,
+	"./ku.js": 366,
+	"./ky": 367,
+	"./ky.js": 367,
+	"./lb": 368,
+	"./lb.js": 368,
+	"./lo": 369,
+	"./lo.js": 369,
+	"./lt": 370,
+	"./lt.js": 370,
+	"./lv": 371,
+	"./lv.js": 371,
+	"./me": 372,
+	"./me.js": 372,
+	"./mi": 373,
+	"./mi.js": 373,
+	"./mk": 374,
+	"./mk.js": 374,
+	"./ml": 375,
+	"./ml.js": 375,
+	"./mn": 376,
+	"./mn.js": 376,
+	"./mr": 377,
+	"./mr.js": 377,
+	"./ms": 378,
+	"./ms-my": 379,
+	"./ms-my.js": 379,
+	"./ms.js": 378,
+	"./mt": 380,
+	"./mt.js": 380,
+	"./my": 381,
+	"./my.js": 381,
+	"./nb": 382,
+	"./nb.js": 382,
+	"./ne": 383,
+	"./ne.js": 383,
+	"./nl": 384,
+	"./nl-be": 385,
+	"./nl-be.js": 385,
+	"./nl.js": 384,
+	"./nn": 386,
+	"./nn.js": 386,
+	"./oc-lnc": 387,
+	"./oc-lnc.js": 387,
+	"./pa-in": 388,
+	"./pa-in.js": 388,
+	"./pl": 389,
+	"./pl.js": 389,
+	"./pt": 390,
+	"./pt-br": 391,
+	"./pt-br.js": 391,
+	"./pt.js": 390,
+	"./ro": 392,
+	"./ro.js": 392,
+	"./ru": 393,
+	"./ru.js": 393,
+	"./sd": 394,
+	"./sd.js": 394,
+	"./se": 395,
+	"./se.js": 395,
+	"./si": 396,
+	"./si.js": 396,
+	"./sk": 397,
+	"./sk.js": 397,
+	"./sl": 398,
+	"./sl.js": 398,
+	"./sq": 399,
+	"./sq.js": 399,
+	"./sr": 400,
+	"./sr-cyrl": 401,
+	"./sr-cyrl.js": 401,
+	"./sr.js": 400,
+	"./ss": 402,
+	"./ss.js": 402,
+	"./sv": 403,
+	"./sv.js": 403,
+	"./sw": 404,
+	"./sw.js": 404,
+	"./ta": 405,
+	"./ta.js": 405,
+	"./te": 406,
+	"./te.js": 406,
+	"./tet": 407,
+	"./tet.js": 407,
+	"./tg": 408,
+	"./tg.js": 408,
+	"./th": 409,
+	"./th.js": 409,
+	"./tk": 410,
+	"./tk.js": 410,
+	"./tl-ph": 411,
+	"./tl-ph.js": 411,
+	"./tlh": 412,
+	"./tlh.js": 412,
+	"./tr": 413,
+	"./tr.js": 413,
+	"./tzl": 414,
+	"./tzl.js": 414,
+	"./tzm": 415,
+	"./tzm-latn": 416,
+	"./tzm-latn.js": 416,
+	"./tzm.js": 415,
+	"./ug-cn": 417,
+	"./ug-cn.js": 417,
+	"./uk": 418,
+	"./uk.js": 418,
+	"./ur": 419,
+	"./ur.js": 419,
+	"./uz": 420,
+	"./uz-latn": 421,
+	"./uz-latn.js": 421,
+	"./uz.js": 420,
+	"./vi": 422,
+	"./vi.js": 422,
+	"./x-pseudo": 423,
+	"./x-pseudo.js": 423,
+	"./yo": 424,
+	"./yo.js": 424,
+	"./zh-cn": 425,
+	"./zh-cn.js": 425,
+	"./zh-hk": 426,
+	"./zh-hk.js": 426,
+	"./zh-mo": 427,
+	"./zh-mo.js": 427,
+	"./zh-tw": 428,
+	"./zh-tw.js": 428
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -5947,11 +5959,18 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 581;
+webpackContext.id = 608;
 
 /***/ }),
 
-/***/ 859:
+/***/ 903:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 906:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5987,17 +6006,17 @@ var KeysPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 93:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_category_service__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_category_service__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_product__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6288,7 +6307,7 @@ var ProductsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 94:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6297,7 +6316,7 @@ var ProductsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__values__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6505,18 +6524,18 @@ var CategoryService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 95:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_cart_service__ = __webpack_require__(418);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_service_cart_service__ = __webpack_require__(429);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_service_values__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkout_billing_address_form_billing_address_form__ = __webpack_require__(419);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_tabs__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkout_billing_address_form_billing_address_form__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_tabs__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6655,7 +6674,7 @@ var CartPage = /** @class */ (function () {
         this.cart = results;
     };
     CartPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\cart\cart.html"*/'<!-- <ion-header>\n\n  <ion-navbar color="header">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu">\n\n      </ion-icon>\n\n    </button>\n\n    <ion-title>{{"Cart"| translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only light class="has-icon icon-only has-badge">\n\n        <ion-icon name="md-basket" class="item-icon">\n\n        </ion-icon>\n\n        <ion-badge class="badge badge-light" *ngIf="values.count">{{values.count}}\n\n        </ion-badge>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header> -->\n\n\n\n<ion-header>\n\n  <ion-toolbar color="header">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      <img (click)="gohomep();" style="max-width: 150px;" src="{{values.avatar}}" />\n\n    </ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content class="cart">\n\n  <ion-spinner *ngIf="!cart" name="crescent">\n\n  </ion-spinner>\n\n  <div *ngIf="cart">\n\n        <div class="empty" *ngIf="cart.cart_contents.length == 0"> \n\n            <ion-icon name="md-basket"></ion-icon>\n\n            <h4 color="side-heading-color" text-center no-lines>{{"Your cart is empty" | translate}}!</h4>\n\n            <h5 text-center no-lines>{{"Add some products available in our menu to checkout" | translate}}</h5> \n\n            <button ion-button class="butt" item-center medium color="button-color" text-uppercase (click)="gohome()">{{"Continue Booking" | translate}}</button> \n\n        </div>\n\n    <div *ngIf="cart?.cart_contents">\n\n\n\n      <div class="cart-items">\n\n      <ion-list>\n\n        <div class="cart-list" *ngFor="let item of cart.cart_contents | keys">\n\n          <ion-item no-lines *ngIf="item.value.quantity != 0">\n\n            <ion-thumbnail item-left>\n\n              <img src="{{item.value.thumb}}">\n\n            </ion-thumbnail>\n\n            <h2 wrap-text>{{item.value.name}}\n\n            </h2>\n\n            <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:\'1.2-2\'}}\n\n            </h3>\n\n            <h3 wrap-text> {{"Totals" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:\'1.2-2\'  }}\n\n            </h3>\n\n            <a (click)="delete( item.key )">\n\n              <ion-icon name="trash">\n\n              </ion-icon>\n\n            </a>\n\n            <!-- <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="button-color" (click)="deleteFromCart(item.value.product_id, item.key)">\n\n              <ion-icon ios="ios-remove-circle-outline" md="ios-remove-circle-outline">\n\n              </ion-icon>\n\n            </button>\n\n            <button ion-button item-right color="button-color" clear>{{item.value.quantity}}\n\n            </button>\n\n            <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="button-color" (click)="addToCart(item.value.product_id, item.key)">\n\n              <ion-icon ios="ios-add-circle-outline" md="ios-add-circle-outline">\n\n              </ion-icon>\n\n            </button> -->\n\n          </ion-item>\n\n        </div>\n\n      </ion-list>\n\n      </div>\n\n      \n\n      <ion-list radio-group >\n\n        <ion-list-header>\n\n          <b>\n\n            ¿ Te gustaria solicitar un seguro ?\n\n          </b>\n\n        </ion-list-header>\n\n        <ion-item>\n\n          <ion-label text-wrap>Si (+$1.50)</ion-label>\n\n          <ion-radio value="1"></ion-radio>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label text-wrap>No</ion-label>\n\n          <ion-radio value="2"></ion-radio>\n\n        </ion-item>\n\n      </ion-list>\n\n\n\n      <div *ngIf="cart.cart_contents.length != 0">\n\n        <ion-list *ngIf="shipping" no-margin text-wrap radio-group [(ngModel)]="chosen_shipping" (ngModelChange)="updateShipping(chosen_shipping)" class="shipping-methods">\n\n          <ion-item-divider>\n\n            <h2>{{"Select shipping method" | translate}}\n\n            </h2>\n\n          </ion-item-divider>\n\n          <ion-item *ngFor="let method of shipping | keys" >\n\n            <ion-label>{{method.value.method_title}} \n\n              <span *ngIf="method.value.cost">{{ 1*method.value.cost | currency:values.currency:true:\'1.2-2\'}}\n\n              </span> \n\n            </ion-label>\n\n            <ion-radio value="{{method.value.id + \':\' + method.value.instance_id}}" >\n\n            </ion-radio>\n\n          </ion-item>\n\n        </ion-list>\n\n\n\n        <form #f="ngForm" class="coupon">\n\n          <ion-item>\n\n            <ion-label>{{"Coupon Code" | translate}}</ion-label>\n\n            <ion-input type="text" [(ngModel)]="cart.coupon" name="coupon">\n\n            </ion-input>\n\n            <h2 item-right>\n\n              <button ion-button color="button-color" block type="submit" text-uppercase [disabled]=\'disableSubmitCoupon\' (click)="submitCoupon()"> {{Apply | translate}}\n\n              </button>\n\n            </h2>\n\n          </ion-item>\n\n        </form>\n\n\n\n        <ion-list class="totals" *ngIf="cart.cart_totals">\n\n          <!--ion-item-divider>\n\n            <h2>{{"Totals" | translate}}\n\n            </h2>\n\n          </ion-item-divider-->\n\n          <ion-row>\n\n            <ion-col width-75>\n\n              <ion-label>{{"SubTotal" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.subtotal | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>  \n\n\n\n          <ion-row *ngIf="cart.cart_totals.cart_contents_total != 0">\n\n            <ion-col width-75>\n\n              <ion-label>{{"Subtotal ex tax" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.cart_contents_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>  \n\n\n\n          <ion-row *ngIf="cart.cart_totals.tax_total != 0">\n\n            <ion-col width-75>\n\n              <ion-label>{{"Tax total" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.total_tax | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="cart.cart_totals.discount_total && cart.cart_totals.discount_total != 0"> \n\n            <ion-col width-75 class="remove-coupon">\n\n              <ion-label>{{"Coupons" | translate}} - {{cart.applied_coupons}} \n\n                <a (click)="removeCoupon()"> (Remove)\n\n                </a>\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>- {{1*cart.cart_totals.discount_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="cart.cart_totals.shipping_total != 0"> \n\n            <ion-col width-75>\n\n              <ion-label>{{"Shipping" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label >{{1*cart.cart_totals.shipping_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row>\n\n            <ion-col width-75>\n\n              <ion-label>\n\n                <b> {{"Grand Total" | translate}}\n\n                </b>\n\n              </ion-label>\n\n            </ion-col >\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n        </ion-list>\n\n        \n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n<div *ngIf="cart">\n\n  <ion-footer *ngIf="cart.cart_contents.length != 0" class="footer-cart">\n\n    <button style="font-weight: 600;" ion-button color="button-color" text-uppercase [disabled]=\'disableSubmit\' (click)="checkout()">{{Checkout | translate}}\n\n    </button>\n\n  </ion-footer>\n\n</div>\n\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\cart\cart.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\cart\cart.html"*/'<!-- <ion-header>\n\n  <ion-navbar color="header">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu">\n\n      </ion-icon>\n\n    </button>\n\n    <ion-title>{{"Cart"| translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only light class="has-icon icon-only has-badge">\n\n        <ion-icon name="md-basket" class="item-icon">\n\n        </ion-icon>\n\n        <ion-badge class="badge badge-light" *ngIf="values.count">{{values.count}}\n\n        </ion-badge>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header> -->\n\n\n\n<ion-header>\n\n  <ion-toolbar color="header">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      <img (click)="gohomep();" style="max-width: 150px;" src="{{values.avatar}}" />\n\n    </ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content class="cart">\n\n  <ion-spinner *ngIf="!cart" name="crescent">\n\n  </ion-spinner>\n\n  <div *ngIf="cart">\n\n        <div class="empty" *ngIf="cart.cart_contents.length == 0"> \n\n            <ion-icon name="md-basket"></ion-icon>\n\n            <h4 color="side-heading-color" text-center no-lines>{{"Your cart is empty" | translate}}!</h4>\n\n            <h5 text-center no-lines>{{"Add some products available in our menu to checkout" | translate}}</h5> \n\n            <button ion-button class="butt" item-center medium color="button-color" text-uppercase (click)="gohome()">{{"Continue Booking" | translate}}</button> \n\n        </div>\n\n    <div *ngIf="cart?.cart_contents">\n\n\n\n      <div class="cart-items">\n\n      <ion-list>\n\n        <div class="cart-list" *ngFor="let item of cart.cart_contents | keys">\n\n          <ion-item no-lines *ngIf="item.value.quantity != 0">\n\n            <ion-thumbnail item-left>\n\n              <img src="{{item.value.thumb}}">\n\n            </ion-thumbnail>\n\n            <h2 wrap-text>{{item.value.name}}\n\n            </h2>\n\n            <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:\'1.2-2\'}}\n\n            </h3>\n\n            <h3 wrap-text> {{"Totals" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:\'1.2-2\'  }}\n\n            </h3>\n\n            <a (click)="delete( item.key )">\n\n              <ion-icon name="trash">\n\n              </ion-icon>\n\n            </a>\n\n            <!-- <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="button-color" (click)="deleteFromCart(item.value.product_id, item.key)">\n\n              <ion-icon ios="ios-remove-circle-outline" md="ios-remove-circle-outline">\n\n              </ion-icon>\n\n            </button>\n\n            <button ion-button item-right color="button-color" clear>{{item.value.quantity}}\n\n            </button>\n\n            <button ion-button icon-only class="has-icon icon-only" no-margin item-right clear color="button-color" (click)="addToCart(item.value.product_id, item.key)">\n\n              <ion-icon ios="ios-add-circle-outline" md="ios-add-circle-outline">\n\n              </ion-icon>\n\n            </button> -->\n\n          </ion-item>\n\n        </div>\n\n      </ion-list>\n\n      </div>\n\n      \n\n      <div>\n\n        <ion-list class="totals" radio-group >\n\n          <ion-list-header>\n\n            <b>\n\n              ¿ Te gustaria solicitar un seguro ?\n\n            </b>\n\n          </ion-list-header>\n\n          <ion-item>\n\n            <ion-label text-wrap>Si (+$1.50)</ion-label>\n\n            <ion-radio value="1"></ion-radio>\n\n          </ion-item>\n\n          <ion-item>\n\n            <ion-label text-wrap>No</ion-label>\n\n            <ion-radio value="2"></ion-radio>\n\n          </ion-item>\n\n        </ion-list>\n\n      </div>\n\n      \n\n\n\n      <div *ngIf="cart.cart_contents.length != 0">\n\n        <ion-list *ngIf="shipping" no-margin text-wrap radio-group [(ngModel)]="chosen_shipping" (ngModelChange)="updateShipping(chosen_shipping)" class="shipping-methods">\n\n          <ion-item-divider>\n\n            <h2>{{"Select shipping method" | translate}}\n\n            </h2>\n\n          </ion-item-divider>\n\n          <ion-item *ngFor="let method of shipping | keys" >\n\n            <ion-label>{{method.value.method_title}} \n\n              <span *ngIf="method.value.cost">{{ 1*method.value.cost | currency:values.currency:true:\'1.2-2\'}}\n\n              </span> \n\n            </ion-label>\n\n            <ion-radio value="{{method.value.id + \':\' + method.value.instance_id}}" >\n\n            </ion-radio>\n\n          </ion-item>\n\n        </ion-list>\n\n\n\n        <form #f="ngForm" class="coupon">\n\n          <ion-item>\n\n            <ion-label>{{"Coupon Code" | translate}}</ion-label>\n\n            <ion-input type="text" [(ngModel)]="cart.coupon" name="coupon">\n\n            </ion-input>\n\n            <h2 item-right>\n\n              <button ion-button color="button-color" block type="submit" text-uppercase [disabled]=\'disableSubmitCoupon\' (click)="submitCoupon()"> {{Apply | translate}}\n\n              </button>\n\n            </h2>\n\n          </ion-item>\n\n        </form>\n\n\n\n        <ion-list class="totals" *ngIf="cart.cart_totals">\n\n          <!--ion-item-divider>\n\n            <h2>{{"Totals" | translate}}\n\n            </h2>\n\n          </ion-item-divider-->\n\n          <ion-row>\n\n            <ion-col width-75>\n\n              <ion-label>{{"SubTotal" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.subtotal | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>  \n\n\n\n          <ion-row *ngIf="cart.cart_totals.cart_contents_total != 0">\n\n            <ion-col width-75>\n\n              <ion-label>{{"Subtotal ex tax" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.cart_contents_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>  \n\n\n\n          <ion-row *ngIf="cart.cart_totals.tax_total != 0">\n\n            <ion-col width-75>\n\n              <ion-label>{{"Tax total" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.total_tax | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="cart.cart_totals.discount_total && cart.cart_totals.discount_total != 0"> \n\n            <ion-col width-75 class="remove-coupon">\n\n              <ion-label>{{"Coupons" | translate}} - {{cart.applied_coupons}} \n\n                <a (click)="removeCoupon()"> (Remove)\n\n                </a>\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label>- {{1*cart.cart_totals.discount_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row *ngIf="cart.cart_totals.shipping_total != 0"> \n\n            <ion-col width-75>\n\n              <ion-label>{{"Shipping" | translate}}\n\n              </ion-label>\n\n            </ion-col>\n\n            <ion-col width-25 text-right>\n\n              <ion-label >{{1*cart.cart_totals.shipping_total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row>\n\n            <ion-col width-75>\n\n              <ion-label>\n\n                <b> {{"Grand Total" | translate}}\n\n                </b>\n\n              </ion-label>\n\n            </ion-col >\n\n            <ion-col width-25 text-right>\n\n              <ion-label>{{1*cart.cart_totals.total | currency:values.currency:true:\'1.2-2\'}}\n\n              </ion-label>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n        </ion-list>\n\n        \n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n<div *ngIf="cart">\n\n  <ion-footer *ngIf="cart.cart_contents.length != 0" class="footer-cart">\n\n    <button style="font-weight: 600;" ion-button color="button-color" text-uppercase [disabled]=\'disableSubmit\' (click)="checkout()">{{Checkout | translate}}\n\n    </button>\n\n  </ion-footer>\n\n</div>\n\n'/*ion-inline-end:"C:\Users\Lenovo\Desktop\numu\homer\src\pages\cart\cart.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2__providers_service_cart_service__["a" /* CartService */], __WEBPACK_IMPORTED_MODULE_3__providers_service_values__["a" /* Values */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__providers_service_functions__["a" /* Functions */]])
     ], CartPage);
@@ -6666,5 +6685,5 @@ var CartPage = /** @class */ (function () {
 
 /***/ })
 
-},[530]);
+},[557]);
 //# sourceMappingURL=main.js.map

@@ -8,6 +8,7 @@ import { SearchPage } from '../search/search';
 import { ProductPage } from '../product/product';
 import { Post } from '../post/post';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import {Socket}  from 'ngx-socket-io';
 // import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
@@ -72,7 +73,11 @@ export class ProductsListPage {
         private geolocation: Geolocation,
         private nativeGeocoder: NativeGeocoder,
         public zone: NgZone,
-        public toastCtrl: ToastController, public nav: NavController, public service: Service, public values: Values) {
+        public toastCtrl: ToastController,
+        public nav: NavController,
+        public service: Service,
+        public values: Values,
+        private socket: Socket) {
         this.items = [];
         this.options = [];
         this.service.getProducts();
@@ -432,6 +437,53 @@ export class ProductsListPage {
     this.nav.push(ProductsPage, this.items);
 
   }
+
+  // searchProduct(){
+
+  //   // this.socket.fromEvent('validaactiveprovider').subscribe((data:any) => {
+  //   //   this.homerProviders.push(data);
+  //   //   console.log('data:',data)
+  //   //   for(let provider of this.homerProviders){
+  //   //     if(this.values.customerId == provider){
+  //   //       this.values.isActive = true;
+  //   //     }
+  //   //   }
+  //   // });
+
+  //   this.items.productslocation = ''
+  //     if(this.radius > 0 && this.lat != '' && this.long != ''){
+
+
+  //       let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
+  //       .then((results:any) =>{
+  //         // this.socket.connect();
+  //         // console.log('products',[results]);
+
+  //         // for(let i; i<results.length; i++){
+  //         //   console.log('xoxo',results[i].id);
+
+  //         // }
+
+  //         // this.socket.emit('validaactiveprovider', results.id);
+  //         // this.socket.fromEvent('validaactiveprovider').subscribe((data:any) => {
+  //         //     console.log('data:',data)
+
+  //         // });
+  //         console.log(results);
+  //         this.handleLocationInit(results);
+  //       });
+  //     }else{
+  //      this.nav.push(ProductsPage, this.items);
+  //     //  console.log(this.miLatitude);
+  //     //  console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
+  //     }
+  // }
+  // handleLocationInit(results) {
+  //   let dataResult = results;
+  //   this.items.productslocation = dataResult;
+  //   this.nav.push(ProductsPage, this.items);
+
+  // }
 
 }
 
