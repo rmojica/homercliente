@@ -1,5 +1,5 @@
 import { Component, NgZone, ViewChild, ElementRef } from '@angular/core';
-import { NavController, ToastController, Platform, Content, NavParams, ViewController,ModalController } from 'ionic-angular';
+import { NavController, ToastController, Platform, Content, NavParams, ViewController,ModalController, AlertController } from 'ionic-angular';
 import { Service } from '../../providers/service/service';
 import { Values } from '../../providers/service/values';
 import { CartPage } from '../cart/cart';
@@ -68,6 +68,7 @@ export class ProductsListPage {
     Officia illo sint quod facere laborum dolore perspiciatis expedita sit atque dignissimos blanditiis ab consectetur molestias iusto nobis obcaecati corporis odit, hic vitae reprehenderit iste. Dolores alias asperiores maxime porro.
     Recusandae inventore, accusantium, eveniet suscipit sed, delectus earum error libero fugit dolores iure repellat? Dolorum voluptate eos voluptas officia repellendus eaque similique a fugit ipsa, odit sapiente quia quae exercitationem!`;
     constructor(
+        public alert:AlertController,
         public modalCtrl: ModalController,
         private platform: Platform,
         private geolocation: Geolocation,
@@ -421,21 +422,32 @@ export class ProductsListPage {
     // }
   }
   searchProduct(){
+    this.getAddressFromCoords();
     this.items.productslocation = ''
-      if(this.radius > 0 && this.lat != '' && this.long != ''){
-        let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
-        .then((results) => this.handleLocationInit(results));
-      }else{
-       this.nav.push(ProductsPage, this.items);
-       console.log(this.miLatitude);
-       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
-      }
+    if(this.radius > 0 && this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
+      let midata =  this.service.getLocationFromProduct2(this.lat, this.long, this.radius)
+      .then((results) => this.handleLocationInit(results));
+    }
+    else{
+      this.showAlert('<strong>Alerta</strong>', 'Seleccione un rango de distancia');
+      // this.nav.push(ProductsPage, this.items);
+      //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
+    }
   }
   handleLocationInit(results) {
     let dataResult = results;
     this.items.productslocation = dataResult;
     this.nav.push(ProductsPage, this.items);
 
+  }
+
+  showAlert(title, text) {
+    let alert = this.alert.create({
+        title: title,
+        subTitle: text,
+        buttons: ['OK'],
+    });
+    alert.present();
   }
 
   // searchProduct(){

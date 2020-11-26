@@ -15,6 +15,7 @@ import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util'
 
 @Injectable()
 export class Service {
+  header:any = new Headers();
   data: any
   categories: any
   banners: any
@@ -815,6 +816,46 @@ export class Service {
     })
   }
 
+  getLocationFromProduct2(lat, long, radius) {
+    let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+
+    return new Promise(resolve => {
+      this.header.append('Content-Type', 'application/json');
+      this.http
+        .post(
+          urlPath +
+          '/search',
+         {
+          "lat":lat,
+          "lng":long,
+          "distance":radius
+         },
+         this.header
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+          this.status = data;
+
+          this.dataSearchProduct = this.status.data;
+          this.includeProduct = '';
+
+          if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
+            this.includeProduct = '0';
+          }else{
+            for (let i = 0; i < this.dataSearchProduct.length; i++) {
+              console.log('key',this.dataSearchProduct[i])
+              let product = this.dataSearchProduct[i]
+              this.includeProduct += product.ui + ',';
+            }
+             this.includeProduct = this.includeProduct.slice(0, -1);
+          }
+          console.log(this.includeProduct)
+          resolve(this.includeProduct)
+
+        })
+    })
+  }
+
   getLocationFromProduct(lat, long, radius) {
     var params = new URLSearchParams();
     params.append('latitude', lat);
@@ -848,7 +889,7 @@ export class Service {
             }
             this.includeProduct = this.includeProduct.slice(0, -1);
           }
-          
+
           resolve(this.includeProduct)
         })
     })
