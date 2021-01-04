@@ -60,8 +60,10 @@ import { CalendarModule } from 'ion2-calendar'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
-import {IonTagsInputModule} from "ionic-tags-input";
 
+import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
+
+const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -102,7 +104,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     CalendarModule,
     HttpModule,
-    IonTagsInputModule,
+    SocketIoModule.forRoot(config),
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
