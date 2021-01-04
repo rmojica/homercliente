@@ -424,12 +424,13 @@ export class ProductsListPage {
   searchProduct(){
     this.getAddressFromCoords();
     this.items.productslocation = ''
-    if(this.radius > 0 && this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
+    
+    if( this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
       let midata =  this.service.getLocationFromProduct2(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
     }
     else{
-      this.showAlert('<strong>Alerta</strong>', 'Seleccione un rango de distancia');
+      this.showAlert('<strong>Estimado Usuario</strong>', 'Active el GPS por favor');
       // this.nav.push(ProductsPage, this.items);
       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     }

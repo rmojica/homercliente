@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core'
-import { NavController, NavParams, Content } from 'ionic-angular'
+import { NavController, NavParams, Content, AlertController, Platform } from 'ionic-angular'
 import { ProductService } from '../../providers/service/product-service'
 import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
@@ -9,6 +9,10 @@ import { AccountLogin } from '../account/login/login'
 import { CalendarComponentOptions, DayConfig } from 'ion2-calendar'
 import moment from 'moment'
 import { TranslateService } from '@ngx-translate/core'
+import { ProductsListPage } from '../products-list/products-list'
+import { OneSignal } from '@ionic-native/onesignal';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 
 @Component({
   templateUrl: 'product.html',
@@ -50,15 +54,29 @@ export class ProductPage {
   NoBlockAvailable = 'NoBlockAvailable'
   WhatTime = 'WhatTime'
   lan: any = {};
-
+  miLatitude = 0;
+  miLongitude = 0;
+  lat: string;
+  long:string;
+  autocomplete: { input: string; };
+  address:string;
   constructor(
+    public alert:AlertController,
     public translate: TranslateService,
     public nav: NavController,
     public service: ProductService,
     params: NavParams,
     public functions: Functions,
     public values: Values,
+    private platform: Platform,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder,
+
   ) {
+    console.log("prueba id onesignal", this.values.userId);
+
+    this.lat = '';
+    this.long = '';
     this.options = []
     this.optionss = []
     this.quantity = '1'
@@ -86,7 +104,16 @@ export class ProductPage {
     }
 
     this.getReviews()
-    
+    platform.ready().then(() => {
+      const subscription = this.geolocation.watchPosition()
+        .filter((p) => p.coords !== undefined) //Filter Out Errors
+        .subscribe(position => {
+          this.miLatitude = position.coords.latitude;
+          this.miLongitude = position.coords.longitude;
+          console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
+        });
+    });
+
   }
 
   loadDataProduct(){
@@ -181,11 +208,25 @@ export class ProductPage {
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
-
+    this.getAddressFromCoords();
     var date = moment(this.selectedTime)
     var year = date.year()
     var month = date.month()
     var day = date.day()
+
+    this.service.addOrders({
+      "clientUi": this.values.customerId,
+      "nameClient": this.values.customerName,
+      "productUi": this.product.product.id,
+      "productName": this.product.product.name,
+      "date": year+'/'+month+'/'+day,
+      "hour": date.hour(),
+      "lat":this.lat,
+      "lng":this.long,
+      "onesignal":this.values.userId
+    });
+
+
     this.disableSubmit = true
     this.BookNow = 'PleaseWait'
     this.service
@@ -200,7 +241,17 @@ export class ProductPage {
       .then(results => {
         this.updateCart(results)
       })
+      this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
     // }
+  }
+
+  showAlert(title, text) {
+    let alert = this.alert.create({
+        title: title,
+        subTitle: text,
+        buttons: ['OK'],
+    });
+    alert.present();
   }
 
   setVariations() {
@@ -289,7 +340,11 @@ export class ProductPage {
     this.disableSubmit = false
     this.values.count += parseInt(this.quantity)
     this.BookNow = 'BookNow'
-    this.getCart()
+    this.returnHome()
+    // this.getCart()
+  }
+  returnHome(){
+    this.nav.push(ProductsListPage);
   }
   getCart() {
     this.nav.parent.select(2);
@@ -409,7 +464,31 @@ export class ProductPage {
     this.translate.get(['Please select a service']).subscribe(translations => {
         this.lan.pleaseSelect = translations['Please select a service'];
     });
-}
-  
-  
+  }
+
+  getAddressFromCoords() {
+
+    console.log("getAddressFromCoords "+this.miLatitude+" "+this.miLongitude);
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
+
+    this.nativeGeocoder.reverseGeocode(this.miLatitude, this.miLongitude, options)
+    .then((result: NativeGeocoderReverseResult[]) => {
+      console.log(JSON.stringify(result[0]))
+      this.autocomplete.input = result[0].locality+', '+ result[0].administrativeArea+', '+ result[0].countryName;
+    }
+    )
+    .catch((error: any) =>{
+        this.address = "Address Not Available!";
+        console.log(error)
+      });
+      this.lat = this.miLatitude.toString();
+      this.long = this.miLongitude.toString();
+
+  }
+
+
+
 }

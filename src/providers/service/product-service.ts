@@ -8,6 +8,7 @@ import { LoadingController } from 'ionic-angular'
 
 @Injectable()
 export class ProductService {
+  header:any = new Headers();
   data: any
   product: any
   gallery: any
@@ -168,5 +169,54 @@ export class ProductService {
           resolve(data)
         })
     })
+  }
+
+  addOrders(data){
+
+    this.header.append('Content-Type', 'application/json');
+    this.http
+    .post(
+      this.config.urlApi + '/orders/create',
+      {
+        "clientUi": data.clientUi,
+        "nameClient": data.nameClient,
+        "productUi": data.productUi,
+        "productName": data.productName,
+        "stateServiceId": data.stateServiceId,
+        "date": data.date,
+         "hour": data.hour,
+         "lat":data.lat,
+         "lng":data.lng,
+         "onesignal":data.onesignal
+      },
+      this.header
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        return data
+      });
+  }
+
+  sendNotification(data){
+
+    this.header.append('Content-Type', 'application/json');
+    this.http
+    .post(
+      'https://onesignal.com/api/v1/notifications',
+      {
+        "app_id": "8ad1c280-92da-4d39-b49c-cf0a81e0d1fc",
+        "include_player_ids": ["cd62a334-8408-4670-9056-d222511af2f1"],
+        "data": {"foo": "bar"},
+        "headings": {"en": "Titulo"},
+        "contents": {"en": "Contenido de la notificacion"}
+      },
+      this.header
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        return data
+      });
   }
 }

@@ -47,7 +47,7 @@ export class MyApp {
             statusBar.backgroundColorByHexString('#f4f5f8');
             this.service.load().then((results) => this.handleService(results));
             this.nativeStorage.getItem('blocks').then(data => { if (data) {
-                
+
                 this.service.blocks = data.blocks;
                 this.values.settings = data.settings;
                 this.values.calc(platform.width());
@@ -66,14 +66,14 @@ export class MyApp {
             }, error => console.error(error));
 
         });
-    
+
     }
     handleService(results) {
         if (this.values.settings.app_dir == 'rtl') this.platform.setDir('rtl', true);
         //cambiar luego en la configuracion del wordpress en el plugin
-        this.translateService.setDefaultLang('spanish'); 
+        this.translateService.setDefaultLang('spanish');
         // this.translateService.setDefaultLang(this.values.settings.language);
-       
+
         this.values.calc(this.platform.width());
         if (this.platform.is('cordova')) {
             this.oneSignal.startInit(this.values.settings.onesignal_app_id, this.values.settings.google_project_id);
@@ -92,6 +92,15 @@ export class MyApp {
                     this.nav.push(OrderSummary, {id: result.notification.payload.additionalData.order});
                 }
             });
+
+
+            this.oneSignal.getIds().then(identity => {
+              console.log("agarro id",identity.userId, identity.userId);
+
+              this.values.pushToken = identity.pushToken
+              this.values.userId = identity.userId
+            });
+
             this.oneSignal.endInit();
         }
     }
@@ -135,7 +144,7 @@ export class MyApp {
     bookingVendor() {
         this.nav.setRoot(BookingVendor);
     }
-    
+
     cart() {
         this.nav.setRoot(CartPage);
     }

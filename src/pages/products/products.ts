@@ -11,6 +11,7 @@ import { ProductPage } from '../product/product'
   templateUrl: 'products.html',
 })
 export class ProductsPage {
+  onesignal:any
   products: any
   moreProducts: any
   count: any
@@ -53,6 +54,8 @@ export class ProductsPage {
     if(params.data.productslocation != ''){
         this.filter['include'] = params.data.productslocation
     }
+    console.log(this.values.homerOneSignal);
+
 
     this.categoryName = params.data.name
     this.filter.page = 1

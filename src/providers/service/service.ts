@@ -835,6 +835,7 @@ export class Service {
         .map(res => res.json())
         .subscribe(data => {
           this.status = data;
+          this.values.homerOneSignal = this.status.onesignal
 
           this.dataSearchProduct = this.status.data;
           this.includeProduct = '';
@@ -842,14 +843,15 @@ export class Service {
           if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
             this.includeProduct = '0';
           }else{
+            this.values.homerOneSignal = this.dataSearchProduct[0].onesignal
             for (let i = 0; i < this.dataSearchProduct.length; i++) {
-              console.log('key',this.dataSearchProduct[i])
               let product = this.dataSearchProduct[i]
+
               this.includeProduct += product.ui + ',';
             }
              this.includeProduct = this.includeProduct.slice(0, -1);
           }
-          console.log(this.includeProduct)
+
           resolve(this.includeProduct)
 
         })
