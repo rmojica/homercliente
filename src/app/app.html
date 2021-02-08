@@ -17,15 +17,14 @@
   </div>
   <ion-content class="sidemenugrad">
     <ion-list class="menu-items-single" no-margin>
-     
+
       <!-- <div *ngIf="service.categories" class="category-name">
         <ion-item tappable full menuClose *ngFor="let item of service.mainCategories" (click)="getCategory(item.id, item.slug, item.name)">
           <ion-icon item-right class="ion-ios-arrow-forward item-icon">
           </ion-icon>
-          <span [innerHTML]="item.name"></span>     
+          <span [innerHTML]="item.name"></span>
         </ion-item>
       </div> -->
-
     </ion-list>
     <ion-list class="menu-items">
       <ion-item tappable menuClose (click)="shop()">
@@ -39,6 +38,13 @@
         </ion-icon>
         {{"Account" | translate}}
       </ion-item>
+      <!-- chat -->
+      <!-- <ion-item tappable menuClose (click)="openchat()" >
+        <ion-icon  name="contact" item-left>
+        </ion-icon>
+        {{"Chat" | translate}}
+      </ion-item> -->
+      <!-- chat -->
       <ion-item tappable menuClose (click)="login()" *ngIf="!values.isLoggedIn">
         <ion-icon name="person" item-left>
         </ion-icon>{{"LogIn" | translate}}

@@ -39,6 +39,9 @@ export class ProductsListPage {
   placeid: any;
   GoogleAutocomplete: any;
 
+  categoriesValue:any;
+  categories:any = [];
+
   selectedCategory: string;
   HiddenList: boolean = true;
   HiddenListCat: boolean = true;
@@ -91,6 +94,11 @@ export class ProductsListPage {
 
         this.lat = '';
         this.long = '';
+
+        this.categories = [];
+        this.service.getCategories(1);
+
+        this.getCategory = this.service.mainCategories;
 
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
@@ -424,9 +432,10 @@ export class ProductsListPage {
   searchProduct(){
     this.getAddressFromCoords();
     this.items.productslocation = ''
-    
+
     if( this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
-      let midata =  this.service.getLocationFromProduct2(this.lat, this.long, this.radius)
+      // let midata =  this.service.getLocationFromProduct2(this.lat, this.long, this.radius)
+      let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
     }
     else{
@@ -440,6 +449,27 @@ export class ProductsListPage {
     this.items.productslocation = dataResult;
     this.nav.push(ProductsPage, this.items);
 
+  }
+
+  onChange(evt) {
+    if(this.categories.length == 0){
+      this.categories.push({id:evt.id, name:evt.name});
+      this.categoriesValue = [];
+    }else{
+      if(this.categories.id != evt){
+        this.categories.push({id:evt.id, name:evt.name});
+        this.categoriesValue = [];
+      }
+    }
+    this.categoriesValue = [];
+  }
+
+  deleteTipoServicio(id){
+    let index = this.categories.map(result => result.id).indexOf(id);
+
+    if(index > -1){
+      this.categories.splice(index, 1);
+    }
   }
 
   showAlert(title, text) {

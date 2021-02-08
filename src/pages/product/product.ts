@@ -19,6 +19,7 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 })
 export class ProductPage {
   @ViewChild(Content) content: Content
+  providerOneSignal:any
   product: any = {}
   id: any
   type: any
@@ -113,6 +114,12 @@ export class ProductPage {
           console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
         });
     });
+
+    for (let i = 0; i < this.values.homerOneSignal.length; i++) {
+      if(this.values.homerOneSignal[i].product == this.product.product.id){
+        this.providerOneSignal = this.values.homerOneSignal[i].providerOneSignal
+      }
+    }
 
   }
 
@@ -225,6 +232,12 @@ export class ProductPage {
       "lng":this.long,
       "onesignal":this.values.userId
     });
+
+    this.service.sendNotification({
+      "title":"Nueva solicitud",
+      "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+      "onesignalid":this.providerOneSignal
+    })
 
 
     this.disableSubmit = true

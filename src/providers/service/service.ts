@@ -364,6 +364,24 @@ export class Service {
         })
     })
   }
+  getMessage(data){
+    return new Promise(resolve => {
+      this.header.append('Content-Type', 'application/json');
+      this.http
+      .post(
+        this.config.urlApi + '/message/getmessages',
+        {
+          'roomName': data.roomName
+        },
+        this.header
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          resolve(data);
+        });
+    })
+  }
   passwordResetNonce() {
     return new Promise(resolve => {
       this.http
@@ -834,8 +852,8 @@ export class Service {
         )
         .map(res => res.json())
         .subscribe(data => {
+
           this.status = data;
-          this.values.homerOneSignal = this.status.onesignal
 
           this.dataSearchProduct = this.status.data;
           this.includeProduct = '';
@@ -843,10 +861,9 @@ export class Service {
           if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
             this.includeProduct = '0';
           }else{
-            this.values.homerOneSignal = this.dataSearchProduct[0].onesignal
             for (let i = 0; i < this.dataSearchProduct.length; i++) {
               let product = this.dataSearchProduct[i]
-
+              this.values.homerOneSignal.push({product:product.ui,providerOneSignal:this.dataSearchProduct[i].onesignal})
               this.includeProduct += product.ui + ',';
             }
              this.includeProduct = this.includeProduct.slice(0, -1);

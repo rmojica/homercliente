@@ -9,6 +9,7 @@ import { AccountLogin } from '../pages/account/login/login'
 import { Post } from '../pages/post/post'
 import { OrderDetails } from '../pages/account/order-details/order-details'
 import { Orders } from '../pages/account/orders/orders'
+import { OrdersPage } from '../pages/orders/orders'
 import { OrdersVendor } from '../pages/account/orders-vendor/orders-vendor'
 import { BookingVendor } from '../pages/account/booking-vendor/booking-vendor'
 import { BookingDetails } from '../pages/account/booking-details/booking-details'
@@ -25,6 +26,8 @@ import { ProductsPage } from '../pages/products/products'
 import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs'
 import { ProductsListPage, ModalContentPage } from '../pages/products-list/products-list'
+import {ChatPage} from '../pages/chat/chat'
+import {ModalPage} from '../pages/modal/modal'
 
 /*------------------------Providers----------------------------------*/
 
@@ -80,6 +83,7 @@ export function createTranslateLoader(http: HttpClient) {
     OrderDetails,
     Orders,
     OrdersVendor,
+    OrdersPage,
     BookingVendor,
     BookingDetails,
     Post,
@@ -96,7 +100,9 @@ export function createTranslateLoader(http: HttpClient) {
     TabsPage,
     ProductsListPage,
     KeysPipe,
-    ModalContentPage
+    ModalContentPage,
+    ChatPage,
+    ModalPage
 
   ],
   imports: [
@@ -124,6 +130,7 @@ export function createTranslateLoader(http: HttpClient) {
     AccountLogin,
     OrderDetails,
     Orders,
+    OrdersPage,
     OrdersVendor,
     BookingVendor,
     BookingDetails,
@@ -140,7 +147,9 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage,
     TabsPage,
     ProductsListPage,
-    ModalContentPage
+    ModalContentPage,
+    ChatPage,
+    ModalPage
   ],
   providers: [
     CartService,

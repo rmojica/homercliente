@@ -206,10 +206,30 @@ export class ProductService {
       'https://onesignal.com/api/v1/notifications',
       {
         "app_id": "8ad1c280-92da-4d39-b49c-cf0a81e0d1fc",
-        "include_player_ids": ["cd62a334-8408-4670-9056-d222511af2f1"],
+        "include_player_ids": [`${data.onesignalid}`],
         "data": {"foo": "bar"},
-        "headings": {"en": "Titulo"},
-        "contents": {"en": "Contenido de la notificacion"}
+        "headings": {"en": `${data.title}`},
+        "contents": {"en": `${data.content}`}
+      },
+      this.header
+    )
+    .map(res => res.json())
+    .subscribe(
+      data => {
+        return data
+      });
+  }
+
+  changestate(data){
+
+    this.header.append('Content-Type', 'application/json');
+    this.http
+    .post(
+      this.config.urlApi + '/orders/changestate',
+      {
+        "order": data.order,
+        "state": data.state,
+        "isCancel": data.isCancel
       },
       this.header
     )

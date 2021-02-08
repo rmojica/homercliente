@@ -51,9 +51,9 @@ export class ProductsPage {
       this.filter.id = params.data.id
     }
 
-    if(params.data.productslocation != ''){
-        this.filter['include'] = params.data.productslocation
-    }
+    // if(params.data.productslocation != ''){
+    //     this.filter['include'] = params.data.productslocation
+    // }
     console.log(this.values.homerOneSignal);
 
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Values {
-  homerOneSignal:any
+  homerOneSignal:Array<any> = []
   pushToken:any
   userId:any
   count: number = 0;
