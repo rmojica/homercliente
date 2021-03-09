@@ -65,6 +65,7 @@ export class ProductsListPage {
 
     status: any;
     items: any;
+    product_slot:any;
     product: any;
     options: any;
     id: any;
@@ -90,6 +91,7 @@ export class ProductsListPage {
         public values: Values,
         private socket: Socket) {
         this.items = [];
+        this.product_slot = [];
         this.options = [];
         this.service.getProducts();
 
@@ -492,13 +494,17 @@ export class ProductsListPage {
       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     }
   }
-  handleLocationInit(results) {
+  async handleLocationInit(results) {
 
-    let dataResult = results;
+    let dataResult = results.includeProduct;
+    let product_slot = results.product_slot;
 
     this.items.productslocation = dataResult;
+    this.product_slot.array = product_slot;
 
-    this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
+    this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, p_slot: this.product_slot.array, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
+
+    // this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
     // this.nav.push(ProductsPage, {categories:this.categories, date:this.processDate, hour:this.processHour});
 
   }

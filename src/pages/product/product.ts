@@ -68,7 +68,7 @@ export class ProductPage {
 
   processDate:any;
   processHour:any;
-
+  product_slot:any = []
   constructor(
     public alert:AlertController,
     public translate: TranslateService,
@@ -95,11 +95,13 @@ export class ProductPage {
       this.product.product = params.data.id
       this.id = params.data.id
 
+      this.product_slot = params.data.product_sl;
+
      this.date = params.data.date;
      this.hourInit = params.data.hourInit;
      this.hourEnd = params.data.hourEnd;
 
-     this.selectedTime = this.date+'T'+this.hourInit
+    //  this.selectedTime = this.date+'T'+this.hourInit
 
       this.options.product_id = this.id
 
@@ -228,55 +230,70 @@ export class ProductPage {
       : null
     this.getAddressFromCoords();
 
-    console.log(this.selectedTime);
-
     // var date = moment(new Date(this.selectedTime))
     // var year = date.year()
     // var month = date.month()
     // var day = date.day()
-    var date = new Date(this.selectedTime);
-
-    var year = date.getFullYear()
-    var month = date.getMonth() + 1
-    var day = date.getDate()
 
 
-    this.service.addOrders({
-      "clientUi": this.values.customerId,
-      "nameClient": this.values.customerName,
-      "productUi": this.product.product.id,
-      "productName": this.product.product.name,
-      "date": year+'/'+month+'/'+day,
-      "hour": date.getHours(),
-      "lat":this.lat,
-      "lng":this.long,
-      "onesignal":this.values.userId
-    });
+//para mientras comento esto que no lo ocupo
+    // this.service.addOrders({
+    //   "clientUi": this.values.customerId,
+    //   "nameClient": this.values.customerName,
+    //   "productUi": this.product.product.id,
+    //   "productName": this.product.product.name,
+    //   "date": year+'/'+month+'/'+day,
+    //   "hour": date.getHours(),
+    //   "lat":this.lat,
+    //   "lng":this.long,
+    //   "onesignal":this.values.userId
+    // });
 
-    this.service.sendNotification({
-      "title":"Nueva solicitud",
-      "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
-      "onesignalid":this.providerOneSignal
-    })
+    // this.service.sendNotification({
+    //   "title":"Nueva solicitud",
+    //   "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+    //   "onesignalid":this.providerOneSignal
+    // })
 
 
 
     this.disableSubmit = true
     this.BookNow = 'PleaseWait'
-    this.service
-      .addToCart(
-        resource_id,
-        month,
-        day,
-        year,
-        this.selectedTime,
-        this.product.product,
-      )
-      .then(results => {
 
-        this.updateCart(results)
-      })
+
+    var date = new Date(this.selectedTime);
+
+
+
+    this.product_slot.map(result => {
+
+      if(this.product.product.id == result.product_id)
+      {
+        var date = new Date(new Date(result.date))
+        var year = date.getFullYear()
+        var month = date.getMonth() + 1
+        var day = date.getDate()
+
+        this.service
+          .addToCart(
+            resource_id,
+            month,
+            day,
+            year,
+            result.date,
+            this.product.product,
+          )
+          .then(results => {
+           console.log(results)
+          })
+          this.values.count += parseInt(this.quantity)
+      }
+    })
+
+      this.disableSubmit = false
+      this.BookNow = 'BookNow'
       this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
+      this.returnHome()
     // }
   }
 

@@ -37,6 +37,7 @@ export class ProductsPage {
   hourInit:any;
   hourEnd:any;
   date:any;
+  product_slot:any = []
   constructor(
     public nav: NavController,
     public popoverCtrl: PopoverController,
@@ -86,8 +87,7 @@ export class ProductsPage {
     this.hourInit = params.data.hourInit;
     this.hourEnd = params.data.hourEnd;
 
-    console.log("parametros a enviar a la otra vista"+this.date+"horas"+this.hourInit+this.hourEnd);
-
+     this.product_slot = params.data.p_slot
 
     this.service.load(this.filter).then(results => {
 
@@ -138,7 +138,8 @@ export class ProductsPage {
     this.nav.push(ProductsPage, item)
   }
   getProduct(id) {
-    this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    // this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
   }
   // getCart() {
   //   this.nav.push(CartPage)

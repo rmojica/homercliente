@@ -32,11 +32,11 @@
   <ion-spinner *ngIf="!cart" name="crescent">
   </ion-spinner>
   <div *ngIf="cart">
-        <div class="empty" *ngIf="cart.cart_contents.length == 0"> 
+        <div class="empty" *ngIf="cart.cart_contents.length == 0">
             <ion-icon name="md-basket"></ion-icon>
             <h4 color="side-heading-color" text-center no-lines>{{"Your cart is empty" | translate}}!</h4>
-            <h5 text-center no-lines>{{"Add some products available in our menu to checkout" | translate}}</h5> 
-            <button ion-button class="butt" item-center medium color="button-color" text-uppercase (click)="gohome()">{{"Continue Booking" | translate}}</button> 
+            <h5 text-center no-lines>{{"Add some products available in our menu to checkout" | translate}}</h5>
+            <button ion-button class="butt" item-center medium color="button-color" text-uppercase (click)="gohome()">{{"Continue Booking" | translate}}</button>
         </div>
     <div *ngIf="cart?.cart_contents">
 
@@ -49,6 +49,10 @@
             </ion-thumbnail>
             <h2 wrap-text>{{item.value.name}}
             </h2>
+            <h3 wrap-text > {{"Date" | translate}}: {{item.value.booking.date}}
+            </h3>
+            <h3 wrap-text > {{"Time" | translate}}: {{item.value.booking.time}}
+            </h3>
             <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
             </h3>
             <h3 wrap-text> {{"Totals" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}
@@ -71,7 +75,7 @@
         </div>
       </ion-list>
       </div>
-      
+
       <div>
         <ion-list class="totals" radio-group >
           <ion-list-header>
@@ -89,7 +93,7 @@
           </ion-item>
         </ion-list>
       </div>
-      
+
 
       <div *ngIf="cart.cart_contents.length != 0">
         <ion-list *ngIf="shipping" no-margin text-wrap radio-group [(ngModel)]="chosen_shipping" (ngModelChange)="updateShipping(chosen_shipping)" class="shipping-methods">
@@ -98,9 +102,9 @@
             </h2>
           </ion-item-divider>
           <ion-item *ngFor="let method of shipping | keys" >
-            <ion-label>{{method.value.method_title}} 
+            <ion-label>{{method.value.method_title}}
               <span *ngIf="method.value.cost">{{ 1*method.value.cost | currency:values.currency:true:'1.2-2'}}
-              </span> 
+              </span>
             </ion-label>
             <ion-radio value="{{method.value.id + ':' + method.value.instance_id}}" >
             </ion-radio>
@@ -133,7 +137,7 @@
               <ion-label>{{1*cart.cart_totals.subtotal | currency:values.currency:true:'1.2-2'}}
               </ion-label>
             </ion-col>
-          </ion-row>  
+          </ion-row>
 
           <ion-row *ngIf="cart.cart_totals.cart_contents_total != 0">
             <ion-col width-75>
@@ -144,7 +148,7 @@
               <ion-label>{{1*cart.cart_totals.cart_contents_total | currency:values.currency:true:'1.2-2'}}
               </ion-label>
             </ion-col>
-          </ion-row>  
+          </ion-row>
 
           <ion-row *ngIf="cart.cart_totals.tax_total != 0">
             <ion-col width-75>
@@ -157,9 +161,9 @@
             </ion-col>
           </ion-row>
 
-          <ion-row *ngIf="cart.cart_totals.discount_total && cart.cart_totals.discount_total != 0"> 
+          <ion-row *ngIf="cart.cart_totals.discount_total && cart.cart_totals.discount_total != 0">
             <ion-col width-75 class="remove-coupon">
-              <ion-label>{{"Coupons" | translate}} - {{cart.applied_coupons}} 
+              <ion-label>{{"Coupons" | translate}} - {{cart.applied_coupons}}
                 <a (click)="removeCoupon()"> (Remove)
                 </a>
               </ion-label>
@@ -170,7 +174,7 @@
             </ion-col>
           </ion-row>
 
-          <ion-row *ngIf="cart.cart_totals.shipping_total != 0"> 
+          <ion-row *ngIf="cart.cart_totals.shipping_total != 0">
             <ion-col width-75>
               <ion-label>{{"Shipping" | translate}}
               </ion-label>
@@ -195,7 +199,7 @@
           </ion-row>
 
         </ion-list>
-        
+
       </div>
     </div>
   </div>

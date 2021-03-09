@@ -15,6 +15,7 @@ import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util'
 
 @Injectable()
 export class Service {
+  product_slot:any = [];
   header:any = new Headers();
   data: any
   categories: any
@@ -865,13 +866,17 @@ export class Service {
                 if(product.available != 1){
                   break;
                 }else{
+                  this.product_slot.push({
+                    date: product.date,
+                    product_id: product.product_id
+                  })
                   this.includeProduct += product.product_id + ',';
                 }
                 // this.includeProduct.split(",")
                 // if(!this.includeProduct.includes(product.product_id)){
                 // }
               }
-              resolve(this.includeProduct)
+              resolve({includeProduct:this.includeProduct, product_slot:this.product_slot})
             }
 
           })
