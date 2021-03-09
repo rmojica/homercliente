@@ -259,12 +259,12 @@
                 </div>
 
                 <div class="price-bottom-list">
-                  <h3 class="price-regular" *ngIf="!item.minPrice">
+                  <h3 class="price-regular" *ngIf="!item.price">
                     Starting from {{1*item.price |
                     currency:values.currency:true:'1.2-2'}}
                   </h3>
 
-                  <h3 class="price-regular" *ngIf="item.minPrice">
+                  <h3 class="price-regular" *ngIf="item.price">
                     Starting from {{1*item.minPrice |
                     currency:values.currency:true:'1.2-2'}}
                   </h3>
@@ -389,6 +389,13 @@
                     </ion-item>
                     <ion-item class="description" text-wrap no-lines>
                       <div [innerHTML]="item.description"></div>
+                    </ion-item>
+
+                    <ion-item no-padding no-lines class="item-background">
+                      {{"Precio" | translate}} :
+                    </ion-item>
+                    <ion-item class="description" text-wrap no-lines>
+                      <div [innerHTML]="item.price | currency "></div>
                     </ion-item>
 
                     <ion-item no-padding no-lines class="item-background">

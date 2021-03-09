@@ -35,6 +35,13 @@ export class ProductsListPage {
   autocompleteItems: any[];
   PredictionArray: any[];
 
+  date:any;
+  hourInit:any;
+  hourEnd:any;
+
+  processDate:any;
+  processHour:any;
+
   location: any;
   placeid: any;
   GoogleAutocomplete: any;
@@ -106,7 +113,7 @@ export class ProductsListPage {
             .subscribe(position => {
               this.miLatitude = position.coords.latitude;
               this.miLongitude = position.coords.longitude;
-              console.log("miLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
+              // console.log("miLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
             });
         });
     }
@@ -114,6 +121,14 @@ export class ProductsListPage {
     openModal(characterNum) {
       let modal = this.modalCtrl.create(ModalContentPage, characterNum);
       modal.present();
+    }
+
+    getDate(date){
+      this.processDate = date
+    }
+
+    getTime(time){
+      this.processHour = time
     }
 
     ionSelected() {
@@ -137,7 +152,7 @@ export class ProductsListPage {
     clickSearch(){
       this.autocompleteCat.input = ' ';
       this.getItemsCat()
-      console.log(this.autocompleteCat.input)
+      console.log("probando auto complete",this.autocompleteCat.input)
     }
 
     doRefresh(refresher){
@@ -383,9 +398,37 @@ export class ProductsListPage {
     this.HideRadius = false;
   }
 
+  onChange(evt) {
+    if(this.categories.length == 0){
+      this.categories.push({id:evt.id, name:evt.name});
+      this.categoriesValue = [];
+    }else{
+      if(this.categories.id != evt){
+        this.categories.push({id:evt.id, name:evt.name});
+        this.categoriesValue = [];
+      }
+    }
+    this.categoriesValue = [];
+  }
+
   SelectSearchResultCat(item) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
     // alert(JSON.stringify(item))
+
+    if(this.categories.length == 0){
+      // this.categories.push({id:item.id, name:item.name});
+      this.categories.push({id:item.id, slug:item.slug});
+      this.categoriesValue = [];
+    }else{
+      if(this.categories.id != item){
+        this.categories.push({id:item.id, slug:item.slug});
+        this.categoriesValue = [];
+      }
+    }
+    console.log('my',this.categories);
+
+    this.categoriesValue = [];
+
     this.autocompleteCat.input = item.name;
     this.selectedCategory = item.slug;
 
@@ -393,6 +436,8 @@ export class ProductsListPage {
     this.items.slug = item.slug;
     this.items.name = item.name;
     this.items.categories =  this.service.categories.filter(item => item.parent === parseInt(item.id));
+
+    console.log(this.items.categories)
 
     this.HiddenListCat = false;
     this.HiddenSearchLocation = false;
@@ -427,15 +472,18 @@ export class ProductsListPage {
       this.itemsCategory = this.itemsCategory.filter((itemsCategory) => {
         return (itemsCategory.name.toLowerCase().indexOf(this.autocompleteCat.input.toLowerCase()) > -1);
       })
+
     // }
   }
   searchProduct(){
+    let min_date = this.date+'T'+this.hourInit;
+    let max_date = this.date+'T'+this.hourEnd;
     this.getAddressFromCoords();
     this.items.productslocation = ''
 
     if( this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
-      // let midata =  this.service.getLocationFromProduct2(this.lat, this.long, this.radius)
-      let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
+      let midata =  this.service.getLocationFromProduct3(min_date, max_date, null)
+      // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
     }
     else{
@@ -445,24 +493,17 @@ export class ProductsListPage {
     }
   }
   handleLocationInit(results) {
+
     let dataResult = results;
+
     this.items.productslocation = dataResult;
-    this.nav.push(ProductsPage, this.items);
+
+    this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
+    // this.nav.push(ProductsPage, {categories:this.categories, date:this.processDate, hour:this.processHour});
 
   }
 
-  onChange(evt) {
-    if(this.categories.length == 0){
-      this.categories.push({id:evt.id, name:evt.name});
-      this.categoriesValue = [];
-    }else{
-      if(this.categories.id != evt){
-        this.categories.push({id:evt.id, name:evt.name});
-        this.categoriesValue = [];
-      }
-    }
-    this.categoriesValue = [];
-  }
+
 
   deleteTipoServicio(id){
     let index = this.categories.map(result => result.id).indexOf(id);

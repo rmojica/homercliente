@@ -66,7 +66,10 @@ export class ProductService {
     return new Promise(resolve => {
       var params = new URLSearchParams()
 
-      params.append('wc_bookings_field_resource', resource_id)
+      console.log("parametros enviadas",month, day, year, selected_time, product.id);
+
+
+      // params.append('wc_bookings_field_resource', resource_id)
       params.append('wc_bookings_field_start_date_month', month)
       params.append('wc_bookings_field_start_date_day', day)
       params.append('wc_bookings_field_start_date_year', year)
@@ -86,7 +89,7 @@ export class ProductService {
 
         // this.http.post(this.config.url + '/product/coronary-angioplasty-and-stents/', searchParams, this.config.options).map(res => res.json())
         .subscribe(data => {
-          console.log(data)
+          console.log("ver data enviada de wordpress",data)
           this.status = data.status
           resolve(this.status)
         })

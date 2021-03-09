@@ -61,6 +61,14 @@ export class ProductPage {
   long:string;
   autocomplete: { input: string; };
   address:string;
+
+  date:any = '2021-03-03';
+  hourInit:any = '08:00';
+  hourEnd:any = '22:00';
+
+  processDate:any;
+  processHour:any;
+
   constructor(
     public alert:AlertController,
     public translate: TranslateService,
@@ -84,14 +92,17 @@ export class ProductPage {
     this.BookNow = 'BookNow'
     if (params.data.id) {
       this.selectedService = null
-      console.log(params)
-      this.product.product = params.data
+      this.product.product = params.data.id
       this.id = params.data.id
 
-      console.log('producto', this.product.product)
+     this.date = params.data.date;
+     this.hourInit = params.data.hourInit;
+     this.hourEnd = params.data.hourEnd;
+
+     this.selectedTime = this.date+'T'+this.hourInit
 
       this.options.product_id = this.id
-      console.log('Product: ', this.product.product.resources_full)
+
       this.usedVariationAttributes = (this.product.product
         .resources_full as Array<any>).map(item => item)
 
@@ -100,7 +111,7 @@ export class ProductPage {
     } else {
       // this.options.product_id = this.id
        this.service
-        .getProduct(params.data)
+        .getProduct(params.data.id)
         .then(results => this.handleProductResults(results))
     }
 
@@ -111,7 +122,7 @@ export class ProductPage {
         .subscribe(position => {
           this.miLatitude = position.coords.latitude;
           this.miLongitude = position.coords.longitude;
-          console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
+          // console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
         });
     });
 
@@ -200,26 +211,35 @@ export class ProductPage {
     //   this.nav.push(AccountLogin)
     // }
     //Validamos se el producto contiene resources
-    if (
-      this.product.product.resources_full.length > 0 &&
-      !this.selectedService
-    ) {
-      this.functions.showAlert(
-        'Options',
-        'Select a service and booking information',
-      )
-      return
-    }
+    // if (
+    //   this.product.product.resources_full.length > 0 &&
+    //   !this.selectedService
+    // ) {
+    //   this.functions.showAlert(
+    //     'Options',
+    //     'Select a service and booking information',
+    //   )
+    //   return
+    // }
     var resource_id = !this.selectedService
       ? null
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
     this.getAddressFromCoords();
-    var date = moment(this.selectedTime)
-    var year = date.year()
-    var month = date.month()
-    var day = date.day()
+
+    console.log(this.selectedTime);
+
+    // var date = moment(new Date(this.selectedTime))
+    // var year = date.year()
+    // var month = date.month()
+    // var day = date.day()
+    var date = new Date(this.selectedTime);
+
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
 
     this.service.addOrders({
       "clientUi": this.values.customerId,
@@ -227,7 +247,7 @@ export class ProductPage {
       "productUi": this.product.product.id,
       "productName": this.product.product.name,
       "date": year+'/'+month+'/'+day,
-      "hour": date.hour(),
+      "hour": date.getHours(),
       "lat":this.lat,
       "lng":this.long,
       "onesignal":this.values.userId
@@ -238,6 +258,7 @@ export class ProductPage {
       "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
       "onesignalid":this.providerOneSignal
     })
+
 
 
     this.disableSubmit = true
@@ -252,6 +273,7 @@ export class ProductPage {
         this.product.product,
       )
       .then(results => {
+
         this.updateCart(results)
       })
       this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
@@ -501,6 +523,15 @@ export class ProductPage {
       this.long = this.miLongitude.toString();
 
   }
+
+  getDate(date){
+    this.processDate = date
+  }
+
+  getTime1(time){
+    this.processHour = time
+  }
+
 
 
 

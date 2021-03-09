@@ -166,7 +166,7 @@
         <strong>{{"Select Service"| translate}}
         </strong>
       </ion-item> -->
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>
           {{"Please select a service" | translate}}
         </ion-label>
@@ -181,7 +181,7 @@
               </ion-option>
           </div>
         </ion-select>
-      </ion-item>
+      </ion-item> -->
     </div>
 
   <!--variation product starts-->
@@ -221,12 +221,33 @@
       </button>
     </div>  -->
 
-     <ion-calendar
+     <!-- <ion-calendar
       [options]="optionsMulti"
       (onSelect)="onSelect($event,product.product.id)"
       [type]="type"
       [format]="'MM-DD-YYYY'"
-    ></ion-calendar>
+    ></ion-calendar> -->
+
+    <div style="margin: 0 10px 0 5px;">
+      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
+        <!-- <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon> -->
+        <ion-icon name="calendar"></ion-icon>
+
+         <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="date" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      </button>
+
+      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
+        <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime1(this.hourInit)" placeholder="Desde" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourInit" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      </button>
+
+      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
+        <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime1(this.hourEnd)" placeholder="Hasta" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourEnd" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      </button>
+    </div>
 
     <div *ngIf="schedule;else no_schedule">
       <h4 class="container flex text-center full-width">
@@ -246,22 +267,23 @@
         </li>
       </ul>
     </div>
-    <ng-template #no_schedule>
+    <!-- <ng-template #no_schedule>
       <div class="container flex text-center full-width">
         {{NoBlockAvailable | translate}}
       </div>
-    </ng-template>
+    </ng-template> -->
     <div class="add-to-cart-button">
       <button
         ion-button
         full
         color="button-color"
         text-uppercase
-        [disabled]="disableSubmit"
+
         (click)="addToCart(product.product.id)"
       >
         {{BookNow | translate}}
       </button>
+      <!-- [disabled]="disableSubmit" -->
     </div>
     <div *ngIf="product.product.short_description">
       <ion-item no-lines class="item-background">

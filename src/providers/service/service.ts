@@ -833,47 +833,91 @@ export class Service {
         })
     })
   }
+  getLocationFromProduct3(min_date, max_date, filter) {
+      let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
 
-  getLocationFromProduct2(lat, long, radius) {
-    let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
-
-    return new Promise(resolve => {
-      this.header.append('Content-Type', 'application/json');
-      this.http
-        .post(
-          urlPath +
-          '/search',
-         {
-          "lat":lat,
-          "lng":long,
-          "distance":radius
-         },
-         this.header
+      return new Promise(resolve => {
+        this.header.append('Content-Type', 'application/json');
+        this.http
+        .get(
+          this.config.setUrl(
+            'GET',
+          `/wp-json/wc-bookings/v1/products/slots?min_date=${min_date}&max_date=${max_date}&`,
+          null
+          ),
+          this.config.options,
         )
         .map(res => res.json())
         .subscribe(data => {
 
-          this.status = data;
+            this.status = data;
 
-          this.dataSearchProduct = this.status.data;
-          this.includeProduct = '';
+            this.dataSearchProduct = this.status;
+            this.includeProduct = '';
 
-          if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
-            this.includeProduct = '0';
-          }else{
-            for (let i = 0; i < this.dataSearchProduct.length; i++) {
-              let product = this.dataSearchProduct[i]
-              this.values.homerOneSignal.push({product:product.ui,providerOneSignal:this.dataSearchProduct[i].onesignal})
-              this.includeProduct += product.ui + ',';
+            if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
+              this.includeProduct = '0';
+            }else{
+
+              for (var key in this.dataSearchProduct.records) {
+                let product = this.dataSearchProduct.records[key]
+
+                if(product.available != 1){
+                  break;
+                }else{
+                  this.includeProduct += product.product_id + ',';
+                }
+                // this.includeProduct.split(",")
+                // if(!this.includeProduct.includes(product.product_id)){
+                // }
+              }
+              resolve(this.includeProduct)
             }
-             this.includeProduct = this.includeProduct.slice(0, -1);
-          }
 
-          resolve(this.includeProduct)
+          })
+      })
+    }
 
-        })
-    })
-  }
+  // getLocationFromProduct2(lat, long, radius) {
+  //   let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+
+  //   return new Promise(resolve => {
+  //     this.header.append('Content-Type', 'application/json');
+  //     this.http
+  //       .post(
+  //         urlPath +
+  //         '/search',
+  //        {
+  //         "lat":lat,
+  //         "lng":long,
+  //         "distance":radius
+  //        },
+  //        this.header
+  //       )
+  //       .map(res => res.json())
+  //       .subscribe(data => {
+
+  //         this.status = data;
+
+  //         this.dataSearchProduct = this.status.data;
+  //         this.includeProduct = '';
+
+  //         if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
+  //           this.includeProduct = '0';
+  //         }else{
+  //           for (let i = 0; i < this.dataSearchProduct.length; i++) {
+  //             let product = this.dataSearchProduct[i]
+  //             this.values.homerOneSignal.push({product:product.ui,providerOneSignal:this.dataSearchProduct[i].onesignal})
+  //             this.includeProduct += product.ui + ',';
+  //           }
+  //            this.includeProduct = this.includeProduct.slice(0, -1);
+  //         }
+
+  //         resolve(this.includeProduct)
+
+  //       })
+  //   })
+  // }
 
   getLocationFromProduct(lat, long, radius) {
     var params = new URLSearchParams();

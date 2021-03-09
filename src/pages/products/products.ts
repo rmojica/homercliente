@@ -34,6 +34,9 @@ export class ProductsPage {
   data: any
   sort: number = 0
   categoryName: any
+  hourInit:any;
+  hourEnd:any;
+  date:any;
   constructor(
     public nav: NavController,
     public popoverCtrl: PopoverController,
@@ -46,15 +49,26 @@ export class ProductsPage {
     this.filter = {}
     this.q = ''
 
-    if (params.data.slug != '') {
-      this.filter['filter[category]'] = params.data.slug
-      this.filter.id = params.data.id
+    // if (params.data.slug != '') {
+    //   this.filter['filter[category]'] = params.data.slug
+    //   this.filter.id = params.data.id
+    // }
+    // this.hour = params.data.hour;
+    // this.date = params.data.date;
+    let p:any;
+    if(params.data.categories.length > 0){
+      params.data.categories.map((category) => {
+        this.filter['filter[category]'] += ','+category.slug
+        // this.filter.id = category.id
+      })
     }
 
-    // if(params.data.productslocation != ''){
-    //     this.filter['include'] = params.data.productslocation
-    // }
-    console.log(this.values.homerOneSignal);
+
+    if(params.data.items != ''){
+        this.filter['include'] = params.data.items
+    }else{
+      this.filter['include'] = 0
+    }
 
 
     this.categoryName = params.data.name
@@ -67,8 +81,15 @@ export class ProductsPage {
     this.items = []
     this.quantity = '1'
     this.subCategories = params.data.categories
+
+    this.date = params.data.date;
+    this.hourInit = params.data.hourInit;
+    this.hourEnd = params.data.hourEnd;
+
+    console.log("parametros a enviar a la otra vista"+this.date+"horas"+this.hourInit+this.hourEnd);
+
+
     this.service.load(this.filter).then(results => {
-      console.log(results);
 
       this.products = results
       // this.products.forEach((element,index,arr) => {
@@ -117,7 +138,7 @@ export class ProductsPage {
     this.nav.push(ProductsPage, item)
   }
   getProduct(id) {
-    this.nav.push(ProductPage, id)
+    this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
   }
   // getCart() {
   //   this.nav.push(CartPage)
