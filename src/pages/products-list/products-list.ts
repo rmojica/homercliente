@@ -78,6 +78,13 @@ export class ProductsListPage {
     Molestias, voluptatem ex numquam asperiores explicabo eius quam sequi atque voluptates delectus incidunt minima molestiae tempore libero reprehenderit non sunt fugit repellendus ipsum rem totam quo suscipit assumenda. Nisi, enim.
     Officia illo sint quod facere laborum dolore perspiciatis expedita sit atque dignissimos blanditiis ab consectetur molestias iusto nobis obcaecati corporis odit, hic vitae reprehenderit iste. Dolores alias asperiores maxime porro.
     Recusandae inventore, accusantium, eveniet suscipit sed, delectus earum error libero fugit dolores iure repellat? Dolorum voluptate eos voluptas officia repellendus eaque similique a fugit ipsa, odit sapiente quia quae exercitationem!`;
+
+    myDate: String = new Date().toISOString();
+  minTime = "00:00";
+  minutesVal = "0,30";
+  hourValues = [];
+  myDateCustom: any
+  
     constructor(
         public alert:AlertController,
         public modalCtrl: ModalController,
@@ -131,6 +138,19 @@ export class ProductsListPage {
 
     getTime(time){
       this.processHour = time
+    }
+
+    getTime2(time){
+      this.processHour = time
+      
+    
+      var hrsmin = time
+      var hrsminSplit = hrsmin.split(":", 2)
+
+      var hr = Number(hrsminSplit[0]) + 2
+      
+      console.log(hr)
+      this.setHoursTime2(hr, hrsminSplit[1]);
     }
 
     ionSelected() {
@@ -574,6 +594,28 @@ export class ProductsListPage {
   //   this.nav.push(ProductsPage, this.items);
 
   // }
+
+  setHoursTime2(hr, min) {
+    this.hourEnd = null
+    //var hrs = hr + 2;
+    //console.log("min: ",min)
+    var currentHours2 = ("0" + hr).slice(-2);
+    var horaCiclo = 0;
+    this.hourValues = [];
+    if (min == 30) {
+      this.minutesVal = "30";
+    } else {
+      this.minutesVal = "0";
+    }
+    for (let i = hr; i <= 23; i = i + 2) {
+      this.hourValues.push(i);
+      //console.log("time 2: " + i);
+    }
+    //console.log(this.hourValues);
+    var hrsMin = currentHours2 + ":" + min;
+    this.minTime = hrsMin.toString();
+    //console.log("hrsMin: ", hrsMin);
+  }
 
 }
 

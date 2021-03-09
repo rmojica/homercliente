@@ -109,13 +109,21 @@
         <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
           <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
            <ion-icon name="md-alarm"></ion-icon>
-           <ion-datetime (ionChange)="getTime(this.hourInit)" placeholder="Desde" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourInit" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime>
+           <!-- <ion-datetime (ionChange)="getTime(this.hourInit)" placeholder="Desde" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourInit" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime> -->
+           <ion-datetime (ionChange)="getTime2(this.hourInit)" placeholder="Desde" [(ngModel)]="hourInit" display-timezone="utc"  cancelText ="Cancelar" doneText="Seleccionar" 
+           minuteValues="0,30" displayFormat="HH:mm" [(ngModel)]="myDate">
+          </ion-datetime>
+
         </button>
 
         <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
           <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
            <ion-icon name="md-alarm"></ion-icon>
-           <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourEnd" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime>
+           <!-- <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourEnd" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime> -->
+           <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" [(ngModel)]="hourEnd" display-timezone="utc" cancelText ="Cancelar" 
+           doneText="Seleccionar" [minuteValues]="minutesVal" [hourValues]="hourValues" [min]="minTime" displayFormat="HH:mm">
+            </ion-datetime>
+
         </button>
       </div>
 
