@@ -145,7 +145,7 @@ export class ProductPage {
         });
     });
 
-    this.servi.getHomerOneSignal(this.product.product.id).then(result => console.log("obtengo el id provider homerOnesignal",result));
+    this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => this.providerOneSignal = result.providers[0].onesignal);
 
 
     //con esto antes obtenia el providerOneSignal

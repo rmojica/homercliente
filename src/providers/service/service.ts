@@ -934,7 +934,7 @@ export class Service {
           urlPath +
           '/provider/getonesignal',
           {
-            "ui":product
+            "product":product
           },
           this.header
         )
