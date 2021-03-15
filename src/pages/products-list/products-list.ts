@@ -147,7 +147,7 @@ export class ProductsListPage {
       var hrsmin = time
       var hrsminSplit = hrsmin.split(":", 2)
 
-      var hr = Number(hrsminSplit[0]) + 2
+      var hr = Number(hrsminSplit[0]) + 1
       
       console.log(hr)
       this.setHoursTime2(hr, hrsminSplit[1]);
@@ -607,7 +607,7 @@ export class ProductsListPage {
     } else {
       this.minutesVal = "0";
     }
-    for (let i = hr; i <= 23; i = i + 2) {
+    for (let i = hr; i <= 23; i = i + 1) {
       this.hourValues.push(i);
       //console.log("time 2: " + i);
     }
