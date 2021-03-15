@@ -932,7 +932,7 @@ export class Service {
       this.http
         .post(
           urlPath +
-          '/search',
+          '/provider/getonesignal',
           {
             "ui":product
           },
@@ -940,9 +940,7 @@ export class Service {
         )
         .map(res => res.json())
         .subscribe(data => {
-
-          
-
+             resolve(data)
         })
     })
   }
