@@ -924,6 +924,29 @@ export class Service {
   //   })
   // }
 
+  getHomerOneSignal(product) {
+    let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+
+    return new Promise(resolve => {
+      this.header.append('Content-Type', 'application/json');
+      this.http
+        .post(
+          urlPath +
+          '/search',
+          {
+            "ui":product
+          },
+          this.header
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+
+          
+
+        })
+    })
+  }
+
   getLocationFromProduct(lat, long, radius) {
     var params = new URLSearchParams();
     params.append('latitude', lat);
