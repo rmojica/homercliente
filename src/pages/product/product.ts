@@ -78,6 +78,7 @@ export class ProductPage {
     public translate: TranslateService,
     public nav: NavController,
     public service: ProductService,
+    public servi:Service,
     public otherservice: Service,
     params: NavParams,
     public functions: Functions,
@@ -144,14 +145,15 @@ export class ProductPage {
         });
     });
 
+    this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => this.providerOneSignal = result.providers[0].onesignal);
 
 
-
-    for (let i = 0; i < this.values.homerOneSignal.length; i++) {
-      if(this.values.homerOneSignal[i].product == this.product.product.id){
-        this.providerOneSignal = this.values.homerOneSignal[i].providerOneSignal
-      }
-    }
+    //con esto antes obtenia el providerOneSignal
+    // for (let i = 0; i < this.values.homerOneSignal.length; i++) {
+    //   if(this.values.homerOneSignal[i].product == this.product.product.id){
+    //     this.providerOneSignal = this.values.homerOneSignal[i].providerOneSignal
+    //   }
+    // }
 
   }
 
