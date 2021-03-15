@@ -293,6 +293,23 @@
         <div [innerHTML]="product.product.short_description"></div>
       </ion-item>
     </div>
+    <!-- <ion-card>
+      <ion-card-header style="background-color: #ebebeb">
+        {{"Home Address" | translate}}
+      </ion-card-header>
+      <ion-card-content style="margin-top: 10px">
+        {{customers.customer.billing_address.first_name}} {{customers.customer.billing_address.last_name}}<br
+          *ngIf="customers.customer.billing_address.first_name">
+        {{customers.customer.billing_address.address_1}}<br *ngIf="customers.customer.billing_address.address_1">
+        {{customers.customer.billing_address.address_2}}<br *ngIf="customers.customer.billing_address.address_2">
+        {{customers.customer.billing_address.city}} {{customers.customer.billing_address.state}}<br
+          *ngIf="customers.customer.billing_address.city">
+        {{customers.customer.billing_address.phone}}<br *ngIf="customers.customer.billing_address.phone">
+        {{customers.customer.billing_address.email}}<br *ngIf="customers.customer.billing_address.email">
+        {{customers.customer.billing_address.country}} {{customers.customer.billing_address.postcode}}<br
+          *ngIf="customers.customer.billing_address.postcode">
+      </ion-card-content>
+    </ion-card> -->
     <!-- <div *ngIf="product.product.description">
       <ion-item no-lines class="item-background">
         {{"Description" | translate}} :

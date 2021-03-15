@@ -89,7 +89,7 @@ export class ProductService {
 
         // this.http.post(this.config.url + '/product/coronary-angioplasty-and-stents/', searchParams, this.config.options).map(res => res.json())
         .subscribe(data => {
-          console.log("ver data enviada de wordpress",data)
+          // console.log("ver data enviada de wordpress",data)
           this.status = data.status
           resolve(this.status)
         })

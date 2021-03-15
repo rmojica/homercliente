@@ -13,7 +13,7 @@ import { ProductsListPage } from '../products-list/products-list'
 import { OneSignal } from '@ionic-native/onesignal';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
-
+import { Service } from '../../providers/service/service';
 @Component({
   templateUrl: 'product.html',
 })
@@ -69,11 +69,16 @@ export class ProductPage {
   processDate:any;
   processHour:any;
   product_slot:any = []
+
+  customers: any;
+  addresses: any;
+
   constructor(
     public alert:AlertController,
     public translate: TranslateService,
     public nav: NavController,
     public service: ProductService,
+    public otherservice: Service,
     params: NavParams,
     public functions: Functions,
     public values: Values,
@@ -90,6 +95,17 @@ export class ProductPage {
     this.optionss = []
     this.quantity = '1'
     this.BookNow = 'BookNow'
+
+
+    this.otherservice.getCustomer()
+    .then((results) => this.handleCustomer(results));
+
+    this.otherservice.getAddress()
+    .then((resultsAddresses) =>  this.handleAddress(resultsAddresses));
+
+    console.log(this.customers);
+
+
     if (params.data.id) {
       this.selectedService = null
       this.product.product = params.data.id
@@ -127,6 +143,9 @@ export class ProductPage {
           // console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
         });
     });
+
+
+
 
     for (let i = 0; i < this.values.homerOneSignal.length; i++) {
       if(this.values.homerOneSignal[i].product == this.product.product.id){
@@ -177,6 +196,14 @@ export class ProductPage {
 
     //Por defecto iniciamos con el booking deshabilitado
     this.disableSubmit = true
+  }
+
+  handleAddress(result){
+    this.addresses = result
+  }
+
+  handleCustomer(result){
+    this.customers = result
   }
 
   handleProductResults(results) {
@@ -230,30 +257,30 @@ export class ProductPage {
       : null
     this.getAddressFromCoords();
 
-    // var date = moment(new Date(this.selectedTime))
-    // var year = date.year()
-    // var month = date.month()
-    // var day = date.day()
+    var date = moment(this.date)
+    var year = date.year()
+    var month = date.month()
+    var day = date.day()
 
 
-//para mientras comento esto que no lo ocupo
-    // this.service.addOrders({
-    //   "clientUi": this.values.customerId,
-    //   "nameClient": this.values.customerName,
-    //   "productUi": this.product.product.id,
-    //   "productName": this.product.product.name,
-    //   "date": year+'/'+month+'/'+day,
-    //   "hour": date.getHours(),
-    //   "lat":this.lat,
-    //   "lng":this.long,
-    //   "onesignal":this.values.userId
-    // });
 
-    // this.service.sendNotification({
-    //   "title":"Nueva solicitud",
-    //   "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
-    //   "onesignalid":this.providerOneSignal
-    // })
+    this.service.addOrders({
+      "clientUi": this.values.customerId,
+      "nameClient": this.values.customerName,
+      "productUi": this.product.product.id,
+      "productName": this.product.product.name,
+      "date": year+'/'+month+'/'+day,
+      "hour": this.hourInit,
+      "lat":this.lat,
+      "lng":this.long,
+      "onesignal":this.values.userId
+    });
+
+    this.service.sendNotification({
+      "title":"Nueva solicitud",
+      "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+      "onesignalid":this.providerOneSignal
+    })
 
 
 
@@ -261,7 +288,7 @@ export class ProductPage {
     this.BookNow = 'PleaseWait'
 
 
-    var date = new Date(this.selectedTime);
+    // var date = new Date(this.selectedTime);
 
 
 
