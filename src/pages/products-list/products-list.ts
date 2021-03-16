@@ -141,6 +141,7 @@ export class ProductsListPage {
     }
 
     getTime2(time){
+      
       this.processHour = time
       
     
@@ -148,6 +149,10 @@ export class ProductsListPage {
       var hrsminSplit = hrsmin.split(":", 2)
 
       var hr = Number(hrsminSplit[0]) + 1
+
+
+
+      
       
       console.log(hr)
       this.setHoursTime2(hr, hrsminSplit[1]);
