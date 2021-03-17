@@ -190,7 +190,8 @@ export class ProductService {
          "hour": data.hour,
          "lat":data.lat,
          "lng":data.lng,
-         "onesignal":data.onesignal
+         "onesignal":data.onesignal,
+         "location":data.location
       },
       this.header
     )

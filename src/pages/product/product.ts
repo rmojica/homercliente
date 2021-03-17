@@ -72,6 +72,7 @@ export class ProductPage {
 
   customers: any;
   addresses: any;
+  addressesCustomer: any;
 
   constructor(
     public alert:AlertController,
@@ -103,8 +104,6 @@ export class ProductPage {
 
     this.otherservice.getAddress()
     .then((resultsAddresses) =>  this.handleAddress(resultsAddresses));
-
-    console.log(this.customers);
 
 
     if (params.data.id) {
@@ -202,6 +201,8 @@ export class ProductPage {
 
   handleAddress(result){
     this.addresses = result
+    this.addressesCustomer = this.addresses.customer.billing_address.address_1
+    console.log(this.addressesCustomer)
   }
 
   handleCustomer(result){
@@ -275,7 +276,8 @@ export class ProductPage {
       "hour": this.hourInit,
       "lat":this.lat,
       "lng":this.long,
-      "onesignal":this.values.userId
+      "onesignal":this.values.userId,
+      "location" : this.addressesCustomer
     });
 
     this.service.sendNotification({
