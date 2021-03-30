@@ -51,13 +51,13 @@
             </h2>
             <h3 wrap-text > {{"Date" | translate}}: {{item.value.booking.date}}
             </h3>
-            <h3 wrap-text > {{"Time" | translate}}: {{item.value.booking.time}}
+            <h3 wrap-text > Hora: {{item.value.booking.time}}
             </h3>
             <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
             </h3>
             <h3 wrap-text> {{"Totals" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}
             </h3>
-            <a (click)="delete( item.key )">
+            <a (click)="delete( item.key )" style="float: right;">
               <ion-icon name="trash">
               </ion-icon>
             </a>
@@ -117,7 +117,7 @@
             <ion-input type="text" [(ngModel)]="cart.coupon" name="coupon">
             </ion-input>
             <h2 item-right>
-              <button ion-button color="button-color" block type="submit" text-uppercase [disabled]='disableSubmitCoupon' (click)="submitCoupon()"> {{Apply | translate}}
+              <button ion-button color="dark" block type="submit" text-uppercase [disabled]='disableSubmitCoupon' (click)="submitCoupon()"> {{Apply | translate}}
               </button>
             </h2>
           </ion-item>
