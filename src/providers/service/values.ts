@@ -20,6 +20,7 @@ export class Values {
   cartNonce: any;
   avatar: any = "assets/image/logo.png";
   slider: any = "assets/image/bghome.png";
+  houseTop: any = "assets/image/house-top.png";
   headerLogin: any = "assets/image/header-login.png";
   camarero:any = "assets/image/camarero.png";
   cuido:any = "assets/image/cuido.png";

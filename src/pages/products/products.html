@@ -36,7 +36,7 @@
     <ion-title >
       <img  (click)="gohome();" style="max-width: 150px;" src="{{values.avatar}}" />
     </ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button
         ion-button
         icon-only
@@ -49,7 +49,7 @@
           {{values.count}}
         </ion-badge>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -70,28 +70,29 @@
     </ion-fab-list>
   </ion-fab> -->
 
-  <ion-slides initialSlide="0" speed="3000" loop="false" pager="true" dir="rtl">
-    <ion-slide>
-      <div class="overlay">
-        <img src="{{values.slider}}" />
-      </div>
-      <div class="title-home-banner">
-        {{'Proveedores de Servicios' | translate}}
-      </div>
-    </ion-slide>
-  </ion-slides>
+  <div class="title-home-banner">
+    {{'Proveedores de Servicios' | translate}}
+  </div>
 
-  <ion-row>
+  <!-- <ion-row>
     <ion-col col-9>
-      <!-- <ion-searchbar class="searchbar-category" placeholder="Seleccionar Categoria"></ion-searchbar> -->
+      <ion-searchbar class="searchbar-category" placeholder="Seleccionar Categoria"></ion-searchbar>
     </ion-col>
     <ion-col col-3 style="align-self: center;font-weight: bold;padding: 0;">
 
       <button class="btn-filter" (click)="getFilter()">
-        Filtrar<img src="../../assets/icon/filter.svg" alt="">
+        Filtrar
       </button>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
+
+  <div class="btn-search-product">
+    <button ion-button item-center medium text-uppercase
+      (click)="getFilter()">
+      <img src="../../assets/icon/filter.svg" alt="">
+    </button>
+    <h5>Filtrar</h5>
+  </div>
 
   <div *ngIf="showFilters" class="filter">
     <ion-list
@@ -349,14 +350,14 @@
           <div class="card-background-page grid">
             <ion-row class="row unlimited-items">
               <ion-col class="col" *ngFor="let item of products">
-                <ion-card class="item-product">
-                  <ion-card-content class="stock">
-                    <img
-                      [style.height.px]="values.dimensions.imageGridViewHeight"
-                      tappable
-                      src="{{item.images[0].src}}"
-                      (click)="getProduct(item)"
+                <ion-card class="item-product" >
+                  <img
+                    [style.height.px]="values.dimensions.imageGridViewHeight"
+                    tappable
+                    src="{{item.images[0].src}}"
+                    (click)="getProduct(item)"
                     />
+                  <ion-card-content class="stock">
                     <button
                       ion-button
                       color="danger"
@@ -391,75 +392,82 @@
                       <div [innerHTML]="item.description"></div>
                     </ion-item>
 
-                    <ion-item no-padding no-lines class="item-background">
-                      {{"Precio" | translate}} :
-                    </ion-item>
-                    <ion-item class="description" text-wrap no-lines>
-                      <div [innerHTML]="item.price | currency "></div>
-                    </ion-item>
+                    <div class="price">
+                      <ion-item no-padding no-lines class="item-background">
+                        {{"Precio" | translate}} :
+                      </ion-item>
+                      <ion-item class="description" text-wrap no-lines>
+                        <div [innerHTML]="item.price | currency "></div>
+                      </ion-item>
+                    </div>
 
-                    <ion-item no-padding no-lines class="item-background">
-                      {{"Categoria:" | translate}} <div  style="display: flex;">
-                        <div *ngFor="let c of item.categories" style="width: 10%; margin-bottom: 5px; margin-right: 5px; margin-top: 5px;">
-                          <div *ngIf="c.slug == 'servicio-limpieza'">
-                            <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" >
-                          </div>
-                          <div *ngIf="c.slug == 'servicio-de-cuido-de-ninos'">
-                            <img class="img"src="{{values.cuido}}" alt="{{c.name}}" >
-                          </div>
-                          <div *ngIf="c.slug == 'servicio-planchado'">
-                            <img class="img" src="{{values.planchado}}" alt="{{c.name}}" >
-                          </div>
-                          <div *ngIf="c.slug == 'servicio-camarero'">
-                            <img class="img" src="{{values.camarero}}" alt="{{c.name}}" >
+                    <div class="category">
+                      <ion-item no-padding no-lines class="item-background">
+                        {{"Categoria:" | translate}}
+                      </ion-item>
+                      <ion-item no-padding no-lines class="item-background">
+                        <div  style="display: flex;">
+                          <div *ngFor="let c of item.categories" style="width: 30%;  margin-right: 5px;">
+                            <div *ngIf="c.slug == 'servicio-limpieza'">
+                              <img class="img" src="{{values.limpieza}}" alt="{{c.name}}" >
+                            </div>
+                            <div *ngIf="c.slug == 'servicio-de-cuido-de-ninos'">
+                              <img class="img"src="{{values.cuido}}" alt="{{c.name}}" >
+                            </div>
+                            <div *ngIf="c.slug == 'servicio-planchado'">
+                              <img class="img" src="{{values.planchado}}" alt="{{c.name}}" >
+                            </div>
+                            <div *ngIf="c.slug == 'servicio-camarero'">
+                              <img class="img" src="{{values.camarero}}" alt="{{c.name}}" >
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </ion-item>
-
-                    <ion-item no-padding>
-                      <span item-left *ngIf="item.average_rating" class="rating">
-                        <!-- <span *ngIf="item.rating_count > 0">
-                          ({{item.rating_count}})
-                        </span> -->
-                        <span
-                          class="star-icon"
-                          [ngClass]="{full: item.average_rating >= 1, half: item.average_rating == 0.5}"
-                        >
-                          &#x2605;
+                      </ion-item>
+                    </div>
+                    <div class="aline-button-start">
+                      <ion-item no-padding>
+                        <span item-left *ngIf="item.average_rating" class="rating">
+                          <!-- <span *ngIf="item.rating_count > 0">
+                            ({{item.rating_count}})
+                          </span> -->
+                          <span
+                            class="star-icon"
+                            [ngClass]="{full: item.average_rating >= 1, half: item.average_rating == 0.5}"
+                          >
+                            &#x2605;
+                          </span>
+                          <span
+                            class="star-icon"
+                            [ngClass]="{full: item.average_rating >= 2, half: item.average_rating == 1.5}"
+                          >
+                            &#x2605;
+                          </span>
+                          <span
+                            class="star-icon"
+                            [ngClass]="{full: item.average_rating >= 3, half: item.average_rating == 2.5}"
+                          >
+                            &#x2605;
+                          </span>
+                          <span
+                            class="star-icon"
+                            [ngClass]="{full: item.average_rating >= 4, half: item.average_rating == 3.5}"
+                          >
+                            &#x2605;
+                          </span>
+                          <span
+                            class="star-icon"
+                            [ngClass]="{full: item.average_rating >= 5, half: item.average_rating == 4.5}"
+                          >
+                            &#x2605;
+                          </span>
                         </span>
-                        <span
-                          class="star-icon"
-                          [ngClass]="{full: item.average_rating >= 2, half: item.average_rating == 1.5}"
-                        >
-                          &#x2605;
-                        </span>
-                        <span
-                          class="star-icon"
-                          [ngClass]="{full: item.average_rating >= 3, half: item.average_rating == 2.5}"
-                        >
-                          &#x2605;
-                        </span>
-                        <span
-                          class="star-icon"
-                          [ngClass]="{full: item.average_rating >= 4, half: item.average_rating == 3.5}"
-                        >
-                          &#x2605;
-                        </span>
-                        <span
-                          class="star-icon"
-                          [ngClass]="{full: item.average_rating >= 5, half: item.average_rating == 4.5}"
-                        >
-                          &#x2605;
-                        </span>
-                      </span>
-                    </ion-item>
-                    <ion-item no-padding no-lines class="item-background">
-                      <button style="font-weight: bold;" ion-button item-center medium color="button-color" text-uppercase
-                      (click)="getProduct(item)">{{"CONTRATAR" | translate}}
-                      </button>
-                    </ion-item>
-
+                      </ion-item>
+                      <ion-item no-padding no-lines class="item-background">
+                        <button  ion-button item-center medium color="button-color" text-uppercase
+                        (click)="getProduct(item)">{{"CONTRATAR" | translate}}
+                        </button>
+                      </ion-item>
+                    </div>
                 </ion-card>
               </ion-col>
             </ion-row>

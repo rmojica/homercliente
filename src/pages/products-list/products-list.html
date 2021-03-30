@@ -7,7 +7,7 @@
     <ion-title >
       <img  (click)="gohome();" style="max-width: 150px;" src="{{values.avatar}}" />
     </ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button
         ion-button
         icon-only
@@ -20,7 +20,7 @@
           {{values.count}}
         </ion-badge>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -69,139 +69,66 @@
     <ion-slide>
       <div class="overlay">
         <!-- <img src="../../assets/image/1.jpg" class="slider-img"> -->
-        <img src="{{values.slider}}" />
+        <img src="{{values.houseTop}}" />
       </div>
       <!--overlay-->
-      <div class="title-home-banner">
-        Su proveedor de servicios para el hogar
+      <div class="background-flat">
+        <div class="title-home-banner">
+          Su Proveedor De Servicios Para El Hogar
+        </div>
       </div>
-      <!-- <div class="card-search">
-        <ion-searchbar (click)="getSearch()" placeholder="{{'Search' | translate}}"></ion-searchbar>
-      </div> -->
-
-      <div class="card-search">
-
+      <div class="subtitle-home-banner">
+        Busca Nuestros Servicios
       </div>
 
     </ion-slide>
   </ion-slides>
+  <div class="card-search">
+    <div style="margin: 0 10px 0 5px;">
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="calendar"></ion-icon>
+         <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="date" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      </button>
 
-  <ion-card class="card-filter-home">
-    <ion-card-header>
-      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-      <ion-card-title>Busca Nuestros Servicios</ion-card-title>
-    </ion-card-header>
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime2(this.hourInit)" placeholder="Desde" [(ngModel)]="hourInit" display-timezone="utc"  cancelText ="Cancelar" doneText="Seleccionar"
+         minuteValues="0,30" displayFormat="HH:mm" [(ngModel)]="myDate">
+        </ion-datetime>
 
-    <ion-card-content>
+      </button>
 
-      <!-- <ion-card-header>
-        Desde
-      </ion-card-header> -->
-
-      <div style="margin: 0 10px 0 5px;">
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <!-- <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon> -->
-          <ion-icon name="calendar"></ion-icon>
-
-           <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="date" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-        </button>
-
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
-           <ion-icon name="md-alarm"></ion-icon>
-           <!-- <ion-datetime (ionChange)="getTime(this.hourInit)" placeholder="Desde" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourInit" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime> -->
-           <ion-datetime (ionChange)="getTime2(this.hourInit)" placeholder="Desde" [(ngModel)]="hourInit" display-timezone="utc"  cancelText ="Cancelar" doneText="Seleccionar" 
-           minuteValues="0,30" displayFormat="HH:mm" [(ngModel)]="myDate">
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" [(ngModel)]="hourEnd" display-timezone="utc" cancelText ="Cancelar"
+         doneText="Seleccionar" [minuteValues]="minutesVal" [hourValues]="hourValues" [min]="minTime" displayFormat="HH:mm">
           </ion-datetime>
+      </button>
+    </div>
 
+    <ion-searchbar (click)="clickSearch()" class="searchbar-category" [(ngModel)]="autocompleteCat.input" (ionInput)="getItemsCat()"
+    (ionClear)="ClearAutocompleteCat()" placeholder="{{'Category' | translate}}"></ion-searchbar>
+    <ion-list class="list-category" [hidden]="!HiddenListCat">
+      <ion-item *ngFor="let item of itemsCategory" (click)="SelectSearchResultCat(item)">
+        {{ item.name }}
+      </ion-item>
+    </ion-list>
+
+    <div style="display: contents; max-width: 350px;">
+      <ion-chip *ngFor="let item of categories" style="font-size: small;" >
+        <ion-label color="secondary">{{item.slug}}</ion-label>
+        <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
+          <ion-icon name="close-circle"></ion-icon>
         </button>
+      </ion-chip>
+    </div>
 
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
-           <ion-icon name="md-alarm"></ion-icon>
-           <!-- <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourEnd" cancelText ="Cancelar" doneText="Seleccionar" minuteValues="0,30"></ion-datetime> -->
-           <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" [(ngModel)]="hourEnd" display-timezone="utc" cancelText ="Cancelar" 
-           doneText="Seleccionar" [minuteValues]="minutesVal" [hourValues]="hourValues" [min]="minTime" displayFormat="HH:mm">
-            </ion-datetime>
-
-        </button>
-      </div>
-
-      <!-- <ion-item style="margin-top: 20px; margin-bottom: 10px;">
-        <ion-label>Seleccionar Servicio</ion-label>
-        <ion-select  [(ngModel)]="categoriesValue" (ngModelChange)="onChange($event)" name="categories" interface="action-sheet">
-          <ion-option *ngFor="let item of getCategory" [value]="{id:item.id, name:item.name}">{{item.name}}</ion-option>
-        </ion-select>
-      </ion-item> -->
-
-      <ion-searchbar (click)="clickSearch()" class="searchbar-category" [(ngModel)]="autocompleteCat.input" (ionInput)="getItemsCat()"
-      (ionClear)="ClearAutocompleteCat()" placeholder="{{'Category' | translate}}"></ion-searchbar>
-      <ion-list class="list-category" [hidden]="!HiddenListCat">
-        <ion-item *ngFor="let item of itemsCategory" (click)="SelectSearchResultCat(item)">
-          {{ item.name }}
-        </ion-item>
-      </ion-list>
-
-      <div style="display: contents; max-width: 350px;">
-        <ion-chip *ngFor="let item of categories" style="font-size: small;" >
-          <ion-label color="secondary">{{item.slug}}</ion-label>
-          <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
-            <ion-icon name="close-circle"></ion-icon>
-          </button>
-        </ion-chip>
-      </div>
-
-      <!-- <ion-card-header>
-        Hasta
-      </ion-card-header>
-      <div style="margin: 0 10px 0 5px;">
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon>
-
-           <ion-datetime placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="dateToevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-        </button>
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon>
-
-           <ion-datetime placeholder="Hora" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourToevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-        </button>
-      </div> -->
-
-
-      <!-- <ion-searchbar class="searchbar-category"
-        (ionClear)="ClearAutocompleteCat()" placeholder="Fecha y Hora"></ion-searchbar>
-        <ion-searchbar class="searchbar-category"
-        (ionClear)="ClearAutocompleteCat()" placeholder="Frecuencia"></ion-searchbar> -->
-
-
-
-      <!-- <ion-searchbar [hidden]="HiddenSearchLocation" class="searchbar-location" [(ngModel)]="autocomplete.input"
-        (ionInput)="UpdateSearchResults()" placeholder="{{'Location' | translate}}" (ionClear)="ClearAutocomplete()">
-      </ion-searchbar>
-      <ion-icon item-end name="locate" [hidden]="HiddenSearchLocation"  class="passwordIcon" (click)='getAddressFromCoords()'></ion-icon> -->
-
-      <!-- <ion-list class="list-location" [hidden]="!HiddenList">
-        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
-          {{ item.description }}
-        </ion-item>
-      </ion-list> -->
-
-      <!-- <div class="range-radius" [hidden]="HideRadius">
-        <ion-label class="label-radius">{{"RADIUS" | translate}}</ion-label>
-        <ion-range pin="true" min="0" max="100" [(ngModel)]="radius " color="secondary">
-          <ion-label style="color: black;" range-left>0</ion-label>
-          <ion-label style="color: black;" range-right>100</ion-label>
-        </ion-range>
-      </div> -->
-
-      <div class="btn-search-product" [hidden]="HideBtnSearch">
-        <button ion-button item-center medium color="button-color" text-uppercase
-          (click)="searchProduct()">{{"Search" | translate}}
-        </button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-
+    <div class="btn-search-product" [hidden]="HideBtnSearch">
+      <button ion-button item-center medium color="button-color" text-uppercase
+        (click)="searchProduct()">{{"Search" | translate}}
+      </button>
+    </div>
+  </div>
   <ion-grid>
     <!-- <div *ngIf="service.categories" class="category-name">
       <ion-item tappable full menuClose *ngFor="let item of service.mainCategories" (click)="getCategory(item.id, item.slug, item.name)">
