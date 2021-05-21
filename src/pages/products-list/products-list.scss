@@ -2,7 +2,7 @@ ion-slides {
   height: auto;
 }
 ion-slides ion-slide img {
-  height: 60vh!important;
+  height: 60vh !important;
   width: 100%;
 }
 // ion-slides ion-slide::after {
@@ -16,6 +16,21 @@ ion-slides ion-slide img {
 //   z-index:1;
 // }
 page-products-list {
+  .sub-header {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sub-header h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .sub-header h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+  }
   .bar-button-menutoggle-md {
     padding: 25px;
   }
@@ -55,10 +70,9 @@ page-products-list {
     color: #ffff;
     text-align: center;
     margin: 0 40px 0 40px;
-    font-family: Arial, Helvetica, sans-serif!important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 500;
     z-index: 20;
-
   }
 
   .subtitle-home-banner {
@@ -68,7 +82,7 @@ page-products-list {
     font-size: 18px;
     color: #ffff;
     margin-top: 100px;
-    font-family: Arial, Helvetica, sans-serif!important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 500;
     z-index: 20;
   }
@@ -82,7 +96,6 @@ page-products-list {
   }
 
   .card-search button {
-
   }
 
   .ion-md-locate:before {
@@ -173,7 +186,7 @@ page-products-list {
     width: 100px;
     height: 30px;
     border-radius: 20px;
-    font-family: Arial, Helvetica, sans-serif!important;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
   .category-name .button {
     text-transform: capitalize !important;
@@ -263,9 +276,9 @@ page-products-list {
     margin-bottom: 2px;
   }
 
-  ion-card{
-    box-shadow: none!important;
-    border: none!important
+  ion-card {
+    box-shadow: none !important;
+    border: none !important
     ;
   }
 
@@ -299,11 +312,11 @@ page-products-list {
   //   position: absolute;
   //   z-index: 999;
   // }
-  // .list-category{
-  //   top: 105px;
-  //   position: absolute;
-  //   z-index: 999;
-  // }
+  .list-category{
+    top: 105px;
+    position: absolute;
+    z-index: 999;
+  }
   .searchbar-category .searchbar-search-icon {
     background-image: url("../assets/icon/arrow.svg");
   }

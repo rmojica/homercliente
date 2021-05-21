@@ -1,4 +1,8 @@
 page-products {
+
+  ion-content{
+    background: #f6f6f6!important
+  }
   .aline-button-start {
     display: flex;
   }
@@ -97,7 +101,7 @@ page-products {
     padding-bottom: 10px;
   }
   .card-md {
-    margin: 0px;
+    margin: 0 auto!important;
     width: 100%;
   }
   .card-md ion-card-content {
@@ -298,7 +302,6 @@ page-products {
             width: 100% !important;
             height: 184.95px !important;
             margin-right: 0;
-            border: 1px solid red !important;
           }
         }
       }
@@ -342,7 +345,6 @@ page-products {
 
       .item-background {
         width: 100%;
-        border: 1px solid red;
         ion-label {
           font-family: Arial, Helvetica, sans-serif !important;
           font-size: 12px !important;
@@ -393,12 +395,14 @@ page-products {
         font-family: Arial, Helvetica, sans-serif !important;
       }
       .price {
-        width: 80% !important;
+        width: 100% !important;
         display: flex;
+        // border: 1px solid red;
       }
       .category {
-        width: 80% !important;
+        width: 100% !important;
         display: flex;
+        // border: 1px solid red;
       }
     }
   }
@@ -575,7 +579,7 @@ page-products {
     font-family: Arial, Helvetica, sans-serif !important;
   }
   .btn-search-product button {
-    background-color: #ffff !important;
+    background: #f6f6f6!important;
     font-size: 15px;
     width: 150px;
     height: 30px;

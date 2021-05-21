@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ModalPage {
   message:string = '';
-
+  showItem = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
 
   }
@@ -23,10 +23,14 @@ export class ModalPage {
     console.log('ionViewDidLoad ModalPage');
   }
 
+  showOther(){
+    this.showItem = !this.showItem;
+  }
+
   acept(){
     this.viewCtrl.dismiss({result:true, message:this.message})
   }
-  
+
   cancel(){
     this.viewCtrl.dismiss({result:false, message:''})
   }

@@ -7,7 +7,7 @@
       <span [innerHTML]="product.product.name"></span>
     </ion-title>
 
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button
         ion-button
         icon-only
@@ -21,7 +21,7 @@
         </ion-badge>
       </button>
 
-    </ion-buttons>
+    </ion-buttons> -->
 
   </ion-navbar>
 </ion-header>
@@ -54,14 +54,11 @@
         </ion-slide>
       </ion-slides>
     </div>
-    <ion-item class="product-name">
-      <ion-label *ngIf="product?.product?.name">
-        {{product.product.name}}
-      </ion-label>
+    <ion-item class="product-rate">
       <ion-label *ngIf="product?.product?.title">
         {{product.product.title}}
       </ion-label>
-      <span item-right *ngIf="product.product.average_rating" class="rating">
+      <span  *ngIf="product.product.average_rating" class="rating">
         <span *ngIf="product.product.rating_count > 0">
           ({{product.product.rating_count}})
         </span>
@@ -96,7 +93,36 @@
           &#x2605;
         </span>
       </span>
+      <h2
+        *ngIf="values.wishlistId[product.product.id]"
+        item-right
+        class="wishlist"
+        color="danger"
+        (click)="removeFromWishlist(product.product.id)"
+      >
+        <ion-icon name="md-heart"></ion-icon>
+      </h2>
+      <h2
+        *ngIf="!values.wishlistId[product.product.id]"
+        item-right
+        class="wishlist"
+        color="danger"
+        (click)="addToWishlist(product.product.id)"
+      >
+        <ion-icon name="md-heart-outline"></ion-icon>
+      </h2>
     </ion-item>
+    <ion-item class="item-background">
+      <ion-label *ngIf="product?.product?.name">
+        {{product.product.name}}
+      </ion-label>
+    </ion-item>
+    <div *ngIf="product.product.short_description">
+      <ion-item no-lines class="item-background">
+        {{"ShortDescription" | translate}} :
+        <div [innerHTML]="product.product.short_description"></div>
+      </ion-item>
+    </div>
     <ion-item class="stock-label" no-lines>
       <ion-label class="price-regular" *ngIf="!product.product.sale_price">
         {{1*product.product.price | currency:values.currency:true:'1.2-2'}}
@@ -119,25 +145,14 @@
           translate}}
         </span>
       </ion-label>
+    </ion-item>
 
-      <h2
-        *ngIf="values.wishlistId[product.product.id]"
-        item-right
-        class="wishlist"
-        color="danger"
-        (click)="removeFromWishlist(product.product.id)"
-      >
-        <ion-icon name="md-heart"></ion-icon>
-      </h2>
-      <h2
-        *ngIf="!values.wishlistId[product.product.id]"
-        item-right
-        class="wishlist"
-        color="danger"
-        (click)="addToWishlist(product.product.id)"
-      >
-        <ion-icon name="md-heart-outline"></ion-icon>
-      </h2>
+    <ion-item class="border-dashed">
+      <ion-icon name="pencil-outline"></ion-icon>
+      <ion-label floating>{{"StreetAddress" | translate}}
+      </ion-label>
+        <ion-input type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
+      </ion-input>
     </ion-item>
 
     <!--variation product starts-->
@@ -161,7 +176,7 @@
 
 
     <!--Select Service product-->
-      <div class="select-services" *ngIf="usedVariationAttributes" class="variation-product">
+      <!-- <div class="select-services" *ngIf="usedVariationAttributes" class="variation-product"> -->
       <!-- <ion-item class="variation-title">
         <strong>{{"Select Service"| translate}}
         </strong>
@@ -182,7 +197,7 @@
           </div>
         </ion-select>
       </ion-item> -->
-    </div>
+    <!-- </div> -->
 
   <!--variation product starts-->
     <!--div *ngIf="product?.product?.variations.length" class="variation-product">
@@ -229,27 +244,23 @@
     ></ion-calendar> -->
 
     <div style="margin: 0 10px 0 5px;">
-      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-        <!-- <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon> -->
+      <div class="box-booking">
         <ion-icon name="calendar"></ion-icon>
+         <ion-label>{{date}}</ion-label>
+      </div>
 
-         <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="date" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-      </button>
-
-      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-        <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
+      <div class="box-booking">
          <ion-icon name="md-alarm"></ion-icon>
-         <ion-datetime (ionChange)="getTime1(this.hourInit)" placeholder="Desde" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourInit" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-      </button>
+         <ion-label >{{hourInit}}</ion-label>
+      </div>
 
-      <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-        <!-- <ion-icon name="md-alarm" (click)='getAddressFromCoords()'></ion-icon> -->
-         <ion-icon name="md-alarm"></ion-icon>
-         <ion-datetime (ionChange)="getTime1(this.hourEnd)" placeholder="Hasta" displayFormat="HH:mm" display-timezone="utc"   [(ngModel)]="hourEnd" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
-      </button>
+      <div class="box-booking">
+         <ion-icon  name="md-alarm"></ion-icon>
+         <ion-label>{{hourEnd}}</ion-label>
+      </div>
     </div>
 
-    <div *ngIf="schedule;else no_schedule">
+    <!-- <div *ngIf="schedule;else no_schedule">
       <h4 class="container flex text-center full-width">
         {{WhatTime | translate}}
       </h4>
@@ -266,23 +277,13 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
     <!-- <ng-template #no_schedule>
       <div class="container flex text-center full-width">
         {{NoBlockAvailable | translate}}
       </div>
     </ng-template> -->
-    <div style="margin: 0 10px 0 15px;">
-      <ion-item>
-        <ion-label floating>{{"StreetAddress" | translate}}
-        </ion-label>
-          <ion-input type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
-        </ion-input>
-      </ion-item>
-    </div>
 
-    
-    
 
     <div class="add-to-cart-button">
       <button
@@ -297,14 +298,14 @@
       </button>
       <!-- [disabled]="disableSubmit" -->
     </div>
-    <div *ngIf="product.product.short_description">
+    <!-- <div *ngIf="product.product.short_description">
       <ion-item no-lines class="item-background">
         {{"ShortDescription" | translate}} :
       </ion-item>
       <ion-item text-wrap no-lines>
         <div [innerHTML]="product.product.short_description"></div>
       </ion-item>
-    </div>
+    </div> -->
     <!-- <ion-card>
       <ion-card-header style="background-color: #ebebeb">
         {{"Home Address" | translate}}
