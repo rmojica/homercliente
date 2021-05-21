@@ -74,7 +74,7 @@
       <!--overlay-->
       <div class="background-flat">
         <div class="title-home-banner">
-          Su Proveedor De Servicios Para El Hogar
+          Todo lo que necesitas para hacer tu vida más fácil
         </div>
       </div>
       <div class="subtitle-home-banner">
@@ -114,11 +114,11 @@
       </ion-item>
     </ion-list>
 
-    <div style="display: contents; max-width: 350px;">
+    <div style="display: contents; max-width: 350px; border: 1px solid red; z-index: -1;">
       <ion-chip *ngFor="let item of categories" style="font-size: small;" >
-        <ion-label color="secondary">{{item.slug}}</ion-label>
+        <ion-label color="primary">{{item.slug}}</ion-label>
         <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
-          <ion-icon name="close-circle"></ion-icon>
+          <ion-icon name="close-circle" style="color:red"></ion-icon>
         </button>
       </ion-chip>
     </div>
@@ -138,7 +138,10 @@
       </ion-item>
     </div>  -->
 
-    <h2 class="full-width text-center">{{'Encuentra y reserva la manera más segura de cuidar tu hogar.' | translate}}</h2>
+    <div class="sub-header">
+      <h3>{{'!Disfruta de tu tiempo gracias a Homer!' | translate}}</h3>
+      <h4>Encuentra a los mejores profesionales para tu hogar</h4>
+    </div>
 
     <ion-row *ngIf="service.categories" class="category-name">
       <ion-col col-12 class="flex-center" *ngFor="let item of service.mainCategories"

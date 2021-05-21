@@ -28,6 +28,8 @@ import { TabsPage } from '../pages/tabs/tabs'
 import { ProductsListPage, ModalContentPage } from '../pages/products-list/products-list'
 import {ChatPage} from '../pages/chat/chat'
 import {ModalPage} from '../pages/modal/modal'
+import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
+import {NewCardPage} from '../pages/new-card/new-card';
 
 /*------------------------Providers----------------------------------*/
 
@@ -63,6 +65,9 @@ import { CalendarModule } from 'ion2-calendar'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { CreditCardDirectivesModule } from 'angular-cc-library';
 
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 
@@ -102,13 +107,17 @@ export function createTranslateLoader(http: HttpClient) {
     KeysPipe,
     ModalContentPage,
     ChatPage,
-    ModalPage
+    ModalPage,
+    VirtualCardAdminPage,
+    NewCardPage
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CalendarModule,
+    ReactiveFormsModule,
+    CreditCardDirectivesModule,
     HttpModule,
     SocketIoModule.forRoot(config),
     IonicModule.forRoot(MyApp),
@@ -149,7 +158,9 @@ export function createTranslateLoader(http: HttpClient) {
     ProductsListPage,
     ModalContentPage,
     ChatPage,
-    ModalPage
+    ModalPage,
+    VirtualCardAdminPage,
+    NewCardPage
   ],
   providers: [
     CartService,

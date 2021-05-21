@@ -2,12 +2,12 @@
     <ion-navbar color="header"> <button ion-button menuToggle>
     <ion-icon name="menu"></ion-icon>
      </button>
-        <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title>
+        <ion-title  text-left *ngIf="title">{{title}} </ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content class="post" padding>
     <ion-spinner *ngIf="!post" name="crescent"> </ion-spinner>
     <div *ngIf="post">
-        <div [innerHTML]="post.post_content"></div>
+        <div [innerHTML]="post"></div>
     </div>
 </ion-content>

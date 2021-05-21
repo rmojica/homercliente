@@ -1,6 +1,34 @@
 .product-page {
-  
-   .swiper-pagination-bullet {
+    background: #fff!important;
+  .box-booking{
+    display: flex;
+    width: 80%!important;
+    background: #72A9AE;
+    margin:0 auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .border-dashed{
+    border:#d3d3d3 5px dashed!important;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .box-booking ion-icon{
+    font-size: 20px;
+    line-height: 33px;
+    color: #fff!important;
+  }
+
+  .box-booking ion-label{
+    line-height: 18px;
+    color: #fff!important;
+  }
+
+  .swiper-pagination-bullet {
     width: 12px;
       height: 12px;
       background: #76A7Ab;
@@ -14,7 +42,7 @@
     border-style: solid;
     border-color: white;
   }
-  
+
   font-family: arial;
   .wishlist {
     ion-icon {
@@ -66,7 +94,7 @@
   .rating {
     .star-icon {
       color: #ddd;
-      font-size: 0.9em;
+      font-size: 1.8em!important;
       position: relative;
     }
     .star-icon.full:before {
@@ -105,6 +133,7 @@
     float: right;
   }
   .product-details {
+    background: #fff!important;
     //margin-bottom: 40px;
     ion-slides {
       width: 100%;
@@ -116,7 +145,8 @@
       }
     }
   }
-  .product-name {
+  .product-rate {
+    display: flex;
     ion-label {
       margin: 5px 10px 0px 10px;
       color: #000;
@@ -132,9 +162,9 @@
   }
   ion-label {
     margin: 8px 10px;
-    font-size: 15px;
-    font-family: Arial;
-    color: $side-heading-color;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000!important;
   }
   .text {
     text-transform: uppercase;
@@ -232,9 +262,18 @@
     }
   }
   .add-to-cart-button {
+    width: 80%;
+    margin: 0 auto!important;
     margin: 10px 5px;
+    margin-top: 20px!important;
+  }
+  .add-to-cart-button button{
+    border-radius: 20px;
+    background: #000!important;
   }
   .item-background {
+    width: 80%;
+    margin: 0 auto!important;
     background-color: #f9f9f9;
   }
   .review-title {
@@ -245,6 +284,8 @@
     color: #9e9898;
   }
   .stock-label {
+    width: 80%;
+    margin: 0 auto;
     font-size: 1.4rem;
     .price-special {
       font-size: 18px;
@@ -347,11 +388,14 @@
     background: #1e88e5e6;
   }
 
+  ion-item{
+    background: #ffff!important;
+  }
 
 }
 .alert-button .button-inner{
   color: black;
-} 
+}
 
 .alert-tappable {
   border-bottom: 2px solid #76A7Ab;
@@ -364,3 +408,4 @@
 ion-calendar-month .primary button.days-btn small, ion-calendar-month .primary .days .marked p, ion-calendar-month .primary .days .today p {
   color: #386559;
 }
+

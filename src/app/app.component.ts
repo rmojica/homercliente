@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, AlertController } from 'ionic-angular';
+import { Platform, Nav, AlertController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Service } from '../providers/service/service';
@@ -24,7 +24,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AccountPage } from '../pages/account/account/account';
 import { OrdersVendor } from '../pages/account/orders-vendor/orders-vendor';
 import { BookingVendor } from '../pages/account/booking-vendor/booking-vendor';
-
+import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
 
 
 import {TabsPage} from '../pages/tabs/tabs';
@@ -88,7 +88,7 @@ export class MyApp {
                 } else if (result.notification.payload.additionalData.product) {
                     this.nav.push(ProductPage, {id: result.notification.payload.additionalData.product});
                 } else if (result.notification.payload.additionalData.post) {
-                    this.post({di: result.notification.payload.additionalData.post});
+                    this.post({id: result.notification.payload.additionalData.post}, '');
                 } else if (result.notification.payload.additionalData.order) {
                     this.nav.push(OrderSummary, {id: result.notification.payload.additionalData.order});
                 }
@@ -126,6 +126,9 @@ export class MyApp {
     }
     account() {
         this.nav.setRoot(AccountPage);
+    }
+    cards() {
+      this.nav.push(VirtualCardAdminPage);
     }
     login() {
         this.nav.setRoot(AccountLogin);
@@ -194,8 +197,8 @@ export class MyApp {
         };
         this.emailComposer.open(email);
     }
-    post(id) {
-        this.nav.setRoot(Post, id);
+    post(id, title) {
+        this.nav.setRoot(Post, {id, title});
     }
     openchat(){
       this.nav.setRoot(ChatPage)

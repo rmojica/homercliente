@@ -19,6 +19,7 @@ export class Values {
   cartItem: any;
   cartNonce: any;
   avatar: any = "assets/image/logo.png";
+  card:any = "assets/image/card.png";
   slider: any = "assets/image/bghome.png";
   houseTop: any = "assets/image/house-top.png";
   headerLogin: any = "assets/image/header-login.png";
