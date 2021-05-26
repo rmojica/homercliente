@@ -7,6 +7,7 @@
 </ion-tabs>
 <ion-tabs *ngIf="!values.isLoggedIn" #homerTabs>
   <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>
-  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>
+  <!-- <ion-tab [root]="Home" tabIcon="md-search"></ion-tab> -->
+  <ion-tab [root]="AccountLogin" tabIcon="md-person"></ion-tab>
   <ion-tab [root]="CartPage" tabIcon="md-cart"></ion-tab>
 </ion-tabs>

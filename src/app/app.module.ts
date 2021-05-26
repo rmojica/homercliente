@@ -35,7 +35,6 @@ import {NewCardPage} from '../pages/new-card/new-card';
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
-import { InAppBrowser } from '@ionic-native/in-app-browser'
 import { NativeStorage } from '@ionic-native/native-storage'
 import { BrowserModule } from '@angular/platform-browser'
 import { CartService } from '../providers/service/cart-service'
@@ -64,6 +63,8 @@ import { HTTP } from '@ionic-native/http'
 import { CalendarModule } from 'ion2-calendar'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+
+import {InAppBrowser} from '@ionic-native/in-app-browser';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -185,7 +186,7 @@ export function createTranslateLoader(http: HttpClient) {
     HTTP,
     Geolocation,
     NativeGeocoder,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

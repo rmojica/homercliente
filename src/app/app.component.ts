@@ -25,7 +25,7 @@ import { AccountPage } from '../pages/account/account/account';
 import { OrdersVendor } from '../pages/account/orders-vendor/orders-vendor';
 import { BookingVendor } from '../pages/account/booking-vendor/booking-vendor';
 import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import {TabsPage} from '../pages/tabs/tabs';
 import { ChatPage } from '../pages/chat/chat';
@@ -41,7 +41,7 @@ export class MyApp {
     buttonLanguagesSettings: boolean = false;
     Languages: any;
 
-    constructor(statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public config: Config, private oneSignal: OneSignal, private emailComposer: EmailComposer, private appRate: AppRate, public platform: Platform, public service: Service, public values: Values, public translateService: TranslateService, private socialSharing: SocialSharing, private nativeStorage: NativeStorage) {
+    constructor(private iab: InAppBrowser, statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public config: Config, private oneSignal: OneSignal, private emailComposer: EmailComposer, private appRate: AppRate, public platform: Platform, public service: Service, public values: Values, public translateService: TranslateService, private socialSharing: SocialSharing, private nativeStorage: NativeStorage) {
         this.Languages = []
         platform.ready().then(() => {
             statusBar.styleDefault();
@@ -127,6 +127,13 @@ export class MyApp {
     account() {
         this.nav.setRoot(AccountPage);
     }
+    openExternalLink() {
+    //   let options = 'location=no,toolbar=no,hidden=no,enableViewportScale=yes';
+      let url = encodeURIComponent('https://www.seg-social.es/wps/wcm/connect/wss/8cd0aeda-1311-4e24-a310-76b5eb52ef1e/TA_2S-138+%28V.8%29.pdf?MOD=AJPERES&amp;CVID');
+      const browser = this.iab.create('https://docs.google.com/viewer?url=' + url);
+    
+    }
+
     cards() {
       this.nav.push(VirtualCardAdminPage);
     }

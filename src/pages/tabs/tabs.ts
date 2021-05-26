@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Home } from "../home/home";
+import { AccountLogin } from '../account/login/login';
 import { ProductsListPage } from "../products-list/products-list";
 import { WishlistPage } from '../../pages/account/wishlist/wishlist';
 import { CartPage } from "../cart/cart";
@@ -16,6 +17,7 @@ import { NavController, NavParams, PopoverController, ModalController, Tabs, Tab
 export class TabsPage{
   @ViewChild('myTabs') tabRef: Tabs;
 
+  AccountLogin = AccountLogin
   Home= Home;
   productListPage= ProductsListPage;
   WishlistPage= WishlistPage;
@@ -29,7 +31,7 @@ export class TabsPage{
     public values: Values,
     public modalCtrl: ModalController,
   ) {
-    
+
   }
 
 

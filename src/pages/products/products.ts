@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavController, NavParams, PopoverController } from 'ionic-angular'
+import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular'
 import { CategoryService } from '../../providers/service/category-service'
 import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
@@ -39,6 +39,7 @@ export class ProductsPage {
   date:any;
   product_slot:any = []
   constructor(
+    public alert:AlertController,
     public nav: NavController,
     public popoverCtrl: PopoverController,
     public service: CategoryService,
@@ -139,7 +140,19 @@ export class ProductsPage {
   }
   getProduct(id) {
     // this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
-    this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    if(this.values.isLoggedIn){
+      this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    }else{
+      this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Debe estar logeado para contratar');
+    }
+  }
+  showAlert(title, text) {
+    let alert = this.alert.create({
+        title: title,
+        subTitle: text,
+        buttons: ['OK'],
+    });
+    alert.present();
   }
   // getCart() {
   //   this.nav.push(CartPage)

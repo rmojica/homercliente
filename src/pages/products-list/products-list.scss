@@ -5,6 +5,18 @@ ion-slides ion-slide img {
   height: 60vh !important;
   width: 100%;
 }
+ion-slide > :first-child {
+  width: 100%;
+}
+ion-title {
+  width:120px;
+  position:absolute;
+  left:0;
+  top:18%;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
 // ion-slides ion-slide::after {
 //   content:"";
 //   position:absolute;
@@ -65,11 +77,15 @@ page-products-list {
   //banner image
   .title-home-banner {
     position: absolute;
-    top: 16%;
+    top: 0;
     font-size: 25px;
     color: #ffff;
     text-align: center;
-    margin: 0 40px 0 40px;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 500;
     z-index: 20;
@@ -77,21 +93,27 @@ page-products-list {
 
   .subtitle-home-banner {
     position: absolute;
-    top: 10%;
-    left: 20%;
+    width: 80%;
+    top: 18%;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
     font-size: 18px;
     color: #ffff;
-    margin-top: 100px;
     font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 500;
     z-index: 20;
   }
   .card-search {
     position: absolute;
-    top: 31%;
-    left: 13%;
+    top: 25%;
+    right: 0;
+    left: 0;
     width: 80%;
     z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
@@ -312,10 +334,11 @@ page-products-list {
   //   position: absolute;
   //   z-index: 999;
   // }
-  .list-category{
+  .list-category {
     top: 105px;
     position: absolute;
     z-index: 999;
+    background:#fff;
   }
   .searchbar-category .searchbar-search-icon {
     background-image: url("../assets/icon/arrow.svg");
@@ -368,6 +391,14 @@ page-products-list {
     color: black;
   }
 
+  .item-md{
+    background: transparent;
+  }
+
+  .item-ios{
+    background: transparent;
+  }
+
   .item-md p {
     margin: 0 0 2px;
     overflow: inherit;
@@ -386,8 +417,9 @@ page-products-list {
     display: flex;
     justify-content: center;
     padding: 0 !important;
+    background: #fcfcfc;
   }
-
+  
   .text-center {
     text-align: center !important;
   }

@@ -35,9 +35,9 @@ export class ProductsListPage {
   autocompleteItems: any[];
   PredictionArray: any[];
 
-  date:any;
-  hourInit:any;
-  hourEnd:any;
+  date:any = "";
+  hourInit:any = "";
+  hourEnd:any = "";
 
   processDate:any;
   processHour:any;
@@ -84,7 +84,7 @@ export class ProductsListPage {
   minutesVal = "0,30";
   hourValues = [];
   myDateCustom: any
-  
+
     constructor(
         public alert:AlertController,
         public modalCtrl: ModalController,
@@ -141,10 +141,10 @@ export class ProductsListPage {
     }
 
     getTime2(time){
-      
+
       this.processHour = time
-      
-    
+
+
       var hrsmin = time
       var hrsminSplit = hrsmin.split(":", 2)
 
@@ -152,8 +152,8 @@ export class ProductsListPage {
 
 
 
-      
-      
+
+
       console.log(hr)
       this.setHoursTime2(hr, hrsminSplit[1]);
     }
@@ -505,19 +505,31 @@ export class ProductsListPage {
   searchProduct(){
     let min_date = this.date+'T'+this.hourInit;
     let max_date = this.date+'T'+this.hourEnd;
+
     this.getAddressFromCoords();
     this.items.productslocation = ''
 
-    if( this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
+    // if( this.miLatitude.toString() != '' && this.miLongitude.toString() != ''){
+    //   let midata =  this.service.getLocationFromProduct3(min_date, max_date, null)
+    //   // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
+    //   .then((results) => this.handleLocationInit(results));
+    // }
+    // else{
+    //   this.showAlert('<strong>Estimado Usuario</strong>', 'Active el GPS por favor');
+    //   // this.nav.push(ProductsPage, this.items);
+    //   //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
+    // }
+    if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.autocompleteCat.input != '')){
       let midata =  this.service.getLocationFromProduct3(min_date, max_date, null)
       // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
     }
     else{
-      this.showAlert('<strong>Estimado Usuario</strong>', 'Active el GPS por favor');
+      this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Por favor Rellene todos los campos');
       // this.nav.push(ProductsPage, this.items);
       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     }
+
   }
   async handleLocationInit(results) {
 
@@ -601,7 +613,7 @@ export class ProductsListPage {
   // }
 
   setHoursTime2(hr, min) {
-    this.hourEnd = null
+    this.hourEnd = ""
     //var hrs = hr + 2;
     //console.log("min: ",min)
     var currentHours2 = ("0" + hr).slice(-2);

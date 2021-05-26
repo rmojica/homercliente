@@ -21,7 +21,7 @@ export class Values {
   avatar: any = "assets/image/logo.png";
   card:any = "assets/image/card.png";
   slider: any = "assets/image/bghome.png";
-  houseTop: any = "assets/image/house-top.png";
+  houseTop: any = "assets/image/house-top2.jpg";
   headerLogin: any = "assets/image/header-login.png";
   camarero:any = "assets/image/camarero.png";
   cuido:any = "assets/image/cuido.png";
