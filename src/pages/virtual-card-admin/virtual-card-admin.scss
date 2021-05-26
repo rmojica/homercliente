@@ -10,7 +10,15 @@ page-virtual-card-admin {
       margin-bottom: 1em;
     }
   }
-
+  ion-title {
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 18%;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
   ion-card {
     background-color: #fcfcfc !important;
     box-shadow: none !important;
