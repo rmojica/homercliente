@@ -638,7 +638,7 @@ export class ProductsListPage {
 
 @Component({
   template: `
-<ion-content>
+<ion-content style="background:#ffff">
   <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
@@ -646,10 +646,12 @@ export class ProductsListPage {
     </ion-buttons>
     <ion-card style="margin-top:20px">
       <img src="{{imgModal}}"/>
-      <ion-card-content>
+      <ion-card-header>
         <ion-card-title>
-          {{title}}
-        </ion-card-title>
+            {{title}}
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
         <p>
           {{detail}}
         </p>

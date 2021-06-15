@@ -272,7 +272,7 @@ export class ProductPage {
       "nameClient": this.values.customerName,
       "productUi": this.product.product.id,
       "productName": this.product.product.name,
-      "date": year+'/'+month+'/'+day,
+      "date": year+'-'+month+'-'+day,
       "hour": this.hourInit,
       "lat":this.lat,
       "lng":this.long,

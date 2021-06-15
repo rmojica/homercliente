@@ -48,7 +48,8 @@ export class MyApp {
             statusBar.backgroundColorByHexString('#f4f5f8');
             this.service.load().then((results) => this.handleService(results));
             this.nativeStorage.getItem('blocks').then(data => { if (data) {
-
+                console.log("bloques",data)
+                console.log("jajajaja",this.values.data);
                 this.service.blocks = data.blocks;
                 this.values.settings = data.settings;
                 this.values.calc(platform.width());
@@ -64,9 +65,10 @@ export class MyApp {
                         }
                     }
                 }
+              });
             }, error => console.error(error));
 
-        });
+
 
     }
     handleService(results) {
@@ -131,7 +133,7 @@ export class MyApp {
     //   let options = 'location=no,toolbar=no,hidden=no,enableViewportScale=yes';
       let url = encodeURIComponent('https://www.seg-social.es/wps/wcm/connect/wss/8cd0aeda-1311-4e24-a310-76b5eb52ef1e/TA_2S-138+%28V.8%29.pdf?MOD=AJPERES&amp;CVID');
       const browser = this.iab.create('https://docs.google.com/viewer?url=' + url);
-    
+
     }
 
     cards() {
@@ -160,7 +162,7 @@ export class MyApp {
         this.nav.setRoot(CartPage);
     }
     wishlist() {
-        this.nav.setRoot(WishlistPage);
+        this.nav.push(WishlistPage);
     }
     shop() {
         this.nav.setRoot(TabsPage);
@@ -205,7 +207,7 @@ export class MyApp {
         this.emailComposer.open(email);
     }
     post(id, title) {
-        this.nav.setRoot(Post, {id, title});
+        this.nav.push(Post, {id, title});
     }
     openchat(){
       this.nav.setRoot(ChatPage)

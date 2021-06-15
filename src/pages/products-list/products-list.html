@@ -114,20 +114,21 @@
       </ion-item>
     </ion-list>
 
-    <div style="display: contents; max-width: 350px; border: 1px solid red; z-index: -1;">
-      <ion-chip *ngFor="let item of categories" style="font-size: small;" >
-        <ion-label color="primary">{{item.slug}}</ion-label>
-        <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
-          <ion-icon name="close-circle" style="color:red"></ion-icon>
-        </button>
-      </ion-chip>
-    </div>
-
     <div class="btn-search-product" [hidden]="HideBtnSearch">
       <button ion-button item-center medium color="button-color" text-uppercase
         (click)="searchProduct()">{{"Search" | translate}}
       </button>
     </div>
+    
+    <div style="display: contents; max-width: 350px; border: 1px solid red; z-index: -1;">
+      <ion-chip *ngFor="let item of categories" style="font-size: small;" >
+        <ion-label color="primary" style="color: #fff;">{{item.slug}}</ion-label>
+        <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
+          <ion-icon name="close-circle" style="color:#fff"></ion-icon>
+        </button>
+      </ion-chip>
+    </div>
+
   </div>
   <ion-grid>
     <!-- <div *ngIf="service.categories" class="category-name">

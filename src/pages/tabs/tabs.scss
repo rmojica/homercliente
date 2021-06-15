@@ -17,28 +17,28 @@ page-tabs {
   .tabs-md .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    background-color: white;
-    height: 45px;
-    width: 45px;
+    // background-color: white;
+    height: 43px;
+    width: 43px;
     content: "";
     border-radius: 0% 50% 50% 50%;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     left: calc(100% / 2.5rem);
-    top: 8px;
+    top: 11px;
   }
   .tabs-islogged.tabs-md .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    background-color: white;
-    height: 45px;
-    width: 45px;
+    // background-color: white;
+    height: 43px;
+    width: 43px;
     content: "";
     border-radius: 0% 50% 50% 50%;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    left: calc(100% / 2.5rem);;
-    top: 8px;
+    left: calc(100% / 2.5rem);
+    top: 11px;
   }
   //ios
   // .tabs-ios .tab-button.activated[aria-selected=true] {
@@ -80,7 +80,7 @@ page-tabs {
   }
   .tabs-md .tab-button[aria-selected="true"] .tab-button-icon,
   .tabs-ios .tab-button[aria-selected="true"] .tab-button-icon {
-    color: black;
+    color: white;
   }
   .ion-md-search::before {
     font-weight: 600;

@@ -25,7 +25,6 @@ export class TabsPage{
   Values= Values;
   AccountPage= AccountPage;
 
-
   constructor(
     public nav: NavController,
     public values: Values,
@@ -36,7 +35,7 @@ export class TabsPage{
 
 
   // ionViewCanLeave(){
-  //   console.log('mierda')
+
   //  }
   // ionViewDidLoad() {
   //   console.log("I'm alive!");
@@ -48,8 +47,8 @@ export class TabsPage{
   //   this.nav.setRoot(TabsPage);
   //   }
 
-  // ionViewDidEnter() {
-  //   console.log('mierda')
-  // }
+  ionViewDidEnter() {
+
+  }
 
 }
