@@ -7,6 +7,7 @@ import { CartPage } from "../cart/cart";
 import { Values } from '../../providers/service/values';
 import { AccountPage } from '../../pages/account/account/account';
 import { NavController, NavParams, PopoverController, ModalController, Tabs, Tab } from 'ionic-angular'
+import {App} from 'ionic-angular';
 
 @Component({
   selector: 'page-tabs',
@@ -25,30 +26,14 @@ export class TabsPage{
   Values= Values;
   AccountPage= AccountPage;
 
+
   constructor(
     public nav: NavController,
     public values: Values,
     public modalCtrl: ModalController,
+    private app: App,
   ) {
-
-  }
-
-
-  // ionViewCanLeave(){
-
-  //  }
-  // ionViewDidLoad() {
-  //   console.log("I'm alive!");
-  // }
-  // ionViewWillLeave() {
-  //   console.log("Looks like I'm about to leave :(");
-  // }
-  // ionViewDidLeave() {
-  //   this.nav.setRoot(TabsPage);
-  //   }
-
-  ionViewDidEnter() {
-
+    // this.app.getRootNav().setRoot(ProductsListPage);
   }
 
 }

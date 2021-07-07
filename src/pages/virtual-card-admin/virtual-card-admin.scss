@@ -140,21 +140,60 @@ page-virtual-card-admin {
   }
 
   .cards {
-    width: 70%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 20px;
   }
-  .card div {
-    border:1px solid red;
+
+  .cards2 {
+    width: 90%;
+    display: block;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
-  .btn-acciones {
+
+  .cards2 div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cards2 div div {
+    margin-bottom: 20px;
+  }
+
+  .cards div {
+    margin-bottom: 10px;
+  }
+  .btn-delete {
     color: #fff;
-    padding: 5px;
+    width: 100%;
     background: #eb0423;
-    border-radius: 20px;
+    border-radius: 10%;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .btn-set {
+    color: #fff;
+    width: 100%;
+    background: #008000;
+    border-radius: 10%;
     vertical-align: middle;
   }
+
+  ion-thumbnail img {
+    width: 80px!important;
+    height: auto!important;
+    vertical-align: middle;
+    margin-top:12px;
+  }
+  ion-list-header{
+    display:block;
+    text-align: center;
+    font-size:18px!important;
+    font-weight:700!important;
+}
 }

@@ -20,7 +20,8 @@
 
 <ion-content fullscreen="true" slot="fixed">
   <ion-spinner *ngIf="!customers" name="crescent"
-    style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px"></ion-spinner>
+    style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px;
+    margin-bottom:5px"></ion-spinner>
   <ion-fab right bottom>
     <button ion-fab (click)="newCard()"><ion-icon name="add"></ion-icon></button>
     <!-- <ion-fab-list>
@@ -31,21 +32,40 @@
     </ion-fab-list> -->
   </ion-fab>
 
-  <div class="cards">
-    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Numuero Tarjeta</div>
-    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Vencimiento</div>
-    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">CVC</div>
+  <ion-list >
+    <ion-list-header lines="inset">
+      <ion-label>Tarjetas</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let card of cards" button (click)="activeAction(card.creditCard)">
+      <ion-thumbnail item-left>
+        <img src="assets/image/creditcard.png" slot="start" >
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{card.creditCardMask}}</h2>
+        <h3>Exp: {{card.expDate}}</h3>
+        <p *ngIf="card.default">Predeterminado</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <div class="cards">
+    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Tarjeta</div>|
+    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Vence</div>|
     <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Acciones</div>
-
   </div>
 
-  <div class="cards" *ngIf="cards != null">
+  <div class="cards2" *ngIf="cards != null">
     <div *ngFor="let card of cards">
-      {{card}}
+      <div>{{card.creditCardMask}}</div>
+      <div>{{card.expDate}}</div>
+      <div style="display: flex; justify-content:space-between">
+        <button (click)="delete()" class="btn-delete"><ion-icon
+            name="close-circle"></ion-icon></button>
+        <button (click)="delete()" class="btn-set"><ion-icon
+            name="checkmark"></ion-icon></button>
+      </div>
     </div>
-    <div><button (click)="delete()" class="btn-acciones"><ion-icon name="close-circle"></ion-icon></button></div>
-  </div>
-
+  </div> -->
   <!-- <div *ngIf="customers" class="customer">
     <div *ngIf="customers.customer.billing_address">
       <div class="card">
