@@ -14,11 +14,15 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 import { Service } from '../../providers/service/service';
+import { CartService } from '../../providers/service/cart-service';
+
 @Component({
   templateUrl: 'product.html',
 })
 export class ProductPage {
   @ViewChild(Content) content: Content
+  key:any = [];
+  bookingId:any = [];
   providerOneSignal:any
   product: any = {}
   id: any
@@ -87,7 +91,7 @@ export class ProductPage {
     private platform: Platform,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
-
+    public cartservice: CartService
   ) {
     console.log("prueba id onesignal", this.values.userId);
 
@@ -261,31 +265,11 @@ export class ProductPage {
     this.getAddressFromCoords();
 
     var date = moment(this.date)
+
+
     var year = date.year()
     var month = date.month()
     var day = date.day()
-
-
-
-    this.service.addOrders({
-      "clientUi": this.values.customerId,
-      "nameClient": this.values.customerName,
-      "productUi": this.product.product.id,
-      "productName": this.product.product.name,
-      "date": year+'-'+month+'-'+day,
-      "hour": this.hourInit,
-      "lat":this.lat,
-      "lng":this.long,
-      "onesignal":this.values.userId,
-      "location" : this.addressesCustomer
-    });
-
-    this.service.sendNotification({
-      "title":"Nueva solicitud",
-      "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
-      "onesignalid":this.providerOneSignal
-    })
-
 
 
     this.disableSubmit = true
@@ -294,38 +278,121 @@ export class ProductPage {
 
     // var date = new Date(this.selectedTime);
 
-
+    var date2 ;
 
     this.product_slot.map(result => {
-
       if(this.product.product.id == result.product_id)
       {
-        var date = new Date(new Date(result.date))
-        var year = date.getFullYear()
-        var month = date.getMonth() + 1
-        var day = date.getDate()
-
-        this.service
-          .addToCart(
-            resource_id,
-            month,
-            day,
-            year,
-            result.date,
-            this.product.product,
-          )
-          .then(results => {
-           console.log(results)
-          })
-          this.values.count += parseInt(this.quantity)
+        date2 = new Date(result.date);
       }
     })
 
-      this.disableSubmit = false
-      this.BookNow = 'BookNow'
-      this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
-      this.returnHome()
-    // }
+    let year2 = date2.getFullYear()
+    let month2 = date2.getMonth() + 1
+    let day2 = date2.getDate()
+
+    let month3 = (date2.getMonth() < 9 ? '0': '') + (date2.getMonth()+1)
+
+    let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
+
+
+    this.service
+      .addToCart(
+        resource_id,
+        month3,
+        day2,
+        year2,
+        `${year2}-${month3}-${day2}T${this.hourInit}`,
+        this.product.product,
+        hours,
+        this.values.customerId,
+      )
+      .then(results => {
+        if(results == 200){
+            this.cartservice.loadCart().then((results:any) => {
+                let cart:any = [];
+                cart.push(results.cart_contents)
+                Object.keys(cart[0]).forEach((key:any) =>{
+
+                  let hour = cart[0][key].booking._time.split(':');
+
+                  if(cart[0][key].booking._date === this.date && ("0" + hour[0]).slice(-2) + ":" +hour[1] === this.hourInit){
+                    this.service.updateCartWithCustomerid(cart[0][key].booking._booking_id, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
+                    this.service.addOrders({
+                      "clientUi": this.values.customerId,
+                      "nameClient": this.values.customerName,
+                      "productUi": this.product.product.id,
+                      "productName": this.product.product.name,
+                      "date": this.date,
+                      "hour": this.hourInit,
+                      "lat":this.lat,
+                      "lng":this.long,
+                      "onesignal":this.values.userId,
+                      "location" : this.addressesCustomer,
+                      "cart":cart[0][key].key,
+                      "bookingId":cart[0][key].booking._booking_id
+                    }).then((result:any) => {
+                        if(result.status == true){
+                          this.service.sendNotification({
+                            "title":"Nueva solicitud",
+                            "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+                            "onesignalid":this.providerOneSignal
+                          })
+
+                          this.values.count += parseInt(this.quantity)
+
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
+                          this.returnHome()
+                        }else{
+                          this.values.count += parseInt(this.quantity)
+
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Error en la solicitud', '<strong>Ups!:</strong> Ha ocurrido un error en la solicitud');
+                          this.returnHome()
+                        }
+                    });
+                  }
+                })
+            });
+          }else{
+            this.showAlert('Error en la solicitud', '<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar');
+          }
+      })
+
+  }
+
+   calculardiferencia(hora_inicio, hora_final){
+
+    // Expresión regular para comprobar formato
+    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+    // Si algún valor no tiene formato correcto sale
+    if (!(hora_inicio.match(formatohora)
+          && hora_final.match(formatohora))){
+      return;
+    }
+
+    // Calcula los minutos de cada hora
+    var minutos_inicio = hora_inicio.split(':')
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+    var minutos_final = hora_final.split(':')
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+
+    // Si la hora final es anterior a la hora inicial sale
+    if (minutos_final < minutos_inicio) return;
+
+    // Diferencia de minutos
+    var diferencia = minutos_final - minutos_inicio;
+
+    // Cálculo de horas y minutos de la diferencia
+    var horas = Math.floor(diferencia / 60);
+    var minutos = diferencia % 60;
+
+    // return (horas + ':' + (minutos < 10 ? '0' : '') + minutos);
+    return horas
   }
 
   showAlert(title, text) {

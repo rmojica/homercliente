@@ -122,6 +122,10 @@ page-products {
   .grid {
     padding: 20px;
 
+    img {
+      min-height: $min-product-height;
+    }
+
     ion-row {
       margin: 0;
       padding: 0 0 0 5px;

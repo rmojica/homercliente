@@ -836,7 +836,7 @@ export class Service {
   }
   getLocationFromProduct3(min_date, max_date, filter) {
       let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
-
+      let dates:any = [];
       return new Promise(resolve => {
         this.header.append('Content-Type', 'application/json');
         this.http
@@ -863,19 +863,24 @@ export class Service {
               for (var key in this.dataSearchProduct.records) {
                 let product = this.dataSearchProduct.records[key]
 
-                if(product.available != 1){
-                  break;
-                }else{
-                  this.product_slot.push({
-                    date: product.date,
-                    product_id: product.product_id
-                  })
-                  this.includeProduct += product.product_id + ',';
+
+                if(product.available == 1){
+                  // console.log("veo del filtro",{ "pdate-menor-amaxDate":{prodDate:product.date, maxDate:max_date, minDate:min_date, resp: product.date > min_date && product.date < max_date}});
+
+                    dates.push(product.date)
+                    console.log(dates);
+
+
+                    this.product_slot.push({
+                      date: product.date,
+                      product_id: product.product_id
+                    })
+                    this.includeProduct += product.product_id + ',';
+
                 }
-                // this.includeProduct.split(",")
-                // if(!this.includeProduct.includes(product.product_id)){
-                // }
+
               }
+            
               resolve({includeProduct:this.includeProduct, product_slot:this.product_slot})
             }
 

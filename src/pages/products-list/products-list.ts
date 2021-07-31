@@ -490,7 +490,6 @@ export class ProductsListPage {
 
     // if the value is an empty string don't filter the items
     // if (this.autocompleteCat.input && this.autocompleteCat.input.trim() != '') {
-      console.log('entra')
 
       this.HiddenListCat = true;
       this.HiddenSearchLocation = true;
@@ -529,7 +528,6 @@ export class ProductsListPage {
       // this.nav.push(ProductsPage, this.items);
       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     }
-
   }
   async handleLocationInit(results) {
 

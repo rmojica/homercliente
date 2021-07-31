@@ -47,17 +47,19 @@
             <ion-thumbnail item-left>
               <img src="{{item.value.thumb}}">
             </ion-thumbnail>
-            <h2 wrap-text>{{item.value.name}}
+            <h2 wrap-text>Vendido por:{{item.value.name}}
             </h2>
-            <h3 wrap-text > {{"Date" | translate}}: {{item.value.booking.date}}
+            <h3 wrap-text > {{"Fecha de la reserva" | translate}}: {{item.value.booking.date}}
             </h3>
-            <h3 wrap-text > Hora: {{item.value.booking.time}}
+            <h3 wrap-text >Horario de la reserva: {{item.value.booking.time}}
             </h3>
-            <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
+            <h3 wrap-text >Duración: {{item.value.booking.duration}} </h3>
+            <h3 wrap-text >Cantidad: {{item.value.booking._qty}} </h3>
+            <!-- <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
+            </h3> -->
+            <h3 wrap-text> {{"Sub total" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}
             </h3>
-            <h3 wrap-text> {{"Totals" | translate}}: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}
-            </h3>
-            <a (click)="delete( item.key )" style="float: right;">
+            <a (click)="delete( item.key, item.value.booking._booking_id )" style="float: right;">
               <ion-icon name="trash">
               </ion-icon>
             </a>
@@ -76,7 +78,7 @@
       </ion-list>
       </div>
 
-      <div>
+      <!-- <div>
         <ion-list class="totals" radio-group >
           <ion-list-header>
             <b>
@@ -92,7 +94,7 @@
             <ion-radio value="2"></ion-radio>
           </ion-item>
         </ion-list>
-      </div>
+      </div> -->
 
 
       <div *ngIf="cart.cart_contents.length != 0">
@@ -111,7 +113,7 @@
           </ion-item>
         </ion-list>
 
-        <form #f="ngForm" class="coupon">
+        <!-- <form #f="ngForm" class="coupon">
           <ion-item>
             <ion-label>{{"Coupon Code" | translate}}</ion-label>
             <ion-input type="text" [(ngModel)]="cart.coupon" name="coupon">
@@ -121,7 +123,7 @@
               </button>
             </h2>
           </ion-item>
-        </form>
+        </form> -->
 
         <ion-list class="totals" *ngIf="cart.cart_totals">
           <!--ion-item-divider>

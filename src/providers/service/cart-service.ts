@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class CartService {
+  header:any = new Headers();
   data: any
   cart: any
   status: any
@@ -30,7 +31,6 @@ export class CartService {
         .map(res => res.json())
         .subscribe(data => {
           this.cart = data
-          console.log({ cart: this.cart })
           this.values.cartNonce = data.cart_nonce
           this.values.updateCart(this.cart)
           resolve(this.cart)
@@ -54,6 +54,26 @@ export class CartService {
         })
     })
   }
+
+  verifyOrderIsAvailableForDelete(bookingid) {
+     this.header.append('Content-Type', 'application/json');
+    return new Promise(resolve => {
+      this.http
+        .post(
+          this.config.urlApi +
+            '/provider/verify-order-status',
+           {
+            "bookingid":bookingid
+           },
+           this.header
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data)
+        })
+    })
+  }
+
   checkout() {
     return new Promise(resolve => {
       this.http

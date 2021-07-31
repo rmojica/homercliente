@@ -89,7 +89,6 @@ export class OrdersPage {
           "isCancel": data.message
         })
 
-        console.log(onesignal)
         this.productService.sendNotification({
           "title":"Servicio cancelado",
           "content":`El cliente ha cancelado el servicio el motivo ${data.message}`,
