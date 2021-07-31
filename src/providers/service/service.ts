@@ -10,10 +10,13 @@ import 'rxjs/add/observable/forkJoin'
 import { HTTP } from '@ionic-native/http'
 import { Functions } from '../../providers/service/functions'
 import { ProductsPage } from '../../pages/products/products'
+import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util'
 
 
 @Injectable()
 export class Service {
+  product_slot:any = [];
+  header:any = new Headers();
   data: any
   categories: any
   banners: any
@@ -360,6 +363,24 @@ export class Service {
         .subscribe(status => {
           resolve(status)
         })
+    })
+  }
+  getMessage(data){
+    return new Promise(resolve => {
+      this.header.append('Content-Type', 'application/json');
+      this.http
+      .post(
+        this.config.urlApi + '/message/getmessages',
+        {
+          'roomName': data.roomName
+        },
+        this.header
+      )
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          resolve(data);
+        });
     })
   }
   passwordResetNonce() {
@@ -813,6 +834,121 @@ export class Service {
         })
     })
   }
+  getLocationFromProduct3(min_date, max_date, filter) {
+      let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+      let dates:any = [];
+      return new Promise(resolve => {
+        this.header.append('Content-Type', 'application/json');
+        this.http
+        .get(
+          this.config.setUrl(
+            'GET',
+          `/wp-json/wc-bookings/v1/products/slots?min_date=${min_date}&max_date=${max_date}&`,
+          null
+          ),
+          this.config.options,
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+
+            this.status = data;
+
+            this.dataSearchProduct = this.status;
+            this.includeProduct = '';
+
+            if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
+              this.includeProduct = '0';
+            }else{
+
+              for (var key in this.dataSearchProduct.records) {
+                let product = this.dataSearchProduct.records[key]
+
+
+                if(product.available == 1){
+                  // console.log("veo del filtro",{ "pdate-menor-amaxDate":{prodDate:product.date, maxDate:max_date, minDate:min_date, resp: product.date > min_date && product.date < max_date}});
+
+                    dates.push(product.date)
+                    console.log(dates);
+
+
+                    this.product_slot.push({
+                      date: product.date,
+                      product_id: product.product_id
+                    })
+                    this.includeProduct += product.product_id + ',';
+
+                }
+
+              }
+            
+              resolve({includeProduct:this.includeProduct, product_slot:this.product_slot})
+            }
+
+          })
+      })
+    }
+
+  // getLocationFromProduct2(lat, long, radius) {
+  //   let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+
+  //   return new Promise(resolve => {
+  //     this.header.append('Content-Type', 'application/json');
+  //     this.http
+  //       .post(
+  //         urlPath +
+  //         '/search',
+  //        {
+  //         "lat":lat,
+  //         "lng":long,
+  //         "distance":radius
+  //        },
+  //        this.header
+  //       )
+  //       .map(res => res.json())
+  //       .subscribe(data => {
+
+  //         this.status = data;
+
+  //         this.dataSearchProduct = this.status.data;
+  //         this.includeProduct = '';
+
+  //         if (this.dataSearchProduct === undefined || this.dataSearchProduct.length == 0) {
+  //           this.includeProduct = '0';
+  //         }else{
+  //           for (let i = 0; i < this.dataSearchProduct.length; i++) {
+  //             let product = this.dataSearchProduct[i]
+  //             this.values.homerOneSignal.push({product:product.ui,providerOneSignal:this.dataSearchProduct[i].onesignal})
+  //             this.includeProduct += product.ui + ',';
+  //           }
+  //            this.includeProduct = this.includeProduct.slice(0, -1);
+  //         }
+
+  //         resolve(this.includeProduct)
+
+  //       })
+  //   })
+  // }
+
+  getHomerOneSignal(product) {
+    let urlPath = 'https://websockethomer.herokuapp.com/api/v1'
+
+    return new Promise(resolve => {
+      this.header.append('Content-Type', 'application/json');
+      this.http
+        .post(
+          urlPath +
+          '/provider/getonesignal',
+          {
+            "product":product
+          },
+          this.header
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+             resolve(data)
+        })
+    })
+  }
 
   getLocationFromProduct(lat, long, radius) {
     var params = new URLSearchParams();
@@ -847,7 +983,7 @@ export class Service {
             }
             this.includeProduct = this.includeProduct.slice(0, -1);
           }
-          
+
           resolve(this.includeProduct)
         })
     })

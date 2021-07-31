@@ -44,10 +44,12 @@
             margin-bottom: 5px;
         }
         .cart-list {
-            margin: 5px 5px 0 5px;
-            ion-item {
-                box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
-            }
+
+            -webkit-box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.06);
+            background: #FFFFFF;
+            box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+            margin: 15px;
         }
         h2 {
             margin-top: 8px;
@@ -57,26 +59,30 @@
         }
     }
     ion-label {
-        font-size: 14px;
         margin: 0px;
-        font-weight: 500;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
     }
     .coupon {
-        margin: 0;
-        background-color: #f7f7f7;
+        margin: 15px;
+        background-color: #72A9AE;
+        border-radius: 10px;
         .button {
             height: 2em;
-            border-radius: 0;
+            background: #000000;
+            border-radius: 30px;
             font-size: 13px;
             width: 70px;
             margin: 10px 4px;
         }
         ion-item {
-            background-color: inherit
+            background-color: inherit;
+            border-radius: 10px;
         }
         ion-label {
-            margin-left: 16px;
-            color: $side-heading-color;
+            color: white;
         }
         .text-input {
             margin: 6px 8px 0 6px;
@@ -111,10 +117,10 @@
         max-height: 10rem;
         width: 10rem;
         height: 10rem;
+        border-radius: 10px;
     }
     .item {
-        padding: 0px;
-        margin: 0px;
+        padding: 10px;
     }
     .shipping-methods {
         margin: 0 0 10px 0;
@@ -187,11 +193,20 @@
 }
 .button {
     height: 2.8em;
-    border-radius: 0;
+    border-radius: 10px;
     font-size: 14px;
 }
 
 .footer-cart{
         bottom: 60px;
         text-align: center;
+}
+ion-title {
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 18%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }

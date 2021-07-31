@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavController, NavParams, PopoverController } from 'ionic-angular'
+import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular'
 import { CategoryService } from '../../providers/service/category-service'
 import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
@@ -11,6 +11,7 @@ import { ProductPage } from '../product/product'
   templateUrl: 'products.html',
 })
 export class ProductsPage {
+  onesignal:any
   products: any
   moreProducts: any
   count: any
@@ -33,7 +34,12 @@ export class ProductsPage {
   data: any
   sort: number = 0
   categoryName: any
+  hourInit:any;
+  hourEnd:any;
+  date:any;
+  product_slot:any = []
   constructor(
+    public alert:AlertController,
     public nav: NavController,
     public popoverCtrl: PopoverController,
     public service: CategoryService,
@@ -45,14 +51,27 @@ export class ProductsPage {
     this.filter = {}
     this.q = ''
 
-    if (params.data.slug != '') {
-      this.filter['filter[category]'] = params.data.slug
-      this.filter.id = params.data.id
+    // if (params.data.slug != '') {
+    //   this.filter['filter[category]'] = params.data.slug
+    //   this.filter.id = params.data.id
+    // }
+    // this.hour = params.data.hour;
+    // this.date = params.data.date;
+    let p:any;
+    if(params.data.categories.length > 0){
+      params.data.categories.map((category) => {
+        this.filter['filter[category]'] += ','+category.slug
+        // this.filter.id = category.id
+      })
     }
 
-    if(params.data.productslocation != ''){
-        this.filter['include'] = params.data.productslocation
+
+    if(params.data.items != ''){
+        this.filter['include'] = params.data.items
+    }else{
+      this.filter['include'] = 0
     }
+
 
     this.categoryName = params.data.name
     this.filter.page = 1
@@ -64,7 +83,15 @@ export class ProductsPage {
     this.items = []
     this.quantity = '1'
     this.subCategories = params.data.categories
+
+    this.date = params.data.date;
+    this.hourInit = params.data.hourInit;
+    this.hourEnd = params.data.hourEnd;
+
+     this.product_slot = params.data.p_slot
+
     this.service.load(this.filter).then(results => {
+
       this.products = results
       // this.products.forEach((element,index,arr) => {
       //   if(element.wc_variations){
@@ -112,10 +139,26 @@ export class ProductsPage {
     this.nav.push(ProductsPage, item)
   }
   getProduct(id) {
-    this.nav.push(ProductPage, id)
+    // this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    if(this.values.isLoggedIn){
+      this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    }else{
+      this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Debe estar logeado para contratar');
+    }
   }
+  showAlert(title, text) {
+    let alert = this.alert.create({
+        title: title,
+        subTitle: text,
+        buttons: ['OK'],
+    });
+    alert.present();
+  }
+  // getCart() {
+  //   this.nav.push(CartPage)
+  // }
   getCart() {
-    this.nav.push(CartPage)
+    this.nav.parent.select(2);
   }
   doInfinite(infiniteScroll) {
     this.filter.page += 1
@@ -251,7 +294,7 @@ export class ProductsPage {
     } else {
       this.functions.showAlert(
         'Warning',
-        'You must login to add product to wishlist',
+        'Debe iniciar sesión para agregar un servicio a la lista de deseos',
       )
     }
   }
@@ -271,4 +314,9 @@ export class ProductsPage {
       this.values.wishlistId[id] = false
     }
   }
+
+  gohome() {
+    this.nav.parent.select(0);
+  }
+
 }

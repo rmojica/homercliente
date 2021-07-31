@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core'
-import { NavController, NavParams, Content } from 'ionic-angular'
+import { NavController, NavParams, Content, AlertController, Platform } from 'ionic-angular'
 import { ProductService } from '../../providers/service/product-service'
 import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
@@ -9,12 +9,21 @@ import { AccountLogin } from '../account/login/login'
 import { CalendarComponentOptions, DayConfig } from 'ion2-calendar'
 import moment from 'moment'
 import { TranslateService } from '@ngx-translate/core'
+import { ProductsListPage } from '../products-list/products-list'
+import { OneSignal } from '@ionic-native/onesignal';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
+import { Service } from '../../providers/service/service';
+import { CartService } from '../../providers/service/cart-service';
 
 @Component({
   templateUrl: 'product.html',
 })
 export class ProductPage {
   @ViewChild(Content) content: Content
+  key:any = [];
+  bookingId:any = [];
+  providerOneSignal:any
   product: any = {}
   id: any
   type: any
@@ -50,29 +59,72 @@ export class ProductPage {
   NoBlockAvailable = 'NoBlockAvailable'
   WhatTime = 'WhatTime'
   lan: any = {};
+  miLatitude = 0;
+  miLongitude = 0;
+  lat: string;
+  long:string;
+  autocomplete: { input: string; };
+  address:string;
+
+  date:any = '2021-03-03';
+  hourInit:any = '08:00';
+  hourEnd:any = '22:00';
+
+  processDate:any;
+  processHour:any;
+  product_slot:any = []
+
+  customers: any;
+  addresses: any;
+  addressesCustomer: any;
 
   constructor(
+    public alert:AlertController,
     public translate: TranslateService,
     public nav: NavController,
     public service: ProductService,
+    public servi:Service,
+    public otherservice: Service,
     params: NavParams,
     public functions: Functions,
     public values: Values,
+    private platform: Platform,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder,
+    public cartservice: CartService
   ) {
+    console.log("prueba id onesignal", this.values.userId);
+
+    this.lat = '';
+    this.long = '';
     this.options = []
     this.optionss = []
     this.quantity = '1'
     this.BookNow = 'BookNow'
+
+
+    this.otherservice.getCustomer()
+    .then((results) => this.handleCustomer(results));
+
+    this.otherservice.getAddress()
+    .then((resultsAddresses) =>  this.handleAddress(resultsAddresses));
+
+
     if (params.data.id) {
       this.selectedService = null
-      console.log(params)
-      this.product.product = params.data
+      this.product.product = params.data.id
       this.id = params.data.id
 
-      console.log('producto', this.product.product)
+      this.product_slot = params.data.product_sl;
+
+     this.date = params.data.date;
+     this.hourInit = params.data.hourInit;
+     this.hourEnd = params.data.hourEnd;
+
+    //  this.selectedTime = this.date+'T'+this.hourInit
 
       this.options.product_id = this.id
-      console.log('Product: ', this.product.product.resources_full)
+
       this.usedVariationAttributes = (this.product.product
         .resources_full as Array<any>).map(item => item)
 
@@ -81,12 +133,31 @@ export class ProductPage {
     } else {
       // this.options.product_id = this.id
        this.service
-        .getProduct(params.data)
+        .getProduct(params.data.id)
         .then(results => this.handleProductResults(results))
     }
 
     this.getReviews()
-    
+    platform.ready().then(() => {
+      const subscription = this.geolocation.watchPosition()
+        .filter((p) => p.coords !== undefined) //Filter Out Errors
+        .subscribe(position => {
+          this.miLatitude = position.coords.latitude;
+          this.miLongitude = position.coords.longitude;
+          // console.log("locomiLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
+        });
+    });
+
+    this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => this.providerOneSignal = result.providers[0].onesignal);
+
+
+    //con esto antes obtenia el providerOneSignal
+    // for (let i = 0; i < this.values.homerOneSignal.length; i++) {
+    //   if(this.values.homerOneSignal[i].product == this.product.product.id){
+    //     this.providerOneSignal = this.values.homerOneSignal[i].providerOneSignal
+    //   }
+    // }
+
   }
 
   loadDataProduct(){
@@ -132,6 +203,16 @@ export class ProductPage {
     this.disableSubmit = true
   }
 
+  handleAddress(result){
+    this.addresses = result
+    this.addressesCustomer = this.addresses.customer.billing_address.address_1
+    console.log(this.addressesCustomer)
+  }
+
+  handleCustomer(result){
+    this.customers = result
+  }
+
   handleProductResults(results) {
 
     this.selectedService = null
@@ -166,41 +247,161 @@ export class ProductPage {
     //   this.nav.push(AccountLogin)
     // }
     //Validamos se el producto contiene resources
-    if (
-      this.product.product.resources_full.length > 0 &&
-      !this.selectedService
-    ) {
-      this.functions.showAlert(
-        'Options',
-        'Select a service and booking information',
-      )
-      return
-    }
+    // if (
+    //   this.product.product.resources_full.length > 0 &&
+    //   !this.selectedService
+    // ) {
+    //   this.functions.showAlert(
+    //     'Options',
+    //     'Select a service and booking information',
+    //   )
+    //   return
+    // }
     var resource_id = !this.selectedService
       ? null
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
+    this.getAddressFromCoords();
 
-    var date = moment(this.selectedTime)
+    var date = moment(this.date)
+
+
     var year = date.year()
     var month = date.month()
     var day = date.day()
+
+
     this.disableSubmit = true
     this.BookNow = 'PleaseWait'
+
+
+    // var date = new Date(this.selectedTime);
+
+    var date2 ;
+
+    this.product_slot.map(result => {
+      if(this.product.product.id == result.product_id)
+      {
+        date2 = new Date(result.date);
+      }
+    })
+
+    let year2 = date2.getFullYear()
+    let month2 = date2.getMonth() + 1
+    let day2 = date2.getDate()
+
+    let month3 = (date2.getMonth() < 9 ? '0': '') + (date2.getMonth()+1)
+
+    let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
+
+
     this.service
       .addToCart(
         resource_id,
-        month,
-        day,
-        year,
-        this.selectedTime,
+        month3,
+        day2,
+        year2,
+        `${year2}-${month3}-${day2}T${this.hourInit}`,
         this.product.product,
+        hours,
+        this.values.customerId,
       )
       .then(results => {
-        this.updateCart(results)
+        if(results == 200){
+            this.cartservice.loadCart().then((results:any) => {
+                let cart:any = [];
+                cart.push(results.cart_contents)
+                Object.keys(cart[0]).forEach((key:any) =>{
+
+                  let hour = cart[0][key].booking._time.split(':');
+
+                  if(cart[0][key].booking._date === this.date && ("0" + hour[0]).slice(-2) + ":" +hour[1] === this.hourInit){
+                    this.service.updateCartWithCustomerid(cart[0][key].booking._booking_id, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
+                    this.service.addOrders({
+                      "clientUi": this.values.customerId,
+                      "nameClient": this.values.customerName,
+                      "productUi": this.product.product.id,
+                      "productName": this.product.product.name,
+                      "date": this.date,
+                      "hour": this.hourInit,
+                      "lat":this.lat,
+                      "lng":this.long,
+                      "onesignal":this.values.userId,
+                      "location" : this.addressesCustomer,
+                      "cart":cart[0][key].key,
+                      "bookingId":cart[0][key].booking._booking_id
+                    }).then((result:any) => {
+                        if(result.status == true){
+                          this.service.sendNotification({
+                            "title":"Nueva solicitud",
+                            "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+                            "onesignalid":this.providerOneSignal
+                          })
+
+                          this.values.count += parseInt(this.quantity)
+
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
+                          this.returnHome()
+                        }else{
+                          this.values.count += parseInt(this.quantity)
+
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Error en la solicitud', '<strong>Ups!:</strong> Ha ocurrido un error en la solicitud');
+                          this.returnHome()
+                        }
+                    });
+                  }
+                })
+            });
+          }else{
+            this.showAlert('Error en la solicitud', '<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar');
+          }
       })
-    // }
+
+  }
+
+   calculardiferencia(hora_inicio, hora_final){
+
+    // Expresión regular para comprobar formato
+    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+    // Si algún valor no tiene formato correcto sale
+    if (!(hora_inicio.match(formatohora)
+          && hora_final.match(formatohora))){
+      return;
+    }
+
+    // Calcula los minutos de cada hora
+    var minutos_inicio = hora_inicio.split(':')
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+    var minutos_final = hora_final.split(':')
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+
+    // Si la hora final es anterior a la hora inicial sale
+    if (minutos_final < minutos_inicio) return;
+
+    // Diferencia de minutos
+    var diferencia = minutos_final - minutos_inicio;
+
+    // Cálculo de horas y minutos de la diferencia
+    var horas = Math.floor(diferencia / 60);
+    var minutos = diferencia % 60;
+
+    // return (horas + ':' + (minutos < 10 ? '0' : '') + minutos);
+    return horas
+  }
+
+  showAlert(title, text) {
+    let alert = this.alert.create({
+        title: title,
+        subTitle: text,
+        buttons: ['OK'],
+    });
+    alert.present();
   }
 
   setVariations() {
@@ -289,7 +490,11 @@ export class ProductPage {
     this.disableSubmit = false
     this.values.count += parseInt(this.quantity)
     this.BookNow = 'BookNow'
-    this.getCart()
+    this.returnHome()
+    // this.getCart()
+  }
+  returnHome(){
+    this.nav.push(ProductsListPage);
   }
   getCart() {
     this.nav.parent.select(2);
@@ -317,7 +522,7 @@ export class ProductPage {
     } else {
       this.functions.showAlert(
         'Warning',
-        'You must login to add product to wishlist',
+        'Debe iniciar sesión para agregar un servicio a la lista de deseos',
       )
     }
   }
@@ -409,7 +614,40 @@ export class ProductPage {
     this.translate.get(['Please select a service']).subscribe(translations => {
         this.lan.pleaseSelect = translations['Please select a service'];
     });
-}
-  
-  
+  }
+
+  getAddressFromCoords() {
+
+    console.log("getAddressFromCoords "+this.miLatitude+" "+this.miLongitude);
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
+
+    this.nativeGeocoder.reverseGeocode(this.miLatitude, this.miLongitude, options)
+    .then((result: NativeGeocoderReverseResult[]) => {
+      console.log(JSON.stringify(result[0]))
+      this.autocomplete.input = result[0].locality+', '+ result[0].administrativeArea+', '+ result[0].countryName;
+    }
+    )
+    .catch((error: any) =>{
+        this.address = "Address Not Available!";
+        console.log(error)
+      });
+      this.lat = this.miLatitude.toString();
+      this.long = this.miLongitude.toString();
+
+  }
+
+  getDate(date){
+    this.processDate = date
+  }
+
+  getTime1(time){
+    this.processHour = time
+  }
+
+
+
+
 }

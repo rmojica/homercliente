@@ -9,6 +9,7 @@ import { AccountLogin } from '../pages/account/login/login'
 import { Post } from '../pages/post/post'
 import { OrderDetails } from '../pages/account/order-details/order-details'
 import { Orders } from '../pages/account/orders/orders'
+import { OrdersPage } from '../pages/orders/orders'
 import { OrdersVendor } from '../pages/account/orders-vendor/orders-vendor'
 import { BookingVendor } from '../pages/account/booking-vendor/booking-vendor'
 import { BookingDetails } from '../pages/account/booking-details/booking-details'
@@ -24,13 +25,16 @@ import { ProductPage } from '../pages/product/product'
 import { ProductsPage } from '../pages/products/products'
 import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs'
-import { ProductsListPage } from '../pages/products-list/products-list'
+import { ProductsListPage, ModalContentPage } from '../pages/products-list/products-list'
+import {ChatPage} from '../pages/chat/chat'
+import {ModalPage} from '../pages/modal/modal'
+import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
+import {NewCardPage} from '../pages/new-card/new-card';
 
 /*------------------------Providers----------------------------------*/
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
-import { InAppBrowser } from '@ionic-native/in-app-browser'
 import { NativeStorage } from '@ionic-native/native-storage'
 import { BrowserModule } from '@angular/platform-browser'
 import { CartService } from '../providers/service/cart-service'
@@ -60,6 +64,15 @@ import { CalendarModule } from 'ion2-calendar'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
+import {InAppBrowser} from '@ionic-native/in-app-browser';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { CreditCardDirectivesModule } from 'angular-cc-library';
+
+import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
+
+const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -76,6 +89,7 @@ export function createTranslateLoader(http: HttpClient) {
     OrderDetails,
     Orders,
     OrdersVendor,
+    OrdersPage,
     BookingVendor,
     BookingDetails,
     Post,
@@ -92,12 +106,21 @@ export function createTranslateLoader(http: HttpClient) {
     TabsPage,
     ProductsListPage,
     KeysPipe,
+    ModalContentPage,
+    ChatPage,
+    ModalPage,
+    VirtualCardAdminPage,
+    NewCardPage
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CalendarModule,
+    ReactiveFormsModule,
+    CreditCardDirectivesModule,
     HttpModule,
+    SocketIoModule.forRoot(config),
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -117,6 +140,7 @@ export function createTranslateLoader(http: HttpClient) {
     AccountLogin,
     OrderDetails,
     Orders,
+    OrdersPage,
     OrdersVendor,
     BookingVendor,
     BookingDetails,
@@ -133,6 +157,11 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage,
     TabsPage,
     ProductsListPage,
+    ModalContentPage,
+    ChatPage,
+    ModalPage,
+    VirtualCardAdminPage,
+    NewCardPage
   ],
   providers: [
     CartService,
@@ -155,9 +184,9 @@ export function createTranslateLoader(http: HttpClient) {
     EmailComposer,
     CallNumber,
     HTTP,
-    Geolocation,    
+    Geolocation,
     NativeGeocoder,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

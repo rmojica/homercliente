@@ -4,10 +4,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title >
-      <img  (click)="gohome();" style="max-width: 150px;" src="{{values.avatar}}" />
+    <ion-title>
+      <img  (click)="gohome();" width="150" src="{{values.avatar}}" />
     </ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button
         ion-button
         icon-only
@@ -20,7 +20,7 @@
           {{values.count}}
         </ion-badge>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -45,9 +45,9 @@
     <button ion-fab>
       <ion-icon name="chatboxes"></ion-icon>
     </button>
-  
+
     <ion-fab-list side="left">
-  
+
       <a button ion-fab style="background-color: #ffffff;" href="https://www.messenger.com/t/thehexchange">
         <ion-icon style="background: #2196f3;" name="custom-facebook"></ion-icon>
       </a>
@@ -55,7 +55,7 @@
         <ion-icon style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);"
           name="custom-instagram"></ion-icon>
       </a>
-  
+
     </ion-fab-list>
   </ion-fab> -->
 
@@ -69,81 +69,67 @@
     <ion-slide>
       <div class="overlay">
         <!-- <img src="../../assets/image/1.jpg" class="slider-img"> -->
-        <img src="{{values.slider}}" />
+        <img src="{{values.houseTop}}" />
       </div>
       <!--overlay-->
-      <div class="title-home-banner">
-        Su proveedor de servicios para el hogar
+      <div class="background-flat">
+        <div class="title-home-banner">
+          <h2>Todo lo que necesitas para un hogar limpio y seguro</h2>
+        </div>
       </div>
-      <!-- <div class="card-search">
-        <ion-searchbar (click)="getSearch()" placeholder="{{'Search' | translate}}"></ion-searchbar>
-      </div> -->
-
-      <div class="card-search">
-        
+      <div class="subtitle-home-banner">
+        <h4>El mejor aliado para hacer tu vida más fácil</h4>
       </div>
 
     </ion-slide>
   </ion-slides>
+  <div class="card-search" >
+    <div style="margin: 0 10px 0 5px;">
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="calendar"></ion-icon>
+         <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha" displayFormat="YYYY-MM-DD"   [(ngModel)]="date" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      </button>
 
-  <ion-card class="card-filter-home">
-    <ion-card-header>
-      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-      <ion-card-title>Busca Nuestros Servicios</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime2(this.hourInit)" placeholder="Desde" [(ngModel)]="hourInit" display-timezone="utc"  cancelText ="Cancelar" doneText="Seleccionar"
+         minuteValues="0,30" displayFormat="HH:mm" [(ngModel)]="myDate">
+        </ion-datetime>
 
-      <div style="margin: 0 10px 0 5px;">
-        <button style="width:100%;background-color:white;color:black;height: 2em;border-radius: 5px;" ion-button class="positionCalendar">
-          <ion-icon name="calendar" (click)='getAddressFromCoords()'></ion-icon>
+      </button>
 
-           <ion-datetime placeholder="Fecha" displayFormat="DD MMM YYYY"  pickerFormat="DD MMM YYYY"  [(ngModel)]="dateOfevent" cancelText ="Cancelar" doneText="Seleccionar"></ion-datetime>
+      <button style="width:100%;background-color:white;color:black;height: 2.5em;border-radius: 5px;" ion-button class="positionCalendar">
+         <ion-icon name="md-alarm"></ion-icon>
+         <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta" [(ngModel)]="hourEnd" display-timezone="utc" cancelText ="Cancelar"
+         doneText="Seleccionar" [minuteValues]="minutesVal" [hourValues]="hourValues" [min]="minTime" displayFormat="HH:mm">
+          </ion-datetime>
+      </button>
+    </div>
+
+    <ion-searchbar (click)="clickSearch()" class="searchbar-category" [(ngModel)]="autocompleteCat.input" (ionInput)="getItemsCat()"
+    (ionClear)="ClearAutocompleteCat()" placeholder="{{'Category' | translate}}"></ion-searchbar>
+    <ion-list class="list-category" [hidden]="!HiddenListCat">
+      <ion-item *ngFor="let item of itemsCategory" (click)="SelectSearchResultCat(item)">
+        {{ item.name }}
+      </ion-item>
+    </ion-list>
+
+    <div class="btn-search-product" [hidden]="HideBtnSearch">
+      <button ion-button item-center medium color="button-color" text-uppercase
+        (click)="searchProduct()">{{"Search" | translate}}
+      </button>
+    </div>
+
+    <div style="display: contents; max-width: 350px; border: 1px solid red; z-index: -1;">
+      <ion-chip *ngFor="let item of categories" style="font-size: small;" >
+        <ion-label color="primary" style="color: #fff;">{{item.slug}}</ion-label>
+        <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
+          <ion-icon name="close-circle" style="color:#fff"></ion-icon>
         </button>
-      </div>
+      </ion-chip>
+    </div>
 
-      <ion-searchbar (click)="clickSearch()" class="searchbar-category" [(ngModel)]="autocompleteCat.input" (ionInput)="getItemsCat()"
-        (ionClear)="ClearAutocompleteCat()" placeholder="{{'Category' | translate}}"></ion-searchbar>
-      <ion-list class="list-category" [hidden]="!HiddenListCat">
-        <ion-item *ngFor="let item of itemsCategory" (click)="SelectSearchResultCat(item)">
-          {{ item.name }}
-        </ion-item>
-      </ion-list>
-
-      <!-- <ion-searchbar class="searchbar-category" 
-        (ionClear)="ClearAutocompleteCat()" placeholder="Fecha y Hora"></ion-searchbar>
-        <ion-searchbar class="searchbar-category" 
-        (ionClear)="ClearAutocompleteCat()" placeholder="Frecuencia"></ion-searchbar> -->
-
-        
-  
-      <ion-searchbar [hidden]="HiddenSearchLocation" class="searchbar-location" [(ngModel)]="autocomplete.input"
-        (ionInput)="UpdateSearchResults()" placeholder="{{'Location' | translate}}" (ionClear)="ClearAutocomplete()">
-      </ion-searchbar>
-      <ion-icon item-end name="locate" [hidden]="HiddenSearchLocation"  class="passwordIcon" (click)='getAddressFromCoords()'></ion-icon>
-  
-      <ion-list class="list-location" [hidden]="!HiddenList">
-        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
-          {{ item.description }}
-        </ion-item>
-      </ion-list>
-  
-      <div class="range-radius" [hidden]="HideRadius">
-        <ion-label class="label-radius">{{"RADIUS" | translate}}</ion-label>
-        <ion-range pin="true" min="0" max="100" [(ngModel)]="radius " color="secondary">
-          <ion-label style="color: black;" range-left>0</ion-label>
-          <ion-label style="color: black;" range-right>100</ion-label>
-        </ion-range>
-      </div>
-  
-      <div class="btn-search-product" [hidden]="HideBtnSearch">
-        <button ion-button item-center medium color="button-color" text-uppercase
-          (click)="searchProduct()">{{"Search" | translate}}
-        </button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-
+  </div>
   <ion-grid>
     <!-- <div *ngIf="service.categories" class="category-name">
       <ion-item tappable full menuClose *ngFor="let item of service.mainCategories" (click)="getCategory(item.id, item.slug, item.name)">
@@ -153,11 +139,14 @@
       </ion-item>
     </div>  -->
 
-    <h2 class="full-width text-center">{{'Encuentra y reserva la manera más segura de cuidar tu hogar.' | translate}}</h2>
+    <div class="sub-header">
+      <h3>{{'!Disfruta de tu tiempo gracias a Homer!' | translate}}</h3>
+      <h4>Encuentra a los mejores profesionales para tu hogar</h4>
+    </div>
 
     <ion-row *ngIf="service.categories" class="category-name">
       <ion-col col-12 class="flex-center" *ngFor="let item of service.mainCategories"
-        (click)="getCategory(item.id, item.slug, item.name)">
+        (click)="openModal({title: item.name, detail:texto})">
         <ion-list>
           <ion-item>
             <ion-grid>
@@ -167,7 +156,6 @@
                 </ion-thumbnail>
               </ion-row>
             </ion-grid>
-
             <ion-grid>
               <ion-row item-left lbl-category>
                 <p class="heading text-center">{{item.name}}</p>
@@ -178,7 +166,7 @@
             <ion-grid>
               <ion-row item-left lbl-category>
                 <button class="btn-reservar" ion-button item-center medium color="button-color" text-uppercase
-                  >{{"Reserva Ahora" | translate}}
+                  >{{"Ver Detalle" | translate}}
                 </button>
               </ion-row>
             </ion-grid>
@@ -187,7 +175,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
 
   <ion-slides class="testimonial" initialSlide="0" autoplay='500' loop="true" speed="6000" pager="true">
     <ion-slide>
@@ -234,19 +221,18 @@ revision de antecedentes y validacion de identidad de domicilio.
           <h2>902 333-333</h2>
           <h2>info@homer.com</h2>
         </ion-item>
-  
+
         <ion-item>
           <ion-icon class="icon-facebook icon-social" name="logo-facebook"></ion-icon>
           <ion-icon class="icon-twitter icon-social" name="logo-twitter"></ion-icon>
           <ion-icon class="icon-linkedin icon-social" name="logo-linkedin"></ion-icon>
         </ion-item>
-  
+
         <ion-item>
           <img class="icon-payment" style="max-width: 20%;" src="../../assets/icon/visa.svg">
           <img class="icon-payment" style="max-width: 20%;" src="../../assets/icon/mastercard.svg">
-          <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/american.png">
-          <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/paypal.png">
-          
+          <!-- <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/american.png"> -->
+          <!-- <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/paypal.png"> -->
         </ion-item>
       </div>
     </ion-list>

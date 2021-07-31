@@ -1,0 +1,92 @@
+<!-- Header -->
+<ion-header>
+  <ion-toolbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img (click)="gohome();" src="{{values.avatar}}" />
+    </ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only light class="has-icon icon-only has-badge" (click)="getCart()">
+        <ion-icon class="ion-ios-cart item-icon"></ion-icon>
+        <ion-badge class="badge badge-light" *ngIf="values.count">
+          {{values.count}}
+        </ion-badge>
+      </button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" slot="fixed">
+  <ion-spinner *ngIf="!customers" name="crescent"
+    style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px;
+    margin-bottom:5px"></ion-spinner>
+  <ion-fab right bottom>
+    <button ion-fab (click)="newCard()"><ion-icon name="add"></ion-icon></button>
+    <!-- <ion-fab-list>
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
+
+  <ion-list >
+    <ion-list-header lines="inset">
+      <ion-label>Tarjetas</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let card of cards" button (click)="activeAction(card.creditCard)">
+      <ion-thumbnail item-left>
+        <img src="assets/image/creditcard.png" slot="start" >
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{card.creditCardMask}}</h2>
+        <h3>Exp: {{card.expDate}}</h3>
+        <p *ngIf="card.default">Predeterminado</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <div class="cards">
+    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Tarjeta</div>|
+    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Vence</div>|
+    <div style="font-family:Arial, Helvetica, sans-serif; font-weight: 700;">Acciones</div>
+  </div>
+
+  <div class="cards2" *ngIf="cards != null">
+    <div *ngFor="let card of cards">
+      <div>{{card.creditCardMask}}</div>
+      <div>{{card.expDate}}</div>
+      <div style="display: flex; justify-content:space-between">
+        <button (click)="delete()" class="btn-delete"><ion-icon
+            name="close-circle"></ion-icon></button>
+        <button (click)="delete()" class="btn-set"><ion-icon
+            name="checkmark"></ion-icon></button>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div *ngIf="customers" class="customer">
+    <div *ngIf="customers.customer.billing_address">
+      <div class="card">
+        <div class="header">
+          <div class="avatar" *ngIf="checkAvatar()=='false'">
+            <img src="../../../assets/image/avatar40x40.png" alt="">
+          </div>
+          <div class="avatar" *ngIf="checkAvatar()!='false'">
+            <img src="{{customers.customer.avatar_url}}" />
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="user-meta ion-text-center">
+            <h3 class="playername"> {{customers.customer.billing_address.first_name}}
+              {{customers.customer.billing_address.last_name}}<br *ngIf="customers.customer.billing_address.first_name">
+            </h3>
+            <h5 class="country">{{customers.customer.role}}</h5>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</ion-content>

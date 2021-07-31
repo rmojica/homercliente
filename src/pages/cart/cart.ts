@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams  } from 'ionic-angular';
+import { NavController, NavParams, AlertController  } from 'ionic-angular';
 import { CartService } from '../../providers/service/cart-service';
 import { Values } from '../../providers/service/values';
 import { Functions } from '../../providers/service/functions';
@@ -28,13 +28,13 @@ export class CartPage {
     shipping: any;
     Apply: any;
     Checkout: any;
-    constructor(public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions) {
+    constructor(public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions,  public alert:AlertController,) {
         this.Apply = "Apply";
         this.Checkout = "Checkout";
         this.quantity = 1;
         this.options = [];
         this.obj = params.data;
-        
+
     }
     gohomep(){
         this.nav.parent.select(0);
@@ -43,19 +43,27 @@ export class CartPage {
     ionViewDidEnter() {
         this.service.loadCart()
             .then((results) => this.handleCartInit(results));
-      }  
+      }
 
     handleCartInit(results) {
         this.cart = results;
+
         this.shipping = results.zone_shipping;
         this.chosen_shipping = results.chosen_shipping;
     }
     handleCart(results) {
         this.cart = results;
+
     }
-    delete(key) {
-        this.service.deleteItem(key)
-            .then((results) => this.handleCart(results));
+    delete(key, bookingid) {
+        this.service.verifyOrderIsAvailableForDelete(bookingid).then((result:any) => {
+          if(result.code === 'success'){
+            this.service.deleteItem(key)
+                .then((results) => this.handleCart(results));
+          }{
+            this.showAlert('Error', '<strong>Ups!:</strong> No puedes Eliminar esta Orden porque esta en proceso');
+          }
+        })
     }
     checkout() {
         this.disableSubmit = true;
@@ -77,7 +85,7 @@ export class CartPage {
         }
         this.service.deleteFromCart(id, key)
             .then((results) => this.handleCart(results));
-            
+
     }
     addToCart(id, key) {
         this.service.addToCart(id, key)
@@ -131,4 +139,14 @@ export class CartPage {
     handleShipping(results) {
         this.cart = results;
     }
+
+    showAlert(title, text) {
+      let alert = this.alert.create({
+          title: title,
+          subTitle: text,
+          buttons: ['OK'],
+      });
+      alert.present();
+    }
+
 }

@@ -80,7 +80,9 @@ export class AccountRegister {
         }
     }
     handleRegister(results) {
-        console.log(results.errors);
+        console.log('result', results);
+
+        console.log('error ',results.errors);
         this.disableSubmit = false;
         if (!results.errors) {
             this.countries.checkout_login;

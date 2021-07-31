@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, AlertController } from 'ionic-angular';
+import { Platform, Nav, AlertController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Service } from '../providers/service/service';
@@ -11,7 +11,7 @@ import { ProductsPage } from '../pages/products/products';
 import { CartPage } from '../pages/cart/cart';
 import { AccountLogin } from '../pages/account/login/login';
 import { Address } from '../pages/account/address/address';
-import { Orders } from '../pages/account/orders/orders';
+import { OrdersPage } from '../pages/orders/orders';
 import { AccountRegister } from '../pages/account/register/register';
 import { OrderSummary } from '../pages/checkout/order-summary/order-summary';
 import { WishlistPage } from '../pages/account/wishlist/wishlist';
@@ -24,10 +24,11 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AccountPage } from '../pages/account/account/account';
 import { OrdersVendor } from '../pages/account/orders-vendor/orders-vendor';
 import { BookingVendor } from '../pages/account/booking-vendor/booking-vendor';
-
-
+import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import {TabsPage} from '../pages/tabs/tabs';
+import { ChatPage } from '../pages/chat/chat';
 
 @Component({
     templateUrl: 'app.html'
@@ -40,14 +41,15 @@ export class MyApp {
     buttonLanguagesSettings: boolean = false;
     Languages: any;
 
-    constructor(statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public config: Config, private oneSignal: OneSignal, private emailComposer: EmailComposer, private appRate: AppRate, public platform: Platform, public service: Service, public values: Values, public translateService: TranslateService, private socialSharing: SocialSharing, private nativeStorage: NativeStorage) {
+    constructor(private iab: InAppBrowser, statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public config: Config, private oneSignal: OneSignal, private emailComposer: EmailComposer, private appRate: AppRate, public platform: Platform, public service: Service, public values: Values, public translateService: TranslateService, private socialSharing: SocialSharing, private nativeStorage: NativeStorage) {
         this.Languages = []
         platform.ready().then(() => {
             statusBar.styleDefault();
             statusBar.backgroundColorByHexString('#f4f5f8');
             this.service.load().then((results) => this.handleService(results));
             this.nativeStorage.getItem('blocks').then(data => { if (data) {
-                
+                console.log("bloques",data)
+                console.log("jajajaja",this.values.data);
                 this.service.blocks = data.blocks;
                 this.values.settings = data.settings;
                 this.values.calc(platform.width());
@@ -63,17 +65,18 @@ export class MyApp {
                         }
                     }
                 }
+              });
             }, error => console.error(error));
 
-        });
-    
+
+
     }
     handleService(results) {
         if (this.values.settings.app_dir == 'rtl') this.platform.setDir('rtl', true);
         //cambiar luego en la configuracion del wordpress en el plugin
-        this.translateService.setDefaultLang('spanish'); 
+        this.translateService.setDefaultLang('spanish');
         // this.translateService.setDefaultLang(this.values.settings.language);
-       
+
         this.values.calc(this.platform.width());
         if (this.platform.is('cordova')) {
             this.oneSignal.startInit(this.values.settings.onesignal_app_id, this.values.settings.google_project_id);
@@ -87,11 +90,20 @@ export class MyApp {
                 } else if (result.notification.payload.additionalData.product) {
                     this.nav.push(ProductPage, {id: result.notification.payload.additionalData.product});
                 } else if (result.notification.payload.additionalData.post) {
-                    this.post({di: result.notification.payload.additionalData.post});
+                    this.post({id: result.notification.payload.additionalData.post}, '');
                 } else if (result.notification.payload.additionalData.order) {
                     this.nav.push(OrderSummary, {id: result.notification.payload.additionalData.order});
                 }
             });
+
+
+            this.oneSignal.getIds().then(identity => {
+              console.log("agarro id",identity.userId, identity.userId);
+
+              this.values.pushToken = identity.pushToken
+              this.values.userId = identity.userId
+            });
+
             this.oneSignal.endInit();
         }
     }
@@ -117,6 +129,16 @@ export class MyApp {
     account() {
         this.nav.setRoot(AccountPage);
     }
+    openExternalLink() {
+    //   let options = 'location=no,toolbar=no,hidden=no,enableViewportScale=yes';
+      let url = encodeURIComponent('https://www.seg-social.es/wps/wcm/connect/wss/8cd0aeda-1311-4e24-a310-76b5eb52ef1e/TA_2S-138+%28V.8%29.pdf?MOD=AJPERES&amp;CVID');
+      const browser = this.iab.create('https://docs.google.com/viewer?url=' + url);
+
+    }
+
+    cards() {
+      this.nav.push(VirtualCardAdminPage);
+    }
     login() {
         this.nav.setRoot(AccountLogin);
     }
@@ -127,7 +149,7 @@ export class MyApp {
         this.nav.setRoot(Address);
     }
     order() {
-        this.nav.setRoot(Orders);
+        this.nav.setRoot(OrdersPage);
     }
     orderVendor() {
         this.nav.setRoot(OrdersVendor);
@@ -135,12 +157,12 @@ export class MyApp {
     bookingVendor() {
         this.nav.setRoot(BookingVendor);
     }
-    
+
     cart() {
         this.nav.setRoot(CartPage);
     }
     wishlist() {
-        this.nav.setRoot(WishlistPage);
+        this.nav.push(WishlistPage);
     }
     shop() {
         this.nav.setRoot(TabsPage);
@@ -184,7 +206,10 @@ export class MyApp {
         };
         this.emailComposer.open(email);
     }
-    post(id) {
-        this.nav.setRoot(Post, id);
+    post(id, title) {
+        this.nav.push(Post, {id, title});
+    }
+    openchat(){
+      this.nav.setRoot(ChatPage)
     }
 }

@@ -17,7 +17,8 @@ $colors: (
   header: #ffffff,
   button-color: #76A7Ab,
   side-heading-color:  #1e88e5e6,
-  icon-color: #535766
+  icon-color: #535766,
+  red:     #FF0000
 
 );
 
@@ -29,7 +30,7 @@ $button-color: #76A7Ab;
 $toggle-button-color: #1e88e5e6;
 $min-banner-height:  7em;
 $min-home-category-height:  8em;
-$min-product-height:  12em;
+$min-product-height:  20em;
 $min-product-slider-height:  16em;
 $menu-background-color: #fff;
 $menu-text-color: #111;
@@ -41,6 +42,7 @@ $dark-grey:#424242;
 $primary:    #1e88e5e6;
 $grey: #777;
 $danger: #f53d3d;
+$red: #FF0000;
 
 
 @import "ionic.theme.default";
@@ -61,6 +63,6 @@ $ionicons-font-path: "../assets/fonts";
 //   src: url('../assets/fonts/fonthomer/HelveticaLt.ttf');
 // }
 @font-face {
-  font-family: 'HelveticaLt';
-  src: url('../assets/fonts/fonthomer/HelveticaLt.ttf');
+  font-family: 'Arial';
+  src: url('../assets/fonts/fonthomer/Arial.ttf');
 }

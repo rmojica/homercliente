@@ -105,7 +105,8 @@
          border-bottom-right-radius: 0;
      }
      .button-default{
-        width: 60%
+        width: 60%;
+        margin:0 auto;
      }
      .button{
         text-transform: capitalize!important;
@@ -125,5 +126,15 @@
 
 .alert-md .alert-button {
     margin: 0;
+}
+
+ion-title {
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 18%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
