@@ -67,7 +67,14 @@ export class ProductsPage {
 
 
     if(params.data.items != ''){
-        this.filter['include'] = params.data.items
+      let data = []
+      data = params.data.items.split(',')
+      //elimino los parametros repetidos
+      let results = data.filter((item,index)=>{
+        return data.indexOf(item) === index;
+      })
+
+      this.filter['include'] = results;
     }else{
       this.filter['include'] = 0
     }
@@ -89,6 +96,7 @@ export class ProductsPage {
     this.hourEnd = params.data.hourEnd;
 
      this.product_slot = params.data.p_slot
+    console.log("el filtro",this.filter);
 
     this.service.load(this.filter).then(results => {
 

@@ -863,12 +863,10 @@ export class Service {
               for (var key in this.dataSearchProduct.records) {
                 let product = this.dataSearchProduct.records[key]
 
-
                 if(product.available == 1){
                   // console.log("veo del filtro",{ "pdate-menor-amaxDate":{prodDate:product.date, maxDate:max_date, minDate:min_date, resp: product.date > min_date && product.date < max_date}});
 
                     dates.push(product.date)
-                    console.log(dates);
 
 
                     this.product_slot.push({
@@ -880,7 +878,7 @@ export class Service {
                 }
 
               }
-            
+
               resolve({includeProduct:this.includeProduct, product_slot:this.product_slot})
             }
 
