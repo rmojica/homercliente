@@ -114,8 +114,8 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-calendar": {
-        "CALENDAR_USAGE_DESCRIPTION": " ",
-        "CONTACTS_USAGE_DESCRIPTION": " "
+        "CALENDAR_USAGE_DESCRIPTION": "This app requires calendars library access to function properly.",
+        "CONTACTS_USAGE_DESCRIPTION": "This app contacts photo library access to function properly."
       },
       "call-number": {},
       "cordova-plugin-geolocation": {},
