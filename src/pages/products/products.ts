@@ -58,12 +58,26 @@ export class ProductsPage {
     // this.hour = params.data.hour;
     // this.date = params.data.date;
     let p:any;
+
     if(params.data.categories.length > 0){
+      let data = [];
+
       params.data.categories.map((category) => {
-        this.filter['filter[category]'] += ','+category.slug
+        // this.filter['category'] += ','+category.id
         // this.filter.id = category.id
+        return data.push(category.id)
+
       })
+
+      if(data.length > 1){
+        this.filter['category'] = `[${data}]`;
+      }else{
+        this.filter['category'] = data;
+      }
+
     }
+
+    console.log("ver",this.filter);
 
 
     if(params.data.items != ''){
@@ -96,7 +110,7 @@ export class ProductsPage {
     this.hourEnd = params.data.hourEnd;
 
      this.product_slot = params.data.p_slot
-    console.log("el filtro",this.filter);
+
 
     this.service.load(this.filter).then(results => {
 
