@@ -58,16 +58,37 @@ export class ProductsPage {
     // this.hour = params.data.hour;
     // this.date = params.data.date;
     let p:any;
+
     if(params.data.categories.length > 0){
+      let data = [];
+
       params.data.categories.map((category) => {
-        this.filter['filter[category]'] += ','+category.slug
+        // this.filter['category'] += ','+category.id
         // this.filter.id = category.id
+        return data.push(category.id)
+
       })
+
+      if(data.length > 1){
+        this.filter['category'] = `[${data}]`;
+      }else{
+        this.filter['category'] = data;
+      }
+
     }
+
+    console.log("ver",this.filter);
 
 
     if(params.data.items != ''){
-        this.filter['include'] = params.data.items
+      let data = []
+      data = params.data.items.split(',')
+      //elimino los parametros repetidos
+      let results = data.filter((item,index)=>{
+        return data.indexOf(item) === index;
+      })
+
+      this.filter['include'] = results;
     }else{
       this.filter['include'] = 0
     }
@@ -89,6 +110,7 @@ export class ProductsPage {
     this.hourEnd = params.data.hourEnd;
 
      this.product_slot = params.data.p_slot
+
 
     this.service.load(this.filter).then(results => {
 

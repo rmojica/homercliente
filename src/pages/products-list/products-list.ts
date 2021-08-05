@@ -519,7 +519,7 @@ export class ProductsListPage {
     //   //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     // }
     if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.autocompleteCat.input != '')){
-      let midata =  this.service.getLocationFromProduct3(min_date, max_date, null)
+      this.service.getLocationFromProduct3(min_date, max_date, null)
       // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
     }
