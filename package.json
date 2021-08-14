@@ -45,6 +45,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "angular-cc-library": "^2.1.2",
+    "build": "0.1.4",
     "call-number": "^1.0.1",
     "com-sarriaroman-photoviewer": "^1.1.16",
     "cordova-android": "^8.1.0",

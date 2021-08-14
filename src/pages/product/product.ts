@@ -15,6 +15,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 import { Service } from '../../providers/service/service';
 import { CartService } from '../../providers/service/cart-service';
+import { OrdersPage } from '../orders/orders';
 
 @Component({
   templateUrl: 'product.html',
@@ -494,7 +495,7 @@ export class ProductPage {
     // this.getCart()
   }
   returnHome(){
-    this.nav.push(ProductsListPage);
+    this.nav.push(OrdersPage);
   }
   getCart() {
     this.nav.parent.select(2);
