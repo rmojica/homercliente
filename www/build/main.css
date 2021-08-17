@@ -52387,6 +52387,14 @@ ion-title {
   margin-right: auto;
 }
 
+.toolbar-ios ion-title img {
+  max-width: 150px !important;
+}
+
+.ion-title-md img {
+  max-width: 150px !important;
+}
+
 .toolbar-ios {
   min-height: 70px;
   margin-top: 15px;
@@ -55809,7 +55817,6 @@ page-tabs android .tabs-md .tab-button[aria-selected="true"]::before {
 page-tabs .tabs-islogged.tabs-md .tab-button[aria-selected="true"]::before {
   position: absolute;
   z-index: -1;
-  background-color: white;
   height: 43px;
   width: 43px;
   content: "";
