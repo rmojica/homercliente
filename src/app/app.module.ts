@@ -73,6 +73,7 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 
 const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
+// const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')

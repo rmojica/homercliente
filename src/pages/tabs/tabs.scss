@@ -13,11 +13,10 @@ page-tabs {
     width: 95%;
   }
 
-  //android
-  .tabs-md .tab-button[aria-selected="true"]::before {
+  android .tabs-md .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    // background-color: white;
+    background-color: white;
     height: 43px;
     width: 43px;
     content: "";
@@ -30,7 +29,7 @@ page-tabs {
   .tabs-islogged.tabs-md .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    // background-color: white;
+    background-color: white;
     height: 43px;
     width: 43px;
     content: "";
@@ -40,16 +39,15 @@ page-tabs {
     left: calc(100% / 2.5rem);
     top: 11px;
   }
-  //ios
-  // .tabs-ios .tab-button.activated[aria-selected=true] {
-  //     background-color: black;
-  //     scroll-behavior: smooth;
-  // }
+  ios .tabs-ios .tab-button.activated[aria-selected="true"] {
+    background-color: black;
+    scroll-behavior: smooth;
+  }
 
   .tabs-ios .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    background-color: white;
+    // background-color: white;
     height: 45px;
     width: 45px;
     content: "";
@@ -61,7 +59,7 @@ page-tabs {
   .tabs-islogged.tabs-ios .tab-button[aria-selected="true"]::before {
     position: absolute;
     z-index: -1;
-    background-color: white;
+    // background-color: white;
     height: 45px;
     width: 45px;
     content: "";
@@ -80,7 +78,7 @@ page-tabs {
   }
   .tabs-md .tab-button[aria-selected="true"] .tab-button-icon,
   .tabs-ios .tab-button[aria-selected="true"] .tab-button-icon {
-    color: white;
+    color: #000;
   }
   .ion-md-search::before {
     font-weight: 600;

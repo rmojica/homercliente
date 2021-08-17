@@ -14,6 +14,7 @@ export class Config {
   // url:any = 'https://www.homer.es'
   // urlApi:any = 'http://92.205.27.2:3001/api/v1'
   url: any = 'https://demohomer.digitalfactory.tech'
+  // urlApi:any = 'http://homer.es:3001/api/v1'
   urlApi:any = 'https://websockethomer.herokuapp.com/api/v1'
 
   consumerKey: any = 'ck_462b7613b1f89991924e149f7d7df2a1c37eb71a'
