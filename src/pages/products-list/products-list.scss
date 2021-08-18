@@ -100,6 +100,7 @@ page-products-list {
     right: 0;
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
     font-size: 18px;
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif !important;
@@ -108,7 +109,7 @@ page-products-list {
   }
   .card-search {
     position: absolute;
-    top: 25%;
+    top: 30%;
     right: 0;
     left: 0;
     width: 80%;
@@ -116,6 +117,10 @@ page-products-list {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .swiper-wrapper{
+    margin: 0 auto!important;
   }
 
   .btn-search-product button {
