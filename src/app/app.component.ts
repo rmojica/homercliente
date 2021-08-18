@@ -12,6 +12,7 @@ import { CartPage } from '../pages/cart/cart';
 import { AccountLogin } from '../pages/account/login/login';
 import { Address } from '../pages/account/address/address';
 import { OrdersPage } from '../pages/orders/orders';
+import { Orders } from '../pages/account/orders/orders';
 import { AccountRegister } from '../pages/account/register/register';
 import { OrderSummary } from '../pages/checkout/order-summary/order-summary';
 import { WishlistPage } from '../pages/account/wishlist/wishlist';

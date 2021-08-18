@@ -115,9 +115,25 @@ export class BillingAddressForm {
                     browser.hide();
                 }
                 else if (data.url.indexOf('cancel_order=true') != -1 || data.url.indexOf('cancelled=1') != -1 || data.url.indexOf('cancelled') != -1) {
-                    browser.close();
-                    this.buttonSubmit = false;
-                }    
+                  var str = data.url;
+                  var strArray = str.split(";");
+                  var substr = strArray[2].substr(9, 4);
+
+                  this.service.getOrderSummary(substr).then((results:any) => {
+                    results.order.booking_id.map(booking => {
+                      this.service.changestate({
+                        "order":booking,
+                        "state":"cancelado",
+                        "isCancel": "Cancelado desde pasarela"
+                      })
+                    })
+                  });
+
+                  browser.close();
+                  this.buttonSubmit = false;
+
+
+                }
             });
             browser.on('exit').subscribe(data => {
                 this.buttonSubmit = false;

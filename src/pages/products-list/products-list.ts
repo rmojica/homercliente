@@ -8,7 +8,7 @@ import { SearchPage } from '../search/search';
 import { ProductPage } from '../product/product';
 import { Post } from '../post/post';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import {Socket}  from 'ngx-socket-io';
+
 // import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
@@ -95,8 +95,7 @@ export class ProductsListPage {
         public toastCtrl: ToastController,
         public nav: NavController,
         public service: Service,
-        public values: Values,
-        private socket: Socket) {
+        public values: Values) {
         this.items = [];
         this.product_slot = [];
         this.options = [];

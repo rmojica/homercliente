@@ -18,7 +18,19 @@ export class OrderSummary {
     }
     ionViewDidLoad(){
         this.service.getOrderSummary(this.id)
-            .then((results) => this.orderSummary = results);
+            .then((results:any) => {
+
+              if(results.order.payment_details.paid == true){
+                results.order.booking_id.map(booking => {
+                  this.service.changestate({
+                    "order":booking,
+                    "state":"pagado"
+                  })
+                })
+              }
+
+              this.orderSummary = results
+            });
     }
     Continue() {
         this.values.count = 0;

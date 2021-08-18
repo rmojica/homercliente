@@ -104,12 +104,12 @@
         {{"Rate App" | translate}}
       </ion-item> -->
 
-      <ion-item tappable menuClose (click)="logout()" *ngIf="values.isLoggedIn">
+     <ion-item tappable menuClose (click)="logout()" *ngIf="values.isLoggedIn">
         <ion-icon item-left name="md-log-out">
         </ion-icon>{{"Logout" | translate}}
       </ion-item>
 
-      <!-- <ion-list *ngIf="values.isLoggedIn">
+      <!--  <ion-list *ngIf="values.isLoggedIn">
         <ion-item *ngIf="values.vendor">
           <label style="font-weight: bold;" for="">{{"Vendor" | translate}}</label>
         </ion-item>

@@ -165,7 +165,7 @@ export class ProductsPage {
     if(this.values.isLoggedIn){
       this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
     }else{
-      this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Debe estar logeado para contratar');
+      this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Debe iniciar sesión para contratar el servicio.');
     }
   }
   showAlert(title, text) {
