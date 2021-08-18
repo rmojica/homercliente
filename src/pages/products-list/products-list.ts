@@ -152,8 +152,6 @@ export class ProductsListPage {
 
 
 
-
-      console.log(hr)
       this.setHoursTime2(hr, hrsminSplit[1]);
     }
 
@@ -205,6 +203,14 @@ export class ProductsListPage {
         });
         toast.present();
     }
+    presentToastLoginAlert2() {
+      let toast = this.toastCtrl.create({
+        message: 'Ya has seleccionado esta categoria',
+        duration: 1000,
+         position: 'bottom'
+      });
+      toast.present();
+  }
     addToWishlist(id) {
         if (this.values.isLoggedIn) {
             this.values.wishlistId[id] = true;
@@ -441,34 +447,38 @@ export class ProductsListPage {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
     // alert(JSON.stringify(item))
 
-    if(this.categories.length == 0){
-      // this.categories.push({id:item.id, name:item.name});
-      this.categories.push({id:item.id, slug:item.slug});
-      this.categoriesValue = [];
+    let searchCategory = this.categories.filter(category => category.id == item.id);
+
+    if(searchCategory.length > 0){
+        this.presentToastLoginAlert2()
     }else{
-      if(this.categories.id != item){
-        this.categories.push({id:item.id, slug:item.slug});
+      if(this.categories.length == 0){
+        // this.categories.push({id:item.id, name:item.name});
+        this.categories.push({id:item.id, slug:item.slug, name:item.name});
         this.categoriesValue = [];
+      }else{
+        if(this.categories.id != item){
+          this.categories.push({id:item.id, slug:item.slug, name:item.name});
+          this.categoriesValue = [];
+        }
       }
+
+      this.categoriesValue = [];
+
+      this.autocompleteCat.input = item.name;
+      this.selectedCategory = item.slug;
+
+      this.items.id = item.id;
+      this.items.slug = item.slug;
+      this.items.name = item.name;
+      this.items.categories =  this.service.categories.filter(item => item.parent === parseInt(item.id));
+
+      this.HiddenListCat = false;
+      this.HiddenSearchLocation = false;
+      this.HideBtnSearch = false;
+      this.HideRadius = false;
     }
-    console.log('my',this.categories);
 
-    this.categoriesValue = [];
-
-    this.autocompleteCat.input = item.name;
-    this.selectedCategory = item.slug;
-
-    this.items.id = item.id;
-    this.items.slug = item.slug;
-    this.items.name = item.name;
-    this.items.categories =  this.service.categories.filter(item => item.parent === parseInt(item.id));
-
-    console.log(this.items.categories)
-
-    this.HiddenListCat = false;
-    this.HiddenSearchLocation = false;
-    this.HideBtnSearch = false;
-    this.HideRadius = false;
   }
 
   getItemsCat() {

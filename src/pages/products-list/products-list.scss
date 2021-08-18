@@ -1,5 +1,6 @@
 ion-slides {
   height: auto;
+  background: #76a7ac;
 }
 ion-slides ion-slide img {
   height: 60vh !important;
@@ -9,13 +10,13 @@ ion-slide > :first-child {
   width: 100%;
 }
 ion-title {
-  width:150px;
-  position:absolute;
-  left:0;
-  top:18%;
-  right:0;
-  margin-left:auto;
-  margin-right:auto;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 18%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 // ion-slides ion-slide::after {
 //   content:"";
@@ -117,7 +118,8 @@ page-products-list {
     text-align: center;
   }
 
-  .card-search button {
+  .btn-search-product button {
+    background: #000;
   }
 
   .ion-md-locate:before {
@@ -210,6 +212,7 @@ page-products-list {
     border-radius: 20px;
     font-family: Arial, Helvetica, sans-serif !important;
   }
+
   .category-name .button {
     text-transform: capitalize !important;
     font-size: 15px;
@@ -303,7 +306,6 @@ page-products-list {
     border: none !important;
   }
 
-
   .card-filter-home {
     top: -90px;
     position: relative;
@@ -338,7 +340,7 @@ page-products-list {
     top: 105px;
     position: absolute;
     z-index: 999;
-    background:#fff;
+    background: #fff;
   }
   .searchbar-category .searchbar-search-icon {
     background-image: url("../assets/icon/arrow.svg");
@@ -391,11 +393,11 @@ page-products-list {
     color: black;
   }
 
-  .item-md{
+  .item-md {
     background: transparent;
   }
 
-  .item-ios{
+  .item-ios {
     background: transparent;
   }
 
