@@ -81,8 +81,6 @@ export class ProductService {
       params.append('add-to-cart', product.id)
       params.append('customer_Id', customerId)
 
-      console.log("clienteid", customerId);
-
 
       // wc_bookings_field_start_date_day: 19
       // wc_bookings_field_start_date_month:  07
