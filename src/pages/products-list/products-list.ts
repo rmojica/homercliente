@@ -73,18 +73,13 @@ export class ProductsListPage {
     time: any;
     has_more_items: boolean = true;
     loading: boolean = true;
-    texto:any = `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim praesentium quisquam dignissimos, ipsa odit tempore saepe! Debitis enim, dolor quis repellendus eveniet incidunt sapiente asperiores at quibusdam consequatur, laborum iusto?
-    Beatae, assumenda qui nulla molestiae dolores delectus! Nulla explicabo itaque recusandae similique excepturi ea cumque sequi nostrum, laudantium nihil minima dolore, rerum deserunt fugit. At nulla nobis eos quibusdam quo!
-    Molestias, voluptatem ex numquam asperiores explicabo eius quam sequi atque voluptates delectus incidunt minima molestiae tempore libero reprehenderit non sunt fugit repellendus ipsum rem totam quo suscipit assumenda. Nisi, enim.
-    Officia illo sint quod facere laborum dolore perspiciatis expedita sit atque dignissimos blanditiis ab consectetur molestias iusto nobis obcaecati corporis odit, hic vitae reprehenderit iste. Dolores alias asperiores maxime porro.
-    Recusandae inventore, accusantium, eveniet suscipit sed, delectus earum error libero fugit dolores iure repellat? Dolorum voluptate eos voluptas officia repellendus eaque similique a fugit ipsa, odit sapiente quia quae exercitationem!`;
 
     myDate: String = new Date().toISOString();
-  minTime = "00:00";
-  minutesVal = "0,30";
-  hourValues = [];
-  myDateCustom: any
-  selectedCate:any;
+    minTime = "00:00";
+    minutesVal = "0,30";
+    hourValues = [];
+    myDateCustom: any
+    selectedCate:any;
     constructor(
         public alert:AlertController,
         public modalCtrl: ModalController,
@@ -118,6 +113,7 @@ export class ProductsListPage {
         this.getCategory = this.service.mainCategories;
 
         this.itemsCategory = this.service.DataCategories;
+
 
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
@@ -656,23 +652,31 @@ export class ProductsListPage {
 
 @Component({
   template: `
-<ion-content style="background:#ffff">
-  <ion-buttons start>
+  <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+    <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <ion-icon name="close"></ion-icon>
+        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="background:#ffff">
     <ion-card style="margin-top:20px">
       <img src="{{imgModal}}"/>
       <ion-card-header>
         <ion-card-title>
-            {{title}}
+           Descripción
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p>
+        <h3>
           {{detail}}
-        </p>
+        </h3>
       </ion-card-content>
     </ion-card>
 </ion-content>
