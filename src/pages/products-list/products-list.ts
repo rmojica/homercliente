@@ -653,9 +653,9 @@ export class ProductsListPage {
 @Component({
   template: `
   <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      {{title}}
+  <ion-toolbar  color="header">
+    <ion-title style="left: 0; top: 0; padding: 0 90px 1px; position: absolute; width: 100%; height: 100%; -webkit-transform: translateZ(0); transform: translateZ(0);  pointer-events: none;">
+      Detalle del servicio
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -665,9 +665,11 @@ export class ProductsListPage {
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content style="background:#ffff">
-    <ion-card style="margin-top:20px">
-      <img src="{{imgModal}}"/>
+<ion-content class="card-background-page">
+    <ion-card style="margin-top:20px;">
+
+      <img style="width:50%!important; margin:0 auto;" src="{{imgModal}}" />
+
       <ion-card-header>
         <ion-card-title>
            Descripción
@@ -694,7 +696,7 @@ export class ModalContentPage {
   ) {
     this.title = this.params.get('title');
     this.detail = this.params.get('detail');
-    this.imgModal = this.values.homeClean;
+    this.imgModal = this.params.get('image');
   }
 
   dismiss() {

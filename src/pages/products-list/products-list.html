@@ -175,7 +175,8 @@
     <ion-row *ngIf="service.categories" class="category-name">
       <ion-col col-12 class="flex-center" *ngFor="let item of
         service.mainCategories"
-        (click)="openModal({title: item.name, detail:item.description})">
+        (click)="openModal({title: item.name,
+        detail:item.description,image:item.image.src})">
         <ion-list>
           <ion-item>
             <ion-grid>
