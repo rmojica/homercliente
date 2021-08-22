@@ -84,7 +84,7 @@ export class ProductsListPage {
   minutesVal = "0,30";
   hourValues = [];
   myDateCustom: any
-
+  selectedCate:any;
     constructor(
         public alert:AlertController,
         public modalCtrl: ModalController,
@@ -96,9 +96,11 @@ export class ProductsListPage {
         public nav: NavController,
         public service: Service,
         public values: Values) {
+        this.selectedCate = []
         this.items = [];
         this.product_slot = [];
         this.options = [];
+
         this.service.getProducts();
 
         this.autocomplete = { input: '' };
@@ -114,6 +116,8 @@ export class ProductsListPage {
         this.service.getCategories(1);
 
         this.getCategory = this.service.mainCategories;
+
+        this.itemsCategory = this.service.DataCategories;
 
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
@@ -176,7 +180,6 @@ export class ProductsListPage {
     clickSearch(){
       this.autocompleteCat.input = ' ';
       this.getItemsCat()
-      console.log("probando auto complete",this.autocompleteCat.input)
     }
 
     doRefresh(refresher){
@@ -443,9 +446,17 @@ export class ProductsListPage {
     this.categoriesValue = [];
   }
 
+  onSelectChange(selectedValue: any){
+    console.log('Selected', selectedValue);
+  }
+
+
+
   SelectSearchResultCat(item) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
     // alert(JSON.stringify(item))
+    console.log(this.selectedCate);
+
 
     let searchCategory = this.categories.filter(category => category.id == item.id);
 
@@ -486,27 +497,27 @@ export class ProductsListPage {
     // const target = ev.target as HTMLTextAreaElement;
     // let val = target.value;
 
-    if (this.autocompleteCat.input == '') {
-      this.itemsCategory = [];
-      this.HiddenListCat = false;
-      this.HiddenSearchLocation = false;
-      this.HideBtnSearch = false;
-      this.HideRadius = false;
-      this.items = [];
-      return;
-    }
+    // if (this.autocompleteCat.input == '') {
+    //   this.itemsCategory = [];
+    //   this.HiddenListCat = false;
+    //   this.HiddenSearchLocation = false;
+    //   this.HideBtnSearch = false;
+    //   this.HideRadius = false;
+    //   this.items = [];
+    //   return;
+    // }
     this.itemsCategory = this.service.mainCategories;
 
     // if the value is an empty string don't filter the items
     // if (this.autocompleteCat.input && this.autocompleteCat.input.trim() != '') {
 
-      this.HiddenListCat = true;
-      this.HiddenSearchLocation = true;
-      this.HideBtnSearch = true;
-      this.HideRadius = true;
-      this.itemsCategory = this.itemsCategory.filter((itemsCategory) => {
-        return (itemsCategory.name.toLowerCase().indexOf(this.autocompleteCat.input.toLowerCase()) > -1);
-      })
+      // this.HiddenListCat = true;
+      // this.HiddenSearchLocation = true;
+      // this.HideBtnSearch = true;
+      // this.HideRadius = true;
+      // this.itemsCategory = this.itemsCategory.filter((itemsCategory) => {
+      //   return (itemsCategory.name.toLowerCase().indexOf(this.autocompleteCat.input.toLowerCase()) > -1);
+      // })
 
     // }
   }
@@ -527,7 +538,7 @@ export class ProductsListPage {
     //   // this.nav.push(ProductsPage, this.items);
     //   //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     // }
-    if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.autocompleteCat.input != '')){
+    if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.selectedCate.length > 0)){
       this.service.getLocationFromProduct3(min_date, max_date, null)
       // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
@@ -546,7 +557,7 @@ export class ProductsListPage {
     this.items.productslocation = dataResult;
     this.product_slot.array = product_slot;
 
-    this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, p_slot: this.product_slot.array, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
+    this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.selectedCate, p_slot: this.product_slot.array, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
 
     // this.nav.push(ProductsPage, {items:this.items.productslocation, categories:this.categories, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
     // this.nav.push(ProductsPage, {categories:this.categories, date:this.processDate, hour:this.processHour});

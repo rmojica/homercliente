@@ -133,7 +133,7 @@ export class MyApp {
     openExternalLink() {
     //   let options = 'location=no,toolbar=no,hidden=no,enableViewportScale=yes';
       let url = encodeURIComponent('https://www.seg-social.es/wps/wcm/connect/wss/8cd0aeda-1311-4e24-a310-76b5eb52ef1e/TA_2S-138+%28V.8%29.pdf?MOD=AJPERES&amp;CVID');
-      const browser = this.iab.create('https://docs.google.com/viewer?url=' + url);
+      const browser = this.iab.create('https://docs.google.com/viewer?url=' + url, '_system', 'location=yes, hardwareback=yes');
 
     }
 
