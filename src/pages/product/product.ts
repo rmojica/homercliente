@@ -263,7 +263,7 @@ export class ProductPage {
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
-    this.getAddressFromCoords();
+    //this.getAddressFromCoords();
 
     var date = moment(this.date)
 
@@ -296,7 +296,6 @@ export class ProductPage {
 
     let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
 
-
     this.service
       .addToCart(
         resource_id,
@@ -308,7 +307,7 @@ export class ProductPage {
         hours,
         this.values.customerId,
       )
-      .then(results => {
+      .then(results => {       
         if(results == 200){
             this.cartservice.loadCart().then((results:any) => {
                 let cart:any = [];
@@ -318,6 +317,8 @@ export class ProductPage {
                   let hour = cart[0][key].booking._time.split(':');
 
                   if(cart[0][key].booking._date === this.date && ("0" + hour[0]).slice(-2) + ":" +hour[1] === this.hourInit){
+                    console.log("entro");
+                    
                     this.service.updateCartWithCustomerid(cart[0][key].booking._booking_id, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
                     this.service.addOrders({
                       "clientUi": this.values.customerId,
