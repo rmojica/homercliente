@@ -58,6 +58,7 @@ export class ProductsPage {
     // this.hour = params.data.hour;
     // this.date = params.data.date;
     let p:any;
+    console.log("cat select", params.data.categories);
 
     if(params.data.categories.length > 0){
       let data = [];

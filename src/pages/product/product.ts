@@ -263,7 +263,11 @@ export class ProductPage {
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
+<<<<<<< HEAD
     //this.getAddressFromCoords();
+=======
+    // this.getAddressFromCoords();
+>>>>>>> 7df4a43854b9bed2a791094b4cfef2a20a672609
 
     var date = moment(this.date)
 
@@ -307,8 +311,8 @@ export class ProductPage {
         hours,
         this.values.customerId,
       )
-      .then(results => {       
-        if(results == 200){
+      .then(results => {
+          if(results == 200){
             this.cartservice.loadCart().then((results:any) => {
                 let cart:any = [];
                 cart.push(results.cart_contents)
@@ -358,6 +362,8 @@ export class ProductPage {
                     });
                   }
                 })
+            }).catch(error =>{
+              this.showAlert('Error en la solicitud', `<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar ${error}`);
             });
           }else{
             this.showAlert('Error en la solicitud', '<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar');

@@ -1,6 +1,6 @@
 ion-slides {
   height: auto;
-  background: #76a7ac;
+  // background: #76a7ac;
 }
 ion-slides ion-slide img {
   height: 70vh !important;
@@ -76,10 +76,10 @@ page-products-list {
     color: red;
   }
   //banner image
-  .title-home-banner {
+  .title-home-banner h2 {
     position: absolute;
     top: 0;
-    font-size: 25px;
+    font-size: 23px;
     color: #ffff;
     text-align: center;
     width: 80%;
@@ -88,14 +88,14 @@ page-products-list {
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif !important;
-    font-weight: 500;
+    font-weight: bolder;
     z-index: 20;
   }
 
-  .subtitle-home-banner {
+  .subtitle-home-banner h4 {
     position: absolute;
     width: 80%;
-    top: 18%;
+    top: 17%;
     left: 0;
     right: 0;
     margin-right: auto;
@@ -104,7 +104,7 @@ page-products-list {
     font-size: 18px;
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif !important;
-    font-weight: 500;
+    font-weight: 600;
     z-index: 20;
   }
   .card-search {
@@ -118,13 +118,26 @@ page-products-list {
     margin-right: auto;
     text-align: center;
   }
+  button ion-select {
+    max-width: 100% !important;
+    width: 100%;
+  }
 
-  .swiper-wrapper{
-    margin: 0 auto!important;
+   button ion-select .select-placeholder{
+     text-align: left;
+   }
+
+  button ion-select .select-icon {
+    display: none;
+  }
+
+  .swiper-wrapper {
+    margin: 0 auto !important;
   }
 
   .btn-search-product button {
     background: #000;
+    margin-top: 30px;
   }
 
   .ion-md-locate:before {

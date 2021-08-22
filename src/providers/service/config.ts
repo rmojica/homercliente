@@ -11,9 +11,9 @@ headers.append(
 @Injectable()
 export class Config {
   // url: any = 'https://dev.digitalfactory.tech/demos/homer'
-  // url:any = 'https://www.homer.es'
+  url:any = 'https://www.homer.es'
   // urlApi:any = 'http://92.205.27.2:3001/api/v1'
-  url: any = 'https://demohomer.digitalfactory.tech'
+  // url: any = 'https://demohomer.digitalfactory.tech'
   // urlApi:any = 'http://homer.es:3001/api/v1'
   urlApi:any = 'https://websockethomer.herokuapp.com/api/v1'
 
