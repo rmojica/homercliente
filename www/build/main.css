@@ -55108,7 +55108,7 @@ page-products-list .ion-md-call {
 
 page-products-list .title-home-banner h2 {
   position: absolute;
-  top: 0;
+  top: 2%;
   font-size: 23px;
   color: #ffff;
   text-align: center;
@@ -55117,6 +55117,7 @@ page-products-list .title-home-banner h2 {
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif !important;
   font-weight: bolder;
   z-index: 20;
@@ -55125,7 +55126,7 @@ page-products-list .title-home-banner h2 {
 page-products-list .subtitle-home-banner h4 {
   position: absolute;
   width: 80%;
-  top: 17%;
+  top: 19%;
   left: 0;
   right: 0;
   margin-right: auto;
