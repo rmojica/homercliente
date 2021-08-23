@@ -23,7 +23,7 @@
 	"EmptyWishlistViewMessage": "Vacío Lista de deseos Ver mensaje",
 	"Wishlist": "Favoritos",
 	"AccountInfo": "Informacion de cuenta",
-	"Register": "Registrate",
+	"Register": "Regístrate",
 	"Cancel": "Cancelar",
 	"LogIn": "Acceder",
 	"Shop": "tienda",
@@ -189,6 +189,6 @@
 	"Category" : "Servicio",
 	"Location" : "Ubicación",
 	"RADIUS" : "Distancia"
-	
+
 
 }

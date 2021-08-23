@@ -197,7 +197,7 @@ export class Service {
       .map(res => res.json())
       .subscribe(data => {
         this.DataCategories.push(data);
-        
+
         if (page == 1) this.categories = data
         else {
           this.categories.push.apply(this.categories, data)
@@ -413,9 +413,9 @@ export class Service {
         .subscribe(data => {
           resolve(data)
           if (data.statusText == "OK")
-            this.functions.showAlert("SUCCESS", "Check email for new verification link. ");
+            this.functions.showAlert("EXITO", "Revisa tu correo te hemos enviado un nuevo link de verificación.. ");
           else
-            this.functions.showAlert("ERROR", "an error has occurred please check. ");
+            this.functions.showAlert("ERROR", "Ha ocurrido un error en la solicitud");
         })
     })
   }

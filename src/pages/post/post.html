@@ -1,12 +1,14 @@
 <ion-header class="settings-header">
-    <ion-navbar color="header">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+  <ion-toolbar color="header">
+    <ion-buttons start>
+      <button ion-button icon-only  (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <ion-title>
-        <img width="150" src="{{values.avatar}}" />
-      </ion-title>
-    </ion-navbar>
+    </ion-buttons>
+    <ion-title>
+      <img width="150" src="{{values.avatar}}" />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-content class="post" padding>
     <ion-spinner *ngIf="!post" name="crescent"> </ion-spinner>
