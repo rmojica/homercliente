@@ -263,11 +263,7 @@ export class ProductPage {
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
-<<<<<<< HEAD
     //this.getAddressFromCoords();
-=======
-    // this.getAddressFromCoords();
->>>>>>> 7df4a43854b9bed2a791094b4cfef2a20a672609
 
     var date = moment(this.date)
 
