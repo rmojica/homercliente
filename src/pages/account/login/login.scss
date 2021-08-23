@@ -75,30 +75,35 @@
     right: 12px;
   }
   .passwordIcon.icon-md {
-    font-size: 2.5rem !important;
-    position: relative !important;
-    top: 5px !important;
-    margin: 0px 0px 0px -8px !important;
-    border: 2px solid #e0e0e0;
-    height: 40px;
-    border-radius: 7px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 0 8px;
-    border-left: none;
+    position: absolute !important;
+    right: 10px;
+    top: 20px;
+    // font-size: 2.5rem !important;
+    // position: absolute !important;
+    // top: 5px !important;
+    // margin: 0px 0px 0px -8px !important;
+    // border: 2px solid #e0e0e0;
+    // height: 40px;
+    // border-radius: 7px;
+    // border-top-left-radius: 0;
+    // border-bottom-left-radius: 0;
+    // padding: 0 8px;
+    // border-left: none;
   }
   .passwordIcon.icon-ios {
-    font-size: 2.5rem !important;
-    position: relative !important;
-    top: 10px !important;
-    margin: 0px 0px 0px -8px !important;
-    border: 2px solid #e0e0e0;
-    height: 42px;
-    border-radius: 7px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 0 8px;
-    border-left: none;
+    // font-size: 2.5rem !important;
+    position: absolute !important;
+    right: 10px;
+    top: 20px;
+    // top: 10px !important;
+    // margin: 0px 0px 0px -8px !important;
+    // // border: 2px solid #e0e0e0;
+    // height: 42px;
+    // border-radius: 7px;
+    // border-top-left-radius: 0;
+    // border-bottom-left-radius: 0;
+    // padding: 0 8px;
+    // border-left: none;
   }
   .ion-md-eye-off:before {
     margin-top: 5px;

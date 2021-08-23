@@ -175,7 +175,8 @@
     <ion-row *ngIf="service.categories" class="category-name">
       <ion-col col-12 class="flex-center" *ngFor="let item of
         service.mainCategories"
-        (click)="openModal({title: item.name, detail:texto})">
+        (click)="openModal({title: item.name,
+        detail:item.description,image:item.image.src})">
         <ion-list>
           <ion-item>
             <ion-grid>
@@ -186,14 +187,14 @@
               </ion-row>
             </ion-grid>
             <ion-grid>
-              <ion-row item-left lbl-category>
+              <ion-row item-left lbl-category >
                 <p class="heading text-center">{{item.name}}</p>
                 <!-- <p>{{item.description}}</p> -->
               </ion-row>
             </ion-grid>
 
-            <ion-grid>
-              <ion-row item-left lbl-category>
+            <ion-grid >
+              <ion-row item-left lbl-category style="margin: 10px auto; ">
                 <button class="btn-reservar" ion-button item-center medium
                   color="button-color" text-uppercase>{{" Ver Detalle" |
                   translate}}
@@ -211,63 +212,124 @@
     <ion-slide>
       <div class="testimonial-content">
         <p>
-          "Tenemos varios apartamentos en toda la ciudad y siempre nos cubren
-          todas las necesidades al momento."
+          “He contratado los servicios de Homer, los conocí por internet. En
+          todo momento tuve una buena respuesta, el trabajo realizado ha sido
+          excelente. Son muy exhaustivos en la limpieza.”
         </p>
-        <ion-label>Mariam Lopez.</ion-label>
+        <ion-label>Clara Muñoz, MADRID</ion-label>
       </div>
     </ion-slide>
     <ion-slide>
       <div class="testimonial-content">
         <p>
-          "Homer me ayudo a encontrar diferentes servicios en un mismo lugar de
-          un día para otro."
+          “Estoy encantada con Homer Home Services. Necesitaba que vinieran a
+          casa urgentemente y llegaron en seguida. Muy profesionales, efectivos
+          y puntuales”
         </p>
-        <ion-label>Jose Martinez.</ion-label>
+        <ion-label>Ana Alcázar, MADRID</ion-label>
       </div>
     </ion-slide>
     <ion-slide>
       <div class="testimonial-content">
         <p>
-          "Una app muy accesible fácil de usar para momentos puntuales donde
-          requería limpieza y servicio de canguro."
+          “Me acabo de mudar de casa y cuando vine la primera vez me encontré
+          que estaba muy sucia. Contacté por internet con www.homer.es. Han
+          venido y han cumplido todas mis expectativas.”
         </p>
-        <ion-label>Juana Garcia.</ion-label>
+        <ion-label>Adela Fontcuberta, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “Estoy encantada con Homer. No puedo decir nada malo, me han parecido
+          súper profesionales, me han dejado estupendamente todo y de verdad
+          recomiendo a todos que les contratéis.”
+        </p>
+        <ion-label>Sofía Rebuelta, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “Con Homer hemos conseguido un servicio que antes ni imaginábamos ya
+          que confiamos totalmente en la profesionalidad de esta empresa gracias
+          a los resultados mostrados.”
+        </p>
+        <ion-label>Clara Manzano, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “¡Estuvo todo espectacular! La presentación perfecta y los camareros
+          muy atentos y rápidos. Todos nuestros invitados salieron encantados de
+          la cena.”
+        </p>
+        <ion-label>Ana Gironza, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “Grandes profesionales que ayudaron a que todo saliese perfecto. Todo
+          el mundo nos dio la enhorabuena por el servicio”.
+        </p>
+        <ion-label>Borja Gutiérrez, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “Todo salió según lo planeado. Todas las personas que trabajan son muy
+          respetuosas y profesionales. Están en todo momento pendientes de que
+          las necesidades o problemas que puedan surgir lo que hace que no
+          tengas ningún tipo de preocupación.”
+        </p>
+        <ion-label>Teresa Rivero, MADRID</ion-label>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="testimonial-content">
+        <p>
+          “Muy contentos. Servicio súper personalizado. Me quitaron una mancha
+          de una camisa que se me había puesto con marcas de color dentro de
+          lavadora y que no se le salía. Alfombra también muy bien. La app es
+          muy cómoda.”
+        </p>
+        <ion-label>Beatriz Cebrián, MADRID</ion-label>
       </div>
     </ion-slide>
   </ion-slides>
 
-  <ion-card class="comunicated">
+  <!-- <ion-card class="comunicated">
     <p style="text-align: left;margin: 15px;">
       Para prestar sus servicios, todos los proveedores tienen que pasar sus
       consiguientes pruebas psicologicas, entrevistas,
       revision de antecedentes y validacion de identidad de domicilio.
     </p>
-  </ion-card>
-
+  </ion-card> -->
   <ion-footer>
-
-    <ion-list class="item-footer">
+    <ion-list no-lines class="item-footer">
       <div class="footer-content">
         <ion-item>
-          <h3 style="text-decoration: underline;">INFORMACION DE CONTACTO</h3>
+          <h3 style="text-decoration: underline;"><b>CONTACTO</b></h3>
         </ion-item>
         <ion-item>
-          <h2>902 333-333</h2>
-          <h2>info@homer.com</h2>
+          <h2><b>Email:</b> info@homer.es</h2>
         </ion-item>
 
         <ion-item>
           <ion-icon class="icon-facebook icon-social" name="logo-facebook"></ion-icon>
-          <ion-icon class="icon-twitter icon-social" name="logo-twitter"></ion-icon>
+          <!-- <ion-icon class="icon-twitter icon-social" name="logo-twitter"></ion-icon> -->
           <ion-icon class="icon-linkedin icon-social" name="logo-linkedin"></ion-icon>
         </ion-item>
 
         <ion-item>
           <img class="icon-payment" style="max-width: 20%;"
-            src="../../assets/icon/visa.svg">
+            src="../../assets/icon/visa.png">
           <img class="icon-payment" style="max-width: 20%;"
-            src="../../assets/icon/mastercard.svg">
+            src="../../assets/icon/mastercard.png">
           <!-- <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/american.png"> -->
           <!-- <img class="icon-payment" style="max-width: 22%;" src="../../assets/icon/paypal.png"> -->
         </ion-item>

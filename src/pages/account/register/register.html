@@ -5,7 +5,7 @@
       </ion-icon>
     </button>
     <ion-title>{{"Register" | translate}}
-    </ion-title> 
+    </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content class="account-register">
@@ -40,10 +40,10 @@
           <ion-input type="password" [(ngModel)]="registerData.password" name="password">
           </ion-input>
         </ion-item>
-        
+
           <ion-input hidden type="text" [(ngModel)]="registerData.billing_address.company" name="billing_company">
           </ion-input>
-       
+
         <ion-item>
           <ion-label floating>{{"Phone" | translate}}
           </ion-label>
@@ -74,20 +74,20 @@
           <ion-input required type="text" [(ngModel)]="registerData.billing_address.postcode" name="postcode">
           </ion-input>
         </ion-item>
-        <ion-item *ngIf="countries.country">     
-          <ion-label>  
+        <ion-item *ngIf="countries.country">
+          <ion-label>
             {{"Country" | translate}}
-          </ion-label>   
+          </ion-label>
           <ion-select [(ngModel)]="registerData.billing_address.country" (ngModelChange)="getBillingRegion(registerData.billing_address.country)" name="country">
             <div *ngFor="let field of countries.country.countries | keys">
               <ion-option value="{{field.key}}"><span [innerHTML]="field.value"></span></ion-option>
             </div>
-          </ion-select>      
+          </ion-select>
         </ion-item>
-        <ion-item *ngIf="billing_states">  
-          <ion-label>  
+        <ion-item *ngIf="billing_states">
+          <ion-label>
             {{"State" | translate}}
-          </ion-label>   
+          </ion-label>
           <ion-select [(ngModel)]="registerData.billing_address.state" name="state">
             <div *ngFor="let field of billing_states | keys">
               <ion-option value="{{field.key}}">{{field.value}}
@@ -95,12 +95,12 @@
             </div>
           </ion-select>
         </ion-item>
-        <ion-item *ngIf="!billing_states">
+        <!-- <ion-item *ngIf="!billing_states">
           <ion-label floating>{{"State" | translate}}
           </ion-label>
           <ion-input required type="text" [(ngModel)]="registerData.billing_address.state" name="state">
           </ion-input>
-        </ion-item>
+        </ion-item> -->
       </ion-list>
 
         <div *ngIf="errors" class="error-message">
@@ -108,7 +108,7 @@
             </h2>
         </div>
 
-      <div class="margin"> 
+      <div class="margin">
         <button ion-button block color="button-color" type="submit" class="button button-block button-default" text-uppercase [disabled]="disableSubmit" (click)="registerCustomer()">{{Register | translate}}
         </button>
       </div>

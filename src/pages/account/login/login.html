@@ -11,11 +11,12 @@
 </ion-header>
 
 <ion-content class="account-login">
-    <img class="header-login" src="{{values.headerLogin}}">
+    <!-- <img class="header-login" src="{{values.headerLogin}}"> -->
 
   <div class="margin">
-    <div>
-      <img style="width: 70%;" class="logo-login" src="{{values.avatar}}">
+    <div style="text-align: center;">
+      <h1>Iniciar sesión</h1>
+      <!-- <img style="width: 70%;" class="logo-login" src="{{values.avatar}}"> -->
     </div>
     <form #f="ngForm" class="login">
       <ion-list>
@@ -33,7 +34,7 @@
 
         <ion-item>
           <ion-label floating>{{"password" | translate}}</ion-label>
-          <ion-input class="pass" required [type]="passwordType" clearOnEdit="false" [(ngModel)]="loginData.password" name="password"></ion-input>
+          <ion-input  required [type]="passwordType" clearOnEdit="false" [(ngModel)]="loginData.password" name="password"></ion-input>
           <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
         </ion-item>
 

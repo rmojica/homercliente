@@ -39,7 +39,7 @@ export class AccountLogin {
     this.buttonText = 'Login'
     this.service.getNonce().then(results => (this.nonce = results))
     this.countries = {}
-   
+
   }
 
   gohome(){
@@ -74,18 +74,18 @@ export class AccountLogin {
           this.service.subscribeNotification(data)
         })
       this.nav.setRoot(TabsPage)
-    } 
+    }
     else if (results.errors) {
       if(results.errors.invalid_email)
-        this.functions.showAlert('Email', results.errors.invalid_email)
+        this.functions.showAlert('Correo', results.errors.invalid_email)
       else if(results.errors.invalid_username)
-        this.functions.showAlert('Username', results.errors.invalid_username)
+        this.functions.showAlert('Usuario', results.errors.invalid_username)
       else if(results.errors.incorrect_password)
-        this.showAlertForgotPass('Password', '<strong>ERROR</strong>: The password you entered for the email address <strong>'+this.loginData.username+'</strong> is incorrect.')
+        this.showAlertForgotPass('Contraseña', '<strong>ERROR</strong>: La contraseña que ingresó para la dirección de correo electrónico  <strong>'+this.loginData.username+'</strong> es incorrecta.')
       else if(results.errors.az_confirmation_error)
-      this.showAlertResendKey('Confirmation mail', '<strong>ERROR:</strong> Please verify your account before login.')
+      this.showAlertResendKey('Correo de confirmación', '<strong>ERROR:</strong> Verifique su cuenta antes de iniciar sesión.')
       else
-        this.functions.showAlert('error', 'invalid username/password')
+        this.functions.showAlert('error', 'usuario/contraseña inválido')
     }
   }
   forgotten() {
@@ -97,11 +97,11 @@ export class AccountLogin {
         subTitle: text,
         buttons: [
             {
-              text: 'Cancel',
+              text: 'Cancelar',
               role: 'cancel',
             },
             {
-              text: 'Lost your password?',
+              text: '¿Perdiste tu contraseña?',
               handler: data => {
                  this.forgotten();
               }
@@ -116,11 +116,11 @@ export class AccountLogin {
         subTitle: text,
         buttons: [
             {
-              text: 'Cancel',
+              text: 'Cancelar',
               role: 'cancel',
             },
             {
-              text: 'Resend Verification Link?',
+              text: 'Se ha reenviado link de verificación?',
               handler: data => {
                 this.service.getNonceResendKey(this.loginData.username).then((results) => this.handleResultsNonce(results));
 
