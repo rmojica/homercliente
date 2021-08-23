@@ -666,13 +666,13 @@ export class ProductsListPage {
   </ion-toolbar>
 </ion-header>
 <ion-content class="card-background-page">
-    <ion-card style="margin-top:20px;">
+    <ion-card style="margin-top:20px; text-align:center!importan;">
 
       <img style="width:50%!important; margin:0 auto;" src="{{imgModal}}" />
 
-      <ion-card-header>
-        <ion-card-title>
-           Descripción
+      <ion-card-header style="text-align:center!important;">
+          <ion-card-title>
+            {{title}}
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
