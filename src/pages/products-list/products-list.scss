@@ -22,10 +22,11 @@ ion-slide > :first-child {
   position: absolute;
   left: 0;
   top: 0;
-  width: 40%;
-  padding: 0;
+  width: 50%;
+  padding: 0px;
 }
 .toolbar-md ion-title img {
+  width: 100%;
   pointer-events: none;
   margin: 0 auto;
 }
@@ -36,7 +37,6 @@ ion-slide > :first-child {
   top: 0;
   width: 40%;
   padding: 0;
-  border: 1px solid red;
 }
 .toolbar-ios ion-title img {
   pointer-events: none;
