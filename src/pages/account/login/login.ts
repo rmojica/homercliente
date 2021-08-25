@@ -82,7 +82,7 @@ export class AccountLogin {
         this.functions.showAlert('Usuario', results.errors.invalid_username)
       else if(results.errors.incorrect_password)
         this.showAlertForgotPass('Contraseña', '<strong>ERROR</strong>: La contraseña que ingresó para la dirección de correo electrónico  <strong>'+this.loginData.username+'</strong> es incorrecta.')
-      else if(results.errors.az_confirmation_error)
+      else if(results.errors.alg_wc_ev_email_verified_error)
       this.showAlertResendKey('Correo de confirmación', '<strong>ERROR:</strong> Verifique su cuenta antes de iniciar sesión.')
       else
         this.functions.showAlert('error', 'usuario/contraseña inválido')
@@ -120,7 +120,7 @@ export class AccountLogin {
               role: 'cancel',
             },
             {
-              text: 'Se ha reenviado link de verificación?',
+              text: 'Reenviar link de verificación?',
               handler: data => {
                 this.service.getNonceResendKey(this.loginData.username).then((results) => this.handleResultsNonce(results));
 
