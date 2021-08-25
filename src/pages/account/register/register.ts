@@ -33,6 +33,9 @@ export class AccountRegister {
     handleResults(results) {
         this.countries = results;
     }
+    gohome(){
+      this.nav.parent.select(0);
+    }
     getBillingRegion(countryId) {
         this.billing_states = this.countries.state[countryId];
     }

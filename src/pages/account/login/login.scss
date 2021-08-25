@@ -95,6 +95,7 @@
     position: absolute !important;
     right: 10px;
     top: 20px;
+    z-index: 1000;
     // top: 10px !important;
     // margin: 0px 0px 0px -8px !important;
     // // border: 2px solid #e0e0e0;
@@ -106,7 +107,7 @@
     // border-left: none;
   }
   .ion-md-eye-off:before {
-    margin-top: 5px;
+    // margin-top: 5px;
   }
   .pass .text-input {
     border-right: none !important;
