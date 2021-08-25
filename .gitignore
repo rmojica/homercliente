@@ -48,3 +48,16 @@ www/assets/i18n/spanish.json
 www/build/main.css
 www/build/main.js
 www/build/vendor.js
+www/build/vendor.js
+www/build/main.js
+www/assets/i18n/russian.json
+www/assets/i18n/korean.json
+www/assets/i18n/italian.json
+www/assets/i18n/hindi.json
+www/assets/i18n/french.json
+www/assets/i18n/english.json
+www/assets/i18n/chinese.json
+www/assets/i18n/arabic.json
+www/service-worker.js
+www/manifest.json
+www/index.html
