@@ -62,7 +62,7 @@ export class AccountRegister {
             return false
         }
 
-        if ( this.registerData.password.length <= 9 ) {
+        if ( this.registerData.password.length >= 9 ) {
             this.functions.showAlert("ERROR", "La contraseña debe tener más de 9 caracteres");
             return false
         }
