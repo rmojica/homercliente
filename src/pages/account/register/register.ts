@@ -66,18 +66,18 @@ export class AccountRegister {
             this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
             return false
         }
-        if ( !this.registerData.password.match('/[0-9]/')) {
-            this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
-            return false
-        }
-        if ( !this.registerData.password.match('/[a-z]/')) {
-            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
-            return false
-        }
-        if ( !this.registerData.password.match('/[A-Z]/')) {
-            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
-            return false
-        }
+        // if (!this.registerData.password.match('/[0-9]/')) {
+        //     this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
+        //     return false
+        // }
+        // if (!this.registerData.password.match('/[a-z]/')) {
+        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
+        //     return false
+        // }
+        // if (!this.registerData.password.match('/[A-Z]/')) {
+        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+        //     return false
+        // }
 
         this.registerData.username = this.registerData.email;
         this.registerData.billing_address.email = this.registerData.email;
