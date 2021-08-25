@@ -78,6 +78,45 @@ export class ProductService {
       params.append('variation_id', '')
       params.append('start_date', '')
       params.append('end_date', '')
+      params.append('product_id', product.id)
+      params.append('customer_Id', customerId)
+
+
+      this.http
+        .post(
+          this.config.url +
+            '/wp-admin/admin-ajax.php?action=mstoreapp-add_booking_to_cart',
+            params,
+          this.config.options,
+        )
+        .map(res => res.json())
+        .subscribe(data => {
+          console.log("retorna cart",data);
+
+          this.status = data
+          this.values.cartNonce = data.cart_nonce
+          this.values.updateCartTwo(this.status)
+          resolve(this.status)
+        })
+    })
+  }
+
+  addToCartTest(resource_id, month, day, year, selected_time, product, etime, customerId) {
+    return new Promise(resolve => {
+      var params = new URLSearchParams()
+
+      // params.append('wc_bookings_field_resource', resource_id)
+      params.append('wc_bookings_field_start_date_day', day)
+      params.append('wc_bookings_field_start_date_month', month)
+      params.append('wc_bookings_field_start_date_year', year)
+      params.append('start_time', selected_time)
+      params.append('wc_bookings_field_start_date_time', selected_time)
+      params.append('wc_bookings_field_start_date_local_timezone', '')
+      params.append('end_time',etime)
+      params.append('wc_bookings_field_duration',etime)
+      params.append('variation_id', '')
+      params.append('start_date', '')
+      params.append('end_date', '')
       params.append('add-to-cart', product.id)
       params.append('customer_Id', customerId)
 
@@ -108,6 +147,7 @@ export class ProductService {
         })
     })
   }
+
   presentLoading(text) {
     this.loader = this.loadingController.create({
       content: text,

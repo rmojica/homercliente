@@ -10,6 +10,7 @@ import { TabsPage } from '../../tabs/tabs';
     templateUrl: 'register.html'
 })
 export class AccountRegister {
+    errorpass:any;
     registerData: any;
     loadRegister: any;
     countries: any;
@@ -24,6 +25,7 @@ export class AccountRegister {
     constructor(public nav: NavController, public service: Service, public functions: Functions, private oneSignal: OneSignal, public values: Values, public platform: Platform) {
         this.Register = "Register";
         this.registerData = {};
+        this.errorpass = [];
         this.countries = {};
         this.registerData.billing_address = {};
         this.registerData.shipping_address = {};
@@ -32,6 +34,9 @@ export class AccountRegister {
     }
     handleResults(results) {
         this.countries = results;
+    }
+    gohome(){
+      this.nav.parent.select(0);
     }
     getBillingRegion(countryId) {
         this.billing_states = this.countries.state[countryId];
@@ -56,6 +61,24 @@ export class AccountRegister {
             this.functions.showAlert("ERROR", "Please Enter Password");
             return false
         }
+
+        if ( this.registerData.password.length < 9 ) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+            return false
+        }
+        if ( !this.registerData.password.match('/[0-9]/')) {
+            this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
+            return false
+        }
+        if ( !this.registerData.password.match('/[a-z]/')) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
+            return false
+        }
+        if ( !this.registerData.password.match('/[A-Z]/')) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+            return false
+        }
+
         this.registerData.username = this.registerData.email;
         this.registerData.billing_address.email = this.registerData.email;
         this.registerData.billing_address.first_name = this.registerData.first_name;
@@ -71,6 +94,7 @@ export class AccountRegister {
         this.registerData.shipping_address.country = this.registerData.billing_address.country;
         return true;
     }
+
     registerCustomer() {
         this.errors = "";
         if (this.validateForm()) {

@@ -22,25 +22,36 @@ ion-slide > :first-child {
   position: absolute;
   left: 0;
   top: 0;
-  width: 50%;
-  padding: 0px;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 .toolbar-md ion-title img {
-  width: 100%;
-  pointer-events: none;
-  margin: 0 auto;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 
 .toolbar-ios ion-title {
   position: absolute;
   left: 0;
   top: 0;
-  width: 40%;
-  padding: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 .toolbar-ios ion-title img {
-  pointer-events: none;
-  margin: 0 auto;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 // ion-slides ion-slide::after {
 //   content:"";

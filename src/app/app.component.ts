@@ -49,8 +49,6 @@ export class MyApp {
             statusBar.backgroundColorByHexString('#f4f5f8');
             this.service.load().then((results) => this.handleService(results));
             this.nativeStorage.getItem('blocks').then(data => { if (data) {
-                console.log("bloques",data)
-                console.log("jajajaja",this.values.data);
                 this.service.blocks = data.blocks;
                 this.values.settings = data.settings;
                 this.values.calc(platform.width());
