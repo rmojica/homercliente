@@ -5711,6 +5711,7 @@ var AccountRegister = /** @class */ (function () {
         this.oneSignal = oneSignal;
         this.values = values;
         this.platform = platform;
+        this.regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{9,})");
         this.disableSubmit = false;
         this.Register = "Register";
         this.registerData = {};
@@ -5750,22 +5751,10 @@ var AccountRegister = /** @class */ (function () {
             this.functions.showAlert("ERROR", "Please Enter Password");
             return false;
         }
-        if (this.registerData.password.length = 9) {
-            this.functions.showAlert("ERROR", "La contraseña debe tener más de 9 caracteres");
+        if (this.regix.test(this.registerData.password) == false) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener un mínimo de 9 caracteres, incluido  número, Mayusculas, Minusculas y un carácter especial");
             return false;
         }
-        // if (!this.registerData.password.match('/[0-9]/')) {
-        //     this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
-        //     return false
-        // }
-        // if (!this.registerData.password.match('/[a-z]/')) {
-        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
-        //     return false
-        // }
-        // if (!this.registerData.password.match('/[A-Z]/')) {
-        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
-        //     return false
-        // }
         this.registerData.username = this.registerData.email;
         this.registerData.billing_address.email = this.registerData.email;
         this.registerData.billing_address.first_name = this.registerData.first_name;
