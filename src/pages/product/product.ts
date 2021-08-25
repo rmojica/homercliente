@@ -308,7 +308,7 @@ export class ProductPage {
         this.values.customerId,
       ).then((results:any) => {
           if(results.status === "200"){
-                if(!results.booking_id_latest){
+                if(results.booking_id_latest != false){
                     this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
                     this.service.addOrders({
                       "clientUi": this.values.customerId,
