@@ -263,7 +263,7 @@ export class ProductPage {
       : this.selectedService.resource_id
       ? this.selectedService.resource_id
       : null
-    // this.getAddressFromCoords();
+    //this.getAddressFromCoords();
 
     var date = moment(this.date)
 
@@ -296,9 +296,8 @@ export class ProductPage {
 
     let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
 
-
-    this.service
-      .addToCart(
+    this.service.
+    addToCart(
         resource_id,
         month3,
         day2,
@@ -307,8 +306,7 @@ export class ProductPage {
         this.product.product,
         hours,
         this.values.customerId,
-      )
-      .then((results:any) => {
+      ).then((results:any) => {
           if(results.status === "200"){
             this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
                 this.service.addOrders({
@@ -348,7 +346,7 @@ export class ProductPage {
                     }
                 }).catch(error => {
                   this.showAlert('Error en la solicitud', `<strong>Ups!:</strong> Ha ocurrido un error en la solicitud en ${error}`);
-                });;
+                });
           }else{
             this.showAlert('Error en la solicitud', '<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar');
           }
