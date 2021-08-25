@@ -62,8 +62,8 @@ export class AccountRegister {
             return false
         }
 
-        if ( this.registerData.password.length < 9 ) {
-            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+        if ( this.registerData.password.length <= 9 ) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener más de 9 caracteres");
             return false
         }
         // if (!this.registerData.password.match('/[0-9]/')) {
