@@ -10,6 +10,7 @@ import { TabsPage } from '../../tabs/tabs';
     templateUrl: 'register.html'
 })
 export class AccountRegister {
+    regix:RegExp = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{9,})");
     errorpass:any;
     registerData: any;
     loadRegister: any;
@@ -61,23 +62,10 @@ export class AccountRegister {
             this.functions.showAlert("ERROR", "Please Enter Password");
             return false
         }
-
-        if ( this.registerData.password.length < 9 ) {
-            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+        if(this.regix.test(this.registerData.password) == false ) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener un mínimo de 9 caracteres, incluido  número, Mayusculas, Minusculas y un carácter especial");
             return false
         }
-        // if (!this.registerData.password.match('/[0-9]/')) {
-        //     this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
-        //     return false
-        // }
-        // if (!this.registerData.password.match('/[a-z]/')) {
-        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
-        //     return false
-        // }
-        // if (!this.registerData.password.match('/[A-Z]/')) {
-        //     this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
-        //     return false
-        // }
 
         this.registerData.username = this.registerData.email;
         this.registerData.billing_address.email = this.registerData.email;
