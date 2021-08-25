@@ -5714,6 +5714,7 @@ var AccountRegister = /** @class */ (function () {
         this.disableSubmit = false;
         this.Register = "Register";
         this.registerData = {};
+        this.errorpass = [];
         this.countries = {};
         this.registerData.billing_address = {};
         this.registerData.shipping_address = {};
@@ -5747,6 +5748,22 @@ var AccountRegister = /** @class */ (function () {
         }
         if (this.registerData.password == undefined || this.registerData.password == "") {
             this.functions.showAlert("ERROR", "Please Enter Password");
+            return false;
+        }
+        if (this.registerData.password.length < 9) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
+            return false;
+        }
+        if (!this.registerData.password.match('/[0-9]/')) {
+            this.functions.showAlert("ERROR", "El password debe contener al menos 1 valor numérico");
+            return false;
+        }
+        if (!this.registerData.password.match('/[a-z]/')) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en minúscula");
+            return false;
+        }
+        if (!this.registerData.password.match('/[A-Z]/')) {
+            this.functions.showAlert("ERROR", "La contraseña debe tener al menos 1 carácter en mayúscula");
             return false;
         }
         this.registerData.username = this.registerData.email;
@@ -5798,9 +5815,10 @@ var AccountRegister = /** @class */ (function () {
     AccountRegister = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\desktop\numu\homer\homer\src\pages\account\register\register.html"*/'<ion-header>\n  <ion-navbar color="header">\n    <button ion-button menuToggle>\n      <ion-icon name="menu">\n      </ion-icon>\n    </button>\n    <ion-title >\n      <img  (click)="gohome();" src="{{values.avatar}}" />\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content class="account-register">\n  <div>\n    <form #f="ngForm">\n      <ion-list>\n        <ion-list-header>\n          <b primary>{{"AccountInfo" | translate}}\n          </b>\n        </ion-list-header>\n        <ion-item>\n          <ion-label floating>{{"FirstName" | translate}}\n          </ion-label>\n          <ion-input type="text" [(ngModel)]="registerData.first_name" name="firstname">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"LastName" | translate}}\n          </ion-label>\n          <ion-input type="text" [(ngModel)]="registerData.last_name" name="lastname">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"Email" | translate}}\n          </ion-label>\n          <ion-input type="email" [(ngModel)]="registerData.email" name="Email">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"password" | translate}}\n          </ion-label>\n          <ion-input type="password" [(ngModel)]="registerData.password" name="password">\n          </ion-input>\n        </ion-item>\n\n          <ion-input hidden type="text" [(ngModel)]="registerData.billing_address.company" name="billing_company">\n          </ion-input>\n\n        <ion-item>\n          <ion-label floating>{{"Phone" | translate}}\n          </ion-label>\n          <ion-input required type="number" [(ngModel)]="registerData.billing_address.phone" name="billing_phone">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"StreetAddress" | translate}} 1\n          </ion-label>\n          <ion-input required type="text" [(ngModel)]="registerData.billing_address.address_1" name="billing_address_1">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"StreetAddress" | translate}} 2\n          </ion-label>\n          <ion-input required type="text" [(ngModel)]="registerData.billing_address.address_2" name="billing_address_2">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"City" | translate}}\n          </ion-label>\n          <ion-input required type="text" [(ngModel)]="registerData.billing_address.city" name="billing_city">\n          </ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>{{"Postcode" | translate}}\n          </ion-label>\n          <ion-input required type="text" [(ngModel)]="registerData.billing_address.postcode" name="postcode">\n          </ion-input>\n        </ion-item>\n        <ion-item *ngIf="countries.country">\n          <ion-label>\n            {{"Country" | translate}}\n          </ion-label>\n          <ion-select [(ngModel)]="registerData.billing_address.country" (ngModelChange)="getBillingRegion(registerData.billing_address.country)" name="country">\n            <div *ngFor="let field of countries.country.countries | keys">\n              <ion-option value="{{field.key}}"><span [innerHTML]="field.value"></span></ion-option>\n            </div>\n          </ion-select>\n        </ion-item>\n        <ion-item *ngIf="billing_states">\n          <ion-label>\n            {{"State" | translate}}\n          </ion-label>\n          <ion-select [(ngModel)]="registerData.billing_address.state" name="state">\n            <div *ngFor="let field of billing_states | keys">\n              <ion-option value="{{field.key}}">{{field.value}}\n              </ion-option>\n            </div>\n          </ion-select>\n        </ion-item>\n        <!-- <ion-item *ngIf="!billing_states">\n          <ion-label floating>{{"State" | translate}}\n          </ion-label>\n          <ion-input required type="text" [(ngModel)]="registerData.billing_address.state" name="state">\n          </ion-input>\n        </ion-item> -->\n      </ion-list>\n\n        <div *ngIf="errors" class="error-message">\n            <h2 *ngFor="let item of errors | keys">{{item.value.message}}\n            </h2>\n        </div>\n\n      <div class="margin">\n        <button ion-button block color="button-color" type="submit" class="button button-block button-default" text-uppercase [disabled]="disableSubmit" (click)="registerCustomer()">{{Register | translate}}\n        </button>\n      </div>\n    </form>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"D:\desktop\numu\homer\homer\src\pages\account\register\register.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2__providers_service_service__["a" /* Service */], __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__["a" /* Functions */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__["a" /* OneSignal */], __WEBPACK_IMPORTED_MODULE_4__providers_service_values__["a" /* Values */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_service_service__["a" /* Service */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_service_service__["a" /* Service */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__["a" /* Functions */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_service_functions__["a" /* Functions */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__["a" /* OneSignal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__["a" /* OneSignal */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_service_values__["a" /* Values */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_service_values__["a" /* Values */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"]) === "function" && _f || Object])
     ], AccountRegister);
     return AccountRegister;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=register.js.map

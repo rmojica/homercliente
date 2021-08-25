@@ -55,16 +55,22 @@ export class AccountLogin {
         .then(results => this.handleResults(results))
     }
   }
-  validateForm() {
+  validateForm() {    
     if (this.loginData.username == undefined || this.loginData.username == '') {
       return false
     }
     if (this.loginData.password == undefined || this.loginData.password == '') {
       return false
-    } else {
+    }else {
       return true
     }
   }
+
+  
+  
+
+
+
   handleResults(results) {
     this.disableSubmit = false
     this.buttonText = 'Login'
