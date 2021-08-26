@@ -48,7 +48,7 @@ export class AccountForgotten {
     handleResult(results, email) {
         this.reset = "reset";
         this.disableSubmit = false;
-        this.functions.showAlert("SUCCESS", "An email with password reset link has been sent to your mail address " + email);
+        this.functions.showAlert("ÉXITO", "Se ha enviado un correo electrónico con el enlace para restablecer la contraseña a su dirección de correo " + email);
         this.nav.pop();
     }
 }

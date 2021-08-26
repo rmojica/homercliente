@@ -413,7 +413,7 @@ export class Service {
         .subscribe(data => {
           resolve(data)
           if (data.statusText == "OK")
-            this.functions.showAlert("EXITO", "Revisa tu correo te hemos enviado un nuevo link de verificación.. ");
+            this.functions.showAlert("ÉXITO", "Revisa tu correo te hemos enviado un nuevo link de verificación.");
           else
             this.functions.showAlert("ERROR", "Ha ocurrido un error en la solicitud");
         })
