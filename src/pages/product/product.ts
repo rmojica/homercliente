@@ -308,45 +308,49 @@ export class ProductPage {
         this.values.customerId,
       ).then((results:any) => {
           if(results.status === "200"){
-            this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
-                this.service.addOrders({
-                  "clientUi": this.values.customerId,
-                  "nameClient": this.values.customerName,
-                  "productUi": this.product.product.id,
-                  "productName": this.product.product.name,
-                  "date": this.date,
-                  "hour": this.hourInit,
-                  "lat":this.lat,
-                  "lng":this.long,
-                  "onesignal":this.values.userId,
-                  "location" : this.addressesCustomer,
-                  "cart":'',
-                  "bookingId":results.booking_id_latest
-                }).then((result:any) => {
-                    if(result.status == true){
-                      this.service.sendNotification({
-                        "title":"Nueva solicitud",
-                        "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
-                        "onesignalid":this.providerOneSignal
-                      })
+                if(results.booking_id_latest != false){
+                    this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
+                    this.service.addOrders({
+                      "clientUi": this.values.customerId,
+                      "nameClient": this.values.customerName,
+                      "productUi": this.product.product.id,
+                      "productName": this.product.product.name,
+                      "date": this.date,
+                      "hour": this.hourInit,
+                      "lat":this.lat,
+                      "lng":this.long,
+                      "onesignal":this.values.userId,
+                      "location" : this.addressesCustomer,
+                      "cart":'',
+                      "bookingId":results.booking_id_latest
+                    }).then((result:any) => {
+                        if(result.status == true){
+                          this.service.sendNotification({
+                            "title":"Nueva solicitud",
+                            "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+                            "onesignalid":this.providerOneSignal
+                          })
 
-                      this.values.count += parseInt(this.quantity)
+                          this.values.count += parseInt(this.quantity)
 
-                      this.disableSubmit = false
-                      this.BookNow = 'BookNow'
-                      this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
-                      this.returnHome()
-                    }else{
-                      this.values.count += parseInt(this.quantity)
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
+                          this.returnHome()
+                        }else{
+                          this.values.count += parseInt(this.quantity)
 
-                      this.disableSubmit = false
-                      this.BookNow = 'BookNow'
-                      this.showAlert('Error en la solicitud', '<strong>Ups!:</strong> Ha ocurrido un error en la solicitud');
-                      this.returnHome()
-                    }
-                }).catch(error => {
-                  this.showAlert('Error en la solicitud', `<strong>Ups!:</strong> Ha ocurrido un error en la solicitud en ${error}`);
-                });
+                          this.disableSubmit = false
+                          this.BookNow = 'BookNow'
+                          this.showAlert('Error en la solicitud', '<strong>Ups!:</strong> Ha ocurrido un error en la solicitud');
+                          this.returnHome()
+                        }
+                    }).catch(error => {
+                      this.showAlert('Error en la solicitud', `<strong>Ups!:</strong> Ha ocurrido un error en la solicitud en ${error}`);
+                    });
+                }else{
+                  this.showAlert('No se encuentra disponible', `<strong>Ups!:</strong> Alparecer su Homer no se encuentra disponible, intentelo nuevamente`);
+                }
           }else{
             this.showAlert('Error en la solicitud', '<strong>Mensaje:</strong> Ha ocurrido un error vuelva a intentar');
           }

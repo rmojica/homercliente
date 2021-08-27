@@ -55003,7 +55003,7 @@ ion-slides {
 }
 
 ion-slides ion-slide img {
-  height: 70vh !important;
+  height: 100% !important;
   width: 100%;
 }
 
@@ -55098,10 +55098,10 @@ page-products-list .ion-md-call {
   color: red;
 }
 
-page-products-list .title-home-banner h2 {
+page-products-list .title-home-banner h3 {
   position: absolute;
-  top: 2%;
-  font-size: 23px;
+  top: 0;
+  font-size: 28px;
   color: #ffff;
   text-align: center;
   width: 80%;
@@ -55109,16 +55109,36 @@ page-products-list .title-home-banner h2 {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 18px;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-weight: bolder;
+  font-weight: 500;
   z-index: 20;
+  letter-spacing: 0.2rem;
+  line-height: 30px;
 }
 
-page-products-list .subtitle-home-banner h4 {
+page-products-list .title-home-banner-2 h1 {
+  position: absolute;
+  top: 17%;
+  font-size: 30px;
+  color: #ffff;
+  text-align: center;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 27px;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 900 !important;
+  z-index: 20;
+  letter-spacing: 0.2rem;
+}
+
+page-products-list .subtitle-home-banner h5 {
   position: absolute;
   width: 80%;
-  top: 19%;
+  top: 28%;
   left: 0;
   right: 0;
   margin-right: auto;
@@ -55127,20 +55147,18 @@ page-products-list .subtitle-home-banner h4 {
   font-size: 18px;
   color: #ffff;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-weight: 600;
+  font-weight: 400;
   z-index: 20;
 }
 
 page-products-list .card-search {
   position: absolute;
-  top: 30%;
-  right: 0;
   left: 0;
+  top: 40%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   width: 80%;
-  z-index: 100;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
 }
 
 page-products-list button ion-select {
@@ -55162,7 +55180,7 @@ page-products-list .swiper-wrapper {
 
 page-products-list .btn-search-product button {
   background: #000;
-  margin-top: 30px;
+  margin: 10px 10px 0 0;
 }
 
 page-products-list .ion-md-locate:before {
