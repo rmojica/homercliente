@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Service } from '../../../providers/service/service';
 import { Functions } from '../../../providers/service/functions';
+import {ProductsListPage} from '../../products-list/products-list'
 import { Values } from '../../../providers/service/values';
 
 @Component({
@@ -50,5 +51,8 @@ export class AccountForgotten {
         this.disableSubmit = false;
         this.functions.showAlert("ÉXITO", "Se ha enviado un correo electrónico con el enlace para restablecer la contraseña a su dirección de correo " + email);
         this.nav.pop();
+    }
+    goHome(){
+        this.nav.setRoot(ProductsListPage)
     }
 }

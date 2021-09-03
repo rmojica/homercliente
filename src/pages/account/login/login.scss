@@ -138,12 +138,45 @@
   margin: 0;
 }
 
-ion-title {
+.toolbar-md ion-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.toolbar-md ion-title img {
   width: 150px;
   position: absolute;
   left: 0;
-  top: 18%;
+  top: 0;
+  bottom: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+}
+
+.toolbar-ios ion-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  
+}
+.toolbar-ios ion-title img {
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.bar-button-menutoggle-ios {
+  //padding: 0 25px 25px 25px;
+//margin: 28px 0 0 0;
+ padding: 24px;
+ 
 }

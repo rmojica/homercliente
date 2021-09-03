@@ -32,6 +32,7 @@ export class CartService {
         .subscribe(data => {
           this.cart = data
           this.values.cartNonce = data.cart_nonce
+          console.log("cart nonce loadcart: ",data.cart_nonce)
           this.values.updateCart(this.cart)
           resolve(this.cart)
         })

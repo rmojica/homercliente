@@ -1,8 +1,14 @@
 <ion-header>
-  <ion-navbar color="header">
-    <ion-title>{{"ResetPassword" | translate}}
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar color="header">
+    <ion-buttons slot="start">
+      <button ion-button icon-only  (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+      <ion-title>
+        {{"ResetPassword" | translate}}
+     </ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-content class="forgotten">
   <div class="margin">
