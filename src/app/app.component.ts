@@ -127,7 +127,7 @@ export class MyApp {
         this.nav.setRoot(TabsPage);
     }
     account() {
-        this.nav.setRoot(AccountPage);
+        this.nav.push(AccountPage);
     }
     openExternalLink() {
     //   let options = 'location=no,toolbar=no,hidden=no,enableViewportScale=yes';
@@ -213,6 +213,6 @@ export class MyApp {
       this.nav.setRoot(ChatPage)
     }
     support(){
-      this.nav.setRoot(PagesSupportPage)
+      this.nav.push(PagesSupportPage)
     }
 }

@@ -103,7 +103,7 @@ export class OrdersPage {
   }
 
   goHome(){
-    this.navCtrl.setRoot(ProductsListPage);
+    this.nav.popToRoot();
   }
 
   openchat(order){

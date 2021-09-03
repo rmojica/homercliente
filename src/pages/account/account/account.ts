@@ -28,7 +28,7 @@ export class AccountPage {
     }
 
     goHome(){
-      this.nav.setRoot(ProductsListPage);
+      this.nav.popToRoot();
     }
 
     getCart() {

@@ -41,7 +41,7 @@ export class PagesSupportPage {
 
   goHome()
   {
-    this.navCtrl.setRoot(ProductsListPage);
+    this.navCtrl.popToRoot();
   }
 
 }

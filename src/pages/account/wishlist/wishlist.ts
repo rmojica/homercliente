@@ -22,7 +22,7 @@ export class WishlistPage {
     }
 
     goHome(){
-      this.nav.setRoot(ProductsListPage);
+      this.nav.popToRoot();
     }
 
     ionViewDidEnter() {
