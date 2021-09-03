@@ -78,15 +78,15 @@
         <h1>limpio y seguro</h1>
       </div>
       <div class="subtitle-home-banner">
-        <h5>El mejor aliado para hacer tu vida más fácil</h5>
+        <h4>El mejor aliado para hacer tu vida más fácil</h4>
       </div>
 
       <div class="card-search">
         <button style="width:100%;background-color:white;color:black;height:
           3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
           class="positionCalendar">
-          <ion-datetime (ionChange)="getDate(this.date)" placeholder="Fecha"
-            displayFormat="YYYY-MM-DD" [(ngModel)]="date" cancelText="Cancelar"
+          <ion-datetime (ionChange)="getDate(this.date)" placeholder="FECHA"
+            displayFormat="DD-MM-YYYY" [(ngModel)]="date" cancelText="Cancelar"
             doneText="Seleccionar"></ion-datetime>
           <ion-icon ios="ios-calendar-outline" md="md-calendar"></ion-icon>
         </button>
@@ -94,8 +94,8 @@
         <button style="width:100%;background-color:white;color:black;height:
           3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
           class="positionCalendar">
-          <ion-datetime  (ionChange)="getTime2(this.hourInit)"
-            placeholder="Desde"
+          <ion-datetime (ionChange)="getTime2(this.hourInit)"
+            placeholder="DESDE"
             [(ngModel)]="hourInit" display-timezone="utc"
             cancelText="Cancelar"
             doneText="Seleccionar"
@@ -107,7 +107,7 @@
         <button style="width:100%;background-color:white;color:black;height:
           3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
           class="positionCalendar">
-          <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="Hasta"
+          <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="HASTA"
             [(ngModel)]="hourEnd" display-timezone="utc" cancelText="Cancelar"
             doneText="Seleccionar" [minuteValues]="minutesVal"
             [hourValues]="hourValues" [min]="minTime" displayFormat="HH:mm">

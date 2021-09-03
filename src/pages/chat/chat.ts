@@ -3,7 +3,8 @@ import {
   ToastController,
   AlertController,
   Content,
-  NavParams
+  NavParams,
+  NavController
 } from 'ionic-angular';
 
 import {Values} from '../../providers/service/values';
@@ -32,7 +33,8 @@ export class ChatPage {
     public formBuilder: FormBuilder,
     public values:Values,
     public navParams:NavParams,
-    public service:Service
+    public service:Service,
+    public navCtrl: NavController,
   ) {
     this.messageForm = formBuilder.group({
       message: new FormControl('')
@@ -150,6 +152,10 @@ export class ChatPage {
     setTimeout(() => {
       this.content.scrollToBottom();
     }, 100);
+  }
+
+  goHome(){
+    this.navCtrl.popToRoot();
   }
 
 }

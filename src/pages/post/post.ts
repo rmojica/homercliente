@@ -18,6 +18,6 @@ export class Post {
        .then((results) => this.post = results);
  }
  goHome(){
-  this.navCtrl.setRoot(ProductsListPage)
+  this.navCtrl.popToRoot();
  }
 }

@@ -389,6 +389,10 @@ export class ProductPage {
     return horas
   }
 
+  goHome(){
+    this.nav.popToRoot();
+  }
+
   showAlert(title, text) {
     let alert = this.alert.create({
         title: title,

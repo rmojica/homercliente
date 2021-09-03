@@ -5,6 +5,7 @@ import { Values } from '../../../providers/service/values';
 import { AccountLogin } from '../login/login';
 import { EditAddressForm } from '../edit-address-form/edit-address-form';
 import { TabsPage } from '../../tabs/tabs';
+import { ProductsListPage } from '../../products-list/products-list';
 
 @Component({
     templateUrl: 'account.html',
@@ -26,13 +27,13 @@ export class AccountPage {
       this.nav.push(EditAddressForm, this.addresses.customer);
     }
 
-    gohome(){
-      this.nav.parent.select(0);
-  }
+    goHome(){
+      this.nav.setRoot(ProductsListPage);
+    }
 
-  getCart() {
-    this.nav.parent.select(2);
-  }
+    getCart() {
+      this.nav.parent.select(2);
+    }
 
 
      checkAvatar() {

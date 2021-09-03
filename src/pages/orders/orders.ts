@@ -8,6 +8,8 @@ import { CartPage } from '../cart/cart';
 import { Observable } from 'rxjs';
 import { ChatPage } from '../chat/chat';
 import {ModalPage} from '../modal/modal';
+import { Functions } from '../../providers/service/functions';
+import { ProductsListPage } from '../products-list/products-list';
 
 // import { OrdersDetailPage } from '../orders-detail/orders-detail';
 /**
@@ -24,6 +26,7 @@ import {ModalPage} from '../modal/modal';
 export class OrdersPage {
   data
   constructor(
+    public functions: Functions,
       public nav: NavController,
       private socket: Socket,
       public navCtrl: NavController,
@@ -94,12 +97,17 @@ export class OrdersPage {
           "content":`El cliente ha cancelado el servicio el motivo ${data.message}`,
           "onesignalid":onesignal
         })
+        this.functions.showAlert("Éxito", `El servicio se ha cancelado correctamente motivo ${data.message}`);
       }
     })
   }
 
+  goHome(){
+    this.navCtrl.setRoot(ProductsListPage);
+  }
+
   openchat(order){
-    this.navCtrl.setRoot(ChatPage, {order:order})
+    this.navCtrl.push(ChatPage, {order:order})
   }
 
 }

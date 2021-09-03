@@ -1,13 +1,40 @@
+.input-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+  -webkit-flex-direction: inherit;
+  -ms-flex-direction: inherit;
+  flex-direction: inherit;
+  -webkit-box-align: inherit;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: visible !important;
+}
 page-modal {
-  button{
-    border-radius: 30px!important;
+  #otro{
+    width: 100%;
+  }
+  button {
+    border-radius: 30px !important;
     font-weight: 600;
   }
-  .black{
-    background: #000!important;
+  .black {
+    background: #000 !important;
   }
- 
-  .card2{
+
+  .card2 {
     padding: 10px;
     background: white;
     border-radius: 2px;
@@ -18,35 +45,35 @@ page-modal {
   }
   .sub-header {
     // background-color: #76a7ab;
-    position:absolute;
+    position: absolute;
     left: 0;
     top: 0;
     padding: 20px;
     width: 100%;
-        h1 {
-            text-align: center;
-            font-family:  sans-serif;
-            font-weight: 600;
-            color: #000;
-            font-size: 22px;
-        }
+    h1 {
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: 600;
+      color: #000;
+      font-size: 22px;
+    }
   }
   h2 {
-      margin: 20px 0 10px 16px;
-      font-size: 18px;
+    margin: 20px 0 10px 16px;
+    font-size: 18px;
   }
   h3 {
-      font-size: 15px;
-      margin: 5px 16px 8px 16px;
-      color: #222;
-      line-height: 1.6;
+    font-size: 15px;
+    margin: 5px 16px 8px 16px;
+    color: #222;
+    line-height: 1.6;
   }
   p {
-      line-height: 1.6;
-      text-indent: 0px;
-      font-size: 14px;
-      text-align: justify;
-      margin: 14px 16px 16px;
-      font-weight: 500;
+    line-height: 1.6;
+    text-indent: 0px;
+    font-size: 14px;
+    text-align: justify;
+    margin: 14px 16px 16px;
+    font-weight: 500;
   }
 }
