@@ -1,3 +1,9 @@
+.text-input-ios::placeholder {
+  text-align: center!important;
+}
+.text-input-md::placeholder{
+  text-align: center!important;
+}
 .product-page {
   background: #fff !important;
   .box-booking {
@@ -17,9 +23,9 @@
     margin: 0 auto;
     margin-bottom: 20px;
   }
-  // .border-dashed ion-label {
-  //   text-align: center;
-  // }
+  #center-placeholder::placeholder {
+    text-align: center;
+  }
   .box-booking ion-icon {
     font-size: 20px;
     line-height: 33px;

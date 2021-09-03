@@ -400,7 +400,7 @@
                     <ion-item no-padding no-lines class="item-background">
                       <div style="display: flex;">
                         <div *ngFor="let c of item.categories" style="width:
-                          30%; margin-right: 5px;">
+                          30%!important; margin-right: 5px">
                           <div *ngIf="c.slug == 'servicio-limpieza'">
                             <img class="img" src="{{values.limpieza}}"
                               alt="{{c.name}}">

@@ -112,8 +112,11 @@ export class ProductsListPage {
 
         this.getCategory = this.service.mainCategories;
 
+        console.log("data cat",Object.keys(this.service.DataCategories).map(key => key[this.service.DataCategories]));
+
+
         this.itemsCategory = this.service.DataCategories;
-        
+
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
             .filter((p) => p.coords !== undefined) //Filter Out Errors

@@ -154,9 +154,9 @@
 
     <ion-item class="border-dashed">
       <ion-icon name="pencil-outline"></ion-icon>
-      <ion-label floating>{{"StreetAddress" | translate}}
-      </ion-label>
-        <ion-input type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
+      <!-- <ion-label floating>{{"StreetAddress" | translate}}
+      </ion-label> -->
+        <ion-input id="center-placeholder" placeholder="{{'StreetAddress' | translate}}" type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
       </ion-input>
     </ion-item>
 
