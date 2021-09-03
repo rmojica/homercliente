@@ -58,7 +58,7 @@ export class Orders {
             .then((results) => this.handleCancelOrder(results));
     }
     handleCancelOrder(results) {
-        this.functions.showAlert("success", "order has been cancelled");
+        this.functions.showAlert("éxito", "El pedido ha sido cancelado");
         this.service.getOrders(this.filter)
             .then((results) => this.orders = results);
     }
@@ -71,7 +71,7 @@ export class Orders {
             .then((results) => this.handleReOrder(results));
     }
     handleReOrder(results) {
-        this.functions.showAlert("success", "order has been placed successfully");
+        this.functions.showAlert("éxito", "el pedido se ha realizado correctamente");
         this.service.getOrders(this.filter)
             .then((results) => this.orders = results);
     }

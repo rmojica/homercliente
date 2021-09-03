@@ -30,6 +30,7 @@ import {ChatPage} from '../pages/chat/chat'
 import {ModalPage} from '../pages/modal/modal'
 import {VirtualCardAdminPage} from '../pages/virtual-card-admin/virtual-card-admin';
 import {NewCardPage} from '../pages/new-card/new-card';
+import {PagesSupportPage} from '../pages/pages-support/pages-support';
 
 /*------------------------Providers----------------------------------*/
 
@@ -111,7 +112,8 @@ export function createTranslateLoader(http: HttpClient) {
     ChatPage,
     ModalPage,
     VirtualCardAdminPage,
-    NewCardPage
+    NewCardPage,
+    PagesSupportPage
 
   ],
   imports: [
@@ -162,7 +164,8 @@ export function createTranslateLoader(http: HttpClient) {
     ChatPage,
     ModalPage,
     VirtualCardAdminPage,
-    NewCardPage
+    NewCardPage,
+    PagesSupportPage
   ],
   providers: [
     CartService,

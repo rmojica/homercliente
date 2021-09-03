@@ -1,13 +1,15 @@
 <!-- Header -->
 <ion-header>
-  <ion-navbar color="header">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-toolbar color="header">
+    <ion-buttons slot="start">
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
       <img width="150" src="{{values.avatar}}" />
     </ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -34,15 +36,18 @@
 
           <ion-row class="add-remove-button">
             <ion-col royal width-50>
-              <button ion-button full color="red" clear text-uppercase no-padding item-left no-margin
+              <button ion-button full color="red" clear text-uppercase
+                no-padding item-left no-margin
                 (click)="removeFromWishlist(item.value.id)">
                 <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
                 ELIMINAR
               </button>
             </ion-col>
             <ion-col royal width-50>
-              <button class="btn-solicitar" style="font-weight: bold;" ion-button item-center medium
-                color="button-color" text-uppercase item-right (click)="getProduct(item.value.id)">
+              <button class="btn-solicitar" style="font-weight: bold;"
+                ion-button item-center medium
+                color="button-color" text-uppercase item-right
+                (click)="getProduct(item.value.id)">
                 <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
                 SOLICITAR
               </button>

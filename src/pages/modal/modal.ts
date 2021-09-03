@@ -23,6 +23,10 @@ export class ModalPage {
     console.log('ionViewDidLoad ModalPage');
   }
 
+  closeOther(){
+    this.showItem = false;
+  }
+
   showOther(){
     this.showItem = !this.showItem;
   }

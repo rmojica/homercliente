@@ -1,13 +1,14 @@
 <ion-header class="settings-header">
-  <ion-navbar color="header">
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+  <ion-toolbar color="header">
+    <ion-buttons slot="start">
+      <button ion-button icon-only  (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
       </button>
-      <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
-      <ion-title >
-          <img  style="max-width: 150px;" src="{{values.avatar}}" />
-      </ion-title>
-  </ion-navbar>
+    </ion-buttons>
+    <ion-title class="logo-title" (click)="goHome()">
+      <img width="150" src="{{values.avatar}}" />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>

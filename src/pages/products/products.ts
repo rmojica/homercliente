@@ -338,8 +338,8 @@ export class ProductsPage {
     }
   }
 
-  gohome() {
-    this.nav.parent.select(0);
-  }
+  goHome(){
+    this.nav.popToRoot();
+   }
 
 }

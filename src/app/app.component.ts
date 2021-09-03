@@ -30,6 +30,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import {TabsPage} from '../pages/tabs/tabs';
 import { ChatPage } from '../pages/chat/chat';
+import { PagesSupportPage } from '../pages/pages-support/pages-support';
 
 @Component({
     templateUrl: 'app.html'
@@ -148,7 +149,7 @@ export class MyApp {
         this.nav.setRoot(Address);
     }
     order() {
-        this.nav.setRoot(OrdersPage);
+        this.nav.push(OrdersPage);
     }
     orderVendor() {
         this.nav.setRoot(OrdersVendor);
@@ -210,5 +211,8 @@ export class MyApp {
     }
     openchat(){
       this.nav.setRoot(ChatPage)
+    }
+    support(){
+      this.nav.setRoot(PagesSupportPage)
     }
 }

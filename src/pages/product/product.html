@@ -1,5 +1,10 @@
 <ion-header>
-  <ion-navbar color="header">
+  <ion-toolbar color="header">
+    <ion-buttons slot="start">
+      <button ion-button icon-only  (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title *ngIf="product?.product?.title">
       <span [innerHTML]="product.product.title"></span>
     </ion-title>
@@ -23,7 +28,7 @@
 
     </ion-buttons> -->
 
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 <ion-content class="product-page">
 
@@ -149,9 +154,9 @@
 
     <ion-item class="border-dashed">
       <ion-icon name="pencil-outline"></ion-icon>
-      <ion-label floating>{{"StreetAddress" | translate}}
-      </ion-label>
-        <ion-input type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
+      <!-- <ion-label floating>{{"StreetAddress" | translate}}
+      </ion-label> -->
+        <ion-input id="center-placeholder" placeholder="{{'StreetAddress' | translate}}" type="text" [(ngModel)]="this.addressesCustomer" name="billing_address_1">
       </ion-input>
     </ion-item>
 

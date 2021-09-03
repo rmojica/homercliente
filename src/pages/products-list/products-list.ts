@@ -112,8 +112,10 @@ export class ProductsListPage {
 
         this.getCategory = this.service.mainCategories;
 
-        this.itemsCategory = this.service.DataCategories;
+        console.log("data cat",Object.keys(this.service.DataCategories).map(key => key[this.service.DataCategories]));
 
+
+        this.itemsCategory = this.service.DataCategories;
 
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
@@ -124,6 +126,12 @@ export class ProductsListPage {
               // console.log("miLocation=" + position.coords.latitude + ' ' + position.coords.longitude);
             });
         });
+    }
+
+    filterItems(searchTerm) {
+      return this.items.filter(item => {
+        return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      });
     }
 
     openModal(characterNum) {
@@ -676,9 +684,9 @@ export class ProductsListPage {
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <h3>
+        <h4 style="font-size:16px; letter-spacing: 0.2rem; line-height: 20px; text-align:justify; font-weight:600;">
           {{detail}}
-        </h3>
+        </h4>
       </ion-card-content>
     </ion-card>
 </ion-content>

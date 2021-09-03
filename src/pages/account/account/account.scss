@@ -79,14 +79,14 @@ ion-title {
   margin: 0 auto;
 
   .header {
-    height: 200px; // 20vh;
+    height: 130px; // 20vh;
     background-color: #76a7ab;
-    background-image: url("../../../assets/image/top-dashboard.png") !important;
+    // background-image: url("../../../assets/image/top-dashboard.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
     .avatar {
       width: 21%;
-      height: 155px;
+      height: 85px;
       position: relative;
       margin: 0 auto;
 
@@ -108,7 +108,7 @@ ion-title {
   overflow: hidden;
 
   .user-meta {
-    padding-top: 40px;
+    padding-top: 20px;
     text-align: center;
     .playername {
       font-size: 24px;

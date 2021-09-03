@@ -58,4 +58,7 @@ export class EditAddressForm {
         this.Save = "Saving...";
         this.nav.pop();
     }
+    goHome(){
+      this.nav.popToRoot();
+    }
 }
