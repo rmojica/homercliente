@@ -80,6 +80,7 @@ export class ProductService {
       params.append('end_date', '')
       params.append('product_id', product.id)
       params.append('customer_Id', customerId)
+      //params.append('_wpnonce', this.values.cartNonce)
 
 
       this.http
@@ -92,6 +93,7 @@ export class ProductService {
         .map(res => res.json())
         .subscribe(data => {
           console.log("retorna cart",data);
+          console.log("retorna cart_nonce",data.cart_nonce);
 
           this.status = data
           this.values.cartNonce = data.cart_nonce

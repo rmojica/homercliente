@@ -42,13 +42,13 @@ ion-slide > :first-child {
   top: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
+  
 }
 .toolbar-ios ion-title img {
   width: 150px;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 100%;
   bottom: 0;
   right: 0;
   margin: auto;
@@ -287,9 +287,10 @@ page-products-list {
     margin-top: 0px !important;
   }
   .bar-button-menutoggle-ios {
-    // padding: 0 25px 25px 25px;
-    // margin: 25px 0 0 0;
-    padding: 25px;
+    //padding: 0 25px 25px 25px;
+  //margin: 28px 0 0 0;
+   padding: 24px;
+   
   }
 
   .searchbar-md .searchbar-search-icon,

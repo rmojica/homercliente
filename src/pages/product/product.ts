@@ -307,6 +307,8 @@ export class ProductPage {
         hours,
         this.values.customerId,
       ).then((results:any) => {
+        this.updateCart(results)
+        console.log("entroa")
           if(results.status === "200"){
                 if(results.booking_id_latest != false){
                     this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
@@ -488,7 +490,7 @@ export class ProductPage {
     this.disableSubmit = false
     this.values.count += parseInt(this.quantity)
     this.BookNow = 'BookNow'
-    this.returnHome()
+    //this.returnHome()
     // this.getCart()
   }
   returnHome(){
