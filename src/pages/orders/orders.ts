@@ -94,10 +94,10 @@ export class OrdersPage {
 
         this.productService.sendNotification({
           "title":"Servicio cancelado",
-          "content":`El cliente ha cancelado el servicio el motivo ${data.message}`,
+          "content":`El cliente ha cancelado el servicio, el motivo ${data.message}`,
           "onesignalid":onesignal
         })
-        this.functions.showAlert("Éxito", `El servicio se ha cancelado correctamente motivo ${data.message}`);
+        this.functions.showAlert("Éxito", `El servicio se ha cancelado correctamente, motivo ${data.message}`);
       }
     })
   }

@@ -1,39 +1,40 @@
+
 page-pages-support {
   background: #fafbff !important;
   .item-md,
   .item-ios {
-    width: 80%!important;
-    margin: 0 auto!important;
-    margin-bottom: 20px!important;
-    padding: 10px!important;
+    width: 90% !important;
+    margin: 0 auto !important;
+    margin-bottom: 20px !important;
+    padding: 10px !important;
     border-radius: 20px;
   }
-  ion-list{
-    width: 100%!important;
-    margin-top: 160px!important;
+  ion-list {
+    width: 100% !important;
+    margin-top: 160px !important;
   }
-  ion-list ion-item{
-    width: 80%!important;
-    margin: 0 auto!important;
-    margin-bottom: 20px!important;
-    padding: 10px!important;
+  ion-list ion-item {
+    width: 80% !important;
+    margin: 0 auto !important;
+    margin-bottom: 20px !important;
+    padding: 10px !important;
     border-radius: 20px;
-    text-align: center!important;
+    text-align: center !important;
   }
 
-  .bg-green{
-    background: #72a9ae!important;
+  .bg-green {
+    background: #72a9ae !important;
     color: #ffff;
   }
 
-  ion-list ion-item ion-icon{
-    margin-left: 20px!important;
-    margin-right: -10px!important;
+  ion-list ion-item ion-icon {
+    margin-left: 20px !important;
+    margin-right: -10px !important;
   }
 
-  ion-list ion-item ion-label{
-    font-family: Arial, Helvetica, sans-serif!important;
-    font-size: 18px!important;
+  ion-list ion-item ion-label {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
   }
   .scroll-content {
     left: 0;

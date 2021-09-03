@@ -1,7 +1,7 @@
 <ion-header style="background-color: #72A9AE;">
   <ion-toolbar color="header">
     <ion-buttons slot="start">
-      <button ion-button icon-only  (click)="goHome()">
+      <button ion-button icon-only (click)="goHome()">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
@@ -21,31 +21,36 @@
 
     </ion-card-content>
   </ion-card> -->
-  <ion-list  *ngIf="post" no-lines>
-      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.about != '0'"
-        (click)="post(values.data?.pages?.about,'Acerca de Nosotros')">
-        {{"About Us" | translate}}
-        <ion-icon name="ios-information-circle" item-left></ion-icon>
-      </ion-item>
+  <ion-list *ngIf="post" no-lines>
+    <ion-item tappable menuClose *ngIf="values.data?.pages?.about &&
+      values.data?.pages?.about != '0'"
+      (click)="post(values.data?.pages?.about,'Acerca de Nosotros')"
+      class="resolve-error">
+      <ion-icon name="ios-information-circle" item-left></ion-icon>
+      <ion-label item-right>{{"About Us" | translate}}</ion-label>
+    </ion-item>
 
 
-      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.privacy != '0'"
-        (click)="post(values.data?.pages?.privacy, 'Politicas de Privacidad')" class="bg-green">
-        {{"Politica de privacidad" | translate}}
-        <ion-icon name="ios-lock" item-left></ion-icon>
-      </ion-item>
+    <ion-item tappable menuClose *ngIf="values.data?.pages?.about &&
+      values.data?.pages?.privacy != '0'"
+      (click)="post(values.data?.pages?.privacy, 'Politicas de Privacidad')"
+      class="bg-green">
+      <ion-icon  name="ios-lock" item-left></ion-icon>
+      <ion-label item-right>{{"Politica de privacidad" | translate}}</ion-label>
+    </ion-item>
 
 
-      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.terms != '0'"
-        (click)="post(values.data?.pages?.terms, 'Terminos y Condiciones')">
-        {{"Terminos & Condiciones" | translate}}
-        <ion-icon name="ios-bookmarks" item-left></ion-icon>
-      </ion-item>
+    <ion-item tappable menuClose *ngIf="values.data?.pages?.about &&
+      values.data?.pages?.terms != '0'"
+      (click)="post(values.data?.pages?.terms, 'Terminos y Condiciones')">
+      <ion-icon  name="ios-bookmarks" item-left></ion-icon>
+      <ion-label item-right>{{"Terminos & Condiciones" | translate}}</ion-label>
+    </ion-item>
 
-      <ion-item tappable menuClose (click)="contact()">
-        {{"Contacta con nosotros" | translate}}
-        <ion-icon name="ios-mail" item-left></ion-icon>
-      </ion-item>
+    <ion-item tappable menuClose (click)="contact()">
+      <ion-icon  name="ios-mail" item-left></ion-icon>
+      <ion-label item-right>{{"Contacta con nosotros" | translate}}</ion-label>
+    </ion-item>
 
   </ion-list>
 </ion-content>
