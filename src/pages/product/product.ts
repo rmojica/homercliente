@@ -308,8 +308,8 @@ export class ProductPage {
         hours,
         this.values.customerId,
       ).then((results:any) => {
-        this.updateCart(results)
-        console.log("entroa")
+        //this.updateCart(results)
+        //console.log("entroa")
           if(results.status === "200"){
                 if(results.booking_id_latest != false){
                     this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
@@ -341,6 +341,8 @@ export class ProductPage {
                           this.disableSubmit = false
                           this.BookNow = 'BookNow'
                           this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
+                          this.updateCart(results);
+                          console.log("entroa");
                           this.returnHome()
                         }else{
                           this.values.count += parseInt(this.quantity)
@@ -494,13 +496,13 @@ export class ProductPage {
     this.values.count += parseInt(this.quantity)
     this.BookNow = 'BookNow'
     //this.returnHome()
-    // this.getCart()
+     //this.getCart()
   }
   returnHome(){
     this.nav.push(OrdersPage);
   }
   getCart() {
-    this.nav.parent.select(2);
+    this.nav.push(CartPage)
   }
   mySlideOptions = {
     initialSlide: 1,
