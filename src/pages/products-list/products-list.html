@@ -72,18 +72,17 @@
       <!--overlay-->
 
       <div class="title-home-banner">
-        <h1>Todo lo que necesitas para un hogar</h1>
+        <h1>Todo lo que necesitas para un hogar limpio y seguro</h1>
       </div>
-      <div class="title-home-banner-2">
-        <h1>limpio y seguro</h1>
-      </div>
+      <!-- <div class="title-home-banner-2">
+        <h1></h1>
+      </div> -->
       <div class="subtitle-home-banner">
         <h4>El mejor aliado para hacer tu vida más fácil</h4>
       </div>
 
       <div class="card-search">
-        <button style="width:100%;background-color:white;color:black;height:
-          3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
+        <button ion-button
           class="positionCalendar">
           <ion-datetime (ionChange)="getDate(this.date)" placeholder="FECHA"
             displayFormat="DD-MM-YYYY" [(ngModel)]="date" cancelText="Cancelar"
@@ -91,8 +90,7 @@
           <ion-icon ios="ios-calendar-outline" md="md-calendar"></ion-icon>
         </button>
 
-        <button style="width:100%;background-color:white;color:black;height:
-          3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
+        <button  ion-button
           class="positionCalendar">
           <ion-datetime (ionChange)="getTime2(this.hourInit)"
             placeholder="DESDE"
@@ -104,8 +102,7 @@
           <ion-icon name="md-alarm"></ion-icon>
         </button>
 
-        <button style="width:100%;background-color:white;color:black;height:
-          3.5em;border-radius: 10px; margin-bottom: 10px;" ion-button
+        <button  ion-button
           class="positionCalendar">
           <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="HASTA"
             [(ngModel)]="hourEnd" display-timezone="utc" cancelText="Cancelar"
@@ -115,8 +112,7 @@
           <ion-icon name="md-alarm"></ion-icon>
         </button>
 
-        <button style="width:100%;background-color:white;color:black;height:
-          3.5em;border-radius: 10px;" ion-button class="positionCalendar">
+        <button ion-button class="positionCalendar">
           <ion-select required="true"
             interface="action-sheet"
             multiple="true"

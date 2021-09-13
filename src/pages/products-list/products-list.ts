@@ -667,7 +667,7 @@ export class ProductsListPage {
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <span ion-text color="primary" showWhen="ios"><ion-icon name="arrow-back-outline"></ion-icon></span>
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>

@@ -321,7 +321,6 @@ export class ProductPage {
                       "date": this.date,
                       "hour": this.hourInit,
                       "hour_end": this.hourEnd,
-                      "date_end":this.date,
                       "lat":this.lat,
                       "lng":this.long,
                       "onesignal":this.values.userId,
@@ -342,7 +341,6 @@ export class ProductPage {
                           this.BookNow = 'BookNow'
                           this.showAlert('Solicitud enviada', '<strong>Exito:</strong> Has enviado una solicitud a tu homer correctamente');
                           this.updateCart(results);
-                          console.log("entroa");
                           this.returnHome()
                         }else{
                           this.values.count += parseInt(this.quantity)
