@@ -77,18 +77,14 @@ export class CartService {
   checkout() {
     return new Promise(resolve => {
       this.http
-        .get(
-          this.config.url +
-            '/wp-admin/admin-ajax.php?action=mstoreapp-get_checkout_form',
+      .get(`${this.config.url}/wp-admin/admin-ajax.php?action=mstoreapp-get_checkout_form&userId=${this.values.customerId}`,
           this.config.options,
         )
         .map(res => res.json())
         .subscribe(data => {
           this.billing = data
           this.http
-            .get(
-              this.config.url +
-                '/wp-admin/admin-ajax.php?action=mstoreapp-update_order_review',
+            .get(`${this.config.url}/wp-admin/admin-ajax.php?action=mstoreapp-update_order_review&userId=${this.values.customerId}`,
               this.config.options,
             )
             .map(res => res.json())

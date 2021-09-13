@@ -5,6 +5,7 @@ import { URLSearchParams } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/forkJoin';
+import { Values } from './values';
 
 @Injectable()
 export class CheckoutService {
@@ -23,7 +24,7 @@ export class CheckoutService {
     orderSummary: any;
     addresses: any;
     address: any;
-    constructor(private http: Http, private config: Config) {
+    constructor(private http: Http, private config: Config,private values: Values) {
 
     }
     updateOrderReview(form) {
@@ -44,7 +45,7 @@ export class CheckoutService {
         params.append("s_state", form.billing_state);
         params.append("shipping_method[0]", form.shipping_method);
         return new Promise(resolve => {
-            this.http.post(this.config.url + '/wp-admin/admin-ajax.php?action=mstoreapp-update_order_review', params, this.config.options).map(res => res.json())
+            this.http.post(`${this.config.url}/wp-admin/admin-ajax.php?action=mstoreapp-update_order_review&userId=${this.values.customerId}`, params, this.config.options).map(res => res.json())
                 .subscribe(data => {
                     this.status = data;
                     resolve(this.status);
