@@ -243,6 +243,8 @@ export class ProductService {
             "stateServiceId": data.stateServiceId,
             "date": data.date,
             "hour": data.hour,
+            "hour_end": data.hourEnd,
+            "date_end":data.date,
             "lat":data.lat,
             "lng":data.lng,
             "onesignal":data.onesignal,

@@ -38,7 +38,7 @@ export class CartPage {
     }
     gohomep(){
         this.nav.parent.select(0);
-        }
+    }
 
     ionViewDidEnter() {
         this.service.loadCart()

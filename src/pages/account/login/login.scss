@@ -41,6 +41,7 @@
     .label {
       margin: 0 20px -14px 12px;
       font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
     }
     .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus)
       .item-inner {
@@ -162,7 +163,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  
+
 }
 .toolbar-ios ion-title img {
   width: 150px;
@@ -178,5 +179,5 @@
   //padding: 0 25px 25px 25px;
 //margin: 28px 0 0 0;
  padding: 24px;
- 
+
 }
