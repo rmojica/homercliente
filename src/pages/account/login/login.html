@@ -4,14 +4,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title >
-      <img  (click)="gohome();" src="{{values.avatar}}" />
+    <ion-title>
+      <img (click)="gohome();" src="{{values.avatar}}" />
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="account-login">
-    <!-- <img class="header-login" src="{{values.headerLogin}}"> -->
+  <!-- <img class="header-login" src="{{values.headerLogin}}"> -->
 
   <div class="margin">
     <div style="text-align: center;">
@@ -34,7 +34,8 @@
 
         <ion-item>
           <ion-label floating>{{"password" | translate}}</ion-label>
-          <ion-input  required [type]="passwordType" clearOnEdit="false" [(ngModel)]="loginData.password" name="password"></ion-input>
+          <ion-input required [type]="passwordType" clearOnEdit="false" [(ngModel)]="loginData.password"
+            name="password"></ion-input>
           <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
         </ion-item>
 
