@@ -41,7 +41,7 @@ export class PagesSupportPage {
 
   goHome()
   {
-    this.navCtrl.popToRoot();
+    this.navCtrl.pop();
   }
 
 }

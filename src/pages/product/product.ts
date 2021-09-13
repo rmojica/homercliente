@@ -118,7 +118,8 @@ export class ProductPage {
 
       this.product_slot = params.data.product_sl;
 
-     this.date = params.data.date;
+     this.date = moment(params.data.date).format('DD-MM-YYYY');
+
      this.hourInit = params.data.hourInit;
      this.hourEnd = params.data.hourEnd;
 
@@ -319,6 +320,8 @@ export class ProductPage {
                       "productName": this.product.product.name,
                       "date": this.date,
                       "hour": this.hourInit,
+                      "hour_end": this.hourEnd,
+                      "date_end":this.date,
                       "lat":this.lat,
                       "lng":this.long,
                       "onesignal":this.values.userId,

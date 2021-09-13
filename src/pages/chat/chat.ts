@@ -155,7 +155,7 @@ export class ChatPage {
   }
 
   goHome(){
-    this.navCtrl.popToRoot();
+    this.navCtrl.pop();
   }
 
 }
