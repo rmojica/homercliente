@@ -344,11 +344,13 @@
               <ion-col class="col" *ngFor="let item of products">
                 <ion-card class="item-product">
                   <img
+                    *ngIf="item.images.length != 0"
                     [style.height.px]="values.dimensions.imageGridViewHeight"
                     tappable
                     src="{{item.images[0].src}}"
                     (click)="getProduct(item)"
                     />
+                    <img *ngIf="item.images.length == 0" src="{{values.defaultImage}}" tappable (click)="getProduct(item)">
                   <ion-card-content class="stock">
                     <button
                       ion-button
@@ -356,7 +358,7 @@
                       *ngIf="item.stock_status !== 'instock'">
                       {{"OUTOFSTOCK" | translate}}
                     </button>
-                    <ion-icon
+                    <!-- <ion-icon
                       name="md-heart"
                       color="icon-color"
                       class="wishlist-button-grid"
@@ -367,7 +369,7 @@
                       color="icon-color"
                       class="wishlist-button-grid"
                       *ngIf="!values.wishlistId[item.id]"
-                      (click)="addToWishlist(item.id)"></ion-icon>
+                      (click)="addToWishlist(item.id)"></ion-icon> -->
                   </ion-card-content>
                   <div tappable (click)="getProduct(item)" class="card-name">
                     <ion-label *ngIf="item.title">{{item.title}}</ion-label>

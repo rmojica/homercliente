@@ -114,6 +114,7 @@ export class ProductsPage {
 
 
     this.service.load(this.filter).then(results => {
+      console.log("jajaja",results);
 
       this.products = results
       // this.products.forEach((element,index,arr) => {

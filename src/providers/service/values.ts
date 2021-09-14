@@ -29,6 +29,7 @@ export class Values {
   limpieza:any = "assets/image/limpieza.png";
   planchado:any = "assets/image/planchado.png";
   homeClean: any = "assets/image/homeClean.jpg";
+  defaultImage:any = "assets/image/default.jpg";
   currency: any = "USD";
   data: any;
   dir: any = 'left';

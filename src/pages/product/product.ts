@@ -151,7 +151,7 @@ export class ProductPage {
     });
 
     this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => this.providerOneSignal = result.providers[0].onesignal);
-
+    
 
     //con esto antes obtenia el providerOneSignal
     // for (let i = 0; i < this.values.homerOneSignal.length; i++) {
