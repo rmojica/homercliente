@@ -17,6 +17,7 @@ import { Service } from '../../providers/service/service';
 import { CartService } from '../../providers/service/cart-service';
 import { OrdersPage } from '../orders/orders';
 
+
 @Component({
   templateUrl: 'product.html',
 })
@@ -92,8 +93,16 @@ export class ProductPage {
     private platform: Platform,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
-    public cartservice: CartService
+    public cartservice: CartService,
+    public oneSignal: OneSignal
+
   ) {
+    this.oneSignal.getIds().then(identity => {
+      console.log("agarro id",identity.userId, identity.userId);
+
+      this.values.pushToken = identity.pushToken
+      this.values.userId = identity.userId
+    });
     console.log("prueba id onesignal", this.values.userId);
 
     this.lat = '';
@@ -296,7 +305,7 @@ export class ProductPage {
     let month3 = (date2.getMonth() < 9 ? '0': '') + (date2.getMonth()+1)
 
     let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
-
+ 
     this.service.
     addToCart(
         resource_id,
@@ -310,6 +319,7 @@ export class ProductPage {
       ).then((results:any) => {
         //this.updateCart(results)
         //console.log("entroa")
+      
           if(results.status === "200"){
                 if(results.booking_id_latest != false){
                     this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));

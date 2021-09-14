@@ -89,7 +89,7 @@ export class CheckoutService {
         }
         params.append("payment_method", form.payment_method);
         params.append("_wpnonce", form.checkout_nonce);
-        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review');
+        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review&userId=' + this.values.customerId);
 
         if (form.password) {
             params.append("createaccount", form.register);
@@ -98,7 +98,7 @@ export class CheckoutService {
         if(form.onesignal_user_id)
         params.append("onesignal_user_id", form.onesignal_user_id);
         return new Promise(resolve => {
-            this.http.post(this.config.url + '/checkout?wc-ajax=checkout', params, this.config.options).map(res => res.json())
+            this.http.post(this.config.url + '/checkout?wc-ajax=checkout&userId=' + this.values.customerId, params, this.config.options).map(res => res.json())
                 .subscribe(data => {
                     this.status = data;
                     resolve(this.status);
@@ -120,13 +120,13 @@ export class CheckoutService {
         params.append("billing_state", "KA");
         params.append("payment_method", form.payment_method);
         params.append("_wpnonce", form.checkout_nonce);
-        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review');
+        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review&userId=' + this.values.customerId);
         if (form.password) {
             params.append("createaccount", form.register);
             params.append("account_password", form.password);
         }
         return new Promise(resolve => {
-            this.http.post(this.config.url + '/checkout?wc-ajax=checkout', params, this.config.options).map(res => res.json())
+            this.http.post(this.config.url + '/checkout?wc-ajax=checkout&userId=' + this.values.customerId, params, this.config.options).map(res => res.json())
                 .subscribe(data => {
                     this.status = data;
                     resolve(this.status);
@@ -151,7 +151,7 @@ export class CheckoutService {
         params.append("payment_method", form.payment_method);
         params.append("_wpnonce", "544bcd0d1d");
         return new Promise(resolve => {
-            this.http.post(this.config.url + '/checkout?wc-ajax=checkout', params, this.config.options).map(res => res.json())
+            this.http.post(this.config.url + '/checkout?wc-ajax=checkout&userId=' + this.values.customerId, params, this.config.options).map(res => res.json())
                 .subscribe(data => {
                     this.status = data;
                     resolve(this.status);
@@ -327,13 +327,13 @@ export class CheckoutService {
 
         params.append("wc-stripe-payment-token", 'new');
         params.append("stripe_token", token.id);
-        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review');
+        params.append("_wp_http_referer", this.config.url + '/checkout?wc-ajax=update_order_review&userId=' + this.values.customerId);
         if (form.password) {
             params.append("createaccount", form.register);
             params.append("account_password", form.password);
         }
         return new Promise(resolve => {
-            this.http.post(this.config.url + '/checkout?wc-ajax=checkout', params, this.config.options).map(res => res.json())
+            this.http.post(this.config.url + '/checkout?wc-ajax=checkout&userId=' + this.values.customerId, params, this.config.options).map(res => res.json())
                 .subscribe(data => {
                     this.status = data;
                     resolve(this.status);
