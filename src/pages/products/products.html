@@ -350,7 +350,7 @@
                     src="{{item.images[0].src}}"
                     (click)="getProduct(item)"
                     />
-                    <img *ngIf="item.images.length == 0" src="{{values.defaultImage}}" tappable (click)="getProduct(item)">
+                    <img *ngIf="item.images.length == 0" src="{{values.defaultImage}}" tappable (click)="getProduct(item)"/>
                   <ion-card-content class="stock">
                     <button
                       ion-button

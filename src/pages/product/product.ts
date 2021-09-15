@@ -103,7 +103,7 @@ export class ProductPage {
       this.values.pushToken = identity.pushToken
       this.values.userId = identity.userId
     });
-    console.log("prueba id onesignal", this.values.userId);
+    
 
     this.lat = '';
     this.long = '';
@@ -124,6 +124,7 @@ export class ProductPage {
       this.selectedService = null
       this.product.product = params.data.id
       this.id = params.data.id
+      console.log("jaja", this.id);
 
       this.product_slot = params.data.product_sl;
 
@@ -131,6 +132,7 @@ export class ProductPage {
 
      this.hourInit = params.data.hourInit;
      this.hourEnd = params.data.hourEnd;
+
 
     //  this.selectedTime = this.date+'T'+this.hourInit
 
@@ -159,8 +161,12 @@ export class ProductPage {
         });
     });
 
-    this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => this.providerOneSignal = result.providers[0].onesignal);
-    
+    this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => {
+      if(result.length > 0){
+        this.providerOneSignal = result.providers[0].onesignal
+      }
+    });
+
 
     //con esto antes obtenia el providerOneSignal
     // for (let i = 0; i < this.values.homerOneSignal.length; i++) {
@@ -305,7 +311,7 @@ export class ProductPage {
     let month3 = (date2.getMonth() < 9 ? '0': '') + (date2.getMonth()+1)
 
     let hours = this.calculardiferencia(this.hourInit, this.hourEnd)
- 
+
     this.service.
     addToCart(
         resource_id,
@@ -319,7 +325,7 @@ export class ProductPage {
       ).then((results:any) => {
         //this.updateCart(results)
         //console.log("entroa")
-      
+
           if(results.status === "200"){
                 if(results.booking_id_latest != false){
                     this.service.updateCartWithCustomerid(results.booking_id_latest, this.values.customerId).then(result => console.log("Booking actualizado con customerid",result));
@@ -405,7 +411,7 @@ export class ProductPage {
   }
 
   goHome(){
-    this.nav.popToRoot();
+    this.nav.pop();
   }
 
   showAlert(title, text) {
@@ -519,7 +525,8 @@ export class ProductPage {
     pager: true,
   }
   getReviews() {
-    this.service.getReviews(this.id).then(results => this.handleReview(results))
+
+    this.service.getReviews(this.id.id).then(results => this.handleReview(results))
   }
   handleReview(a) {
     this.reviews = a
