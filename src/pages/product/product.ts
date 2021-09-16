@@ -162,7 +162,7 @@ export class ProductPage {
     });
 
     this.servi.getHomerOneSignal(this.product.product.id).then((result:any) => {
-      if(result.length > 0){
+      if(result.providers.length > 0){
         this.providerOneSignal = result.providers[0].onesignal
       }
     });
@@ -345,6 +345,7 @@ export class ProductPage {
                       "bookingId":results.booking_id_latest
                     }).then((result:any) => {
                         if(result.status == true){
+                          console.log("providerOneSignal ",this.providerOneSignal)
                           this.service.sendNotification({
                             "title":"Nueva solicitud",
                             "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,

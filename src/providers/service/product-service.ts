@@ -262,7 +262,6 @@ export class ProductService {
   }
 
   sendNotification(data){
-
     this.header.append('Content-Type', 'application/json');
     this.http
     .post(
