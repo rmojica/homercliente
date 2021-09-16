@@ -268,7 +268,7 @@ export class ProductService {
     .post(
       'https://onesignal.com/api/v1/notifications',
       {
-        "app_id": "8ad1c280-92da-4d39-b49c-cf0a81e0d1fc",
+        "app_id": "644f4795-d5c2-4d00-aead-1682204aacbc",
         "include_player_ids": [`${data.onesignalid}`],
         "data": {"foo": "bar"},
         "headings": {"en": `${data.title}`},
