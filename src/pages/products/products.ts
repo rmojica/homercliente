@@ -78,9 +78,6 @@ export class ProductsPage {
 
     }
 
-    console.log("ver",this.filter);
-
-
     if(params.data.items != ''){
       let data = []
       data = params.data.items.split(',')
