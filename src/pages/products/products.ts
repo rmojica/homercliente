@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular'
 import { CategoryService } from '../../providers/service/category-service'
+import {Service} from '../../providers/service/service';
 import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
 import { CartPage } from '../cart/cart'
@@ -46,6 +47,7 @@ export class ProductsPage {
     params: NavParams,
     public values: Values,
     public functions: Functions,
+    public services: Service
   ) {
     this.data = {}
     this.filter = {}
@@ -160,7 +162,13 @@ export class ProductsPage {
   getProduct(id) {
     // this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
     if(this.values.isLoggedIn){
-      this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+      this.services.getHomerOneSignal(id.id).then((result:any) => {
+        if(result.providers.length > 0){
+          this.nav.push(ProductPage, {id:id, product_sl:this.product_slot, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd});
+        }else{
+          this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'El Homer que está seleccionando no está disponible en este momento.');
+        }
+      });
     }else{
       this.showAlert('<strong>Estimado Usuario</strong><br/><br/>', 'Debe iniciar sesión para contratar el servicio.');
     }
@@ -191,7 +199,6 @@ export class ProductsPage {
         this.products.push(results[i])
       }
     }
-    console.log('resultados', results)
 
     if (results.length == 0) {
       this.has_more_items = false

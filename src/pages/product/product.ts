@@ -98,12 +98,10 @@ export class ProductPage {
 
   ) {
     this.oneSignal.getIds().then(identity => {
-      console.log("agarro id",identity.userId, identity.userId);
-
       this.values.pushToken = identity.pushToken
       this.values.userId = identity.userId
     });
-    
+
 
     this.lat = '';
     this.long = '';
@@ -182,7 +180,6 @@ export class ProductPage {
     this.disableWeekDays = [0, 1, 2, 3, 4, 5, 6]
     this.product.product.availability.forEach(element => {
       let day = Number((element.type as string).split(':')[1])
-      console.log({ day })
       const index = this.disableWeekDays.indexOf(day)
       if (index > -1) {
         this.disableWeekDays.splice(index, 1)
@@ -235,11 +232,10 @@ export class ProductPage {
     this.selectedService = null
     this.product.product = results
     this.id = results.id
-    console.log('producto', this.product.product)
+
     this.options.product_id = this.id
-    console.log('Product: ', this.product.product.resources_full)
-    this.usedVariationAttributes = (this.product.product
-      .resources_full as Array<any>).map(item => item)
+
+    this.usedVariationAttributes = (this.product.product.resources_full as Array<any>).map(item => item)
     console.log('usedVariationAttributes:', this.usedVariationAttributes)
 
     this.loadDataProduct();
@@ -345,7 +341,6 @@ export class ProductPage {
                       "bookingId":results.booking_id_latest
                     }).then((result:any) => {
                         if(result.status == true){
-                          console.log("providerOneSignal ",this.providerOneSignal)
                           this.service.sendNotification({
                             "title":"Nueva solicitud",
                             "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
@@ -506,7 +501,6 @@ export class ProductPage {
     }
   }
   updateCart(a) {
-    console.log('a:', a)
     this.disableSubmit = false
     this.values.count += parseInt(this.quantity)
     this.BookNow = 'BookNow'
