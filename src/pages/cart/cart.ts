@@ -46,6 +46,8 @@ export class CartPage {
       }
 
     handleCartInit(results) {
+      console.log("mi carrto",results);
+
         this.cart = results;
 
         this.shipping = results.zone_shipping;
