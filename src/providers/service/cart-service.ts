@@ -73,7 +73,6 @@ export class CartService {
         })
     })
   }
-
   checkout() {
     return new Promise(resolve => {
       this.http
