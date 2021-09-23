@@ -667,24 +667,22 @@ export class ProductsListPage {
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios"><ion-icon name="arrow-back-outline"></ion-icon></span>
+        <ion-icon showWhen="ios" name="arrow-back-outline"></ion-icon>
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="card-background-page">
-    <ion-card style="margin-top:20px; text-align:center!importan;">
-
+    <ion-card style="margin-top:80px; text-align:center!importan;">
       <img style="width:50%!important; margin:0 auto;" src="{{imgModal}}" />
-
       <ion-card-header style="text-align:center!important;">
           <ion-card-title>
             {{title}}
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <h4 style="font-size:16px; letter-spacing: 0.2rem; line-height: 20px; text-align:justify; font-weight:600;">
+        <h4 style="font-size:16px; letter-spacing: 0.1rem; line-height: 20px; font-weight:600;">
           {{detail}}
         </h4>
       </ion-card-content>

@@ -184,7 +184,7 @@ page-products-list {
     .card-search {
       position: absolute;
       left: 0;
-      top: 38%!important;
+      top: 38% !important;
       right: 0;
       bottom: 0;
       margin: auto;
@@ -260,6 +260,7 @@ page-products-list {
 
   button ion-select .select-placeholder {
     text-align: left;
+    margin-left: -10px;
   }
 
   button ion-select .select-icon {

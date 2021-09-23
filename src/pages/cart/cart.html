@@ -49,7 +49,7 @@
             <ion-thumbnail item-left>
               <div [innerHTML]="item.value.thumb"></div>
             </ion-thumbnail>
-            <h2 wrap-text><b>Homer</b>:{{item.value.name}}
+            <h2 wrap-text><b>Homer</b>: {{item.value.name}}
             </h2>
             <h3 wrap-text ><b>{{"Fecha de la reserva" | translate}}:</b>
             </h3>
@@ -57,7 +57,7 @@
             <h3 wrap-text ><b>Horario de la reserva:</b> {{item.value.booking.time}}
             </h3>
             <h3 wrap-text ><b>Duración:</b> {{item.value.booking.duration}} </h3>
-            <h3 wrap-text ><b>Cantidad:</b>{{item.value.booking._qty}} </h3>
+            <!-- <h3 wrap-text ><b>Cantidad:</b> {{item.value.booking._qty}} </h3> -->
             <!-- <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
             </h3> -->
             <h3 wrap-text><b>{{"Sub total" | translate}}:</b> {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}

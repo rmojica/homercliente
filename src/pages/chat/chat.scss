@@ -13,7 +13,7 @@ page-chat{
   }
 
   .footer-btn{
-    font-size: x-large
+    font-size: 40px;
   }
 
   img.profile-pic{
@@ -28,6 +28,13 @@ page-chat{
 
   img.profile-pic.right{
     right: 10px
+  }
+  .toolbar-ios ion-title img{
+    top:16%!important;
+  }
+
+  .toolbar-md ion-title img{
+    top:16%!important;
   }
 
   .ion-email{
@@ -128,6 +135,7 @@ page-chat{
   textarea,
   .item-input,
   .item-input-wrapper{
+    height: 50px;
     background-color: #f4f4f4 !important
   }
 

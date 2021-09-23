@@ -31,7 +31,7 @@
 <ion-header style="background: #f6f6f6!important">
   <ion-toolbar color="header">
     <ion-buttons slot="start">
-      <button ion-button icon-only  (click)="goHome()">
+      <button ion-button icon-only (click)="goHome()">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
@@ -144,7 +144,7 @@
       </ion-item>
     </ion-list>
     <button ion-button block color="button-color" (click)="cancel()">
-      {{"CANCEL" | translate}}
+      {{"Cancelar" | translate}}
     </button>
   </div>
 
@@ -350,7 +350,9 @@
                     src="{{item.images[0].src}}"
                     (click)="getProduct(item)"
                     />
-                    <img *ngIf="item.images.length == 0" src="{{values.defaultImage}}" tappable (click)="getProduct(item)"/>
+                  <img *ngIf="item.images.length == 0"
+                    src="{{values.defaultImage}}" tappable
+                    (click)="getProduct(item)" />
                   <ion-card-content class="stock">
                     <button
                       ion-button
@@ -372,8 +374,8 @@
                       (click)="addToWishlist(item.id)"></ion-icon> -->
                   </ion-card-content>
                   <div tappable (click)="getProduct(item)" class="card-name">
-                    <ion-label *ngIf="item.title">{{item.title}}</ion-label>
-                    <ion-label *ngIf="item.name">{{item.name}}</ion-label>
+                    <h1><ion-label *ngIf="item.title">{{item.title}}</ion-label>
+                      <ion-label *ngIf="item.name">{{item.name}}</ion-label></h1>
                   </div>
 
                   <ion-item no-padding no-lines class="item-background">

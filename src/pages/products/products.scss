@@ -353,6 +353,7 @@ page-products {
           font-size: 14px;
           letter-spacing: 0.3px;
           margin: 8px 10px 0px;
+          padding-left: 3px;
           float: left;
           font-family: Arial, Helvetica, sans-serif !important;
         }
@@ -414,11 +415,9 @@ page-products {
       .price {
         width: 100% !important;
         display: flex;
-        // border: 1px solid red;
       }
-      .price h2 {
-        margin-bottom: 16px;
-        // border: 1px solid red;
+      .price ion-item {
+        border: 1px solid #ffff;
       }
       .category {
         width: 100% !important;

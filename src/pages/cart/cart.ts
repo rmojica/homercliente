@@ -28,6 +28,7 @@ export class CartPage {
     shipping: any;
     Apply: any;
     Checkout: any;
+    time_end:any;
     constructor(public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions,  public alert:AlertController,) {
         this.Apply = "Apply";
         this.Checkout = "Checkout";
@@ -42,13 +43,14 @@ export class CartPage {
 
     ionViewDidEnter() {
         this.service.loadCart()
-            .then((results) => this.handleCartInit(results));
+            .then((results:any) => this.handleCartInit(results));
       }
 
-    handleCartInit(results) {
-      console.log("mi carrto",results);
-
+    handleCartInit(results:any) {
+       
+        // this.time_end = _time: "8:00"
         this.cart = results;
+
 
         this.shipping = results.zone_shipping;
         this.chosen_shipping = results.chosen_shipping;
