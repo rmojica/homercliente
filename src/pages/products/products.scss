@@ -8,6 +8,12 @@ page-products {
   .aline-button-start {
     display: flex;
   }
+  .item-ios .rating {
+    .star-icon {
+      font-size: 1.2em;
+    }
+  }
+
   .rating {
     .star-icon {
       color: #ddd;
@@ -15,6 +21,8 @@ page-products {
       position: relative;
       margin-left: -7px;
     }
+
+    
 
     .star-icon.full:before {
       //text-shadow: 0 0 2px rgba(0,0,0,0.7);
