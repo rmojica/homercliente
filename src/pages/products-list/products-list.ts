@@ -8,6 +8,7 @@ import { SearchPage } from '../search/search';
 import { ProductPage } from '../product/product';
 import { Post } from '../post/post';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LoadingController } from 'ionic-angular';
 
 // import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
@@ -90,7 +91,8 @@ export class ProductsListPage {
         public toastCtrl: ToastController,
         public nav: NavController,
         public service: Service,
-        public values: Values) {
+        public values: Values,
+        public loadingCtrl: LoadingController) {
         this.selectedCate = []
         this.items = [];
         this.product_slot = [];
@@ -543,6 +545,7 @@ export class ProductsListPage {
     //   //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     // }
     if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.selectedCate.length > 0)){
+      this.presentLoading();
       this.service.getLocationFromProduct3(min_date, max_date, null)
       // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
@@ -654,6 +657,14 @@ export class ProductsListPage {
     var hrsMin = currentHours2 + ":" + min;
     this.minTime = hrsMin.toString();
     //console.log("hrsMin: ", hrsMin);
+  }
+
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+      duration: 3000
+    });
+    loader.present();
   }
 
 }

@@ -5,7 +5,6 @@ import { Functions } from '../../../providers/service/functions'
 import { Values } from '../../../providers/service/values'
 import { AccountForgotten } from '../forgotten/forgotten'
 import { OneSignal } from '@ionic-native/onesignal'
-
 import { TabsPage } from '../../tabs/tabs'
 
 @Component({
@@ -49,13 +48,15 @@ export class AccountLogin {
   login() {
     if (this.validateForm()) {
       this.disableSubmit = true
-      this.buttonText = 'Logging In...'
+      this.buttonText = 'Iniciando sesión...'
       this.service
         .login(this.loginData)
         .then(results => this.handleResults(results))
+    }else{
+      this.showAlert("Por favor rellene todos los campos");
     }
   }
-  validateForm() {    
+  validateForm() {
     if (this.loginData.username == undefined || this.loginData.username == '') {
       return false
     }
@@ -66,8 +67,15 @@ export class AccountLogin {
     }
   }
 
-  
-  
+  showAlert(message:string) {
+    const alert = this.alert.create({
+      title: 'Atención',
+      message: message,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
 
 

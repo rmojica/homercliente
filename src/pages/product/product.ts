@@ -16,7 +16,7 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 import { Service } from '../../providers/service/service';
 import { CartService } from '../../providers/service/cart-service';
 import { OrdersPage } from '../orders/orders';
-
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'product.html',
@@ -94,7 +94,8 @@ export class ProductPage {
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder,
     public cartservice: CartService,
-    public oneSignal: OneSignal
+    public oneSignal: OneSignal,
+    public loadingCtrl: LoadingController
 
   ) {
     this.oneSignal.getIds().then(identity => {
@@ -251,6 +252,13 @@ export class ProductPage {
     this.nav.push(ProductPage, id)
     console.log(id)
   }
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+      duration: 3000
+    });
+    loader.present();
+  }
   addToCart() {
     // if (!this.values.isLoggedIn) {
     //   this.functions.showAlert(
@@ -270,6 +278,7 @@ export class ProductPage {
     //   )
     //   return
     // }
+    this.presentLoading();
     var resource_id = !this.selectedService
       ? null
       : this.selectedService.resource_id
@@ -286,7 +295,7 @@ export class ProductPage {
 
 
     this.disableSubmit = true
-    this.BookNow = 'PleaseWait'
+    this.BookNow = 'Espere por favor'
 
 
     // var date = new Date(this.selectedTime);
