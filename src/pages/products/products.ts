@@ -6,6 +6,7 @@ import { Values } from '../../providers/service/values'
 import { Functions } from '../../providers/service/functions'
 import { CartPage } from '../cart/cart'
 import { ProductPage } from '../product/product'
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-products',
@@ -47,7 +48,8 @@ export class ProductsPage {
     params: NavParams,
     public values: Values,
     public functions: Functions,
-    public services: Service
+    public services: Service,
+    public loadingCtrl: LoadingController
   ) {
     this.data = {}
     this.filter = {}
@@ -161,6 +163,7 @@ export class ProductsPage {
   }
   getProduct(id) {
     // this.nav.push(ProductPage, {id:id, date:this.date, hourInit:this.hourInit, hourEnd:this.hourEnd})
+    this.presentLoading();
     if(this.values.isLoggedIn){
       this.services.getHomerOneSignal(id.id).then((result:any) => {
         if(result.providers.length > 0){
@@ -180,6 +183,13 @@ export class ProductsPage {
         buttons: ['OK'],
     });
     alert.present();
+  }
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+      duration: 3000
+    });
+    loader.present();
   }
   // getCart() {
   //   this.nav.push(CartPage)

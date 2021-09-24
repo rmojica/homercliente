@@ -36,6 +36,8 @@ export class PagesSupportPage {
         body: '',
         isHtml: true
     };
+    console.log("email",email);
+
     this.emailComposer.open(email);
   }
 

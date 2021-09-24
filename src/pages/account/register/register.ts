@@ -47,19 +47,19 @@ export class AccountRegister {
     }
     validateForm() {
         if (this.registerData.first_name == undefined || this.registerData.firstname == "") {
-            this.functions.showAlert("ERROR", "Please Enter First Name");
+            this.functions.showAlert("ERROR", "Por favor ingrese su nombre");
             return false
         }
         if (this.registerData.last_name == undefined || this.registerData.lastname == "") {
-            this.functions.showAlert("ERROR", "Please Enter Last Name ");
+            this.functions.showAlert("ERROR", "Por favor ingrese su apellido");
             return false
         }
         if (this.registerData.email == undefined || this.registerData.email == "") {
-            this.functions.showAlert("ERROR", "Please Enter Email ID");
+            this.functions.showAlert("ERROR", "Ingrese su correo electrónico");
             return false
         }
         if (this.registerData.password == undefined || this.registerData.password == "") {
-            this.functions.showAlert("ERROR", "Please Enter Password");
+            this.functions.showAlert("ERROR", "Por favor, ingrese contraseña");
             return false
         }
         if(this.regix.test(this.registerData.password) == false ) {
