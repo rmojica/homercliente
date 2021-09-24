@@ -6,6 +6,7 @@ import { Functions } from '../../providers/service/functions';
 import { BillingAddressForm } from '../checkout/billing-address-form/billing-address-form';
 import { Home } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
     templateUrl: 'cart.html'
@@ -29,7 +30,8 @@ export class CartPage {
     Apply: any;
     Checkout: any;
     time_end:any;
-    constructor(public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions,  public alert:AlertController,) {
+    bookingid:number;
+    constructor(public loadingCtrl: LoadingController,public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions,  public alert:AlertController,) {
         this.Apply = "Apply";
         this.Checkout = "Checkout";
         this.quantity = 1;
@@ -41,13 +43,21 @@ export class CartPage {
         this.nav.parent.select(0);
     }
 
+    presentLoading() {
+      const loader = this.loadingCtrl.create({
+        content: "Por favor espera...",
+        duration: 3000
+      });
+      loader.present();
+    }
+
     ionViewDidEnter() {
         this.service.loadCart()
             .then((results:any) => this.handleCartInit(results));
       }
 
     handleCartInit(results:any) {
-       
+        this.bookingid = results.cart_contents[Object.keys(results.cart_contents).toString()].booking._booking_id;
         // this.time_end = _time: "8:00"
         this.cart = results;
 
@@ -70,10 +80,17 @@ export class CartPage {
         })
     }
     checkout() {
+      this.presentLoading();
         this.disableSubmit = true;
         this.Checkout = "PleaseWait";
-        this.service.checkout()
-            .then((results) => this.handleBilling(results));
+        this.service.verifyOrderIsAvailableForPay(this.bookingid).then((result:any) => {
+            if(result.code === 'success'){
+              this.service.checkout().then((results) => this.handleBilling(results));
+            }else {
+              this.showAlert('Error', '<strong>Ups!:</strong> Por favor espere hasta que el Homer acepte el servicio.');
+              this.disableSubmit = false;
+            }
+        });
     }
     handleBilling(results) {
         this.disableSubmit = false;

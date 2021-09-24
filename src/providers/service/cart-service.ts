@@ -73,6 +73,24 @@ export class CartService {
         })
     })
   }
+  verifyOrderIsAvailableForPay(bookingid) {
+    this.header.append('Content-Type', 'application/json');
+   return new Promise(resolve => {
+     this.http
+       .post(
+         this.config.urlApi +
+           '/provider/verify-order-forpay',
+          {
+           "bookingid":bookingid
+          },
+          this.header
+       )
+       .map(res => res.json())
+       .subscribe(data => {
+         resolve(data)
+       })
+   })
+ }
   checkout() {
     return new Promise(resolve => {
       this.http
