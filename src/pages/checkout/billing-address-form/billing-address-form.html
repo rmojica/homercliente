@@ -118,7 +118,7 @@
             <ion-label> {{"Country" | translate}}
             </ion-label>
             <ion-select [(ngModel)]="form.billing_country" (ngModelChange)="getRegion(form.billing_country)" name="billing_country">
-              <div *ngFor="let field of form.country.countries | keys">
+              <div *ngFor="let field of form.country | keys">
                 <ion-option value="{{field.key}}"><span [innerHTML]="field.value"></span>
                 </ion-option>
               </div>
@@ -196,7 +196,7 @@
               <ion-label> {{"Country" | translate}}
               </ion-label>
               <ion-select [(ngModel)]="form.shipping_country" (ngModelChange)="getRegion(form.shipping_country)" name="shipping_country">
-                <div *ngFor="let field of form.country.countries | keys">
+                <div *ngFor="let field of form.country | keys">
                   <ion-option value="{{field.key}}"><span [innerHTML]="field.value"></span>
                   </ion-option>
                 </div>
