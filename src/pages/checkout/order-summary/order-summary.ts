@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { CheckoutService } from '../../../providers/service/checkout-service';
 import { Functions } from '../../../providers/service/functions';
 import { Values } from '../../../providers/service/values';
-import { Home } from '../../home/home';
+import { ProductsListPage } from '../../products-list/products-list';
 
 @Component({
     templateUrl: 'order-summary.html'
@@ -34,6 +34,6 @@ export class OrderSummary {
     }
     Continue() {
         this.values.count = 0;
-        this.nav.setRoot(Home);
+        this.nav.setRoot(ProductsListPage);
     }
 }

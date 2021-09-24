@@ -15,7 +15,7 @@
     <div *ngIf="orderSummary.order">
       <div class="thank-you-message">
         <ion-item>
-          <h2>{{"OrderReceived" | translate}} 
+          <h2>{{"OrderReceived" | translate}}
           </h2>
           <h3>{{"orderreceivedtext" | translate}}
           </h3>
@@ -52,7 +52,7 @@
             </ion-col>
           </ion-row>
         </div>
-        <ion-row *ngIf="orderSummary.order.coupon_lines.length != 0" > 
+        <ion-row *ngIf="orderSummary.order.coupon_lines.length != 0" >
           <ion-col width-75>
             <ion-label no-margin>{{"Coupon" | translate}}
             </ion-label>
@@ -62,7 +62,7 @@
             </ion-label>
           </ion-col>
         </ion-row>
-        <ion-row > 
+        <ion-row >
           <ion-col width-75>
             <ion-label no-margin>{{"SubTotal" | translate}}
             </ion-label>
@@ -72,7 +72,7 @@
             </ion-label>
           </ion-col>
         </ion-row>
-        <ion-row > 
+        <ion-row >
           <ion-col width-50>
             <ion-label no-margin>{{"Shipping" | translate}}
             </ion-label>
@@ -82,7 +82,7 @@
             </ion-label>
           </ion-col>
         </ion-row>
-        <ion-row > 
+        <ion-row >
           <ion-col width-50>
             <ion-label no-margin>{{"PaymentMethod" |translate}}
             </ion-label>
@@ -92,7 +92,7 @@
             </ion-label>
           </ion-col>
         </ion-row>
-        <ion-row class="order-total"> 
+        <ion-row class="order-total">
           <ion-col width-75>
             <ion-label class="side-header">{{"Totals" |translate}}
             </ion-label>
@@ -106,10 +106,9 @@
         </ion-row>
       </div>
     </div>
+    <button ion-button full color="button-color" no-padding no-margin text-uppercase (click)="Continue()">
+      {{"Continue" | translate}}
+    </button>
   </div>
 </ion-content>
-<ion-footer *ngIf="orderSummary">
-  <button ion-button full color="button-color" no-padding no-margin text-uppercase (click)="Continue()">
-    {{"Continue" | translate}}
-  </button>
-</ion-footer>
+
