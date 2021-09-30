@@ -98,6 +98,7 @@ export class BillingAddressForm {
         }
     }
     handlePayment(results) {
+
         if (results.result == 'success') {
             var options = "location=no,hidden=yes,toolbar=yes";
             let browser = this.iab.create(results.redirect, '_blank', options);
@@ -118,8 +119,13 @@ export class BillingAddressForm {
                   var str = data.url;
                   var strArray = str.split(";");
                   var substr = strArray[2].substr(9, 4);
+                  var substr2 = strArray[2].split("=");
+                  var substr3 = substr2[1].split("&")
 
-                  this.service.getOrderSummary(substr).then((results:any) => {
+                  console.log("procesado",substr3);
+
+
+                  this.service.getOrderSummary(substr3[0]).then((results:any) => {
                     results.order.booking_id.map(booking => {
                       this.service.changestate({
                         "order":booking,

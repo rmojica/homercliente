@@ -90,7 +90,7 @@
           <ion-icon ios="ios-calendar-outline" md="md-calendar"></ion-icon>
         </button>
 
-        <button  ion-button
+        <button ion-button
           class="positionCalendar">
           <ion-datetime (ionChange)="getTime2(this.hourInit)"
             placeholder="DESDE"
@@ -102,7 +102,7 @@
           <ion-icon name="md-alarm"></ion-icon>
         </button>
 
-        <button  ion-button
+        <button ion-button
           class="positionCalendar">
           <ion-datetime (ionChange)="getTime(this.hourEnd)" placeholder="HASTA"
             [(ngModel)]="hourEnd" display-timezone="utc" cancelText="Cancelar"
@@ -152,7 +152,7 @@
 
     <ion-row *ngIf="service.categories" class="category-name">
       <ion-col col-12 class="flex-center" *ngFor="let item of
-        service.mainCategories"
+        itemsCategory[0]"
         (click)="openModal({title: item.name,
         detail:item.description,image:item.image.src})">
         <ion-list>
@@ -167,7 +167,6 @@
             <ion-grid>
               <ion-row item-left lbl-category>
                 <p class="heading text-center">{{item.name}}</p>
-                <!-- <p>{{item.description}}</p> -->
               </ion-row>
             </ion-grid>
 

@@ -10,6 +10,7 @@ import { ChatPage } from '../chat/chat';
 import {ModalPage} from '../modal/modal';
 import { Functions } from '../../providers/service/functions';
 import { ProductsListPage } from '../products-list/products-list';
+import { LoadingController } from 'ionic-angular';
 
 // import { OrdersDetailPage } from '../orders-detail/orders-detail';
 /**
@@ -33,7 +34,8 @@ export class OrdersPage {
       public navParams: NavParams,
       public values:Values,
       public productService:ProductService,
-      public modalCtrl:ModalController
+      public modalCtrl:ModalController,
+      public loadingCtrl: LoadingController
   )
   {
     this.socket.connect();
@@ -61,6 +63,7 @@ export class OrdersPage {
   }
 
   getCart() {
+    this.presentLoading();
     this.nav.setRoot(CartPage);
   }
 
@@ -82,6 +85,7 @@ export class OrdersPage {
 
   changestatecancel(order, onesignal)
   {
+    this.presentLoading();
     let modal = this.modalCtrl.create(ModalPage);
     modal.present();
     modal.onDidDismiss((data) => {
@@ -109,5 +113,11 @@ export class OrdersPage {
   openchat(order){
     this.navCtrl.push(ChatPage, {order:order})
   }
-
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+      duration: 3000
+    });
+    loader.present();
+  }
 }

@@ -30,13 +30,16 @@ export class CartPage {
     Apply: any;
     Checkout: any;
     time_end:any;
-    bookingid:number;
+    bookingid:any;
+    access:boolean = true;
     constructor(public loadingCtrl: LoadingController,public nav: NavController, public service: CartService, public values: Values, public params: NavParams, public functions: Functions,  public alert:AlertController,) {
         this.Apply = "Apply";
         this.Checkout = "Checkout";
         this.quantity = 1;
         this.options = [];
         this.obj = params.data;
+        this.bookingid=[];
+        this.access = true;
 
     }
     gohomep(){
@@ -52,14 +55,20 @@ export class CartPage {
     }
 
     ionViewDidEnter() {
+        this.access = true;
         this.service.loadCart()
             .then((results:any) => this.handleCartInit(results));
       }
 
     handleCartInit(results:any) {
-        this.bookingid = results.cart_contents[Object.keys(results.cart_contents).toString()].booking._booking_id;
+        console.log("get cart",results)
+        console.log("get booking id",Object.keys(results.cart_contents));
+        Object.keys(results.cart_contents).map(key => {
+            this.bookingid.push(results.cart_contents[key].booking._booking_id);
+        })
+        // this.bookingid = results.cart_contents[Object.keys(results.cart_contents).toString()].booking._booking_id;
         // this.time_end = _time: "8:00"
-        this.cart = results;
+        this.cart = results
 
 
         this.shipping = results.zone_shipping;
@@ -70,27 +79,39 @@ export class CartPage {
 
     }
     delete(key, bookingid) {
-        this.service.verifyOrderIsAvailableForDelete(bookingid).then((result:any) => {
-          if(result.code === 'success'){
-            this.service.deleteItem(key)
-                .then((results) => this.handleCart(results));
-          }{
-            this.showAlert('Error', '<strong>Ups!:</strong> No puedes Eliminar esta Orden porque esta en proceso');
-          }
+        this.bookingid.map(booking => {
+            this.service.verifyOrderIsAvailableForDelete(booking).then((result:any) => {
+              if(result.code === 'success'){
+                this.service.deleteItem(key)
+                    .then((results) => this.handleCart(results));
+              }{
+                this.showAlert('Error', '<strong>Ups!:</strong> No puedes Eliminar esta Orden porque esta en proceso');
+              }
+            })
         })
     }
-    checkout() {
-      this.presentLoading();
-        this.disableSubmit = true;
-        this.Checkout = "PleaseWait";
-        this.service.verifyOrderIsAvailableForPay(this.bookingid).then((result:any) => {
-            if(result.code === 'success'){
-              this.service.checkout().then((results) => this.handleBilling(results));
-            }else {
-              this.showAlert('Error', '<strong>Ups!:</strong> Por favor espere hasta que el Homer acepte el servicio.');
-              this.disableSubmit = false;
+   async checkout() {
+        this.presentLoading();        
+        this.Checkout = "PleaseWait";         
+        let result;
+        console.log(this.bookingid)
+        for(let i=0; i < this.bookingid; i++){  
+            console.log(this.bookingid[i])              
+            if(this.bookingid[i] != undefined){
+                result = await  this.service.verifyOrderIsAvailableForPay(this.bookingid[i]);
+                console.log(result.code)
+                if(result.code == "success"){
+                    this.access = true;
+                }else if(result.code == "error"){
+                    this.showAlert('Error', '<strong>Ups!:</strong> Por favor espere hasta que el Homer acepte el servicio.');
+                    this.disableSubmit = false;
+                    this.access = false;                                       
+                }
             }
-        });
+        }             
+        if(this.access){
+            this.service.checkout().then((results) => this.handleBilling(results));
+        }     
     }
     handleBilling(results) {
         this.disableSubmit = false;

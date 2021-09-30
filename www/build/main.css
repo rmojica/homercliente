@@ -51782,6 +51782,11 @@ ion-title {
   margin: 15px;
 }
 
+.cart .cart-items .cart-list ion-item h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
 .cart .cart-items h2 {
   margin-top: 8px;
 }
@@ -52388,6 +52393,37 @@ page-chat a.autolinker {
 
 .billing-address-form .same-for-shipping-form {
   margin-top: 10px;
+}
+
+.billing-address-form .item-ios .radio-ios .radio-icon {
+  left: 0;
+  top: 0;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #787878;
+}
+
+.billing-address-form .radio-ios .radio-checked .radio-inner {
+  left: 7px;
+  top: 0;
+  position: absolute;
+  width: 5px;
+  height: 12px;
+  border-width: 3px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #76A7Ab;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .order-summary {
@@ -53862,7 +53898,7 @@ page-pages-support .bg-green:active {
 
 page-pages-support ion-list ion-item ion-icon {
   margin-left: 20px !important;
-  margin-right: -10px !important;
+  margin-right: -4px !important;
 }
 
 page-pages-support ion-list ion-item ion-label {
@@ -53886,12 +53922,13 @@ page-pages-support .scroll-content {
   will-change: scroll-position;
   contain: size style layout;
   background: #fafbff;
+  margin-top: 0px;
 }
 
 page-pages-support .sub-header {
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 100px;
   padding: 20px;
   width: 100%;
 }
@@ -53922,6 +53959,10 @@ page-pages-support p {
   text-align: justify;
   margin: 14px 16px 16px;
   font-weight: 500;
+}
+
+page-pages-support .toolbar-ios ion-title img {
+  top: 30%;
 }
 
 ion-title {

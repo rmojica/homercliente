@@ -114,10 +114,12 @@ export class ProductsListPage {
 
         this.getCategory = this.service.mainCategories;
 
-        console.log("data cat",Object.keys(this.service.DataCategories).map(key => key[this.service.DataCategories]));
 
 
         this.itemsCategory = this.service.DataCategories;
+
+        console.log(this.itemsCategory);
+
 
         platform.ready().then(() => {
           const subscription = this.geolocation.watchPosition()
@@ -461,9 +463,7 @@ export class ProductsListPage {
   SelectSearchResultCat(item) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
     // alert(JSON.stringify(item))
-    console.log(this.selectedCate);
-
-
+  
     let searchCategory = this.categories.filter(category => category.id == item.id);
 
     if(searchCategory.length > 0){
@@ -693,9 +693,11 @@ export class ProductsListPage {
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <h4 style="font-size:16px; letter-spacing: 0.1rem; line-height: 20px; font-weight:600;">
-          {{detail}}
-        </h4>
+        <div>
+            <div *ngFor="let item of detail" style="margin-top:10px; font-weight: bold;">
+              {{item}}
+            </div>
+        </div>
       </ion-card-content>
     </ion-card>
 </ion-content>
@@ -714,6 +716,11 @@ export class ModalContentPage {
     this.title = this.params.get('title');
     this.detail = this.params.get('detail');
     this.imgModal = this.params.get('image');
+    this.detail = this.detail.split("\n");
+    this.detail = this.detail.filter(result => {
+      return result != "\r" && result != ""
+    })
+
   }
 
   dismiss() {
