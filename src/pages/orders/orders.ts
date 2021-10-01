@@ -38,19 +38,16 @@ export class OrdersPage {
       public loadingCtrl: LoadingController
   )
   {
+    
+  }
+
+  ionViewDidEnter() {
     this.socket.connect();
     this.getData().subscribe((data:any) => {
       // this.data.splice(0, ...data.length)
       this.data = data
       console.log(data)
     });
-
-
-
-  }
-
-  ionViewDidLoad() {
-
   }
 
   ionViewWillLeave() {

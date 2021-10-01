@@ -50,6 +50,7 @@ import { Service } from '../providers/service/service'
 import { Values } from '../providers/service/values'
 import { KeysPipe } from '../providers/pipe/pipe'
 import {SafeHtmlPipe } from '../pipes/safe-html/safe-html'
+import {DurationPipe} from '../pipes/duration/duration';
 //import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { CallNumber } from '@ionic-native/call-number'
 import { EmailComposer } from '@ionic-native/email-composer'
@@ -115,7 +116,8 @@ export function createTranslateLoader(http: HttpClient) {
     VirtualCardAdminPage,
     NewCardPage,
     PagesSupportPage,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    DurationPipe
 
   ],
   imports: [

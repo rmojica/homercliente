@@ -25,10 +25,12 @@
         <ion-item no-lines>
           <h2>{{"OrderNumber" | translate}} : {{orderSummary.order.order_number}}
           </h2>
-          <h2>{{"Orderdate" | translate}} : {{orderSummary.order.created_at | date:'dd/MM/yy H:mm'}}
-          </h2>
+          <div *ngFor="let item of orderSummary.order.detallebooking">
+            <h2>{{"Fecha" | translate}} : {{item.start_date | date:'dd/MM/yy'}} {{item.start_date | date:'shortTime'}} - {{item.end_date | date:'shortTime'}}
+            </h2>          
+          </div>
           <!-- <h2>{{"Totalquantity" | translate}} :  {{orderSummary.order.total_line_items_quantity}}
-          </h2> -->
+          </h2> -->          
           <h2>{{"Totals" | translate}} :  {{1*orderSummary.order.total | currency:values.currency:true:'1.2-2'}}
           </h2>
           <h2>{{"PaymentMethod" | translate}} :  {{orderSummary.order.payment_details.method_title}}
