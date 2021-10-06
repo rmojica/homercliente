@@ -13,7 +13,7 @@ export class SafeHtmlPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(Unixdate:number) {  
-   return  new Date(Unixdate * 1000).toISOString().slice(0, 19).replace('T', ' ')
+   return  new Date(Unixdate * 1000).toISOString();
   }
   
 }

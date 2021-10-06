@@ -31,7 +31,7 @@
          <b>Fecha de solicitud: </b> <br>{{orders.date | date: 'dd/MM/yy' }}
         </h2>
         <h2>
-          <b>Horario de la reserva: </b> <br>De {{orders.hour}} a {{orders.hour_end}}
+          <b>Horario de la reserva: </b> <br>{{orders.hour | date: 'shortTime'}} a {{orders.hour_end | date: 'shortTime'}}
          </h2>
       </div>
       <h2>

@@ -129,6 +129,8 @@ export class ProductPage {
 
      this.date = moment(params.data.date).format('DD-MM-YYYY');
 
+     console.log(this.date)
+
      this.hourInit = params.data.hourInit;
      this.hourEnd = params.data.hourEnd;
 
@@ -287,6 +289,8 @@ export class ProductPage {
     //this.getAddressFromCoords();
 
     var date = moment(this.date)
+
+    console.log(this.date)
 
 
     var year = date.year()

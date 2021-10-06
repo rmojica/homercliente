@@ -51,10 +51,13 @@
             </ion-thumbnail>
             <h2 wrap-text><b>Homer</b>: {{item.value.name}}
             </h2>
-            <h2 wrap-text ><b>{{"Fecha" | translate}}:</b> {{item.value.booking._start_date | safeHtml | date: 'dd/MM/yy' }}
+            <h2 wrap-text ><b>{{"Fecha" | translate}}:</b> {{item.value.start_date_booking  | date: 'dd/MM/yy' }}
             </h2>    
-            <h2 wrap-text ><b>Horario</b> {{item.value.booking._start_date | safeHtml | date: 'shortTime' }} - {{item.value.booking._end_date | safeHtml | date: 'shortTime' }}
-            </h2>                 
+            <!-- <h2 wrap-text ><b>Horario</b> {{item.value.booking._start_date | safeHtml | date: 'H:mm' }}  - {{item.value.booking._end_date | safeHtml | date: 'H:mm' }} 
+            </h2>         -->
+            <h2 wrap-text ><b>Horario</b> {{item.value.start_date_booking | date: 'shortTime'}} - {{item.value.end_date_booking | date: 'shortTime'}}
+            </h2>   
+            <h2 wrap-text ><b>Precio/ Hora:</b> {{item.value.booking._cost / item.value.booking._duration currency:values.currency:true:'1.2-2'}} </h2>         
             <h2 wrap-text ><b>Duración:</b> {{item.value.booking.duration}} </h2>
             <!-- <h3 wrap-text ><b>Cantidad:</b> {{item.value.booking._qty}} </h3> -->
             <!-- <h3 wrap-text > {{"Price" | translate}}: {{item.value.price | currency:values.currency:true:'1.2-2'}}
