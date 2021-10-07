@@ -673,7 +673,7 @@ export class ProductsListPage {
   template: `
   <ion-header>
   <ion-toolbar  color="header">
-    <ion-title style="left: 0; top: 0; padding: 0 90px 1px; position: absolute; width: 100%; height: 100%; -webkit-transform: translateZ(0); transform: translateZ(0);  pointer-events: none;">
+    <ion-title style="left: 0; top: 0; position: absolute; width: 100%; height: 100%; -webkit-transform: translateZ(0); transform: translateZ(0);  pointer-events: none;">
       Detalle del servicio
     </ion-title>
     <ion-buttons start>
@@ -688,11 +688,11 @@ export class ProductsListPage {
     <ion-card style="margin-top:80px; text-align:center!importan;">
       <img style="width:50%!important; margin:0 auto;" src="{{imgModal}}" />
       <ion-card-header style="text-align:center!important;">
-          <ion-card-title>
+          <ion-card-title style="font-size: 2.5rem;">
             {{title}}
           </ion-card-title>
       </ion-card-header>
-      <ion-card-content>
+      <ion-card-content style="font-size: 1.6rem;">
         <div>
             <div *ngFor="let item of detail" style="margin-top:10px; font-weight: bold;">
               {{item}}

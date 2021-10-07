@@ -65,37 +65,46 @@ export class BillingAddressForm {
       this.chosen_shipping = this.OrderReview.chosen_shipping;
     }
     checkout() {
-        this.buttonSubmit = true;
-        this.buttonText = "Placing order...";
+        console.log("terminos :",this.form.terms)
+        if (this.form.terms == undefined || this.form.terms == "") {
+            this.functions.showAlert("Terminos y condiciones", "Aceptar terminos y condiciones para proceder");
+            this.buttonSubmit = false;
+            return false
+        }
+        else{
+                this.buttonSubmit = true;
+            this.buttonText = "Placing order...";
 
-        if (this.platform.is('cordova'))
-        this.oneSignal.getIds().then((data: any) => {
-            this.form.onesignal_user_id = data.userId;
-        });
+            if (this.platform.is('cordova'))
+            this.oneSignal.getIds().then((data: any) => {
+                this.form.onesignal_user_id = data.userId;
+            });
 
-        if (this.form.shipping) {
-            this.form.shipping_first_name = this.form.billing_first_name;
-            this.form.shipping_last_name = this.form.billing_last_name;
-            this.form.shipping_company = this.form.billing_company;
-            this.form.shipping_address_1 = this.form.billing_address_1;
-            this.form.shipping_address_2 = this.form.billing_address_2;
-            this.form.shipping_city = this.form.billing_city;
-            this.form.shipping_country = this.form.billing_country;
-            this.form.shipping_state = this.form.billing_state;
-            this.form.shipping_postcode = this.form.billing_postcode;
+            if (this.form.shipping) {
+                this.form.shipping_first_name = this.form.billing_first_name;
+                this.form.shipping_last_name = this.form.billing_last_name;
+                this.form.shipping_company = this.form.billing_company;
+                this.form.shipping_address_1 = this.form.billing_address_1;
+                this.form.shipping_address_2 = this.form.billing_address_2;
+                this.form.shipping_city = this.form.billing_city;
+                this.form.shipping_country = this.form.billing_country;
+                this.form.shipping_state = this.form.billing_state;
+                this.form.shipping_postcode = this.form.billing_postcode;
+            }
+            if (this.form.payment_method == 'bacs' || this.form.payment_method == 'cheque' || this.form.payment_method == 'cod') {
+                this.service.checkout(this.form)
+                    .then((results) => this.handleBilling(results));
+            }
+            else if (this.form.payment_method == 'stripe') {
+                this.service.getStripeToken(this.form)
+                    .then((results) => this.handleStripeToken(results));
+            }
+            else {
+                this.service.checkout(this.form)
+                    .then((results) => this.handlePayment(results));
+            }
         }
-        if (this.form.payment_method == 'bacs' || this.form.payment_method == 'cheque' || this.form.payment_method == 'cod') {
-            this.service.checkout(this.form)
-                .then((results) => this.handleBilling(results));
-        }
-        else if (this.form.payment_method == 'stripe') {
-            this.service.getStripeToken(this.form)
-                .then((results) => this.handleStripeToken(results));
-        }
-        else {
-            this.service.checkout(this.form)
-                .then((results) => this.handlePayment(results));
-        }
+       
     }
     handlePayment(results) {
 

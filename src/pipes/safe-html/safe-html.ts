@@ -13,11 +13,7 @@ export class SafeHtmlPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(Unixdate:number) {
-   let f =  new Date(Unixdate * 1000).toISOString().slice(0, 19);
-
-   console.log(f);
-   return f;
-
+   return  new Date(Unixdate * 1000).toISOString();
   }
 
 }
