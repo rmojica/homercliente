@@ -389,17 +389,18 @@
 
                   <div class="price">
                     <ion-item no-padding no-lines class="item-background">
-                      <h2 style="font-weight: 700">{{"Precio/ Hora:" | translate}}:
+                      <h2 style="font-weight: 700">{{"Precio/ Hora " | translate}}:
                       </h2>
                     </ion-item>
                     <ion-item class="description" text-wrap no-lines>
-                      <div [innerHTML]="item.price | currency"></div>
+                      <!-- <div [innerHTML]="item.price | currency"></div> -->
+                      <div>{{item.price | currency:values.currency:true:'1.2-2'}}</div>
                     </ion-item>
                   </div>
 
                   <div class="category">
                     <ion-item no-padding no-lines class="item-background">
-                      <h2 style="font-weight: 700;">{{"Categoria:" | translate}}</h2>
+                      <h2 style="font-weight: 700;">{{"Categoria :" | translate}}</h2>
                     </ion-item>
                     <ion-item no-padding no-lines class="item-background">
                       <div style="display: flex;">
