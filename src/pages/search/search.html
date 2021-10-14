@@ -96,13 +96,13 @@
                   </div>
                   <div class="bottom-left">
                     <h3 class="price-regular" *ngIf="!item.sale_price">
-                      {{1*item.price | currency:values.currency:true:'1.2-2'}}
+                      {{1*item.price | currency:values.currency:'symbol':'1.2-2':'es'}}
                     </h3>
                     <h3 class="price-special" *ngIf="item.sale_price">
-                      {{1*item.sale_price | currency:values.currency:true:'1.2-2'}}
+                      {{1*item.sale_price | currency:values.currency:'symbol':'1.2-2':'es'}}
                     </h3>
                     <h3 class="price-del" *ngIf="item.sale_price">
-                      <del>{{1*item.regular_price | currency:values.currency:true:'1.2-2'}}
+                      <del>{{1*item.regular_price | currency:values.currency:'symbol':'1.2-2':'es'}}
                       </del>
                     </h3>
                   </div>
@@ -163,13 +163,13 @@
                   <h2 *ngIf="item.name">{{item.name}}</h2>
                   <ion-item no-padding class="price-list">
                     <h3 class="price-regular" *ngIf="!item.sale_price">
-                      {{1*item.price | currency:values.currency:true:'1.2-2'}}
+                      {{1*item.price | currency:values.currency:'symbol':'1.2-2':'es'}}
                     </h3>
                     <h3 class="price-special" *ngIf="item.sale_price">
-                      {{1*item.sale_price | currency:values.currency:true:'1.2-2'}}
+                      {{1*item.sale_price | currency:values.currency:'symbol':'1.2-2':'es'}}
                     </h3>
                     <h3 class="price-delete" *ngIf="item.sale_price">
-                      <del>{{1*item.regular_price | currency:values.currency:true:'1.2-2'}}
+                      <del>{{1*item.regular_price | currency:values.currency:'symbol':'1.2-2':'es'}}
                       </del>
                     </h3>
                     <button ion-button text-uppercase color="button-color" item-right [disabled]='disableSubmit' clear

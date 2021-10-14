@@ -134,17 +134,17 @@
     </div>
     <ion-item class="stock-label" no-lines>
       <ion-label class="price-regular" *ngIf="!product.product.sale_price">
-        {{1*product.product.price | currency:values.currency:true:'1.2-2'}}
+        {{1*product.product.price | currency:values.currency:'symbol':'1.2-2':'es'}}
       </ion-label>
       <ion-label class="price-special" *ngIf="product.product.sale_price">
         <span>
           {{1*product.product.sale_price |
-          currency:values.currency:true:'1.2-2'}}
+          currency:values.currency:'symbol':'1.2-2':'es'}}
         </span>
         <span class="price-delete">
           <del>
             {{1*product.product.regular_price |
-            currency:values.currency:true:'1.2-2'}}
+            currency:values.currency:'symbol':'1.2-2':'es'}}
           </del>
         </span>
 
@@ -221,15 +221,15 @@
         <ion-select [(ngModel)]="options[0]" (ngModelChange)="chnageProduct()">
           <div *ngFor="let option of product.product.variations">
             <div *ngIf="option.attributes.length == 1">
-              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option}}">{{option.attributes[0].option | uppercase}} - {{option.price | currency:values.currency:true:'1.2-2'}}
+              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option}}">{{option.attributes[0].option | uppercase}} - {{option.price | currency:values.currency:'symbol':'1.2-2':'es'}}
               </ion-option>
             </div>
             <div *ngIf="option.attributes.length == 2">
-              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option + ':variation[attribute_pa_'+ option.attributes[1].name +']:' + option.attributes[1].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.price | currency:values.currency:true:'1.2-2'}}
+              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option + ':variation[attribute_pa_'+ option.attributes[1].name +']:' + option.attributes[1].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.price | currency:values.currency:'symbol':'1.2-2':'es'}}
               </ion-option>
             </div>
             <div *ngIf="option.attributes.length == 3">
-              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option + ':variation[attribute_pa_'+ option.attributes[1].name +']:' + option.attributes[1].option + ':variation[attribute_pa_'+ option.attributes[2].name +']:' + option.attributes[2].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.attributes[2].option | uppercase}} - {{option.price_inc_tax | currency:values.currency:true:'1.2-2'}}
+              <ion-option value="{{'variation_id:' + option.id + ':variation[attribute_pa_'+ option.attributes[0].name +']:' + option.attributes[0].option + ':variation[attribute_pa_'+ option.attributes[1].name +']:' + option.attributes[1].option + ':variation[attribute_pa_'+ option.attributes[2].name +']:' + option.attributes[2].option}}">{{option.attributes[0].option | uppercase}} - {{option.attributes[1].option | uppercase}} - {{option.attributes[2].option | uppercase}} - {{option.price_inc_tax | currency:values.currency:'symbol':'1.2-2':'es'}}
               </ion-option>
             </div>
           </div>

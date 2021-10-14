@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core'
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
 import { Home } from '../pages/home/home'
@@ -74,6 +74,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
 
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
+
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(es);
+
 
 const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com', options:{}}
 // const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
@@ -194,7 +200,8 @@ export function createTranslateLoader(http: HttpClient) {
     HTTP,
     Geolocation,
     NativeGeocoder,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: LOCALE_ID, useValue: 'es-ES' }
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

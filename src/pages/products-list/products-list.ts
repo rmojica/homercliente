@@ -14,6 +14,8 @@ import { LoadingController } from 'ionic-angular';
 
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 import { TabsPage } from '../tabs/tabs';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { OneSignal } from '@ionic-native/onesignal';
 
 
 declare var google;
@@ -82,6 +84,8 @@ export class ProductsListPage {
     myDateCustom: any
     selectedCate:any;
     constructor(
+      private oneSignal: OneSignal,
+      private nativeStorage: NativeStorage,
         public alert:AlertController,
         public modalCtrl: ModalController,
         private platform: Platform,
@@ -544,8 +548,29 @@ export class ProductsListPage {
     //   // this.nav.push(ProductsPage, this.items);
     //   //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     // }
-    if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.selectedCate.length > 0)){
+
+    /*this.nativeStorage.getItem('firstLaunch').then(value => {
+      console.log("firstLaunch: ",  value) 
+    });*/
+    this.oneSignal.getPermissionSubscriptionState().then(async status => {
+      //iOS only: Integer: 0 = Not Determined, 1 = Denied, 2 = Authorized
+      //Android only: Integer: 1 = Authorized, 2 = Denied
+      console.log("firstLaunch6: ",  "this.firstLaunch") 
+      if (status.permissionStatus.state == 2 || status.permissionStatus.status == 1) {
+          console.log("firstLaunch5: ",  "this.firstLaunch") 
+          const alert = await this.alert.create({
+              title: 'Permiso de notificación',
+              mode: 'ios',
+              message: 'Es necesario activar los permisos de notificación diríjase a <strong>Ajustes->Notificación->Homer->Permitir Notificación </strong>',
+              buttons: ['Ok']
+          });
+          alert.present();
+      }
+      else{
+        if( (this.date.toString() != '' && this.hourInit.toString() != '' && this.hourEnd.toString() != '' && this.selectedCate.length > 0)){
       this.presentLoading();
+
+      
       this.service.getLocationFromProduct3(min_date, max_date, null)
       // let midata =  this.service.getLocationFromProduct(this.lat, this.long, this.radius)
       .then((results) => this.handleLocationInit(results));
@@ -555,6 +580,11 @@ export class ProductsListPage {
       // this.nav.push(ProductsPage, this.items);
       //console.log("original=" + this.originalCoords + this.originalCoords.latitude + this.originalCoords.longitude);
     }
+      }
+  }).catch(respError => {
+  });
+
+    
   }
   async handleLocationInit(results) {
 

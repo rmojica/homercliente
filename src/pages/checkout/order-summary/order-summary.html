@@ -15,8 +15,10 @@
     <div *ngIf="orderSummary.order">
       <div class="thank-you-message">
         <ion-item>
-          <h2>{{"OrderReceived" | translate}}
-          </h2>
+          <ion-label>
+            <b>{{"OrderReceived" | translate}}
+            </b>
+          </ion-label>
           <h3>{{"orderreceivedtext" | translate}}
           </h3>
         </ion-item>
@@ -26,15 +28,17 @@
           <h2>{{"OrderNumber" | translate}} : {{orderSummary.order.order_number}}
           </h2>
           <div *ngFor="let item of orderSummary.order.detallebooking">
-            <h2>{{"Fecha" | translate}} : {{item.start_date | date:'dd/MM/yy'}} {{item.start_date | date:'shortTime'}} - {{item.end_date | date:'shortTime'}}
-            </h2>          
+            <h2>{{"Fecha" | translate}} : {{item.start_date | date:'dd/MM/yy'}}
+            </h2>      
+            <h2>{{"Duración" | translate}} : {{item.start_date | date: 'HH:mmaa'}} - {{item.end_date | date: 'HH:mmaa'}}
+            </h2>       
           </div>
           <!-- <h2>{{"Totalquantity" | translate}} :  {{orderSummary.order.total_line_items_quantity}}
           </h2> -->          
-          <h2>{{"Totals" | translate}} :  {{1*orderSummary.order.total | currency:values.currency:true:'1.2-2'}}
+          <h2>{{"Totals" | translate}} :  {{1*orderSummary.order.total | currency:values.currency:'symbol':'1.2-2':'es'}}
           </h2>
-          <h2>{{"PaymentMethod" | translate}} :  {{orderSummary.order.payment_details.method_title}}
-          </h2>
+          <!-- <h2>{{"PaymentMethod" | translate}} :  {{orderSummary.order.payment_details.method_title}}
+          </h2> -->
         </ion-item>
       </div>
       <div class="order-details">
@@ -49,7 +53,7 @@
               </ion-label>
             </ion-col>
             <ion-col width-25 text-right>
-              <ion-label no-margin>{{1*item.value.subtotal | currency:values.currency:true:'1.2-2' }}
+              <ion-label no-margin>{{1*item.value.subtotal | currency:values.currency:'symbol':'1.2-2':'es' }}
               </ion-label>
             </ion-col>
           </ion-row>
@@ -60,17 +64,17 @@
             </ion-label>
           </ion-col>
           <ion-col width-25 text-right>
-            <ion-label no-margin>{{1*orderSummary.order.total_discount | currency:values.currency:true:'1.2-2' }}
+            <ion-label no-margin>{{1*orderSummary.order.total_discount | currency:values.currency:'symbol':'1.2-2':'es' }}
             </ion-label>
           </ion-col>
         </ion-row>
         <ion-row >
           <ion-col width-75>
-            <ion-label no-margin>{{"SubTotal" | translate}}
+            <ion-label no-margin>{{"Subtotal" | translate}}
             </ion-label>
           </ion-col>
           <ion-col width-25 text-right>
-            <ion-label no-margin>{{1*orderSummary.order.subtotal | currency:values.currency:true:'1.2-2' }}
+            <ion-label no-margin>{{1*orderSummary.order.subtotal | currency:values.currency:'symbol':'1.2-2':'es' }}
             </ion-label>
           </ion-col>
         </ion-row>
@@ -94,6 +98,29 @@
             </ion-label>
           </ion-col>
         </ion-row>
+
+        <ion-row>
+          <ion-col width-75>
+            <ion-label>{{"Servicio plataforma " | translate}}
+            </ion-label>
+          </ion-col >
+          <ion-col width-25 text-right>
+            <ion-label>{{3.5 | currency:values.currency:'symbol':'1.2-2':'es'}}
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col width-80>
+            <ion-label>{{"IVA (servicios plataforma)" | translate}}
+            </ion-label>
+          </ion-col >
+          <ion-col width-20 text-right>
+            <ion-label>{{0.735 | currency:values.currency:'symbol':'1.2-2':'es'}}
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
         <ion-row class="order-total">
           <ion-col width-75>
             <ion-label class="side-header">{{"Totals" |translate}}
@@ -101,7 +128,7 @@
           </ion-col>
           <ion-col width-25 text-right>
             <ion-label>
-              <b>{{1*orderSummary.order.total | currency:values.currency:true:'1.2-2' }}
+              <b>{{1*orderSummary.order.total | currency:values.currency:'symbol':'1.2-2':'es' }}
               </b>
             </ion-label>
           </ion-col>

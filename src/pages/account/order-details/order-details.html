@@ -72,11 +72,11 @@
       <ion-item *ngFor="let item of orderDetails.order.line_items">
         <h2>{{"ProductName" | translate}} : {{item.name}}
         </h2>
-        <h2>{{"Price" | translate}} : {{item.price | currency:values.currency:true:'1.2-2'}}
+        <h2>{{"Price" | translate}} : {{item.price | currency:values.currency:'symbol':'1.2-2':'es'}}
         </h2>
         <h2>{{"Quantity" | translate}} : {{item.quantity}}
         </h2>     
-        <h2>{{"SubTotal" | translate}} : {{1*item.subtotal | currency:values.currency:true:'1.2-2'}}
+        <h2>{{"SubTotal" | translate}} : {{1*item.subtotal | currency:values.currency:'symbol':'1.2-2':'es'}}
         </h2>
       </ion-item>
       <ion-item-divider>{{"Totals" | translate}}
@@ -85,7 +85,7 @@
         <ion-row>
           <ion-col>{{"SubTotal" | translate}}
           </ion-col>
-          <ion-col text-right>{{1*orderDetails.order.subtotal | currency:values.currency:true:'1.2-2'}}
+          <ion-col text-right>{{1*orderDetails.order.subtotal | currency:values.currency:'symbol':'1.2-2':'es'}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -103,7 +103,7 @@
         <ion-row text-uppercase>
           <ion-col>{{"GrandTotal" | translate}}
           </ion-col>
-          <ion-col text-right>{{1*orderDetails.order.total | currency:values.currency:true:'1.2-2'}}
+          <ion-col text-right>{{1*orderDetails.order.total | currency:values.currency:'symbol':'1.2-2':'es'}}
           </ion-col>
         </ion-row>
       </ion-item>

@@ -256,21 +256,21 @@
                 <div class="price-bottom-list">
                   <h3 class="price-regular" *ngIf="!item.price">
                     Starting from {{1*item.price |
-                    currency:values.currency:true:'1.2-2'}}
+                    currency:values.currency:'symbol':'1.2-2':'es'}}
                   </h3>
 
                   <h3 class="price-regular" *ngIf="item.price">
                     Starting from {{1*item.minPrice |
-                    currency:values.currency:true:'1.2-2'}}
+                    currency:values.currency:'symbol':'1.2-2':'es'}}
                   </h3>
                   <!-- <h3 class="price-special" *ngIf="item.sale_price">
                     {{1*item.sale_price |
-                    currency:values.currency:true:'1.2-2'}}
+                    currency:values.currency:'symbol':'1.2-2':'es'}}
                   </h3>
                   <h3 class="price-del" *ngIf="item.sale_price">
                     <del>
                       {{1*item.regular_price |
-                      currency:values.currency:true:'1.2-2'}}
+                      currency:values.currency:'symbol':'1.2-2':'es'}}
                     </del>
                   </h3> -->
                 </div>
@@ -394,7 +394,7 @@
                     </ion-item>
                     <ion-item class="description" text-wrap no-lines>
                       <!-- <div [innerHTML]="item.price | currency"></div> -->
-                      <div>{{item.price | currency:values.currency:true:'1.2-2'}}</div>
+                      <div>{{item.price | currency:values.currency:'symbol':'1.2-2':'es'}}</div>
                     </ion-item>
                   </div>
 

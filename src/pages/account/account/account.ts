@@ -27,9 +27,10 @@ export class AccountPage {
       this.nav.push(EditAddressForm, this.addresses.customer);
     }
 
-    goHome(){
-      this.nav.popToRoot();
-    }
+    gohomep(){
+      this.nav.parent.select(1);
+  }
+
 
     getCart() {
       this.nav.parent.select(2);

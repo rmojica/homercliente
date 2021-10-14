@@ -356,7 +356,7 @@ export class ProductPage {
                         if(result.status == true){
                           this.service.sendNotification({
                             "title":"Nueva solicitud",
-                            "content":`Usted ha recibido una solicitud de servicio de ${this.values.customerName}`,
+                            "content":`Has recibido una solicitud de servicio de ${this.values.customerName}`,
                             "onesignalid":this.providerOneSignal
                           })
 
