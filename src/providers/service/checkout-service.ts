@@ -367,7 +367,8 @@ export class CheckoutService {
         {
           "order": data.order,
           "state": data.state,
-          "isCancel":data.isCancel
+          "isCancel":data.isCancel,
+          "client":data.client
         },
         this.header
       )
