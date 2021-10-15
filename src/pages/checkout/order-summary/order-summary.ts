@@ -22,8 +22,7 @@ export class OrderSummary {
             results.order.booking_id.map(booking => {
               this.service.changestate({
                 "order":booking,
-                "state":"pagado",
-                "client":true
+                "state":"pagado"
               })
             })
           }

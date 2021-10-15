@@ -104,7 +104,7 @@ export class BillingAddressForm {
                     .then((results) => this.handlePayment(results));
             }
         }
-       
+
     }
     handlePayment(results) {
 
@@ -139,7 +139,8 @@ export class BillingAddressForm {
                       this.service.changestate({
                         "order":booking,
                         "state":"cancelado",
-                        "isCancel": "Cancelado desde pasarela"
+                        "isCancel": "Cancelado desde pasarela",
+                        "client":true
                       })
                     })
                   });
