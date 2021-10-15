@@ -350,6 +350,15 @@ export class CheckoutService {
         });
     }
 
+    completeService(order) {
+      return new Promise(resolve => {
+        this.http.post(this.config.url + '/wp-admin/admin-ajax.php?action=mstoreapp-process_complete', {bookingid:order}, this.config.options).map(res => res.json())
+            .subscribe(data => {
+                resolve(data);
+            });
+        });
+    }
+
     changestate(data){
       this.header.append('Content-Type', 'application/json');
       this.http

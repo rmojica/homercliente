@@ -17,20 +17,25 @@ export class OrderSummary {
         this.id = params.data;
     }
     ionViewDidLoad(){
-        this.service.getOrderSummary(this.id)
-            .then((results:any) => {
-              console.log(results);
-              if(results.order.payment_details.paid == true){
-                results.order.booking_id.map(booking => {
-                  this.service.changestate({
-                    "order":booking,
-                    "state":"pagado"
-                  })
-                })
-              }
+        this.service.getOrderSummary(this.id).then((results:any) => {
+          if(results.order.payment_details.paid == true){
+            results.order.booking_id.map(booking => {
+              this.service.changestate({
+                "order":booking,
+                "state":"pagado",
+                "client":true
+              })
+            })
+          }
 
-              this.orderSummary = results
-            });
+          this.orderSummary = results
+        });
+
+        this.service.completeService(this.id).then((results:any) => {
+          if(results.message === "success"){
+            console.log("orden complete");
+          }
+        });
     }
     Continue() {
         this.values.count = 0;
