@@ -25,7 +25,7 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'orders.html',
 })
 export class OrdersPage {
-  data
+  data:any;
   constructor(
     public functions: Functions,
       public nav: NavController,
@@ -38,15 +38,18 @@ export class OrdersPage {
       public loadingCtrl: LoadingController
   )
   {
-    
+    this.data = [];
   }
 
   ionViewDidEnter() {
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+    });
+    loader.present();
     this.socket.connect();
     this.getData().subscribe((data:any) => {
-      // this.data.splice(0, ...data.length)
+      loader.dismiss();
       this.data = data
-      console.log(data)
     });
   }
 
@@ -82,10 +85,14 @@ export class OrdersPage {
 
   changestatecancel(order, onesignal)
   {
-    this.presentLoading();
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+    });
+    loader.present();
     let modal = this.modalCtrl.create(ModalPage);
     modal.present();
     modal.onDidDismiss((data) => {
+      loader.dismiss();
       if(data.result && data.message !=''){
         this.productService.changestate({
           "order":order,

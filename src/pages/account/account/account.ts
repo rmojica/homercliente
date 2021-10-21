@@ -28,7 +28,7 @@ export class AccountPage {
     }
 
     gohomep(){
-      this.nav.parent.select(1);
+      this.nav.pop();
   }
 
 

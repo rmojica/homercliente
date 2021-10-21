@@ -21,6 +21,7 @@
   <div class="sub-header">
     <h1>Mis Servicios</h1>
   </div>
+  <div style="width: 100%; text-align: center" *ngIf="data.length == 0">No hay servicios activos</div>
   <div class="card" *ngFor="let orders of data">
     <div class="card-body">
       <div class="row-h2">
