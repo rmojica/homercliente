@@ -82,7 +82,7 @@ export class OrdersPage {
     return observable;
   }
 
-
+//jaja
   changestatecancel(order, onesignal)
   {
     let modal = this.modalCtrl.create(ModalPage);
