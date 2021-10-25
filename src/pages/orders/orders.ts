@@ -85,14 +85,9 @@ export class OrdersPage {
 
   changestatecancel(order, onesignal)
   {
-    const loader = this.loadingCtrl.create({
-      content: "Por favor espera...",
-    });
-    loader.present();
     let modal = this.modalCtrl.create(ModalPage);
     modal.present();
     modal.onDidDismiss((data) => {
-      loader.dismiss();
       if(data.result && data.message !=''){
         this.productService.changestate({
           "order":order,
