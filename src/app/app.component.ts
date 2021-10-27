@@ -69,7 +69,6 @@ export class MyApp {
               });
             }, error => console.error(error));
 
-            this.socket.connect();
             this.initializeApp();
 
     }
@@ -236,6 +235,7 @@ export class MyApp {
         });
 
         this.platform.resume.subscribe((result) => {
+            this.socket.connect();
             this.checkNotificationPermissionState();
         });
     }
@@ -250,6 +250,7 @@ export class MyApp {
             } else {
                 console.log("firstLaunch7: ",  "this.firstLaunch")
                 //First time launch and update the flag
+
                 this.nativeStorage.setItem('firstLaunch', true).then(() => {
                     console.log("firstLaunch4: ",  "this.firstLaunch")
                     if (this.platform.is('ios')) {

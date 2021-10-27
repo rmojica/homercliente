@@ -81,7 +81,12 @@ import { registerLocaleData } from '@angular/common';
 registerLocaleData(es);
 
 
-const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com', options:{}}
+const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com', options:{
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionDelayMax : 5000,
+  reconnectionAttempts: 99999
+}}
 // const config:SocketIoConfig = {url:'https://websockethomer.herokuapp.com/', options:{}}
 
 export function createTranslateLoader(http: HttpClient) {
