@@ -31,7 +31,7 @@ import {Socket}  from 'ngx-socket-io';
 import {TabsPage} from '../pages/tabs/tabs';
 import { ChatPage } from '../pages/chat/chat';
 import { PagesSupportPage } from '../pages/pages-support/pages-support';
-
+import { Observable } from 'rxjs';
 @Component({
     templateUrl: 'app.html'
 })
@@ -236,6 +236,9 @@ export class MyApp {
 
         this.platform.resume.subscribe((result) => {
             this.socket.connect();
+            this.getData().subscribe((data:any) => {
+              this.values.orders = data;
+            });
             this.checkNotificationPermissionState();
         });
     }
@@ -291,6 +294,16 @@ export class MyApp {
             // }
         }).catch(respError => {
         });
+    }
+
+    getData(){
+      let observable = new Observable(observer => {
+          this.socket.emit('getordersbyclients',{ id:this.values.customerId});
+          this.socket.fromEvent('getordersbyclients').subscribe((data:any) => {
+            observer.next(data)
+          });
+      })
+      return observable;
     }
 
 }

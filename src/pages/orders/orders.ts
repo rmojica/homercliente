@@ -46,10 +46,15 @@ export class OrdersPage {
       content: "Por favor espera...",
     });
     loader.present();
-    this.getData().subscribe((data:any) => {
+    if(this.values.orders.length > 0) {
+      this.data = this.values.orders;
       loader.dismiss();
-      this.data = data
-    });
+    }else{
+      this.getData().subscribe((data:any) => {
+        this.data = data
+        loader.dismiss();
+      });
+    }
   }
 
 
