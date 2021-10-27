@@ -46,16 +46,12 @@ export class OrdersPage {
       content: "Por favor espera...",
     });
     loader.present();
-    this.socket.connect();
     this.getData().subscribe((data:any) => {
       loader.dismiss();
       this.data = data
     });
   }
 
-  ionViewWillLeave() {
-      this.socket.disconnect();
-  }
 
   ngOnInit() {
 
@@ -73,7 +69,6 @@ export class OrdersPage {
 
   getData(){
     let observable = new Observable(observer => {
-        console.log("customerId", this.values.customerId)
         this.socket.emit('getordersbyclients',{ id:this.values.customerId});
         this.socket.fromEvent('getordersbyclients').subscribe((data:any) => {
           observer.next(data)
@@ -82,7 +77,7 @@ export class OrdersPage {
     return observable;
   }
 
-//jaja
+
   changestatecancel(order, onesignal)
   {
     let modal = this.modalCtrl.create(ModalPage);
