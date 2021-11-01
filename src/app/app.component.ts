@@ -235,10 +235,6 @@ export class MyApp {
         });
 
         this.platform.resume.subscribe((result) => {
-            this.socket.connect();
-            this.getData().subscribe((data:any) => {
-              this.values.orders = data;
-            });
             this.checkNotificationPermissionState();
         });
     }

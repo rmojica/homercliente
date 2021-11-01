@@ -7,21 +7,26 @@
 <ion-header class="settings-header">
   <ion-toolbar color="header">
     <ion-buttons slot="start">
-      <button ion-button icon-only  (click)="goHome()">
+      <button ion-button icon-only (click)="goHome()">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-      <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
-      <ion-title>
-          <img   src="{{values.avatar}}" />
-      </ion-title>
-    </ion-toolbar>
+    <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
+    <ion-title>
+      <img src="{{values.avatar}}" />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-fab  right bottom>
+    <button ion-fab color="primary" (click)="updateList()"><ion-icon name="sync"></ion-icon></button>
+  </ion-fab>
+
   <div class="sub-header">
     <h1>Mis Servicios</h1>
   </div>
-  <div style="width: 100%; text-align: center" *ngIf="data.length == 0">No hay servicios activos</div>
+  <div style="width: 100%; text-align: center" *ngIf="data.length == 0">No hay
+    servicios activos</div>
   <div class="card" *ngFor="let orders of data">
     <div class="card-body">
       <div class="row-h2">
@@ -29,14 +34,16 @@
           <b>Reserva # {{orders.bookingId}}</b>
         </h2>
         <h2>
-         <b>Fecha de solicitud: </b> <br>{{orders.date | date: 'dd/MM/yy' }}
+          <b>Fecha de solicitud: </b> <br>{{orders.date | date: 'dd/MM/yy' }}
         </h2>
         <h2>
-          <b>Horario de la reserva: </b> <br>{{orders.hour }} a {{orders.hour_end}}
-         </h2>
+          <b>Horario de la reserva: </b> <br>{{orders.hour }} a
+          {{orders.hour_end}}
+        </h2>
       </div>
       <h2>
-        <b>Estado de la reserva: </b> <br><span style="text-transform: uppercase;">{{orders.status}}</span>
+        <b>Estado de la reserva: </b> <br><span style="text-transform:
+          uppercase;">{{orders.status}}</span>
       </h2>
       <h2>
         <b>Servicio solicitado: </b> <br>{{orders.productName}}
@@ -44,16 +51,26 @@
       <h2>
         <b>Dirección: </b> <br>{{orders.location}}
       </h2>
-      <h2 *ngIf="orders.isCancel != null && orders.isCancel != '' ">
+      <h2 *ngIf="orders.isCancel != null && orders.isCancel != ''">
         <b>Motivo de cancelación: </b> <br>{{orders.isCancel}}
       </h2>
-      <button style="background: #000;" *ngIf="orders.status != 'cancelado' && orders.status == 'aceptado'" (click)="getCart()"  text-center ion-button icon-left clear  icon-only class="has-icon icon-only" small text-uppercase >
+      <button style="background: #000;" *ngIf="orders.status != 'cancelado' &&
+        orders.status == 'aceptado'" (click)="getCart()" text-center ion-button
+        icon-left clear icon-only class="has-icon icon-only" small
+        text-uppercase>
         Pagar
       </button>
-      <button *ngIf="orders.status != 'cancelado' && orders.status != 'rechazado' && orders.status != 'finalizado' "  (click)="openchat(orders.id)"  text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+      <button *ngIf="orders.status != 'cancelado' && orders.status !=
+        'rechazado' && orders.status != 'finalizado'"(click)="openchat(orders.id)"
+        text-center ion-button icon-left clear color="button-color" icon-only
+        class="has-icon icon-only" small text-uppercase>
         Chat
       </button>
-      <button *ngIf="orders.status != 'cancelado' && orders.status != 'rechazado' && orders.status != 'finalizado'" (click)="changestatecancel(orders.bookingId, orders.onesignal)" text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+      <button *ngIf="orders.status != 'cancelado' && orders.status !=
+        'rechazado' && orders.status != 'finalizado'"
+        (click)="changestatecancel(orders.bookingId, orders.onesignal)"
+        text-center ion-button icon-left clear color="button-color" icon-only
+        class="has-icon icon-only" small text-uppercase>
         Cancelar
       </button>
     </div>

@@ -46,21 +46,28 @@ export class OrdersPage {
       content: "Por favor espera...",
     });
     loader.present();
-    if(this.values.orders.length > 0) {
-      this.data = this.values.orders;
+    this.getData().subscribe((data:any) => {
+      this.data = data
       loader.dismiss();
-    }else{
-      this.getData().subscribe((data:any) => {
-        this.data = data
-        loader.dismiss();
-      });
-    }
+    });
   }
 
 
   ngOnInit() {
 
 
+  }
+
+  updateList(){
+    this.data.slice(0, this.data.length);
+    const loader = this.loadingCtrl.create({
+      content: "Por favor espera...",
+    });
+    loader.present();
+    this.getData().subscribe((data:any) => {
+      this.data = data
+      loader.dismiss();
+    });
   }
 
   getCart() {
