@@ -18,12 +18,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-fab  right bottom>
-    <button ion-fab color="primary" (click)="updateList()"><ion-icon name="sync"></ion-icon></button>
-  </ion-fab>
-
   <div class="sub-header">
     <h1>Mis Servicios</h1>
+    <button ion-button color="success" (click)="updateList()" small>
+      <!-- <ion-icon name="sync"></ion-icon> -->
+      Continuar
+    </button>
+    <h5>Para actualizar los servicios recientemente realizados, dé clic al botón "Continuar"</h5>
   </div>
   <div style="width: 100%; text-align: center" *ngIf="data.length == 0">No hay
     servicios activos</div>
